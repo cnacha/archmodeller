@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/nz.auckland.arch/src-gen" creationIcons="false"
+    editDirectory="/nz.auckland.arch.edit/src-gen" editorDirectory="/nz.auckland.arch.editor/src-gen"
+    modelPluginID="nz.auckland.arch" modelName="Arch" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>arch.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Arch" basePackage="nz.auckland" disposableProviderFactory="true"
+      ecorePackage="arch.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="arch.ecore#//ExprOperator">
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//ExprOperator/PARALLEL"/>
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//ExprOperator/COUPLING"/>
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//ExprOperator/INTERLEAVE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="arch.ecore#//LTLOperator">
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//LTLOperator/ALWAYS"/>
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//LTLOperator/EVENTUALLY"/>
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//LTLOperator/NONE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="arch.ecore#//BehaviourPropType">
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//BehaviourPropType/LTL"/>
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//BehaviourPropType/CircularFree"/>
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//BehaviourPropType/DecompositionFree"/>
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//BehaviourPropType/PoltergeistFree"/>
+      <genEnumLiterals ecoreEnumLiteral="arch.ecore#//BehaviourPropType/AmbiguousInterfaceFree"/>
+    </genEnums>
+    <genClasses ecoreClass="arch.ecore#//Component">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Component/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Component/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//Component/port"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Component/valid"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//DesignModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//DesignModel/component"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//DesignModel/connector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//DesignModel/archstyle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//DesignModel/verifyProperty"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//DesignModel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//Connector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Connector/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Connector/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//Connector/role"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//Connector/connectortype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Connector/valid"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//Port">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Port/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//Port/events"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//Port/role"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Port/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Port/valid"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//Event">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Event/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//Event/next"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//Role">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Role/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//Role/roletype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Role/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Role/valid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//Role/nextRoleExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Role/operatorExpr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//Role/connector"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//Channel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Channel/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//Channel/bind"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//RoleType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//RoleType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//RoleType/event"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//RoleType/porttype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//RoleType/valid"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//ConnectorType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//ConnectorType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//ConnectorType/roletype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//ConnectorType/valid"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//ConnectorType/eaConnector"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//ComponentType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//ComponentType/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//ComponentType/porttype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//ComponentType/valid"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//PortType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//PortType/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//PortType/valid"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//ArchStyle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//ArchStyle/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//ArchStyle/connectortype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//ArchStyle/componenttype"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//ArchStyle/valid"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//BehaviourProperty">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//BehaviourProperty/ltlexpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//BehaviourProperty/valid"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//BehaviourProperty/counterExample"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//BehaviourProperty/visitedStates"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//BehaviourProperty/verifyTime"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//BehaviourProperty/type"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//LTLExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//LTLExpr/event"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//LTLExpr/operator"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//LTLExpr/nextExpr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//LTLExpr/property"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//LTLNestedExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//LTLNestedExpr/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//LTLRegularExpr"/>
+    <genClasses ecoreClass="arch.ecore#//VerificationProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//VerificationProperty/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//VerificationProperty/model"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//StructuralProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//StructuralProperty/result"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
