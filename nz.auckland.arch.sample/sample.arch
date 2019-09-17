@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arch:DesignModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arch="http://www.example.org/arch" name="prop">
+  <component name="LifeBand" type="listener">
+    <port name="alert" role="//@connector.0/@role.0">
+      <events name="onalert"/>
+    </port>
+    <port name="pinpoint"/>
+  </component>
+  <component name="SOSGateway" type="client,broadcaster">
+    <port name="sos" role="//@connector.0/@role.1 //@connector.1/@role.0">
+      <events name="acknowledge"/>
+    </port>
+  </component>
+  <component name="RequestDispatcher" type="client,server,broadcaster">
+    <port name="accept" role="//@connector.1/@role.1 //@connector.2/@role.0 //@connector.3/@role.0 //@connector.4/@role.0" type="request,response,broadcast">
+      <events name="dispatched"/>
+    </port>
+  </component>
+  <component name="LifeGuard" type="client,listener">
+    <port name="gnotify" role="//@connector.2/@role.1 //@connector.6/@role.0" type="listen">
+      <events name="acknowlege"/>
+    </port>
+    <port name="gdisplay">
+      <events name="render"/>
+    </port>
+  </component>
+  <component name="LifeCare" type="client,listener">
+    <port name="cnotify" role="//@connector.3/@role.1 //@connector.6/@role.0" type="listen">
+      <events name="acknowlege"/>
+    </port>
+    <port name="cdisplay">
+      <events name="render"/>
+    </port>
+  </component>
+  <component name="EmergencyCenter" type="client,server">
+    <port name="emaccess" role="//@connector.4/@role.1 //@connector.5/@role.0" type="request,response">
+      <events name="commit"/>
+    </port>
+  </component>
+  <component name="Practitioner" type="server">
+    <port name="pgaccess" role="//@connector.5/@role.1" type="response">
+      <events name="return"/>
+    </port>
+  </component>
+  <component name="Patient" type="server">
+    <port name="ptaccess" role="//@connector.6/@role.1" type="response">
+      <events name="query"/>
+    </port>
+  </component>
+  <component name="Callcenter">
+    <port name="forward" role="//@connector.1/@role.0">
+      <events name="complete"/>
+    </port>
+    <port name="call">
+      <events name="receive"/>
+    </port>
+  </component>
+  <connector name="soswire" type="PSConnector" connectortype="//@archstyle.1/@connectortype.0">
+    <role name="publisher" roletype="//@archstyle.1/@connectortype.0/@roletype.0" type="publisher" nextRoleExpr="//@connector.1/@role.0" connector="//@connector.0"/>
+    <role name="subscriber" roletype="//@archstyle.1/@connectortype.0/@roletype.1" type="subscriber" nextRoleExpr="//@connector.1/@role.0" connector="//@connector.0"/>
+  </connector>
+  <connector name="dispatchwire" type="CSConnector" connectortype="//@archstyle.0/@connectortype.0">
+    <role name="requester" roletype="//@archstyle.0/@connectortype.0/@roletype.0" type="requester" connector="//@connector.1"/>
+    <role name="responder" roletype="//@archstyle.0/@connectortype.0/@roletype.1" type="responder" nextRoleExpr="//@connector.2/@role.0" connector="//@connector.1"/>
+  </connector>
+  <connector name="guardnoti" type="PSConnector" connectortype="//@archstyle.1/@connectortype.0">
+    <role name="publisher" roletype="//@archstyle.1/@connectortype.0/@roletype.0" type="publisher" nextRoleExpr="//@connector.3/@role.0" connector="//@connector.2"/>
+    <role name="subscriber" roletype="//@archstyle.1/@connectortype.0/@roletype.1" type="subscriber" nextRoleExpr="//@connector.6/@role.0" connector="//@connector.2"/>
+  </connector>
+  <connector name="carenoti" type="PSConnector" connectortype="//@archstyle.1/@connectortype.0">
+    <role name="publisher" roletype="//@archstyle.1/@connectortype.0/@roletype.0" type="publisher" connector="//@connector.3"/>
+    <role name="subscriber" roletype="//@archstyle.1/@connectortype.0/@roletype.1" type="subscriber" nextRoleExpr="//@connector.6/@role.0" connector="//@connector.3"/>
+  </connector>
+  <connector name="emcenterwire" type="CSConnector" connectortype="//@archstyle.0/@connectortype.0">
+    <role name="requester" roletype="//@archstyle.0/@connectortype.0/@roletype.0" type="requester" connector="//@connector.4"/>
+    <role name="responder" roletype="//@archstyle.0/@connectortype.0/@roletype.1" type="responder" nextRoleExpr="//@connector.5/@role.0" connector="//@connector.4"/>
+  </connector>
+  <connector name="pgwire" type="CSConnector" connectortype="//@archstyle.0/@connectortype.0">
+    <role name="requester" roletype="//@archstyle.0/@connectortype.0/@roletype.0" type="requester" connector="//@connector.5"/>
+    <role name="responder" roletype="//@archstyle.0/@connectortype.0/@roletype.1" type="responder" connector="//@connector.5"/>
+  </connector>
+  <connector name="ptwire" type="CSConnector" connectortype="//@archstyle.0/@connectortype.0">
+    <role name="requester" roletype="//@archstyle.0/@connectortype.0/@roletype.0" type="requester" connector="//@connector.6"/>
+    <role name="responder" roletype="//@archstyle.0/@connectortype.0/@roletype.1" type="responder" connector="//@connector.6"/>
+  </connector>
+  <archstyle name="client-server">
+    <connectortype name="CSConnector">
+      <roletype name="requester" porttype="//@archstyle.0/@componenttype.0/@porttype.0">
+        <event name="request" next="//@archstyle.0/@connectortype.0/@roletype.0/@event.1"/>
+        <event xsi:type="arch:Channel" name="req" next="//@archstyle.0/@connectortype.0/@roletype.0/@event.2" type="output" bind="//@archstyle.0/@connectortype.0/@roletype.1/@event.0"/>
+        <event xsi:type="arch:Channel" name="res" next="//@archstyle.0/@connectortype.0/@roletype.0/@event.3" type="input"/>
+        <event name="process"/>
+      </roletype>
+      <roletype name="responder" porttype="//@archstyle.0/@componenttype.1/@porttype.0">
+        <event xsi:type="arch:Channel" name="req" next="//@archstyle.0/@connectortype.0/@roletype.1/@event.1" type="input"/>
+        <event name="invoke" next="//@archstyle.0/@connectortype.0/@roletype.1/@event.2"/>
+        <event name="process" next="//@archstyle.0/@connectortype.0/@roletype.1/@event.3"/>
+        <event xsi:type="arch:Channel" name="res" type="output" bind="//@archstyle.0/@connectortype.0/@roletype.0/@event.2"/>
+      </roletype>
+    </connectortype>
+    <componenttype name="client">
+      <porttype name="request"/>
+    </componenttype>
+    <componenttype name="server">
+      <porttype name="response"/>
+    </componenttype>
+  </archstyle>
+  <archstyle name="publish-subscribe">
+    <connectortype name="PSConnector" eaConnector="//@archstyle.0/@connectortype.0">
+      <roletype name="publisher" porttype="//@archstyle.1/@componenttype.0/@porttype.0">
+        <event name="process" next="//@archstyle.1/@connectortype.0/@roletype.0/@event.1"/>
+        <event xsi:type="arch:Channel" name="pub" next="//@archstyle.1/@connectortype.0/@roletype.0/@event.2" type="output" bind="//@archstyle.1/@connectortype.0/@roletype.1/@event.0"/>
+        <event name="Skip"/>
+      </roletype>
+      <roletype name="subscriber" porttype="//@archstyle.1/@componenttype.1/@porttype.0">
+        <event xsi:type="arch:Channel" name="pub" next="//@archstyle.1/@connectortype.0/@roletype.1/@event.1" type="input"/>
+        <event name="process"/>
+      </roletype>
+    </connectortype>
+    <componenttype name="broadcaster">
+      <porttype name="broadcast"/>
+    </componenttype>
+    <componenttype name="listener">
+      <porttype name="listen"/>
+    </componenttype>
+  </archstyle>
+  <verifyProperty xsi:type="arch:BehaviourProperty" name="ltlprop 1" model="/" counterExample="init -> SOSGateway_dispatchwire_requester_request -> dispatchwire_req!64 -> dispatchwire_req?64 -> RequestDispatcher_dispatchwire_responder_invoke -> RequestDispatcher_accept_dispatched -> RequestDispatcher_guardnoti_publisher_process -> guardnoti_pub!64 -> guardnoti_pub?64 -> LifeGuard_gnotify_acknowlege -> LifeGuard_guardnoti_subscriber_process -> RequestDispatcher_guardnoti_publisher_Skip -> RequestDispatcher_carenoti_publisher_process -> carenoti_pub!64 -> carenoti_pub?64 -> LifeCare_cnotify_acknowlege -> LifeCare_carenoti_subscriber_process -> RequestDispatcher_carenoti_publisher_Skip -> RequestDispatcher_dispatchwire_responder_process -> dispatchwire_res!64 -> dispatchwire_res?64 -> SOSGateway_sos_acknowledge -> SOSGateway_dispatchwire_requester_process -> SOSGateway_soswire_publisher_process -> soswire_pub!64 -> soswire_pub?64 -> LifeBand_alert_onalert -> LifeBand_soswire_subscriber_process -> LifeCare_ptwire_requester_request -> (ptwire_req!76 -> ptwire_req?76 -> Patient_ptwire_responder_invoke -> Patient_ptaccess_query -> Patient_ptwire_responder_process -> ptwire_res!76 -> ptwire_res?76 -> LifeCare_cdisplay_render -> LifeCare_ptwire_requester_process -> LifeCare_ptwire_requester_request)*" visitedStates="343" verifyTime="0.009966299999999999">
+    <ltlexpr xsi:type="arch:LTLNestedExpr" operator="ALWAYS" property="//@verifyProperty.0">
+      <expr xsi:type="arch:LTLRegularExpr" event="//@component.2/@port.0/@events.0" operator="EVENTUALLY"/>
+      <expr xsi:type="arch:LTLRegularExpr" event="//@component.0/@port.0/@events.0" nextExpr="//@verifyProperty.0/@ltlexpr.0/@expr.0"/>
+    </ltlexpr>
+  </verifyProperty>
+  <verifyProperty xsi:type="arch:BehaviourProperty" name="Circular Dependency  Free" model="/" counterExample="init -> LifeBand_positionwire_requester_request -> SOSGateway_dispatchwire_requester_request -> dispatchwire_req!69 -> dispatchwire_req?69 -> RequestDispatcher_dispatchwire_responder_invoke -> RequestDispatcher_accept_dispatched -> RequestDispatcher_guardnoti_publisher_process -> guardnoti_pub!69 -> guardnoti_pub?69 -> LifeGuard_gnotify_acknowlege -> LifeGuard_guardnoti_subscriber_process -> RequestDispatcher_guardnoti_publisher_Skip -> RequestDispatcher_carenoti_publisher_process -> carenoti_pub!69 -> carenoti_pub?69 -> LifeCare_cnotify_acknowlege -> LifeCare_carenoti_subscriber_process -> RequestDispatcher_carenoti_publisher_Skip -> RequestDispatcher_dispatchwire_responder_process -> dispatchwire_res!69 -> dispatchwire_res?69 -> SOSGateway_sos_acknowledge -> SOSGateway_dispatchwire_requester_process -> SOSGateway_soswire_publisher_process -> soswire_pub!69 -> (positionwire_req!71 -> positionwire_req?71 -> SOSGateway_positionwire_responder_invoke -> SOSGateway_locate_located -> positionwire_req!71)*" visitedStates="152" verifyTime="0.0033328999999999998" type="CD"/>
+  <verifyProperty xsi:type="arch:BehaviourProperty" name="Functional Decomposition  Free" model="/" valid="false" counterExample="init -> Callcenter_dispatchwire_requester_request -> dispatchwire_req!32 -> RequestDispatcher_emcenterwire_requester_request -> emcenterwire_req!71 -> emcenterwire_req?71 -> EmergencyCenter_emcenterwire_responder_invoke -> EmergencyCenter_pgwire_requester_request -> pgwire_req!71 -> pgwire_req?71 -> Practitioner_pgwire_responder_invoke -> Practitioner_pgaccess_return -> Practitioner_pgwire_responder_process -> pgwire_res!71 -> pgwire_res?71 -> EmergencyCenter_emaccess_commit" visitedStates="33" verifyTime="4.883E-4" type="FD"/>
+  <verifyProperty xsi:type="arch:BehaviourProperty" name="Poltergeist  Free" model="/" counterExample="init -> LifeBand_positionwire_requester_request -> SOSGateway_dispatchwire_requester_request -> dispatchwire_req!84 -> dispatchwire_req?84 -> RequestDispatcher_dispatchwire_responder_invoke -> RequestDispatcher_accept_dispatched -> RequestDispatcher_dispatchwire_responder_process -> dispatchwire_res!84 -> dispatchwire_res?84 -> SOSGateway_sos_acknowledge" visitedStates="152" verifyTime="0.004599799999999999" type="PG"/>
+  <verifyProperty xsi:type="arch:BehaviourProperty" name="Ambiguous Interface Free" model="/" valid="false" counterExample="init -> Callcenter_dispatchwire_requester_request -> RequestDispatcher_emcenterwire_requester_request -> emcenterwire_req!71 -> emcenterwire_req?71 -> EmergencyCenter_emcenterwire_responder_invoke -> EmergencyCenter_pgwire_requester_request -> pgwire_req!71 -> pgwire_req?71 -> Practitioner_pgwire_responder_invoke -> Practitioner_pgaccess_return -> Practitioner_pgwire_responder_process -> pgwire_res!71 -> pgwire_res?71 -> EmergencyCenter_emaccess_commit -> EmergencyCenter_pgwire_requester_process -> EmergencyCenter_emcenterwire_responder_process -> emcenterwire_res!71 -> emcenterwire_res?71 -> RequestDispatcher_accept_dispatched -> LifeBand_dispatchwire_requester_request -> dispatchwire_req!70 -> RequestDispatcher_emcenterwire_requester_process -> RequestDispatcher_emcenterwire_requester_request -> emcenterwire_req!71 -> emcenterwire_req?71 -> EmergencyCenter_emcenterwire_responder_invoke" visitedStates="85" verifyTime="0.0014604" type="AI"/>
+</arch:DesignModel>

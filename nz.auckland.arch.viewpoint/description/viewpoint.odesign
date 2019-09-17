@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="var:source" version="12.0.0.2017041100">
+  <ownedViewpoints name="MyViewpoint" modelFileExtension="arch">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SystemDiagram" domainClass="arch::DesignModel" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <edgeMappings name="BindEdge" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='ComponentContainer']/@borderedNodeMappings[name='InterfaceNode']" targetFinderExpression="feature:bind">
+          <style lineStyle="dot" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="AttachEdge" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='ComponentContainer']/@borderedNodeMappings[name='InterfaceNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='ConnectorContainer']/@borderedNodeMappings[name='RoleNode']" targetFinderExpression="feature:role">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="ComponentContainer" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" domainClass="arch::Component">
+          <borderedNodeMappings name="InterfaceNode" label="Port" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:port" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='doublePort']" domainClass="arch::Port">
+            <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelAlignment="RIGHT" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="nz.auckland.arch.viewpoint/icon/incoming-inf-small.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" iconPath="/nz.auckland.arch.viewpoint/icon/comp-small.png" backgroundStyle="GradientTopToBottom">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.valid = false/]">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="ConnectorContainer" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" domainClass="arch::Connector">
+          <borderedNodeMappings name="RoleNode" label="RoleNode" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" semanticCandidatesExpression="feature:role" domainClass="arch::Role">
+            <style xsi:type="style:DotDescription" showIcon="false" labelAlignment="RIGHT" sizeComputationExpression="2" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" heightComputationExpression="4">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.valid = false/]">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <toolSections name="Component" label="Component">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="createComponent" label="Component" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='ComponentContainer']" iconPath="/nz.auckland.arch.viewpoint/icon/comp-small.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::Component" referenceName="component">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'comp'+container.component -> size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createIn" label="Port" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='ComponentContainer']/@borderedNodeMappings[name='InterfaceNode']" iconPath="/nz.auckland.arch.viewpoint/icon/incoming-inf-small.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::Port" referenceName="port">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'port'+container.port -> size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Internal binding between incoming port and outgoing port" name="createAttach" label="Attach" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@edgeMappings[name='AttachEdge']" iconPath="/nz.auckland.arch.viewpoint/icon/bind.png">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editComponent">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="doublePort" mappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='ComponentContainer']/@borderedNodeMappings[name='InterfaceNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:PopupMenu" name="Verify">
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Structure">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.verifyStructure()"/>
+              </initialOperation>
+            </menuItemDescription>
+            <menuItemDescription xsi:type="tool_1:OperationAction" name="Behaviour">
+              <view name="views"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.verifyBehaviour()">
+                  <subModelOperations xsi:type="tool:Navigation" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']"/>
+                </firstModelOperations>
+              </initialOperation>
+            </menuItemDescription>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="remove">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:RemoveElement"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Connector" label="Connector">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="styleSelection" label="Connector" candidatesExpression="aql: self.getAllArchStyles()">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.createConnector(element)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers>
+        <edgeMappings name="AttachEdge" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='ComponentContainer']/@borderedNodeMappings[name='InterfaceNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@containerMappings[name='ConnectorContainer']/@borderedNodeMappings[name='RoleNode']" targetFinderExpression="feature:role">
+          <style sourceArrow="InputFillClosedArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+      </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="PortDiagram" domainClass="arch::Port" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="roleNode" semanticCandidatesExpression="feature:role" domainClass="arch::Role">
+          <style xsi:type="style:SquareDescription" showIcon="false" iconPath="/nz.auckland.arch.viewpoint/icon/outgoing-inf-small.png" sizeComputationExpression="5" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="eventLink" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']/@defaultLayer/@containerMappings[name='portContainer']/@subNodeMappings[name='eventNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']/@defaultLayer/@containerMappings[name='portContainer']/@subNodeMappings[name='eventNode']" targetFinderExpression="feature:next">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="attachEdge" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']/@defaultLayer/@containerMappings[name='portContainer']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']/@defaultLayer/@nodeMappings[name='roleNode']" targetFinderExpression="feature:role">
+          <style lineStyle="dash" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="roleExpr" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']/@defaultLayer/@nodeMappings[name='roleNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']/@defaultLayer/@nodeMappings[name='roleNode']" targetFinderExpression="feature:nextRoleExpr">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelExpression="feature:operatorExpr">
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="portContainer" semanticCandidatesExpression="var:self" domainClass="arch::Port">
+          <subNodeMappings name="eventNode" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:events" domainClass="arch::Event">
+            <style xsi:type="style:DotDescription" showIcon="false" labelAlignment="RIGHT" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" widthComputationExpression="20" heightComputationExpression="10">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="behavioural-section" label="General">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createEvent" label="Event" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']/@defaultLayer/@containerMappings[name='portContainer']/@subNodeMappings[name='eventNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::Event" referenceName="events">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="evnt"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createEventLink" label="Link" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']/@defaultLayer/@edgeMappings[name='eventLink']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="next" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editComponent">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createRoleExpr" label="Link Role" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='PortDiagram']/@defaultLayer/@edgeMappings[name='roleExpr']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="nextRoleExpr" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ArchStyleDiagram" initialisation="true" showOnStartup="true" domainClass="arch::ArchStyle">
+      <defaultLayer name="Default">
+        <edgeMappings name="eventLink" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='eventNode'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='channelNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='eventNode'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='channelNode']" targetFinderExpression="feature:next">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="channelLink" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='channelNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='channelNode']" targetFinderExpression="feature:bind">
+          <style lineStyle="dot" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles>
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription labelSize="12">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <edgeMappings name="attachRolePort" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='componentContainer']/@borderedNodeMappings[name='portTypeNode']" targetFinderExpression="feature:porttype">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="componentContainer" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:componenttype" domainClass="arch::ComponentType">
+          <borderedNodeMappings name="portTypeNode" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:porttype" domainClass="arch::PortType">
+            <style xsi:type="style:DotDescription" showIcon="false" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.valid = false /]">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="connectorContainer" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:connectortype" domainClass="arch::ConnectorType">
+          <subContainerMappings name="roleContainer" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:roletype" domainClass="arch::RoleType">
+            <subNodeMappings name="eventNode" preconditionExpression="[not self.eClass().name.contains('Channel')/]" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:event" domainClass="arch::Event">
+              <style xsi:type="style:DotDescription" showIcon="false" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="channelNode" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:eAllContents" domainClass="arch::Channel">
+              <style xsi:type="style:DotDescription" showIcon="false" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+              </style>
+              <conditionnalStyles predicateExpression="[self.type.contains('output')/]">
+                <style xsi:type="style:DotDescription" showIcon="false" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                </style>
+              </conditionnalStyles>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" widthComputationExpression="20" heightComputationExpression="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.valid = false /]">
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <toolSections name="Structure">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="createRole" label="Role Type" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::RoleType" referenceName="roletype">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'role'+container.roletype -> size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="createComponent" label="Component Type" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='componentContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::ComponentType" referenceName="componenttype">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'comp'+container.componenttype -> size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="createConnector" label="Connector Type" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::ConnectorType" referenceName="connectortype">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'New'+container.connectortype -> size() + 'Connector'"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createPort" label="Port Type" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='componentContainer']/@borderedNodeMappings[name='portTypeNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::PortType" referenceName="porttype">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'port'+container.porttype -> size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createAttachment" label="Attach" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@edgeMappings[name='attachRolePort']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="porttype" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="behavioural-section" label="Behaviour">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createEvent" label="Event" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='eventNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::Event" referenceName="event">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="evnt"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createSkip" label="Skip" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='eventNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::Event" referenceName="event">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Skip"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createStop" label="Stop" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='eventNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::Event" referenceName="event">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Stop"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createChannelInput" label="Channel Input" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='channelNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::Channel" referenceName="event">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="evnt"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="input"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createChannelOutput" label="Channel Output" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@containerMappings[name='connectorContainer']/@subContainerMappings[name='roleContainer']/@subNodeMappings[name='channelNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::Channel" referenceName="event">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="evnt"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="output"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createEventLink" label="Link Event" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@edgeMappings[name='eventLink']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="next" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createChannelBind" label="Bind Channel" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']/@defaultLayer/@edgeMappings[name='channelLink']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="bind" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editComponent">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ArchStyleLibrary" domainClass="arch::DesignModel" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="styleNode" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleLibrary']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleLibrary']/@defaultLayer/@toolSections.0/@ownedTools[name='connectorTypeDetails']" domainClass="arch::ArchStyle">
+          <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" width="15" height="10">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.valid = false /]">
+            <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" width="15" height="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <toolSections name="general">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="connectorTypeDetails" mappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleLibrary']/@defaultLayer/@nodeMappings[name='styleNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleDiagram']"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createStyle" label="Architecture Style" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleLibrary']/@defaultLayer/@nodeMappings[name='styleNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::ArchStyle" referenceName="archstyle">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql: 'conntype'+container.connectortype -> size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="editComponent">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="VerificationPropertyList" domainClass="arch::DesignModel" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="behaveiourproperty" semanticCandidatesExpression="feature:verifyProperty" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@toolSections.0/@ownedTools[name='propertyDetails']" domainClass="arch::BehaviourProperty">
+          <style xsi:type="style:SquareDescription" labelSize="10" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" width="15" height="10">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+          <conditionnalStyles predicateExpression="[self.valid = false /]">
+            <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" width="15" height="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+        <toolSections name="behaviour" label="Behaviour Property">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createProperty" label="LTL Property" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::BehaviourProperty" referenceName="verifyProperty">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'prop'+container.behaviourProperties -> size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="model" valueExpression="[container/]"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCDProperty" label="Circular Dependency Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::BehaviourProperty" referenceName="verifyProperty">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Circular Dependency  Free"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="model" valueExpression="[container/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="1"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createFDProperty" label="Functional Decomposition Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::BehaviourProperty" referenceName="verifyProperty">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Functional Decomposition  Free"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="model" valueExpression="[container/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="2"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createPGProperty" label="Poltergeist Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::BehaviourProperty" referenceName="verifyProperty">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Poltergeist  Free"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="model" valueExpression="[container/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="3"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createAIProperty" label="Ambiguous Interface Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::BehaviourProperty" referenceName="verifyProperty">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="Ambiguous Interface Free"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="model" valueExpression="[container/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="4"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="verifyBehaviour" label="Verify">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.verifyBehaviour()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="traceCounterExample" label="Trace Counter Example">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.simulate()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="propertyDetails" precondition="aql: self.isLTLProp()" mappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BehaivourPropertyDiagram" domainClass="arch::BehaviourProperty" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="regularExprNode" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='edit']" semanticCandidatesExpression="feature:ltlexpr" domainClass="arch::LTLRegularExpr">
+          <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="[self.event.name/]" labelAlignment="LEFT" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="nextExprEdge" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='edit']" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@nodeMappings[name='regularExprNode'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@containerMappings[name='nestedExprContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@containerMappings[name='nestedExprContainer']/@subNodeMappings[name='exprSubNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@nodeMappings[name='regularExprNode'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@containerMappings[name='nestedExprContainer'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@containerMappings[name='nestedExprContainer']/@subNodeMappings[name='exprSubNode']" targetFinderExpression="feature:nextExpr">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="[self.nextExpr.operator/]">
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="nestedExprContainer" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='edit']" semanticCandidatesExpression="feature:ltlexpr" domainClass="arch::LTLNestedExpr">
+          <subNodeMappings name="exprSubNode" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='edit']" semanticCandidatesExpression="feature:expr" domainClass="arch::LTLRegularExpr">
+            <style xsi:type="style:DotDescription" labelSize="12" showIcon="false" labelExpression="[self.event.name/]" labelAlignment="LEFT" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="Expression">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Expression">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="compEventSelection" label="Port Event" candidatesExpression="aql: self.getModelForExpr().eAllContents()" tree="true" rootExpression="aql:  self.getCompPortsForExpr()" childrenExpression="aql:  self.eContents(arch::Event)" windowTitle="Component Port Event">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.createLTLExpr(element)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="connEventSelection" label="Role Event" candidatesExpression="aql: self.getModelForExpr().eAllContents()" tree="true" rootExpression="aql:  self.getConnRolesForExpr()" childrenExpression="aql:  self.eContents(arch::Event)" windowTitle="Component Port Event">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.createLTLExpr(element)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="nestedExpr" label="Bracket Expression">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="createNestedExpr" label="Bracket Expression" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@containerMappings[name='nestedExprContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::LTLNestedExpr" referenceName="ltlexpr">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="property" valueExpression="var:container"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="compEventSelection" label="Port Event" candidatesExpression="aql: self.getModelForExpr().eAllContents()" tree="true" rootExpression="aql:  self.getCompPortsForExpr()" childrenExpression="aql:  self.eContents(arch::Event)" windowTitle="Component Port Event">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.createLTLSubExpr(element)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="connEventSelection" label="Role Event" candidatesExpression="aql: self.getModelForExpr().eAllContents()" tree="true" rootExpression="aql:  self.getConnRolesForExpr()" childrenExpression="aql:  self.eContents(arch::Event)" windowTitle="Component Port Event">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.createLTLSubExpr(element)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="edit">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:0"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="remove">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:RemoveElement"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="traceCounterExample" label="Trace Counter Example">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.simulate()"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="link" label="Linkage">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="createNextExpr" label="Next" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']/@defaultLayer/@edgeMappings[name='nextExprEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="nextExpr" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="nz.auckland.arch.viewpoint.Services"/>
+  </ownedViewpoints>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="sirius_default_rules_properties">
+    <categories name="Default">
+      <pages name="sirius_default_rules_defaultpage" labelExpression="Properties" semanticCandidateExpression="aql:input.getAllSemanticElements()" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <groups name="sirius_default_rules_defaultgroup" labelExpression="Properties" semanticCandidateExpression="var:self" preconditionExpression="">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="sirius_default_rules_structural_features_for" iterator="eStructuralFeature" iterableExpression="aql:input.emfEditServices(self).getEStructuralFeatures()">
+          <ifs name="sirius_default_rules_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
+            <widget xsi:type="properties:TextDescription" name="sirius_default_rules_mono_string" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+              </initialOperation>
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+                <style>
+                  <labelFontFormat>bold</labelFontFormat>
+                </style>
+              </conditionalStyles>
+            </widget>
+          </ifs>
+          <ifs name="sirius_default_rules_multi_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature)">
+            <widget xsi:type="properties:TextAreaDescription" name="sirius_default_rules_multi_string" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+              </initialOperation>
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+                <style>
+                  <labelFontFormat>bold</labelFontFormat>
+                </style>
+              </conditionalStyles>
+            </widget>
+          </ifs>
+          <ifs name="sirius_default_rules_mono_boolean" predicateExpression="aql:input.emfEditServices(self).needsCheckboxWidget(eStructuralFeature)">
+            <widget xsi:type="properties:CheckboxDescription" name="sirius_default_rules_mono_boolean" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue)"/>
+              </initialOperation>
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+                <style>
+                  <labelFontFormat>bold</labelFontFormat>
+                </style>
+              </conditionalStyles>
+            </widget>
+          </ifs>
+          <ifs name="sirius_default_rules_enum_if" predicateExpression="aql:eStructuralFeature.eType.oclIsKindOf(ecore::EEnum) and not(eStructuralFeature.many)">
+            <widget xsi:type="properties:RadioDescription" name="sirius_default_rules_enum" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:eStructuralFeature.eType.oclAsType(ecore::EEnum).getEEnumLiteralByLiteral(self.eGet(eStructuralFeature.name).toString())" candidatesExpression="aql:eStructuralFeature.eType.oclAsType(ecore::EEnum).eLiterals" candidateDisplayExpression="aql:candidate.name" numberOfColumns="5">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:input.emfEditServices(self).setValue(eStructuralFeature, newValue.instance)"/>
+              </initialOperation>
+              <conditionalStyles preconditionExpression="aql:eStructuralFeature.lowerBound==1">
+                <style>
+                  <labelFontFormat>bold</labelFontFormat>
+                </style>
+              </conditionalStyles>
+            </widget>
+          </ifs>
+          <ifs name="sirius_default_rules_eattribute_many_if" predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EAttribute) and eStructuralFeature.many">
+            <widget xsi:type="properties:ListDescription" name="sirius_default_rules_eattribute_many" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" isEnabledExpression="aql:eStructuralFeature.changeable" valueExpression="aql:self.eGet(eStructuralFeature.name)" displayExpression="var:value"/>
+          </ifs>
+          <ifs name="sirius_default_rules_ereference_if" predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EReference)">
+            <widget xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="sirius_default_rules_ereference" labelExpression="aql:input.emfEditServices(self).getText(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" referenceNameExpression="aql:eStructuralFeature.name"/>
+          </ifs>
+        </controls>
+      </groups>
+    </categories>
+  </extensions>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="CompProps">
+    <categories name="Default Category">
+      <pages name="Default Page" labelExpression="General" domainClass="arch::Component" semanticCandidateExpression="var:self" groups="//@extensions.1/@categories.0/@groups.0"/>
+      <groups name="Default Group" labelExpression="General" domainClass="arch::Component" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="name" labelExpression="Name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:LabelDescription" name="type" labelExpression="Type" valueExpression="feature:type"/>
+      </groups>
+    </categories>
+  </extensions>
+  <extensions xsi:type="properties:ViewExtensionDescription" name="PortProps">
+    <categories name="Default Category">
+      <pages name="Default Page" labelExpression="General" domainClass="arch::Port" semanticCandidateExpression="var:self" groups="//@extensions.2/@categories.0/@groups.0"/>
+      <groups name="Default Group" labelExpression="General" domainClass="arch::Port" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:TextDescription" name="name" labelExpression="Name" valueExpression="feature:name">
+          <initialOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+          </initialOperation>
+        </controls>
+        <controls xsi:type="properties:LabelDescription" name="type" labelExpression="Type" valueExpression="feature:type"/>
+      </groups>
+    </categories>
+  </extensions>
+</description:Group>
