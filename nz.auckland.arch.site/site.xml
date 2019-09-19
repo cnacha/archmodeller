@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/nz.auckland.arch.features_1.0.0.201909180932.jar" id="nz.auckland.arch.features" version="1.0.0.201909180932"/>
+   <feature url="features/nz.auckland.arch.features_1.3.9.201909191349.jar" id="nz.auckland.arch.features" version="1.3.9.201909191349">
+      <category name="arch"/>
+   </feature>
+   <category-def name="arch" label="ArchModeller"/>
 </site>

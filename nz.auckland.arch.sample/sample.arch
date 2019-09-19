@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <arch:DesignModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:arch="http://www.example.org/arch" name="prop">
-  <component name="LifeBand" type="listener">
-    <port name="alert" role="//@connector.0/@role.0">
+  <component name="LifeBand" type="broadcaster">
+    <port name="alert" role="//@connector.0/@role.0" type="broadcast">
       <events name="onalert"/>
     </port>
-    <port name="pinpoint"/>
+    <port name="pinpoint" type="UnusedInterface" valid="false"/>
   </component>
-  <component name="SOSGateway" type="client,broadcaster">
-    <port name="sos" role="//@connector.0/@role.1 //@connector.1/@role.0">
-      <events name="acknowledge"/>
+  <component name="SOSGateway" type="client,listener">
+    <port name="sos" role="//@connector.0/@role.1 //@connector.1/@role.0" type="request,listen">
+      <events name="acknowledge" next="//@component.1/@port.0/@events.1"/>
+      <events name="alert"/>
     </port>
   </component>
-  <component name="RequestDispatcher" type="client,server,broadcaster">
+  <component name="RequestDispatcher" type="client,server,broadcaster,LinkOverload" valid="false">
     <port name="accept" role="//@connector.1/@role.1 //@connector.2/@role.0 //@connector.3/@role.0 //@connector.4/@role.0" type="request,response,broadcast">
       <events name="dispatched"/>
     </port>
   </component>
   <component name="LifeGuard" type="client,listener">
-    <port name="gnotify" role="//@connector.2/@role.1 //@connector.6/@role.0" type="listen">
+    <port name="gnotify" role="//@connector.2/@role.1 //@connector.6/@role.0" type="request,listen">
       <events name="acknowlege"/>
     </port>
-    <port name="gdisplay">
+    <port name="gdisplay" type="UnusedInterface" valid="false">
       <events name="render"/>
     </port>
   </component>
   <component name="LifeCare" type="client,listener">
-    <port name="cnotify" role="//@connector.3/@role.1 //@connector.6/@role.0" type="listen">
+    <port name="cnotify" role="//@connector.3/@role.1 //@connector.6/@role.0" type="request,listen">
       <events name="acknowlege"/>
     </port>
-    <port name="cdisplay">
+    <port name="cdisplay" type="UnusedInterface" valid="false">
       <events name="render"/>
     </port>
   </component>
@@ -47,11 +48,11 @@
       <events name="query"/>
     </port>
   </component>
-  <component name="Callcenter">
-    <port name="forward" role="//@connector.1/@role.0">
+  <component name="Callcenter" type="client">
+    <port name="forward" role="//@connector.1/@role.0" type="request">
       <events name="complete"/>
     </port>
-    <port name="call">
+    <port name="call" type="UnusedInterface" valid="false">
       <events name="receive"/>
     </port>
   </component>
