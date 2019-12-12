@@ -4,6 +4,7 @@ package nz.auckland.arch.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import nz.auckland.arch.ArchFactory;
 import nz.auckland.arch.ArchPackage;
 import nz.auckland.arch.ConnectorType;

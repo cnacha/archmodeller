@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link nz.auckland.arch.Connector#getRole <em>Role</em>}</li>
  *   <li>{@link nz.auckland.arch.Connector#getConnectortype <em>Connectortype</em>}</li>
  *   <li>{@link nz.auckland.arch.Connector#isValid <em>Valid</em>}</li>
+ *   <li>{@link nz.auckland.arch.Connector#getCommunicationlink <em>Communicationlink</em>}</li>
+ *   <li>{@link nz.auckland.arch.Connector#getSecurityCharacters <em>Security Characters</em>}</li>
  * </ul>
  *
  * @see nz.auckland.arch.ArchPackage#getConnector()
@@ -147,5 +149,47 @@ public interface Connector extends EObject {
 	 * @generated
 	 */
 	void setValid(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Communicationlink</b></em>' reference list.
+	 * The list contents are of type {@link nz.auckland.arch.CommunicationLink}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Communicationlink</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Communicationlink</em>' reference list.
+	 * @see nz.auckland.arch.ArchPackage#getConnector_Communicationlink()
+	 * @model
+	 * @generated
+	 */
+	EList<CommunicationLink> getCommunicationlink();
+
+	/**
+	 * Returns the value of the '<em><b>Security Characters</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Security Characters</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Characters</em>' attribute.
+	 * @see #setSecurityCharacters(String)
+	 * @see nz.auckland.arch.ArchPackage#getConnector_SecurityCharacters()
+	 * @model
+	 * @generated
+	 */
+	String getSecurityCharacters();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.Connector#getSecurityCharacters <em>Security Characters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Security Characters</em>' attribute.
+	 * @see #getSecurityCharacters()
+	 * @generated
+	 */
+	void setSecurityCharacters(String value);
 
 } // Connector

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link nz.auckland.arch.Port#getRole <em>Role</em>}</li>
  *   <li>{@link nz.auckland.arch.Port#getType <em>Type</em>}</li>
  *   <li>{@link nz.auckland.arch.Port#isValid <em>Valid</em>}</li>
+ *   <li>{@link nz.auckland.arch.Port#isInsecure <em>Insecure</em>}</li>
  * </ul>
  *
  * @see nz.auckland.arch.ArchPackage#getPort()
@@ -137,5 +138,31 @@ public interface Port extends EObject {
 	 * @generated
 	 */
 	void setValid(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Insecure</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Insecure</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Insecure</em>' attribute.
+	 * @see #setInsecure(boolean)
+	 * @see nz.auckland.arch.ArchPackage#getPort_Insecure()
+	 * @model
+	 * @generated
+	 */
+	boolean isInsecure();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.Port#isInsecure <em>Insecure</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Insecure</em>' attribute.
+	 * @see #isInsecure()
+	 * @generated
+	 */
+	void setInsecure(boolean value);
 
 } // Port

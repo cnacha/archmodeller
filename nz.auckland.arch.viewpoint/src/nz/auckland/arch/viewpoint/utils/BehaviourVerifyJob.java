@@ -34,6 +34,9 @@ import nz.auckland.arch.viewpoint.model.ADLVerifyRequest;
 import nz.auckland.arch.viewpoint.model.ADLVerifyResult;
 
 public class BehaviourVerifyJob extends Job {
+	
+	private static final String serviceurl = "http://localhost:53979/api/adlapi/verify";
+	//private static final String serviceurl = "http://fasad.cer.auckland.ac.nz/api/adlapi/verify";
 
 	private DesignModel model;
 
@@ -56,14 +59,15 @@ public class BehaviourVerifyJob extends Job {
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		// convert design model into ADL
-		String adl = ADLModelConverter.convert(model);
+		ADLModelConverter converter = new ADLModelConverter(model);
+		String adl = converter.convert();
 		System.out.println(adl);
 		// create request object
 		ADLVerifyRequest reqObj = new ADLVerifyRequest(model.getName(), adl);
 
 		// call web service to verify ADL
 		HttpClient httpClient = HttpClientBuilder.create().build();
-		HttpPost request = new HttpPost("http://fasad.cer.auckland.ac.nz/api/adlapi/verify");
+		HttpPost request = new HttpPost(serviceurl);
 		try {
 			// create request
 			Gson gson = new Gson();

@@ -5,6 +5,7 @@ package nz.auckland.arch.impl;
 import java.util.Collection;
 
 import nz.auckland.arch.ArchPackage;
+import nz.auckland.arch.CommunicationLink;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.ConnectorType;
 import nz.auckland.arch.Role;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -36,6 +38,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link nz.auckland.arch.impl.ConnectorImpl#getRole <em>Role</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.ConnectorImpl#getConnectortype <em>Connectortype</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.ConnectorImpl#isValid <em>Valid</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.ConnectorImpl#getCommunicationlink <em>Communicationlink</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.ConnectorImpl#getSecurityCharacters <em>Security Characters</em>}</li>
  * </ul>
  *
  * @generated
@@ -120,6 +124,36 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * @ordered
 	 */
 	protected boolean valid = VALID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getCommunicationlink() <em>Communicationlink</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommunicationlink()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CommunicationLink> communicationlink;
+
+	/**
+	 * The default value of the '{@link #getSecurityCharacters() <em>Security Characters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityCharacters()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SECURITY_CHARACTERS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSecurityCharacters() <em>Security Characters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityCharacters()
+	 * @generated
+	 * @ordered
+	 */
+	protected String securityCharacters = SECURITY_CHARACTERS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -260,6 +294,41 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CommunicationLink> getCommunicationlink() {
+		if (communicationlink == null) {
+			communicationlink = new EObjectResolvingEList<CommunicationLink>(CommunicationLink.class, this,
+					ArchPackage.CONNECTOR__COMMUNICATIONLINK);
+		}
+		return communicationlink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSecurityCharacters() {
+		return securityCharacters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSecurityCharacters(String newSecurityCharacters) {
+		String oldSecurityCharacters = securityCharacters;
+		securityCharacters = newSecurityCharacters;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.CONNECTOR__SECURITY_CHARACTERS,
+					oldSecurityCharacters, securityCharacters));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -289,6 +358,10 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			return basicGetConnectortype();
 		case ArchPackage.CONNECTOR__VALID:
 			return isValid();
+		case ArchPackage.CONNECTOR__COMMUNICATIONLINK:
+			return getCommunicationlink();
+		case ArchPackage.CONNECTOR__SECURITY_CHARACTERS:
+			return getSecurityCharacters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -318,6 +391,13 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		case ArchPackage.CONNECTOR__VALID:
 			setValid((Boolean) newValue);
 			return;
+		case ArchPackage.CONNECTOR__COMMUNICATIONLINK:
+			getCommunicationlink().clear();
+			getCommunicationlink().addAll((Collection<? extends CommunicationLink>) newValue);
+			return;
+		case ArchPackage.CONNECTOR__SECURITY_CHARACTERS:
+			setSecurityCharacters((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -345,6 +425,12 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		case ArchPackage.CONNECTOR__VALID:
 			setValid(VALID_EDEFAULT);
 			return;
+		case ArchPackage.CONNECTOR__COMMUNICATIONLINK:
+			getCommunicationlink().clear();
+			return;
+		case ArchPackage.CONNECTOR__SECURITY_CHARACTERS:
+			setSecurityCharacters(SECURITY_CHARACTERS_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -367,6 +453,11 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 			return connectortype != null;
 		case ArchPackage.CONNECTOR__VALID:
 			return valid != VALID_EDEFAULT;
+		case ArchPackage.CONNECTOR__COMMUNICATIONLINK:
+			return communicationlink != null && !communicationlink.isEmpty();
+		case ArchPackage.CONNECTOR__SECURITY_CHARACTERS:
+			return SECURITY_CHARACTERS_EDEFAULT == null ? securityCharacters != null
+					: !SECURITY_CHARACTERS_EDEFAULT.equals(securityCharacters);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -388,6 +479,8 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 		result.append(type);
 		result.append(", valid: ");
 		result.append(valid);
+		result.append(", securityCharacters: ");
+		result.append(securityCharacters);
 		result.append(')');
 		return result.toString();
 	}

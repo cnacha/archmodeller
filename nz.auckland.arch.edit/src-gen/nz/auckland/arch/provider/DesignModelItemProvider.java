@@ -93,6 +93,8 @@ public class DesignModelItemProvider extends ItemProviderAdapter implements IEdi
 			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__CONNECTOR);
 			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__ARCHSTYLE);
 			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__VERIFY_PROPERTY);
+			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__HOST);
+			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__LINK);
 		}
 		return childrenFeatures;
 	}
@@ -163,6 +165,8 @@ public class DesignModelItemProvider extends ItemProviderAdapter implements IEdi
 		case ArchPackage.DESIGN_MODEL__CONNECTOR:
 		case ArchPackage.DESIGN_MODEL__ARCHSTYLE:
 		case ArchPackage.DESIGN_MODEL__VERIFY_PROPERTY:
+		case ArchPackage.DESIGN_MODEL__HOST:
+		case ArchPackage.DESIGN_MODEL__LINK:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -194,6 +198,12 @@ public class DesignModelItemProvider extends ItemProviderAdapter implements IEdi
 
 		newChildDescriptors.add(createChildParameter(ArchPackage.Literals.DESIGN_MODEL__VERIFY_PROPERTY,
 				ArchFactory.eINSTANCE.createStructuralProperty()));
+
+		newChildDescriptors.add(
+				createChildParameter(ArchPackage.Literals.DESIGN_MODEL__HOST, ArchFactory.eINSTANCE.createDevice()));
+
+		newChildDescriptors.add(createChildParameter(ArchPackage.Literals.DESIGN_MODEL__LINK,
+				ArchFactory.eINSTANCE.createCommunicationLink()));
 	}
 
 	/**

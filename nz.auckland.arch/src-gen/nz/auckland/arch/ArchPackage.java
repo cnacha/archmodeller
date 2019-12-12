@@ -104,13 +104,40 @@ public interface ArchPackage extends EPackage {
 	int COMPONENT__VALID = 3;
 
 	/**
+	 * The feature id for the '<em><b>Deploymentnode</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__DEPLOYMENTNODE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Critical Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__CRITICAL_LEVEL = 5;
+
+	/**
+	 * The feature id for the '<em><b>Security Characters</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__SECURITY_CHARACTERS = 6;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = 4;
+	int COMPONENT_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Component</em>' class.
@@ -177,13 +204,31 @@ public interface ArchPackage extends EPackage {
 	int DESIGN_MODEL__NAME = 4;
 
 	/**
+	 * The feature id for the '<em><b>Host</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESIGN_MODEL__HOST = 5;
+
+	/**
+	 * The feature id for the '<em><b>Link</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESIGN_MODEL__LINK = 6;
+
+	/**
 	 * The number of structural features of the '<em>Design Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESIGN_MODEL_FEATURE_COUNT = 5;
+	int DESIGN_MODEL_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Design Model</em>' class.
@@ -250,13 +295,31 @@ public interface ArchPackage extends EPackage {
 	int CONNECTOR__VALID = 4;
 
 	/**
+	 * The feature id for the '<em><b>Communicationlink</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__COMMUNICATIONLINK = 5;
+
+	/**
+	 * The feature id for the '<em><b>Security Characters</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONNECTOR__SECURITY_CHARACTERS = 6;
+
+	/**
 	 * The number of structural features of the '<em>Connector</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONNECTOR_FEATURE_COUNT = 5;
+	int CONNECTOR_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Connector</em>' class.
@@ -323,13 +386,22 @@ public interface ArchPackage extends EPackage {
 	int PORT__VALID = 4;
 
 	/**
+	 * The feature id for the '<em><b>Insecure</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT__INSECURE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Port</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_FEATURE_COUNT = 5;
+	int PORT_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Port</em>' class.
@@ -963,13 +1035,31 @@ public interface ArchPackage extends EPackage {
 	int BEHAVIOUR_PROPERTY__TYPE = VERIFICATION_PROPERTY_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Testport</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOUR_PROPERTY__TESTPORT = VERIFICATION_PROPERTY_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Trace Example</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOUR_PROPERTY__TRACE_EXAMPLE = VERIFICATION_PROPERTY_FEATURE_COUNT + 7;
+
+	/**
 	 * The number of structural features of the '<em>Behaviour Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOUR_PROPERTY_FEATURE_COUNT = VERIFICATION_PROPERTY_FEATURE_COUNT + 6;
+	int BEHAVIOUR_PROPERTY_FEATURE_COUNT = VERIFICATION_PROPERTY_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Behaviour Property</em>' class.
@@ -1027,13 +1117,31 @@ public interface ArchPackage extends EPackage {
 	int LTL_EXPR__PROPERTY = 3;
 
 	/**
+	 * The feature id for the '<em><b>Role</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LTL_EXPR__ROLE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LTL_EXPR__PORT = 5;
+
+	/**
 	 * The number of structural features of the '<em>LTL Expr</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LTL_EXPR_FEATURE_COUNT = 4;
+	int LTL_EXPR_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>LTL Expr</em>' class.
@@ -1089,6 +1197,24 @@ public interface ArchPackage extends EPackage {
 	 * @ordered
 	 */
 	int LTL_NESTED_EXPR__PROPERTY = LTL_EXPR__PROPERTY;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LTL_NESTED_EXPR__ROLE = LTL_EXPR__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LTL_NESTED_EXPR__PORT = LTL_EXPR__PORT;
 
 	/**
 	 * The feature id for the '<em><b>Expr</b></em>' containment reference list.
@@ -1164,6 +1290,24 @@ public interface ArchPackage extends EPackage {
 	int LTL_REGULAR_EXPR__PROPERTY = LTL_EXPR__PROPERTY;
 
 	/**
+	 * The feature id for the '<em><b>Role</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LTL_REGULAR_EXPR__ROLE = LTL_EXPR__ROLE;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LTL_REGULAR_EXPR__PORT = LTL_EXPR__PORT;
+
+	/**
 	 * The number of structural features of the '<em>LTL Regular Expr</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1237,6 +1381,307 @@ public interface ArchPackage extends EPackage {
 	int STRUCTURAL_PROPERTY_OPERATION_COUNT = VERIFICATION_PROPERTY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link nz.auckland.arch.impl.DeviceImpl <em>Device</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.impl.DeviceImpl
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getDevice()
+	 * @generated
+	 */
+	int DEVICE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Net Access Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICE__NET_ACCESS_TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICE__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Node</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICE__NODE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Host Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICE__HOST_TYPE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Device</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICE_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Device</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVICE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.impl.ExecutionEnvironmentImpl <em>Execution Environment</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.impl.ExecutionEnvironmentImpl
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getExecutionEnvironment()
+	 * @generated
+	 */
+	int EXECUTION_ENVIRONMENT = 19;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_ENVIRONMENT__TYPE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_ENVIRONMENT__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Component</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_ENVIRONMENT__COMPONENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Port</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_ENVIRONMENT__PORT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Execution Environment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_ENVIRONMENT_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Execution Environment</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXECUTION_ENVIRONMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.impl.CommunicationLinkImpl <em>Communication Link</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.impl.CommunicationLinkImpl
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getCommunicationLink()
+	 * @generated
+	 */
+	int COMMUNICATION_LINK = 20;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Link Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK__LINK_TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Network Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK__NETWORK_TYPE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK__SOURCE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK__TARGET = 4;
+
+	/**
+	 * The number of structural features of the '<em>Communication Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Communication Link</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.impl.CommunicationPortImpl <em>Communication Port</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.impl.CommunicationPortImpl
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getCommunicationPort()
+	 * @generated
+	 */
+	int COMMUNICATION_PORT = 21;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PORT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Port Number</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PORT__PORT_NUMBER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PORT__NODE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Namedport</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PORT__NAMEDPORT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Has Firewall</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PORT__HAS_FIREWALL = 4;
+
+	/**
+	 * The feature id for the '<em><b>Has Authentication</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PORT__HAS_AUTHENTICATION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Has Authorization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PORT__HAS_AUTHORIZATION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Has Input Sanitization</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PORT__HAS_INPUT_SANITIZATION = 7;
+
+	/**
+	 * The number of structural features of the '<em>Communication Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PORT_FEATURE_COUNT = 8;
+
+	/**
+	 * The number of operations of the '<em>Communication Port</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_PORT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1244,7 +1689,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getExprOperator()
 	 * @generated
 	 */
-	int EXPR_OPERATOR = 18;
+	int EXPR_OPERATOR = 22;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.LTLOperator <em>LTL Operator</em>}' enum.
@@ -1254,7 +1699,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getLTLOperator()
 	 * @generated
 	 */
-	int LTL_OPERATOR = 19;
+	int LTL_OPERATOR = 23;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.BehaviourPropType <em>Behaviour Prop Type</em>}' enum.
@@ -1264,7 +1709,67 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getBehaviourPropType()
 	 * @generated
 	 */
-	int BEHAVIOUR_PROP_TYPE = 20;
+	int BEHAVIOUR_PROP_TYPE = 24;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.NodeType <em>Node Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.NodeType
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNodeType()
+	 * @generated
+	 */
+	int NODE_TYPE = 25;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.HostType <em>Host Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.HostType
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getHostType()
+	 * @generated
+	 */
+	int HOST_TYPE = 26;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.LinkType <em>Link Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.LinkType
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getLinkType()
+	 * @generated
+	 */
+	int LINK_TYPE = 27;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.NetAccessType <em>Net Access Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.NetAccessType
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNetAccessType()
+	 * @generated
+	 */
+	int NET_ACCESS_TYPE = 28;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.NetworkType <em>Network Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.NetworkType
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNetworkType()
+	 * @generated
+	 */
+	int NETWORK_TYPE = 29;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.CriticalLevel <em>Critical Level</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.CriticalLevel
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getCriticalLevel()
+	 * @generated
+	 */
+	int CRITICAL_LEVEL = 30;
 
 	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.Component <em>Component</em>}'.
@@ -1319,6 +1824,39 @@ public interface ArchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getComponent_Valid();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.Component#getDeploymentnode <em>Deploymentnode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Deploymentnode</em>'.
+	 * @see nz.auckland.arch.Component#getDeploymentnode()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EReference getComponent_Deploymentnode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.Component#getCriticalLevel <em>Critical Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Critical Level</em>'.
+	 * @see nz.auckland.arch.Component#getCriticalLevel()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EAttribute getComponent_CriticalLevel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.Component#getSecurityCharacters <em>Security Characters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Security Characters</em>'.
+	 * @see nz.auckland.arch.Component#getSecurityCharacters()
+	 * @see #getComponent()
+	 * @generated
+	 */
+	EAttribute getComponent_SecurityCharacters();
 
 	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.DesignModel <em>Design Model</em>}'.
@@ -1386,6 +1924,28 @@ public interface ArchPackage extends EPackage {
 	EAttribute getDesignModel_Name();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link nz.auckland.arch.DesignModel#getHost <em>Host</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Host</em>'.
+	 * @see nz.auckland.arch.DesignModel#getHost()
+	 * @see #getDesignModel()
+	 * @generated
+	 */
+	EReference getDesignModel_Host();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link nz.auckland.arch.DesignModel#getLink <em>Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Link</em>'.
+	 * @see nz.auckland.arch.DesignModel#getLink()
+	 * @see #getDesignModel()
+	 * @generated
+	 */
+	EReference getDesignModel_Link();
+
+	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.Connector <em>Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1451,6 +2011,28 @@ public interface ArchPackage extends EPackage {
 	EAttribute getConnector_Valid();
 
 	/**
+	 * Returns the meta object for the reference list '{@link nz.auckland.arch.Connector#getCommunicationlink <em>Communicationlink</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Communicationlink</em>'.
+	 * @see nz.auckland.arch.Connector#getCommunicationlink()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EReference getConnector_Communicationlink();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.Connector#getSecurityCharacters <em>Security Characters</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Security Characters</em>'.
+	 * @see nz.auckland.arch.Connector#getSecurityCharacters()
+	 * @see #getConnector()
+	 * @generated
+	 */
+	EAttribute getConnector_SecurityCharacters();
+
+	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.Port <em>Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1514,6 +2096,17 @@ public interface ArchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPort_Valid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.Port#isInsecure <em>Insecure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Insecure</em>'.
+	 * @see nz.auckland.arch.Port#isInsecure()
+	 * @see #getPort()
+	 * @generated
+	 */
+	EAttribute getPort_Insecure();
 
 	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.Event <em>Event</em>}'.
@@ -1980,6 +2573,28 @@ public interface ArchPackage extends EPackage {
 	EAttribute getBehaviourProperty_Type();
 
 	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.BehaviourProperty#getTestport <em>Testport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Testport</em>'.
+	 * @see nz.auckland.arch.BehaviourProperty#getTestport()
+	 * @see #getBehaviourProperty()
+	 * @generated
+	 */
+	EReference getBehaviourProperty_Testport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.BehaviourProperty#getTraceExample <em>Trace Example</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Trace Example</em>'.
+	 * @see nz.auckland.arch.BehaviourProperty#getTraceExample()
+	 * @see #getBehaviourProperty()
+	 * @generated
+	 */
+	EAttribute getBehaviourProperty_TraceExample();
+
+	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.LTLExpr <em>LTL Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2032,6 +2647,28 @@ public interface ArchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLTLExpr_Property();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.LTLExpr#getRole <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Role</em>'.
+	 * @see nz.auckland.arch.LTLExpr#getRole()
+	 * @see #getLTLExpr()
+	 * @generated
+	 */
+	EReference getLTLExpr_Role();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.LTLExpr#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Port</em>'.
+	 * @see nz.auckland.arch.LTLExpr#getPort()
+	 * @see #getLTLExpr()
+	 * @generated
+	 */
+	EReference getLTLExpr_Port();
 
 	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.LTLNestedExpr <em>LTL Nested Expr</em>}'.
@@ -2118,6 +2755,277 @@ public interface ArchPackage extends EPackage {
 	EAttribute getStructuralProperty_Result();
 
 	/**
+	 * Returns the meta object for class '{@link nz.auckland.arch.Device <em>Device</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Device</em>'.
+	 * @see nz.auckland.arch.Device
+	 * @generated
+	 */
+	EClass getDevice();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.Device#getNetAccessType <em>Net Access Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Net Access Type</em>'.
+	 * @see nz.auckland.arch.Device#getNetAccessType()
+	 * @see #getDevice()
+	 * @generated
+	 */
+	EAttribute getDevice_NetAccessType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.Device#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see nz.auckland.arch.Device#getName()
+	 * @see #getDevice()
+	 * @generated
+	 */
+	EAttribute getDevice_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link nz.auckland.arch.Device#getNode <em>Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Node</em>'.
+	 * @see nz.auckland.arch.Device#getNode()
+	 * @see #getDevice()
+	 * @generated
+	 */
+	EReference getDevice_Node();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.Device#getHostType <em>Host Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Host Type</em>'.
+	 * @see nz.auckland.arch.Device#getHostType()
+	 * @see #getDevice()
+	 * @generated
+	 */
+	EAttribute getDevice_HostType();
+
+	/**
+	 * Returns the meta object for class '{@link nz.auckland.arch.ExecutionEnvironment <em>Execution Environment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Execution Environment</em>'.
+	 * @see nz.auckland.arch.ExecutionEnvironment
+	 * @generated
+	 */
+	EClass getExecutionEnvironment();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.ExecutionEnvironment#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see nz.auckland.arch.ExecutionEnvironment#getType()
+	 * @see #getExecutionEnvironment()
+	 * @generated
+	 */
+	EAttribute getExecutionEnvironment_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.ExecutionEnvironment#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see nz.auckland.arch.ExecutionEnvironment#getName()
+	 * @see #getExecutionEnvironment()
+	 * @generated
+	 */
+	EAttribute getExecutionEnvironment_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link nz.auckland.arch.ExecutionEnvironment#getComponent <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Component</em>'.
+	 * @see nz.auckland.arch.ExecutionEnvironment#getComponent()
+	 * @see #getExecutionEnvironment()
+	 * @generated
+	 */
+	EReference getExecutionEnvironment_Component();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link nz.auckland.arch.ExecutionEnvironment#getPort <em>Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Port</em>'.
+	 * @see nz.auckland.arch.ExecutionEnvironment#getPort()
+	 * @see #getExecutionEnvironment()
+	 * @generated
+	 */
+	EReference getExecutionEnvironment_Port();
+
+	/**
+	 * Returns the meta object for class '{@link nz.auckland.arch.CommunicationLink <em>Communication Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Communication Link</em>'.
+	 * @see nz.auckland.arch.CommunicationLink
+	 * @generated
+	 */
+	EClass getCommunicationLink();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.CommunicationLink#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see nz.auckland.arch.CommunicationLink#getName()
+	 * @see #getCommunicationLink()
+	 * @generated
+	 */
+	EAttribute getCommunicationLink_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.CommunicationLink#getLinkType <em>Link Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Link Type</em>'.
+	 * @see nz.auckland.arch.CommunicationLink#getLinkType()
+	 * @see #getCommunicationLink()
+	 * @generated
+	 */
+	EAttribute getCommunicationLink_LinkType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.CommunicationLink#getNetworkType <em>Network Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Network Type</em>'.
+	 * @see nz.auckland.arch.CommunicationLink#getNetworkType()
+	 * @see #getCommunicationLink()
+	 * @generated
+	 */
+	EAttribute getCommunicationLink_NetworkType();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.CommunicationLink#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see nz.auckland.arch.CommunicationLink#getSource()
+	 * @see #getCommunicationLink()
+	 * @generated
+	 */
+	EReference getCommunicationLink_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.CommunicationLink#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see nz.auckland.arch.CommunicationLink#getTarget()
+	 * @see #getCommunicationLink()
+	 * @generated
+	 */
+	EReference getCommunicationLink_Target();
+
+	/**
+	 * Returns the meta object for class '{@link nz.auckland.arch.CommunicationPort <em>Communication Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Communication Port</em>'.
+	 * @see nz.auckland.arch.CommunicationPort
+	 * @generated
+	 */
+	EClass getCommunicationPort();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.CommunicationPort#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see nz.auckland.arch.CommunicationPort#getName()
+	 * @see #getCommunicationPort()
+	 * @generated
+	 */
+	EAttribute getCommunicationPort_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.CommunicationPort#getPortNumber <em>Port Number</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Port Number</em>'.
+	 * @see nz.auckland.arch.CommunicationPort#getPortNumber()
+	 * @see #getCommunicationPort()
+	 * @generated
+	 */
+	EAttribute getCommunicationPort_PortNumber();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.CommunicationPort#getNode <em>Node</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Node</em>'.
+	 * @see nz.auckland.arch.CommunicationPort#getNode()
+	 * @see #getCommunicationPort()
+	 * @generated
+	 */
+	EReference getCommunicationPort_Node();
+
+	/**
+	 * Returns the meta object for the reference list '{@link nz.auckland.arch.CommunicationPort#getNamedport <em>Namedport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Namedport</em>'.
+	 * @see nz.auckland.arch.CommunicationPort#getNamedport()
+	 * @see #getCommunicationPort()
+	 * @generated
+	 */
+	EReference getCommunicationPort_Namedport();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.CommunicationPort#isHasFirewall <em>Has Firewall</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Firewall</em>'.
+	 * @see nz.auckland.arch.CommunicationPort#isHasFirewall()
+	 * @see #getCommunicationPort()
+	 * @generated
+	 */
+	EAttribute getCommunicationPort_HasFirewall();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.CommunicationPort#isHasAuthentication <em>Has Authentication</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Authentication</em>'.
+	 * @see nz.auckland.arch.CommunicationPort#isHasAuthentication()
+	 * @see #getCommunicationPort()
+	 * @generated
+	 */
+	EAttribute getCommunicationPort_HasAuthentication();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.CommunicationPort#isHasAuthorization <em>Has Authorization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Authorization</em>'.
+	 * @see nz.auckland.arch.CommunicationPort#isHasAuthorization()
+	 * @see #getCommunicationPort()
+	 * @generated
+	 */
+	EAttribute getCommunicationPort_HasAuthorization();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.CommunicationPort#isHasInputSanitization <em>Has Input Sanitization</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Input Sanitization</em>'.
+	 * @see nz.auckland.arch.CommunicationPort#isHasInputSanitization()
+	 * @see #getCommunicationPort()
+	 * @generated
+	 */
+	EAttribute getCommunicationPort_HasInputSanitization();
+
+	/**
 	 * Returns the meta object for enum '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2146,6 +3054,66 @@ public interface ArchPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getBehaviourPropType();
+
+	/**
+	 * Returns the meta object for enum '{@link nz.auckland.arch.NodeType <em>Node Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Node Type</em>'.
+	 * @see nz.auckland.arch.NodeType
+	 * @generated
+	 */
+	EEnum getNodeType();
+
+	/**
+	 * Returns the meta object for enum '{@link nz.auckland.arch.HostType <em>Host Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Host Type</em>'.
+	 * @see nz.auckland.arch.HostType
+	 * @generated
+	 */
+	EEnum getHostType();
+
+	/**
+	 * Returns the meta object for enum '{@link nz.auckland.arch.LinkType <em>Link Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Link Type</em>'.
+	 * @see nz.auckland.arch.LinkType
+	 * @generated
+	 */
+	EEnum getLinkType();
+
+	/**
+	 * Returns the meta object for enum '{@link nz.auckland.arch.NetAccessType <em>Net Access Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Net Access Type</em>'.
+	 * @see nz.auckland.arch.NetAccessType
+	 * @generated
+	 */
+	EEnum getNetAccessType();
+
+	/**
+	 * Returns the meta object for enum '{@link nz.auckland.arch.NetworkType <em>Network Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Network Type</em>'.
+	 * @see nz.auckland.arch.NetworkType
+	 * @generated
+	 */
+	EEnum getNetworkType();
+
+	/**
+	 * Returns the meta object for enum '{@link nz.auckland.arch.CriticalLevel <em>Critical Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Critical Level</em>'.
+	 * @see nz.auckland.arch.CriticalLevel
+	 * @generated
+	 */
+	EEnum getCriticalLevel();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2213,6 +3181,30 @@ public interface ArchPackage extends EPackage {
 		EAttribute COMPONENT__VALID = eINSTANCE.getComponent_Valid();
 
 		/**
+		 * The meta object literal for the '<em><b>Deploymentnode</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPONENT__DEPLOYMENTNODE = eINSTANCE.getComponent_Deploymentnode();
+
+		/**
+		 * The meta object literal for the '<em><b>Critical Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT__CRITICAL_LEVEL = eINSTANCE.getComponent_CriticalLevel();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Characters</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT__SECURITY_CHARACTERS = eINSTANCE.getComponent_SecurityCharacters();
+
+		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.impl.DesignModelImpl <em>Design Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2261,6 +3253,22 @@ public interface ArchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DESIGN_MODEL__NAME = eINSTANCE.getDesignModel_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Host</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DESIGN_MODEL__HOST = eINSTANCE.getDesignModel_Host();
+
+		/**
+		 * The meta object literal for the '<em><b>Link</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DESIGN_MODEL__LINK = eINSTANCE.getDesignModel_Link();
 
 		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -2313,6 +3321,22 @@ public interface ArchPackage extends EPackage {
 		EAttribute CONNECTOR__VALID = eINSTANCE.getConnector_Valid();
 
 		/**
+		 * The meta object literal for the '<em><b>Communicationlink</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONNECTOR__COMMUNICATIONLINK = eINSTANCE.getConnector_Communicationlink();
+
+		/**
+		 * The meta object literal for the '<em><b>Security Characters</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CONNECTOR__SECURITY_CHARACTERS = eINSTANCE.getConnector_SecurityCharacters();
+
+		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.impl.PortImpl <em>Port</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2361,6 +3385,14 @@ public interface ArchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PORT__VALID = eINSTANCE.getPort_Valid();
+
+		/**
+		 * The meta object literal for the '<em><b>Insecure</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PORT__INSECURE = eINSTANCE.getPort_Insecure();
 
 		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.impl.EventImpl <em>Event</em>}' class.
@@ -2725,6 +3757,22 @@ public interface ArchPackage extends EPackage {
 		EAttribute BEHAVIOUR_PROPERTY__TYPE = eINSTANCE.getBehaviourProperty_Type();
 
 		/**
+		 * The meta object literal for the '<em><b>Testport</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEHAVIOUR_PROPERTY__TESTPORT = eINSTANCE.getBehaviourProperty_Testport();
+
+		/**
+		 * The meta object literal for the '<em><b>Trace Example</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BEHAVIOUR_PROPERTY__TRACE_EXAMPLE = eINSTANCE.getBehaviourProperty_TraceExample();
+
+		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.impl.LTLExprImpl <em>LTL Expr</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2765,6 +3813,22 @@ public interface ArchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LTL_EXPR__PROPERTY = eINSTANCE.getLTLExpr_Property();
+
+		/**
+		 * The meta object literal for the '<em><b>Role</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LTL_EXPR__ROLE = eINSTANCE.getLTLExpr_Role();
+
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LTL_EXPR__PORT = eINSTANCE.getLTLExpr_Port();
 
 		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.impl.LTLNestedExprImpl <em>LTL Nested Expr</em>}' class.
@@ -2839,6 +3903,214 @@ public interface ArchPackage extends EPackage {
 		EAttribute STRUCTURAL_PROPERTY__RESULT = eINSTANCE.getStructuralProperty_Result();
 
 		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.impl.DeviceImpl <em>Device</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.impl.DeviceImpl
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getDevice()
+		 * @generated
+		 */
+		EClass DEVICE = eINSTANCE.getDevice();
+
+		/**
+		 * The meta object literal for the '<em><b>Net Access Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEVICE__NET_ACCESS_TYPE = eINSTANCE.getDevice_NetAccessType();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEVICE__NAME = eINSTANCE.getDevice_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Node</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEVICE__NODE = eINSTANCE.getDevice_Node();
+
+		/**
+		 * The meta object literal for the '<em><b>Host Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEVICE__HOST_TYPE = eINSTANCE.getDevice_HostType();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.impl.ExecutionEnvironmentImpl <em>Execution Environment</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.impl.ExecutionEnvironmentImpl
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getExecutionEnvironment()
+		 * @generated
+		 */
+		EClass EXECUTION_ENVIRONMENT = eINSTANCE.getExecutionEnvironment();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXECUTION_ENVIRONMENT__TYPE = eINSTANCE.getExecutionEnvironment_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXECUTION_ENVIRONMENT__NAME = eINSTANCE.getExecutionEnvironment_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Component</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTION_ENVIRONMENT__COMPONENT = eINSTANCE.getExecutionEnvironment_Component();
+
+		/**
+		 * The meta object literal for the '<em><b>Port</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXECUTION_ENVIRONMENT__PORT = eINSTANCE.getExecutionEnvironment_Port();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.impl.CommunicationLinkImpl <em>Communication Link</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.impl.CommunicationLinkImpl
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getCommunicationLink()
+		 * @generated
+		 */
+		EClass COMMUNICATION_LINK = eINSTANCE.getCommunicationLink();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_LINK__NAME = eINSTANCE.getCommunicationLink_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Link Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_LINK__LINK_TYPE = eINSTANCE.getCommunicationLink_LinkType();
+
+		/**
+		 * The meta object literal for the '<em><b>Network Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_LINK__NETWORK_TYPE = eINSTANCE.getCommunicationLink_NetworkType();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_LINK__SOURCE = eINSTANCE.getCommunicationLink_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_LINK__TARGET = eINSTANCE.getCommunicationLink_Target();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.impl.CommunicationPortImpl <em>Communication Port</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.impl.CommunicationPortImpl
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getCommunicationPort()
+		 * @generated
+		 */
+		EClass COMMUNICATION_PORT = eINSTANCE.getCommunicationPort();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_PORT__NAME = eINSTANCE.getCommunicationPort_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Port Number</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_PORT__PORT_NUMBER = eINSTANCE.getCommunicationPort_PortNumber();
+
+		/**
+		 * The meta object literal for the '<em><b>Node</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_PORT__NODE = eINSTANCE.getCommunicationPort_Node();
+
+		/**
+		 * The meta object literal for the '<em><b>Namedport</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_PORT__NAMEDPORT = eINSTANCE.getCommunicationPort_Namedport();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Firewall</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_PORT__HAS_FIREWALL = eINSTANCE.getCommunicationPort_HasFirewall();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Authentication</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_PORT__HAS_AUTHENTICATION = eINSTANCE.getCommunicationPort_HasAuthentication();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Authorization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_PORT__HAS_AUTHORIZATION = eINSTANCE.getCommunicationPort_HasAuthorization();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Input Sanitization</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMUNICATION_PORT__HAS_INPUT_SANITIZATION = eINSTANCE.getCommunicationPort_HasInputSanitization();
+
+		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2867,6 +4139,66 @@ public interface ArchPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum BEHAVIOUR_PROP_TYPE = eINSTANCE.getBehaviourPropType();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.NodeType <em>Node Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.NodeType
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getNodeType()
+		 * @generated
+		 */
+		EEnum NODE_TYPE = eINSTANCE.getNodeType();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.HostType <em>Host Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.HostType
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getHostType()
+		 * @generated
+		 */
+		EEnum HOST_TYPE = eINSTANCE.getHostType();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.LinkType <em>Link Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.LinkType
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getLinkType()
+		 * @generated
+		 */
+		EEnum LINK_TYPE = eINSTANCE.getLinkType();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.NetAccessType <em>Net Access Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.NetAccessType
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getNetAccessType()
+		 * @generated
+		 */
+		EEnum NET_ACCESS_TYPE = eINSTANCE.getNetAccessType();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.NetworkType <em>Network Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.NetworkType
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getNetworkType()
+		 * @generated
+		 */
+		EEnum NETWORK_TYPE = eINSTANCE.getNetworkType();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.CriticalLevel <em>Critical Level</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.CriticalLevel
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getCriticalLevel()
+		 * @generated
+		 */
+		EEnum CRITICAL_LEVEL = eINSTANCE.getCriticalLevel();
 
 	}
 

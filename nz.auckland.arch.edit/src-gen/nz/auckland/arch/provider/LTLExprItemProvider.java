@@ -58,6 +58,8 @@ public class LTLExprItemProvider extends ItemProviderAdapter implements IEditing
 			addOperatorPropertyDescriptor(object);
 			addNextExprPropertyDescriptor(object);
 			addPropertyPropertyDescriptor(object);
+			addRolePropertyDescriptor(object);
+			addPortPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -121,6 +123,34 @@ public class LTLExprItemProvider extends ItemProviderAdapter implements IEditing
 						getString("_UI_PropertyDescriptor_description", "_UI_LTLExpr_property_feature",
 								"_UI_LTLExpr_type"),
 						ArchPackage.Literals.LTL_EXPR__PROPERTY, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Role feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRolePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_LTLExpr_role_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_LTLExpr_role_feature", "_UI_LTLExpr_type"),
+						ArchPackage.Literals.LTL_EXPR__ROLE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Port feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPortPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_LTLExpr_port_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_LTLExpr_port_feature", "_UI_LTLExpr_type"),
+						ArchPackage.Literals.LTL_EXPR__PORT, true, false, true, null, null, null));
 	}
 
 	/**

@@ -64,7 +64,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
-
 import nz.auckland.arch.ArchFactory;
 import nz.auckland.arch.ArchPackage;
 import nz.auckland.arch.ArchStyle;
@@ -77,8 +76,11 @@ import nz.auckland.arch.Connector;
 import nz.auckland.arch.ConnectorType;
 import nz.auckland.arch.DesignModel;
 import nz.auckland.arch.Event;
+import nz.auckland.arch.ExecutionEnvironment;
 import nz.auckland.arch.LTLExpr;
 import nz.auckland.arch.LTLNestedExpr;
+import nz.auckland.arch.LTLOperator;
+import nz.auckland.arch.LTLRegularExpr;
 import nz.auckland.arch.Port;
 import nz.auckland.arch.Role;
 import nz.auckland.arch.RoleType;
@@ -89,15 +91,16 @@ import nz.auckland.arch.impl.DesignModelImpl;
 import nz.auckland.arch.viewpoint.model.ADLVerifyRequest;
 import nz.auckland.arch.viewpoint.model.ADLVerifyResult;
 import nz.auckland.arch.viewpoint.utils.ADLModelConverter;
+import nz.auckland.arch.viewpoint.utils.BehaviourPropVerifyJob;
 import nz.auckland.arch.viewpoint.utils.BehaviourVerifyJob;
 import nz.auckland.arch.viewpoint.utils.ModelSimulation;
+import nz.auckland.arch.viewpoint.utils.SecurityVerifyJob;
 import nz.auckland.arch.viewpoint.utils.StructureVerifyJob;
 
 /**
  * The services class used by VSM.
  */
 public class Services {
-	
 
 //	public EObject myService(EObject self, String arg) {
 //		System.out.println("myservice is called: " + arg);
@@ -111,17 +114,165 @@ public class Services {
 		job.schedule();
 		return job.getModel();
 	}
-	
+
 	public EObject verifyBehaviour(EObject self) {
-		
+
 		DesignModel model = (DesignModel) self;
-		BehaviourVerifyJob job = new BehaviourVerifyJob("Verifying behaviour properties",model);
+		BehaviourVerifyJob job = new BehaviourVerifyJob("Verifying behaviour properties", model);
 		job.schedule();
 		return job.getModel();
-		
+
 	}
 
+	public EObject verifyBehaviourProp(EObject self) {
+
+		if (self instanceof BehaviourProperty) {
+			if (((BehaviourProperty) self).getTestport() == null) {
+				showMessage("Test Port is required, please set");
+			}
+			BehaviourPropVerifyJob job = new BehaviourPropVerifyJob("Verifying behaviour property",
+					(BehaviourProperty) self);
+			job.schedule();
+		}
+
+		return self;
+	}
 	
+	public EObject resetAdversary(EObject self) {
+		System.out.println("resetAdversary" + self);
+		DesignModel model = (DesignModel) self;
+		// remove adversary component
+		List<Component> compToRemove = new ArrayList<Component>();
+		List<VerificationProperty> propToRemove = new ArrayList<VerificationProperty>();
+		try {
+			for(Component comp: model.getComponent()) {
+				if("adversary".equals(comp.getType())) {
+					compToRemove.add(comp);
+				}
+			}
+			for(VerificationProperty prop: model.getVerifyProperty()) {
+				if(prop.getName().startsWith("Adversary"))
+					propToRemove.add(prop);
+			}
+			
+			model.getComponent().removeAll(compToRemove);
+			model.getVerifyProperty().removeAll(propToRemove);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return self;
+	}
+
+	public EObject generateAdversary(EObject self, String attackName, String attackCode) {
+		
+		DesignModel model = (DesignModel) self;
+
+		try {
+			ArchFactory factory = ArchFactoryImpl.init();
+			// find connector with DenialOfService
+			int advId = 1;
+			for (Connector con : model.getConnector()) {
+				if (con.getSecurityCharacters() != null
+						&& con.getSecurityCharacters().indexOf(attackName) != -1) {
+
+					// create DOS adversary
+					Component adversary = factory.createComponent();
+
+					adversary.setName("Adversary"+attackCode + advId);
+					adversary.setType("adversary");
+					// create attack port
+					Port attackPort = factory.createPort();
+					attackPort.setName("attack" + advId);
+					attackPort.setType("OutboundPort");
+					adversary.getPort().add(attackPort);
+					// add event to port
+					Event attackedEvt = factory.createEvent();
+					attackedEvt.setName("attacked");
+					attackPort.getEvents().add(attackedEvt);
+
+					// attach to outbound role of this connector
+					List<Role> inRleList = new ArrayList<Role>();
+					for (Role rle : con.getRole()) {
+						if (rle.getType().indexOf("out") != -1) {
+							attackPort.getRole().add(rle);
+						} else if (rle.getType().indexOf("in") != -1) {
+							inRleList.add(rle);
+						}
+
+					}
+					model.getComponent().add(adversary);
+					advId++;
+
+					// create LTL property for attack scenario
+					for (Role inRle : inRleList) {
+
+						// find component attached to this role
+						for (Component comp : model.getComponent()) {
+							for (Port inPort : comp.getPort()) {
+								if (inPort.getRole().contains(inRle)) {
+
+									// found dos port at component, generate LTL
+									BehaviourProperty prop = factory.createBehaviourProperty();
+									prop.setName(adversary.getName() + "VerifyProp");
+									prop.setTestport(attackPort);
+
+									// use progress (lead to) operator
+									LTLNestedExpr expr = factory.createLTLNestedExpr();
+									expr.setOperator(LTLOperator.ALWAYS);
+									prop.getLtlexpr().add(expr);
+
+									// add component event as begin -> target
+									
+									/****** attack port-role -> target port ****/
+									LTLRegularExpr innerExprBegin = factory.createLTLRegularExpr();
+									innerExprBegin.setPort(attackPort);
+									innerExprBegin.setRole(attackPort.getRole().get(0));
+									innerExprBegin.setEvent(attackPort.getRole().get(0).getRoletype().getEvent().get(0));
+									expr.getExpr().add(innerExprBegin);
+									
+									LTLRegularExpr innerExprTarget = factory.createLTLRegularExpr();
+									innerExprTarget.setEvent(inPort.getEvents().get(0));
+									innerExprTarget.setOperator(LTLOperator.EVENTUALLY);
+									innerExprBegin.setNextExpr(innerExprTarget);
+									expr.getExpr().add(innerExprTarget);
+									
+									/****** target component -> attack port
+									LTLRegularExpr innerExprBegin = factory.createLTLRegularExpr();
+									innerExprBegin.setEvent(inPort.getEvents().get(0));
+									expr.getExpr().add(innerExprBegin);
+
+									// add adversary attacked event as target
+									LTLRegularExpr innerExprTarget = factory.createLTLRegularExpr();
+									innerExprTarget.setEvent(attackedEvt);
+									innerExprTarget.setOperator(LTLOperator.EVENTUALLY);
+									innerExprBegin.setNextExpr(innerExprTarget);
+									expr.getExpr().add(innerExprTarget);
+									*********/
+									model.getVerifyProperty().add(prop);
+								}
+
+							}
+						}
+					}
+				}
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return model;
+	}
+
+	public EObject verifySecurity(EObject self) {
+		DesignModel model = (DesignModel) self;
+
+		SecurityVerifyJob job = new SecurityVerifyJob("Verifying model security", model);
+		job.schedule();
+		return job.getModel();
+	}
 
 	public EList getAllArchStyles(EObject self) {
 		DesignModel model = (DesignModel) self;
@@ -163,136 +314,205 @@ public class Services {
 
 		return self;
 	}
-	
+
 	public List<EObject> getCompPortsForExpr(EObject self) {
-		System.out.println("getCompPortsForExpr called "+ self);
+		System.out.println("getCompPortsForExpr called " + self);
 		DesignModel model = null;
-		if(self instanceof BehaviourProperty) {
+		if (self instanceof BehaviourProperty) {
 			BehaviourProperty prop = (BehaviourProperty) self;
 			model = prop.getModel();
-		} else if(self instanceof LTLNestedExpr) {
-			model = ((LTLNestedExpr)self).getProperty().getModel();
+		} else if (self instanceof LTLNestedExpr) {
+			model = ((LTLNestedExpr) self).getProperty().getModel();
 		}
-		
+
 		List<EObject> result = new ArrayList<EObject>();
-		for(Component comp: model.getComponent()) {
-			
-			for(Port port: comp.getPort()) {
-				
+		for (Component comp : model.getComponent()) {
+
+			for (Port port : comp.getPort()) {
+
 				result.add(port);
-			//	result.addAll(port.getEvents());
+				// result.addAll(port.getEvents());
 			}
 		}
-		
+
 		return result;
 	}
-	
+
 	public List<EObject> getConnRolesForExpr(EObject self) {
-		System.out.println("getConnRolesForExpr called "+ self);
+		System.out.println("getConnRolesForExpr called " + self);
 		DesignModel model = null;
-		if(self instanceof BehaviourProperty) {
+		if (self instanceof BehaviourProperty) {
 			BehaviourProperty prop = (BehaviourProperty) self;
 			model = prop.getModel();
-		} else if(self instanceof LTLNestedExpr) {
-			model = ((LTLNestedExpr)self).getProperty().getModel();
+		} else if (self instanceof LTLNestedExpr) {
+			model = ((LTLNestedExpr) self).getProperty().getModel();
 		}
-		
+
 		List<EObject> result = new ArrayList<EObject>();
-		for(Connector conn: model.getConnector()) {
-			
-			for(RoleType role: conn.getConnectortype().getRoletype()) {
+		for (Connector conn : model.getConnector()) {
+
+			for (RoleType role : conn.getConnectortype().getRoletype()) {
 				result.add(role);
-			//	result.addAll(port.getEvents());
+				// result.addAll(port.getEvents());
 			}
 		}
-		
+
 		return result;
 	}
-	
-	
+
+	private void showMessage(String msg) {
+		// show error when deploy on something else other than node
+		MessageBox dialog = new MessageBox(Display.getCurrent().getActiveShell(), SWT.ICON_WARNING | SWT.OK);
+		dialog.setText("Warning");
+		dialog.setMessage(msg);
+
+		// open dialog and await user
+		dialog.open();
+	}
+
+	public List<EObject> getAllComponentsToDeploy(EObject self) {
+		System.out.println("getAllComponents called " + self);
+		if (!(self instanceof ExecutionEnvironment)) {
+
+			// show error when deploy on something else other than node
+			showMessage("Component can be deployed on node only");
+			return null;
+		} else {
+
+			// find all components
+			List<EObject> result = new ArrayList<EObject>();
+			List<Component> comps = ((DesignModel) ((ExecutionEnvironment) self).eContainer().eContainer())
+					.getComponent();
+			for (Component comp : comps) {
+				if (comp.getDeploymentnode() == null) {
+					result.add(comp);
+				}
+			}
+			return result;
+		}
+	}
+
+	public EObject deployComponent(EObject self, EObject comp) {
+		System.out.println("deployComponent " + comp + " to " + self);
+		if (self instanceof ExecutionEnvironment && comp instanceof Component) {
+			// add component to deployment node
+			// set deployment node to component
+			((ExecutionEnvironment) self).getComponent().add((Component) comp);
+			((Component) comp).setDeploymentnode((ExecutionEnvironment) self);
+		}
+		return self;
+	}
+
 	public EObject getModelForExpr(EObject self) {
-		System.out.println(" getModelForExpr called "+ self);
-		if(self instanceof BehaviourProperty) {
+		System.out.println(" getModelForExpr called " + self);
+		if (self instanceof BehaviourProperty) {
 			BehaviourProperty prop = (BehaviourProperty) self;
 			return prop.getModel();
-			
-		} else if(self instanceof LTLNestedExpr) {
+
+		} else if (self instanceof LTLNestedExpr) {
 			LTLNestedExpr nexpr = (LTLNestedExpr) self;
 			return nexpr.getProperty().getModel();
 		}
-		
+
 		return null;
 	}
-	
+
 	public EObject test(EObject self) {
-		System.out.println(" test "+ self);
+		System.out.println(" test " + self);
 		return self;
 	}
-	
+
 	public EObject createLTLExpr(EObject self, EObject event) {
-		BehaviourProperty prop = (BehaviourProperty) self;
-		ArchFactory factory = ArchFactoryImpl.init();
-		LTLExpr expr = (LTLExpr)factory.createLTLRegularExpr();
-		expr.setEvent((Event)event);
-		prop.getLtlexpr().add(expr);
-		return expr;
-	}
-	
-	public EObject createLTLSubExpr(EObject self, EObject event) {
-		LTLNestedExpr nesexpr = (LTLNestedExpr) self;
-		ArchFactory factory = ArchFactoryImpl.init();
-		LTLExpr expr = (LTLExpr)factory.createLTLRegularExpr();
-		expr.setEvent((Event)event);
-		nesexpr.getExpr().add(expr);
-		return expr;
-	}
-	
-
-	
-	
-	
-	public EObject simulate(EObject self) {
-		
-		System.out.println("simulate is called...." + self);
-		
-		// check if the property has passed in
-		if(! (self instanceof BehaviourProperty))
-			return self;
-		
-		// DesignModel model = (DesignModel)self;
-		ModelSimulation sim = new ModelSimulation();
+		System.out.println("createLTLExpr called");
+		BehaviourProperty prop = null;
 		try {
-			
-			BehaviourProperty prop = (BehaviourProperty) self;
-			if (!prop.isValid()) {
-				sim.setupRpstElementHash();
-				sim.run(prop.getCounterExample());
-			} else {
-				MessageBox dialog =
-					    new MessageBox(Display.getCurrent().getActiveShell(), SWT.ICON_WARNING | SWT.OK);
-					dialog.setText("Warning");
-					dialog.setMessage("This property is valid without any counterexample");
-
-					// open dialog and await user selection
-					dialog.open();
-			}
-
+			prop = (BehaviourProperty) self;
+			ArchFactory factory = ArchFactoryImpl.init();
+			LTLExpr expr = (LTLExpr) factory.createLTLRegularExpr();
+			expr.setEvent((Event) event);
+			prop.getLtlexpr().add(expr);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-        return self;
-    }
-	
+		return prop;
+	}
+
+	public EObject createLTLSubExpr(EObject self, EObject event) {
+		System.out.println("createLTLSubExpr called");
+		LTLNestedExpr nesexpr = (LTLNestedExpr) self;
+		ArchFactory factory = ArchFactoryImpl.init();
+		LTLExpr expr = (LTLExpr) factory.createLTLRegularExpr();
+		expr.setEvent((Event) event);
+		nesexpr.getExpr().add(expr);
+		return expr;
+	}
+
+	// type 0=trace example, 1=counter example
+	public EObject simulate(EObject self, int type) {
+
+		System.out.println("simulate is called...." + self);
+
+		// check if the property has passed in
+		if (!(self instanceof BehaviourProperty))
+			return self;
+
+		// DesignModel model = (DesignModel)self;
+		ModelSimulation sim = new ModelSimulation();
+		try {
+
+			BehaviourProperty prop = (BehaviourProperty) self;
+						
+			
+				
+				
+			if(type==1) {
+				if(prop.getCounterExample() == null || "".equals(prop.getCounterExample()))
+					this.showMessage("No Counter Example found!");
+				else {
+					sim.setupRpstElementHash();
+					sim.run(prop.getCounterExample());
+				}
+			}else if(type == 0) {
+				if(prop.getTraceExample() == null || "".equals(prop.getTraceExample()))
+					this.showMessage("No Trace Example found!");
+				else {
+					sim.setupRpstElementHash();
+					sim.run(prop.getTraceExample());
+				}
+			} 
+			
+
+		}catch(
+
+	Exception e)
+	{
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+
+	return self;
+	}
+
 	public boolean isLTLProp(EObject object) {
-		//System.out.println(object);
-		if(object instanceof BehaviourProperty) {
+		// System.out.println(object);
+		if (object instanceof BehaviourProperty) {
 			BehaviourProperty prop = (BehaviourProperty) object;
-			if(prop.getType() == BehaviourPropType.LTL )
+			if (prop.getType() == BehaviourPropType.LTL)
 				return true;
 		}
 		return false;
 	}
-
+	/*
+	 * public EObject createBehaviourDataTampering(EObject self) { // find data
+	 * tampering component DesignModel model = (DesignModel) self;
+	 * 
+	 * for(Component comp: model.getComponent()) { // create LTL to check
+	 * DenialOfService to critical component
+	 * if(comp.getSecurityCharacters().indexOf("DenialOfService")!=-1) {
+	 * 
+	 * } }
+	 * 
+	 * return self; }
+	 */
 }

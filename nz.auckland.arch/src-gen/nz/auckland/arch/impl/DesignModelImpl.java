@@ -6,9 +6,11 @@ import java.util.Collection;
 
 import nz.auckland.arch.ArchPackage;
 import nz.auckland.arch.ArchStyle;
+import nz.auckland.arch.CommunicationLink;
 import nz.auckland.arch.Component;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.Device;
 import nz.auckland.arch.VerificationProperty;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -38,6 +40,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link nz.auckland.arch.impl.DesignModelImpl#getArchstyle <em>Archstyle</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.DesignModelImpl#getVerifyProperty <em>Verify Property</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.DesignModelImpl#getName <em>Name</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.DesignModelImpl#getHost <em>Host</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.DesignModelImpl#getLink <em>Link</em>}</li>
  * </ul>
  *
  * @generated
@@ -102,6 +106,26 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getHost() <em>Host</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getHost()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Device> host;
+
+	/**
+	 * The cached value of the '{@link #getLink() <em>Link</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLink()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CommunicationLink> link;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -200,6 +224,31 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Device> getHost() {
+		if (host == null) {
+			host = new EObjectContainmentEList<Device>(Device.class, this, ArchPackage.DESIGN_MODEL__HOST);
+		}
+		return host;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CommunicationLink> getLink() {
+		if (link == null) {
+			link = new EObjectContainmentEList<CommunicationLink>(CommunicationLink.class, this,
+					ArchPackage.DESIGN_MODEL__LINK);
+		}
+		return link;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -211,6 +260,10 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 			return ((InternalEList<?>) getArchstyle()).basicRemove(otherEnd, msgs);
 		case ArchPackage.DESIGN_MODEL__VERIFY_PROPERTY:
 			return ((InternalEList<?>) getVerifyProperty()).basicRemove(otherEnd, msgs);
+		case ArchPackage.DESIGN_MODEL__HOST:
+			return ((InternalEList<?>) getHost()).basicRemove(otherEnd, msgs);
+		case ArchPackage.DESIGN_MODEL__LINK:
+			return ((InternalEList<?>) getLink()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -233,6 +286,10 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 			return getVerifyProperty();
 		case ArchPackage.DESIGN_MODEL__NAME:
 			return getName();
+		case ArchPackage.DESIGN_MODEL__HOST:
+			return getHost();
+		case ArchPackage.DESIGN_MODEL__LINK:
+			return getLink();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,6 +322,14 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 		case ArchPackage.DESIGN_MODEL__NAME:
 			setName((String) newValue);
 			return;
+		case ArchPackage.DESIGN_MODEL__HOST:
+			getHost().clear();
+			getHost().addAll((Collection<? extends Device>) newValue);
+			return;
+		case ArchPackage.DESIGN_MODEL__LINK:
+			getLink().clear();
+			getLink().addAll((Collection<? extends CommunicationLink>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -292,6 +357,12 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 		case ArchPackage.DESIGN_MODEL__NAME:
 			setName(NAME_EDEFAULT);
 			return;
+		case ArchPackage.DESIGN_MODEL__HOST:
+			getHost().clear();
+			return;
+		case ArchPackage.DESIGN_MODEL__LINK:
+			getLink().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -314,6 +385,10 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 			return verifyProperty != null && !verifyProperty.isEmpty();
 		case ArchPackage.DESIGN_MODEL__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case ArchPackage.DESIGN_MODEL__HOST:
+			return host != null && !host.isEmpty();
+		case ArchPackage.DESIGN_MODEL__LINK:
+			return link != null && !link.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

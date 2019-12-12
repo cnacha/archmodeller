@@ -60,6 +60,8 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 			addTypePropertyDescriptor(object);
 			addConnectortypePropertyDescriptor(object);
 			addValidPropertyDescriptor(object);
+			addCommunicationlinkPropertyDescriptor(object);
+			addSecurityCharactersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -125,6 +127,37 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 								"_UI_Connector_type"),
 						ArchPackage.Literals.CONNECTOR__VALID, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Communicationlink feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCommunicationlinkPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Connector_communicationlink_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Connector_communicationlink_feature",
+								"_UI_Connector_type"),
+						ArchPackage.Literals.CONNECTOR__COMMUNICATIONLINK, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Security Characters feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecurityCharactersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Connector_securityCharacters_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Connector_securityCharacters_feature",
+								"_UI_Connector_type"),
+						ArchPackage.Literals.CONNECTOR__SECURITY_CHARACTERS, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -206,6 +239,7 @@ public class ConnectorItemProvider extends ItemProviderAdapter implements IEditi
 		case ArchPackage.CONNECTOR__NAME:
 		case ArchPackage.CONNECTOR__TYPE:
 		case ArchPackage.CONNECTOR__VALID:
+		case ArchPackage.CONNECTOR__SECURITY_CHARACTERS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case ArchPackage.CONNECTOR__ROLE:

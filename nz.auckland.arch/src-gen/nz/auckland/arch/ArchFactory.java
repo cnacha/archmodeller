@@ -166,6 +166,42 @@ public interface ArchFactory extends EFactory {
 	StructuralProperty createStructuralProperty();
 
 	/**
+	 * Returns a new object of class '<em>Device</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Device</em>'.
+	 * @generated
+	 */
+	Device createDevice();
+
+	/**
+	 * Returns a new object of class '<em>Execution Environment</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Execution Environment</em>'.
+	 * @generated
+	 */
+	ExecutionEnvironment createExecutionEnvironment();
+
+	/**
+	 * Returns a new object of class '<em>Communication Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Communication Link</em>'.
+	 * @generated
+	 */
+	CommunicationLink createCommunicationLink();
+
+	/**
+	 * Returns a new object of class '<em>Communication Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Communication Port</em>'.
+	 * @generated
+	 */
+	CommunicationPort createCommunicationPort();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

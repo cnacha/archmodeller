@@ -19,6 +19,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link nz.auckland.arch.Component#getType <em>Type</em>}</li>
  *   <li>{@link nz.auckland.arch.Component#getPort <em>Port</em>}</li>
  *   <li>{@link nz.auckland.arch.Component#isValid <em>Valid</em>}</li>
+ *   <li>{@link nz.auckland.arch.Component#getDeploymentnode <em>Deploymentnode</em>}</li>
+ *   <li>{@link nz.auckland.arch.Component#getCriticalLevel <em>Critical Level</em>}</li>
+ *   <li>{@link nz.auckland.arch.Component#getSecurityCharacters <em>Security Characters</em>}</li>
  * </ul>
  *
  * @see nz.auckland.arch.ArchPackage#getComponent()
@@ -120,5 +123,86 @@ public interface Component extends EObject {
 	 * @generated
 	 */
 	void setValid(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Deploymentnode</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Deploymentnode</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Deploymentnode</em>' reference.
+	 * @see #setDeploymentnode(ExecutionEnvironment)
+	 * @see nz.auckland.arch.ArchPackage#getComponent_Deploymentnode()
+	 * @model
+	 * @generated
+	 */
+	ExecutionEnvironment getDeploymentnode();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.Component#getDeploymentnode <em>Deploymentnode</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Deploymentnode</em>' reference.
+	 * @see #getDeploymentnode()
+	 * @generated
+	 */
+	void setDeploymentnode(ExecutionEnvironment value);
+
+	/**
+	 * Returns the value of the '<em><b>Critical Level</b></em>' attribute.
+	 * The literals are from the enumeration {@link nz.auckland.arch.CriticalLevel}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Critical Level</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Critical Level</em>' attribute.
+	 * @see nz.auckland.arch.CriticalLevel
+	 * @see #setCriticalLevel(CriticalLevel)
+	 * @see nz.auckland.arch.ArchPackage#getComponent_CriticalLevel()
+	 * @model
+	 * @generated
+	 */
+	CriticalLevel getCriticalLevel();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.Component#getCriticalLevel <em>Critical Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Critical Level</em>' attribute.
+	 * @see nz.auckland.arch.CriticalLevel
+	 * @see #getCriticalLevel()
+	 * @generated
+	 */
+	void setCriticalLevel(CriticalLevel value);
+
+	/**
+	 * Returns the value of the '<em><b>Security Characters</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Security Characters</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Security Characters</em>' attribute.
+	 * @see #setSecurityCharacters(String)
+	 * @see nz.auckland.arch.ArchPackage#getComponent_SecurityCharacters()
+	 * @model
+	 * @generated
+	 */
+	String getSecurityCharacters();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.Component#getSecurityCharacters <em>Security Characters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Security Characters</em>' attribute.
+	 * @see #getSecurityCharacters()
+	 * @generated
+	 */
+	void setSecurityCharacters(String value);
 
 } // Component

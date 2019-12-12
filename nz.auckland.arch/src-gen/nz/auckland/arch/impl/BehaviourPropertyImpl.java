@@ -9,6 +9,7 @@ import nz.auckland.arch.BehaviourPropType;
 import nz.auckland.arch.BehaviourProperty;
 import nz.auckland.arch.LTLExpr;
 
+import nz.auckland.arch.Port;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -36,6 +37,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link nz.auckland.arch.impl.BehaviourPropertyImpl#getVisitedStates <em>Visited States</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.BehaviourPropertyImpl#getVerifyTime <em>Verify Time</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.BehaviourPropertyImpl#getType <em>Type</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.BehaviourPropertyImpl#getTestport <em>Testport</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.BehaviourPropertyImpl#getTraceExample <em>Trace Example</em>}</li>
  * </ul>
  *
  * @generated
@@ -150,6 +153,36 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * @ordered
 	 */
 	protected BehaviourPropType type = TYPE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getTestport() <em>Testport</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTestport()
+	 * @generated
+	 * @ordered
+	 */
+	protected Port testport;
+
+	/**
+	 * The default value of the '{@link #getTraceExample() <em>Trace Example</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTraceExample()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TRACE_EXAMPLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTraceExample() <em>Trace Example</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTraceExample()
+	 * @generated
+	 * @ordered
+	 */
+	protected String traceExample = TRACE_EXAMPLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -297,6 +330,68 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Port getTestport() {
+		if (testport != null && testport.eIsProxy()) {
+			InternalEObject oldTestport = (InternalEObject) testport;
+			testport = (Port) eResolveProxy(oldTestport);
+			if (testport != oldTestport) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchPackage.BEHAVIOUR_PROPERTY__TESTPORT,
+							oldTestport, testport));
+			}
+		}
+		return testport;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Port basicGetTestport() {
+		return testport;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTestport(Port newTestport) {
+		Port oldTestport = testport;
+		testport = newTestport;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.BEHAVIOUR_PROPERTY__TESTPORT, oldTestport,
+					testport));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTraceExample() {
+		return traceExample;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTraceExample(String newTraceExample) {
+		String oldTraceExample = traceExample;
+		traceExample = newTraceExample;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE,
+					oldTraceExample, traceExample));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -326,6 +421,12 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 			return getVerifyTime();
 		case ArchPackage.BEHAVIOUR_PROPERTY__TYPE:
 			return getType();
+		case ArchPackage.BEHAVIOUR_PROPERTY__TESTPORT:
+			if (resolve)
+				return getTestport();
+			return basicGetTestport();
+		case ArchPackage.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE:
+			return getTraceExample();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -358,6 +459,12 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 		case ArchPackage.BEHAVIOUR_PROPERTY__TYPE:
 			setType((BehaviourPropType) newValue);
 			return;
+		case ArchPackage.BEHAVIOUR_PROPERTY__TESTPORT:
+			setTestport((Port) newValue);
+			return;
+		case ArchPackage.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE:
+			setTraceExample((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -388,6 +495,12 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 		case ArchPackage.BEHAVIOUR_PROPERTY__TYPE:
 			setType(TYPE_EDEFAULT);
 			return;
+		case ArchPackage.BEHAVIOUR_PROPERTY__TESTPORT:
+			setTestport((Port) null);
+			return;
+		case ArchPackage.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE:
+			setTraceExample(TRACE_EXAMPLE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -413,6 +526,10 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 			return verifyTime != VERIFY_TIME_EDEFAULT;
 		case ArchPackage.BEHAVIOUR_PROPERTY__TYPE:
 			return type != TYPE_EDEFAULT;
+		case ArchPackage.BEHAVIOUR_PROPERTY__TESTPORT:
+			return testport != null;
+		case ArchPackage.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE:
+			return TRACE_EXAMPLE_EDEFAULT == null ? traceExample != null : !TRACE_EXAMPLE_EDEFAULT.equals(traceExample);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -438,6 +555,8 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 		result.append(verifyTime);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", traceExample: ");
+		result.append(traceExample);
 		result.append(')');
 		return result.toString();
 	}

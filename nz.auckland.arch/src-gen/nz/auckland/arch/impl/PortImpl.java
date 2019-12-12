@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link nz.auckland.arch.impl.PortImpl#getRole <em>Role</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.PortImpl#getType <em>Type</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.PortImpl#isValid <em>Valid</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.PortImpl#isInsecure <em>Insecure</em>}</li>
  * </ul>
  *
  * @generated
@@ -121,6 +122,26 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 	 * @ordered
 	 */
 	protected boolean valid = VALID_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isInsecure() <em>Insecure</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInsecure()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean INSECURE_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isInsecure() <em>Insecure</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isInsecure()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean insecure = INSECURE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -233,6 +254,27 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isInsecure() {
+		return insecure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInsecure(boolean newInsecure) {
+		boolean oldInsecure = insecure;
+		insecure = newInsecure;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.PORT__INSECURE, oldInsecure, insecure));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -260,6 +302,8 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 			return getType();
 		case ArchPackage.PORT__VALID:
 			return isValid();
+		case ArchPackage.PORT__INSECURE:
+			return isInsecure();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -290,6 +334,9 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 		case ArchPackage.PORT__VALID:
 			setValid((Boolean) newValue);
 			return;
+		case ArchPackage.PORT__INSECURE:
+			setInsecure((Boolean) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -317,6 +364,9 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 		case ArchPackage.PORT__VALID:
 			setValid(VALID_EDEFAULT);
 			return;
+		case ArchPackage.PORT__INSECURE:
+			setInsecure(INSECURE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -339,6 +389,8 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		case ArchPackage.PORT__VALID:
 			return valid != VALID_EDEFAULT;
+		case ArchPackage.PORT__INSECURE:
+			return insecure != INSECURE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -360,6 +412,8 @@ public class PortImpl extends MinimalEObjectImpl.Container implements Port {
 		result.append(type);
 		result.append(", valid: ");
 		result.append(valid);
+		result.append(", insecure: ");
+		result.append(insecure);
 		result.append(')');
 		return result.toString();
 	}

@@ -8,6 +8,9 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deploymentnode" eType="#//ExecutionEnvironment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="criticalLevel" eType="#//CriticalLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityCharacters" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DesignModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
@@ -19,6 +22,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="verifyProperty" upperBound="-1"
         eType="#//VerificationProperty" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="host" upperBound="-1" eType="#//Device"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//CommunicationLink"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -28,6 +35,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="connectortype" eType="#//ConnectorType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communicationlink" upperBound="-1"
+        eType="#//CommunicationLink"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="securityCharacters" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Port">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -37,6 +47,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="insecure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Event">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -113,6 +124,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visitedStates" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verifyTime" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BehaviourPropType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testport" eType="#//Port"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="traceExample" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LTLExpr" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="event" eType="#//Event"/>
@@ -120,6 +133,8 @@
         defaultValueLiteral="NONE"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextExpr" eType="#//LTLExpr"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="property" eType="#//BehaviourProperty"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="role" eType="#//Role"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" eType="#//Port"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LTLNestedExpr" eSuperTypes="#//LTLExpr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" upperBound="-1" eType="#//LTLExpr"
@@ -139,5 +154,70 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StructuralProperty" eSuperTypes="#//VerificationProperty">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="result" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Device">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="netAccessType" eType="#//NetAccessType"
+        defaultValueLiteral="PRIVATE"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" upperBound="-1" eType="#//ExecutionEnvironment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hostType" eType="#//HostType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NodeType">
+    <eLiterals name="DOCKER_CONTAINER" value="1" literal="DOCKER_CONTAINER"/>
+    <eLiterals name="APPLICATION_CONTAINER" value="2"/>
+    <eLiterals name="FILE_SYSTEM" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionEnvironment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//NodeType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
+        eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="port" upperBound="-1" eType="#//CommunicationPort"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HostType">
+    <eLiterals name="VIRTUAL_MACHINE" literal="VIRTUAL_MACHINE"/>
+    <eLiterals name="DEDICATED_SERVER" value="1"/>
+    <eLiterals name="CLOUD_PLATFORM" value="2"/>
+    <eLiterals name="MOBILE_PHONE" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LinkType">
+    <eLiterals name="HTTP"/>
+    <eLiterals name="HTTPS" value="1"/>
+    <eLiterals name="FTPS" value="2"/>
+    <eLiterals name="FTP" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationLink">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkType" eType="#//LinkType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="networkType" eType="#//NetworkType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//CommunicationPort"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//CommunicationPort"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NetAccessType">
+    <eLiterals name="PRIVATE"/>
+    <eLiterals name="PUBLIC" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="NetworkType">
+    <eLiterals name="INTRANET"/>
+    <eLiterals name="INTERNET" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommunicationPort">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="portNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//ExecutionEnvironment"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="namedport" upperBound="-1"
+        eType="#//Port"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasFirewall" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasAuthentication" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasAuthorization" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasInputSanitization" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CriticalLevel">
+    <eLiterals name="VeryLow" literal="Very Low"/>
+    <eLiterals name="Low" value="1"/>
+    <eLiterals name="High" value="2"/>
+    <eLiterals name="VeryHigh" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

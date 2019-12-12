@@ -60,6 +60,7 @@ public class PortItemProvider extends ItemProviderAdapter implements IEditingDom
 			addRolePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addValidPropertyDescriptor(object);
+			addInsecurePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -120,6 +121,21 @@ public class PortItemProvider extends ItemProviderAdapter implements IEditingDom
 						getResourceLocator(), getString("_UI_Port_valid_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Port_valid_feature", "_UI_Port_type"),
 						ArchPackage.Literals.PORT__VALID, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Insecure feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInsecurePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Port_insecure_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Port_insecure_feature", "_UI_Port_type"),
+						ArchPackage.Literals.PORT__INSECURE, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
 	}
 
@@ -202,6 +218,7 @@ public class PortItemProvider extends ItemProviderAdapter implements IEditingDom
 		case ArchPackage.PORT__NAME:
 		case ArchPackage.PORT__TYPE:
 		case ArchPackage.PORT__VALID:
+		case ArchPackage.PORT__INSECURE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case ArchPackage.PORT__EVENTS:

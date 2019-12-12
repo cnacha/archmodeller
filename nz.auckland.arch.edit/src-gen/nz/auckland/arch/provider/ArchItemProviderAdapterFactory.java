@@ -441,6 +441,98 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link nz.auckland.arch.Device} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DeviceItemProvider deviceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link nz.auckland.arch.Device}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDeviceAdapter() {
+		if (deviceItemProvider == null) {
+			deviceItemProvider = new DeviceItemProvider(this);
+		}
+
+		return deviceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link nz.auckland.arch.ExecutionEnvironment} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ExecutionEnvironmentItemProvider executionEnvironmentItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link nz.auckland.arch.ExecutionEnvironment}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createExecutionEnvironmentAdapter() {
+		if (executionEnvironmentItemProvider == null) {
+			executionEnvironmentItemProvider = new ExecutionEnvironmentItemProvider(this);
+		}
+
+		return executionEnvironmentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link nz.auckland.arch.CommunicationLink} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommunicationLinkItemProvider communicationLinkItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link nz.auckland.arch.CommunicationLink}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCommunicationLinkAdapter() {
+		if (communicationLinkItemProvider == null) {
+			communicationLinkItemProvider = new CommunicationLinkItemProvider(this);
+		}
+
+		return communicationLinkItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link nz.auckland.arch.CommunicationPort} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CommunicationPortItemProvider communicationPortItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link nz.auckland.arch.CommunicationPort}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCommunicationPortAdapter() {
+		if (communicationPortItemProvider == null) {
+			communicationPortItemProvider = new CommunicationPortItemProvider(this);
+		}
+
+		return communicationPortItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -571,6 +663,14 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 			ltlRegularExprItemProvider.dispose();
 		if (structuralPropertyItemProvider != null)
 			structuralPropertyItemProvider.dispose();
+		if (deviceItemProvider != null)
+			deviceItemProvider.dispose();
+		if (executionEnvironmentItemProvider != null)
+			executionEnvironmentItemProvider.dispose();
+		if (communicationLinkItemProvider != null)
+			communicationLinkItemProvider.dispose();
+		if (communicationPortItemProvider != null)
+			communicationPortItemProvider.dispose();
 	}
 
 }

@@ -52,6 +52,8 @@ public class BehaviourPropertyItemProvider extends VerificationPropertyItemProvi
 			addVisitedStatesPropertyDescriptor(object);
 			addVerifyTimePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addTestportPropertyDescriptor(object);
+			addTraceExamplePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -137,6 +139,37 @@ public class BehaviourPropertyItemProvider extends VerificationPropertyItemProvi
 	}
 
 	/**
+	 * This adds a property descriptor for the Testport feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTestportPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_BehaviourProperty_testport_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_BehaviourProperty_testport_feature",
+								"_UI_BehaviourProperty_type"),
+						ArchPackage.Literals.BEHAVIOUR_PROPERTY__TESTPORT, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Trace Example feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTraceExamplePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_BehaviourProperty_traceExample_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_BehaviourProperty_traceExample_feature",
+								"_UI_BehaviourProperty_type"),
+						ArchPackage.Literals.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -217,6 +250,7 @@ public class BehaviourPropertyItemProvider extends VerificationPropertyItemProvi
 		case ArchPackage.BEHAVIOUR_PROPERTY__VISITED_STATES:
 		case ArchPackage.BEHAVIOUR_PROPERTY__VERIFY_TIME:
 		case ArchPackage.BEHAVIOUR_PROPERTY__TYPE:
+		case ArchPackage.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case ArchPackage.BEHAVIOUR_PROPERTY__LTLEXPR:

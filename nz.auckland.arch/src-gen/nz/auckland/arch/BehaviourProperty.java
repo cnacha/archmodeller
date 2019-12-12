@@ -19,6 +19,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link nz.auckland.arch.BehaviourProperty#getVisitedStates <em>Visited States</em>}</li>
  *   <li>{@link nz.auckland.arch.BehaviourProperty#getVerifyTime <em>Verify Time</em>}</li>
  *   <li>{@link nz.auckland.arch.BehaviourProperty#getType <em>Type</em>}</li>
+ *   <li>{@link nz.auckland.arch.BehaviourProperty#getTestport <em>Testport</em>}</li>
+ *   <li>{@link nz.auckland.arch.BehaviourProperty#getTraceExample <em>Trace Example</em>}</li>
  * </ul>
  *
  * @see nz.auckland.arch.ArchPackage#getBehaviourProperty()
@@ -175,5 +177,57 @@ public interface BehaviourProperty extends VerificationProperty {
 	 * @generated
 	 */
 	void setType(BehaviourPropType value);
+
+	/**
+	 * Returns the value of the '<em><b>Testport</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Testport</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Testport</em>' reference.
+	 * @see #setTestport(Port)
+	 * @see nz.auckland.arch.ArchPackage#getBehaviourProperty_Testport()
+	 * @model
+	 * @generated
+	 */
+	Port getTestport();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.BehaviourProperty#getTestport <em>Testport</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Testport</em>' reference.
+	 * @see #getTestport()
+	 * @generated
+	 */
+	void setTestport(Port value);
+
+	/**
+	 * Returns the value of the '<em><b>Trace Example</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Trace Example</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Trace Example</em>' attribute.
+	 * @see #setTraceExample(String)
+	 * @see nz.auckland.arch.ArchPackage#getBehaviourProperty_TraceExample()
+	 * @model
+	 * @generated
+	 */
+	String getTraceExample();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.BehaviourProperty#getTraceExample <em>Trace Example</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Trace Example</em>' attribute.
+	 * @see #getTraceExample()
+	 * @generated
+	 */
+	void setTraceExample(String value);
 
 } // BehaviourProperty

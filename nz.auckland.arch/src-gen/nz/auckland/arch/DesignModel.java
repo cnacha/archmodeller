@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link nz.auckland.arch.DesignModel#getArchstyle <em>Archstyle</em>}</li>
  *   <li>{@link nz.auckland.arch.DesignModel#getVerifyProperty <em>Verify Property</em>}</li>
  *   <li>{@link nz.auckland.arch.DesignModel#getName <em>Name</em>}</li>
+ *   <li>{@link nz.auckland.arch.DesignModel#getHost <em>Host</em>}</li>
+ *   <li>{@link nz.auckland.arch.DesignModel#getLink <em>Link</em>}</li>
  * </ul>
  *
  * @see nz.auckland.arch.ArchPackage#getDesignModel()
@@ -116,5 +118,37 @@ public interface DesignModel extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Host</b></em>' containment reference list.
+	 * The list contents are of type {@link nz.auckland.arch.Device}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Host</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Host</em>' containment reference list.
+	 * @see nz.auckland.arch.ArchPackage#getDesignModel_Host()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Device> getHost();
+
+	/**
+	 * Returns the value of the '<em><b>Link</b></em>' containment reference list.
+	 * The list contents are of type {@link nz.auckland.arch.CommunicationLink}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Link</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Link</em>' containment reference list.
+	 * @see nz.auckland.arch.ArchPackage#getDesignModel_Link()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<CommunicationLink> getLink();
 
 } // DesignModel

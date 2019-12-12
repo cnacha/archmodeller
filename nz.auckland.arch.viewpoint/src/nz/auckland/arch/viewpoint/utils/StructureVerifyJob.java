@@ -38,6 +38,8 @@ import nz.auckland.arch.DesignModel;
 
 public class StructureVerifyJob extends Job {
 	
+	private static String HOSTNAME = "http://localhost:8080";//"http://fasad.cer.auckland.ac.nz:8080";
+	
 	private DesignModel model;
 	
 	public StructureVerifyJob(String name, DesignModel model) {
@@ -71,7 +73,7 @@ public class StructureVerifyJob extends Job {
 			// call web service to verify in OWL
 			HttpClient httpClient = HttpClientBuilder.create().build();
 			HttpPost request = new HttpPost(
-					"http://fasad.cer.auckland.ac.nz:8080/nz.auckland.arch.service.owl-0.0.1-SNAPSHOT/api/owl/verify.do");
+					HOSTNAME+"/nz.auckland.arch.service.owl-0.0.1-SNAPSHOT/api/owl/checkSmell.do");
 			StringEntity params = new StringEntity(jsonString);
 			request.addHeader("content-type", "application/json");
 			request.setEntity(params);
@@ -119,7 +121,11 @@ public class StructureVerifyJob extends Job {
 					
 					// synchonise instance valid status for connectors
 					for (int i = 0; i < parsedModel.getConnector().size(); i++) {
+						Connector cnn = parsedModel.getConnector().get(i);
 						model.getConnector().get(i).setValid(parsedModel.getConnector().get(i).isValid());
+						for (int j = 0; j < parsedModel.getConnector().get(i).getRole().size(); j++) {
+							model.getConnector().get(i).getRole().get(j).setType(cnn.getRole().get(j).getType());
+						}
 					}
 
 

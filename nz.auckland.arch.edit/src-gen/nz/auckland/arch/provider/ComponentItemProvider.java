@@ -59,6 +59,9 @@ public class ComponentItemProvider extends ItemProviderAdapter implements IEditi
 			addNamePropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
 			addValidPropertyDescriptor(object);
+			addDeploymentnodePropertyDescriptor(object);
+			addCriticalLevelPropertyDescriptor(object);
+			addSecurityCharactersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -109,6 +112,53 @@ public class ComponentItemProvider extends ItemProviderAdapter implements IEditi
 								"_UI_Component_type"),
 						ArchPackage.Literals.COMPONENT__VALID, true, false, false,
 						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Deploymentnode feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDeploymentnodePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_deploymentnode_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_deploymentnode_feature",
+								"_UI_Component_type"),
+						ArchPackage.Literals.COMPONENT__DEPLOYMENTNODE, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Critical Level feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCriticalLevelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_criticalLevel_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_criticalLevel_feature",
+								"_UI_Component_type"),
+						ArchPackage.Literals.COMPONENT__CRITICAL_LEVEL, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Security Characters feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecurityCharactersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Component_securityCharacters_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Component_securityCharacters_feature",
+								"_UI_Component_type"),
+						ArchPackage.Literals.COMPONENT__SECURITY_CHARACTERS, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -190,6 +240,8 @@ public class ComponentItemProvider extends ItemProviderAdapter implements IEditi
 		case ArchPackage.COMPONENT__NAME:
 		case ArchPackage.COMPONENT__TYPE:
 		case ArchPackage.COMPONENT__VALID:
+		case ArchPackage.COMPONENT__CRITICAL_LEVEL:
+		case ArchPackage.COMPONENT__SECURITY_CHARACTERS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case ArchPackage.COMPONENT__PORT:

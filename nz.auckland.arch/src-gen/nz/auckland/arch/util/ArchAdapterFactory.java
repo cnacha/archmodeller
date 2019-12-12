@@ -157,6 +157,26 @@ public class ArchAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseDevice(Device object) {
+			return createDeviceAdapter();
+		}
+
+		@Override
+		public Adapter caseExecutionEnvironment(ExecutionEnvironment object) {
+			return createExecutionEnvironmentAdapter();
+		}
+
+		@Override
+		public Adapter caseCommunicationLink(CommunicationLink object) {
+			return createCommunicationLinkAdapter();
+		}
+
+		@Override
+		public Adapter caseCommunicationPort(CommunicationPort object) {
+			return createCommunicationPortAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -424,6 +444,62 @@ public class ArchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStructuralPropertyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nz.auckland.arch.Device <em>Device</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nz.auckland.arch.Device
+	 * @generated
+	 */
+	public Adapter createDeviceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nz.auckland.arch.ExecutionEnvironment <em>Execution Environment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nz.auckland.arch.ExecutionEnvironment
+	 * @generated
+	 */
+	public Adapter createExecutionEnvironmentAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nz.auckland.arch.CommunicationLink <em>Communication Link</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nz.auckland.arch.CommunicationLink
+	 * @generated
+	 */
+	public Adapter createCommunicationLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nz.auckland.arch.CommunicationPort <em>Communication Port</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nz.auckland.arch.CommunicationPort
+	 * @generated
+	 */
+	public Adapter createCommunicationPortAdapter() {
 		return null;
 	}
 

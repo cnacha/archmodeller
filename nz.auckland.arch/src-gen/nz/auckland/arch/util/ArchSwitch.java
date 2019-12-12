@@ -202,6 +202,34 @@ public class ArchSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ArchPackage.DEVICE: {
+			Device device = (Device) theEObject;
+			T result = caseDevice(device);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArchPackage.EXECUTION_ENVIRONMENT: {
+			ExecutionEnvironment executionEnvironment = (ExecutionEnvironment) theEObject;
+			T result = caseExecutionEnvironment(executionEnvironment);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArchPackage.COMMUNICATION_LINK: {
+			CommunicationLink communicationLink = (CommunicationLink) theEObject;
+			T result = caseCommunicationLink(communicationLink);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArchPackage.COMMUNICATION_PORT: {
+			CommunicationPort communicationPort = (CommunicationPort) theEObject;
+			T result = caseCommunicationPort(communicationPort);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -474,6 +502,66 @@ public class ArchSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStructuralProperty(StructuralProperty object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Device</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Device</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDevice(Device object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Execution Environment</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Execution Environment</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExecutionEnvironment(ExecutionEnvironment object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Communication Link</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Communication Link</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCommunicationLink(CommunicationLink object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Communication Port</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Communication Port</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCommunicationPort(CommunicationPort object) {
 		return null;
 	}
 

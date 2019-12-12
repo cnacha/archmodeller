@@ -8,6 +8,8 @@ import nz.auckland.arch.Event;
 import nz.auckland.arch.LTLExpr;
 import nz.auckland.arch.LTLOperator;
 
+import nz.auckland.arch.Port;
+import nz.auckland.arch.Role;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,6 +30,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link nz.auckland.arch.impl.LTLExprImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.LTLExprImpl#getNextExpr <em>Next Expr</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.LTLExprImpl#getProperty <em>Property</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.LTLExprImpl#getRole <em>Role</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.LTLExprImpl#getPort <em>Port</em>}</li>
  * </ul>
  *
  * @generated
@@ -82,6 +86,26 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * @ordered
 	 */
 	protected BehaviourProperty property;
+
+	/**
+	 * The cached value of the '{@link #getRole() <em>Role</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRole()
+	 * @generated
+	 * @ordered
+	 */
+	protected Role role;
+
+	/**
+	 * The cached value of the '{@link #getPort() <em>Port</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPort()
+	 * @generated
+	 * @ordered
+	 */
+	protected Port port;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -248,6 +272,84 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Role getRole() {
+		if (role != null && role.eIsProxy()) {
+			InternalEObject oldRole = (InternalEObject) role;
+			role = (Role) eResolveProxy(oldRole);
+			if (role != oldRole) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchPackage.LTL_EXPR__ROLE, oldRole,
+							role));
+			}
+		}
+		return role;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Role basicGetRole() {
+		return role;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRole(Role newRole) {
+		Role oldRole = role;
+		role = newRole;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.LTL_EXPR__ROLE, oldRole, role));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Port getPort() {
+		if (port != null && port.eIsProxy()) {
+			InternalEObject oldPort = (InternalEObject) port;
+			port = (Port) eResolveProxy(oldPort);
+			if (port != oldPort) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchPackage.LTL_EXPR__PORT, oldPort,
+							port));
+			}
+		}
+		return port;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Port basicGetPort() {
+		return port;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPort(Port newPort) {
+		Port oldPort = port;
+		port = newPort;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.LTL_EXPR__PORT, oldPort, port));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -265,6 +367,14 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 			if (resolve)
 				return getProperty();
 			return basicGetProperty();
+		case ArchPackage.LTL_EXPR__ROLE:
+			if (resolve)
+				return getRole();
+			return basicGetRole();
+		case ArchPackage.LTL_EXPR__PORT:
+			if (resolve)
+				return getPort();
+			return basicGetPort();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -288,6 +398,12 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 			return;
 		case ArchPackage.LTL_EXPR__PROPERTY:
 			setProperty((BehaviourProperty) newValue);
+			return;
+		case ArchPackage.LTL_EXPR__ROLE:
+			setRole((Role) newValue);
+			return;
+		case ArchPackage.LTL_EXPR__PORT:
+			setPort((Port) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -313,6 +429,12 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 		case ArchPackage.LTL_EXPR__PROPERTY:
 			setProperty((BehaviourProperty) null);
 			return;
+		case ArchPackage.LTL_EXPR__ROLE:
+			setRole((Role) null);
+			return;
+		case ArchPackage.LTL_EXPR__PORT:
+			setPort((Port) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -333,6 +455,10 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 			return nextExpr != null;
 		case ArchPackage.LTL_EXPR__PROPERTY:
 			return property != null;
+		case ArchPackage.LTL_EXPR__ROLE:
+			return role != null;
+		case ArchPackage.LTL_EXPR__PORT:
+			return port != null;
 		}
 		return super.eIsSet(featureID);
 	}

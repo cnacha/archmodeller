@@ -88,6 +88,14 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 			return createLTLRegularExpr();
 		case ArchPackage.STRUCTURAL_PROPERTY:
 			return createStructuralProperty();
+		case ArchPackage.DEVICE:
+			return createDevice();
+		case ArchPackage.EXECUTION_ENVIRONMENT:
+			return createExecutionEnvironment();
+		case ArchPackage.COMMUNICATION_LINK:
+			return createCommunicationLink();
+		case ArchPackage.COMMUNICATION_PORT:
+			return createCommunicationPort();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +115,18 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 			return createLTLOperatorFromString(eDataType, initialValue);
 		case ArchPackage.BEHAVIOUR_PROP_TYPE:
 			return createBehaviourPropTypeFromString(eDataType, initialValue);
+		case ArchPackage.NODE_TYPE:
+			return createNodeTypeFromString(eDataType, initialValue);
+		case ArchPackage.HOST_TYPE:
+			return createHostTypeFromString(eDataType, initialValue);
+		case ArchPackage.LINK_TYPE:
+			return createLinkTypeFromString(eDataType, initialValue);
+		case ArchPackage.NET_ACCESS_TYPE:
+			return createNetAccessTypeFromString(eDataType, initialValue);
+		case ArchPackage.NETWORK_TYPE:
+			return createNetworkTypeFromString(eDataType, initialValue);
+		case ArchPackage.CRITICAL_LEVEL:
+			return createCriticalLevelFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -126,6 +146,18 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 			return convertLTLOperatorToString(eDataType, instanceValue);
 		case ArchPackage.BEHAVIOUR_PROP_TYPE:
 			return convertBehaviourPropTypeToString(eDataType, instanceValue);
+		case ArchPackage.NODE_TYPE:
+			return convertNodeTypeToString(eDataType, instanceValue);
+		case ArchPackage.HOST_TYPE:
+			return convertHostTypeToString(eDataType, instanceValue);
+		case ArchPackage.LINK_TYPE:
+			return convertLinkTypeToString(eDataType, instanceValue);
+		case ArchPackage.NET_ACCESS_TYPE:
+			return convertNetAccessTypeToString(eDataType, instanceValue);
+		case ArchPackage.NETWORK_TYPE:
+			return convertNetworkTypeToString(eDataType, instanceValue);
+		case ArchPackage.CRITICAL_LEVEL:
+			return convertCriticalLevelToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -296,6 +328,46 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Device createDevice() {
+		DeviceImpl device = new DeviceImpl();
+		return device;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutionEnvironment createExecutionEnvironment() {
+		ExecutionEnvironmentImpl executionEnvironment = new ExecutionEnvironmentImpl();
+		return executionEnvironment;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CommunicationLink createCommunicationLink() {
+		CommunicationLinkImpl communicationLink = new CommunicationLinkImpl();
+		return communicationLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CommunicationPort createCommunicationPort() {
+		CommunicationPortImpl communicationPort = new CommunicationPortImpl();
+		return communicationPort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ExprOperator createExprOperatorFromString(EDataType eDataType, String initialValue) {
 		ExprOperator result = ExprOperator.get(initialValue);
 		if (result == null)
@@ -354,6 +426,138 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * @generated
 	 */
 	public String convertBehaviourPropTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NodeType createNodeTypeFromString(EDataType eDataType, String initialValue) {
+		NodeType result = NodeType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNodeTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public HostType createHostTypeFromString(EDataType eDataType, String initialValue) {
+		HostType result = HostType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertHostTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LinkType createLinkTypeFromString(EDataType eDataType, String initialValue) {
+		LinkType result = LinkType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLinkTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NetAccessType createNetAccessTypeFromString(EDataType eDataType, String initialValue) {
+		NetAccessType result = NetAccessType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNetAccessTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NetworkType createNetworkTypeFromString(EDataType eDataType, String initialValue) {
+		NetworkType result = NetworkType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNetworkTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CriticalLevel createCriticalLevelFromString(EDataType eDataType, String initialValue) {
+		CriticalLevel result = CriticalLevel.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertCriticalLevelToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

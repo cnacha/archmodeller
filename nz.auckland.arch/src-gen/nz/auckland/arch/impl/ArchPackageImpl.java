@@ -8,17 +8,27 @@ import nz.auckland.arch.ArchStyle;
 import nz.auckland.arch.BehaviourPropType;
 import nz.auckland.arch.BehaviourProperty;
 import nz.auckland.arch.Channel;
+import nz.auckland.arch.CommunicationLink;
+import nz.auckland.arch.CommunicationPort;
 import nz.auckland.arch.Component;
 import nz.auckland.arch.ComponentType;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.ConnectorType;
+import nz.auckland.arch.CriticalLevel;
 import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.Device;
 import nz.auckland.arch.Event;
+import nz.auckland.arch.ExecutionEnvironment;
 import nz.auckland.arch.ExprOperator;
+import nz.auckland.arch.HostType;
 import nz.auckland.arch.LTLExpr;
 import nz.auckland.arch.LTLNestedExpr;
 import nz.auckland.arch.LTLOperator;
 import nz.auckland.arch.LTLRegularExpr;
+import nz.auckland.arch.LinkType;
+import nz.auckland.arch.NetAccessType;
+import nz.auckland.arch.NetworkType;
+import nz.auckland.arch.NodeType;
 import nz.auckland.arch.Port;
 import nz.auckland.arch.PortType;
 import nz.auckland.arch.Role;
@@ -172,6 +182,34 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass deviceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass executionEnvironmentEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass communicationLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass communicationPortEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum exprOperatorEEnum = null;
 
 	/**
@@ -187,6 +225,48 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * @generated
 	 */
 	private EEnum behaviourPropTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum nodeTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum hostTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum linkTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum netAccessTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum networkTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum criticalLevelEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -302,6 +382,33 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getComponent_Deploymentnode() {
+		return (EReference) componentEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponent_CriticalLevel() {
+		return (EAttribute) componentEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponent_SecurityCharacters() {
+		return (EAttribute) componentEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDesignModel() {
 		return designModelEClass;
 	}
@@ -349,6 +456,24 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 */
 	public EAttribute getDesignModel_Name() {
 		return (EAttribute) designModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDesignModel_Host() {
+		return (EReference) designModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDesignModel_Link() {
+		return (EReference) designModelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -410,6 +535,24 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getConnector_Communicationlink() {
+		return (EReference) connectorEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConnector_SecurityCharacters() {
+		return (EAttribute) connectorEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPort() {
 		return portEClass;
 	}
@@ -457,6 +600,15 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 */
 	public EAttribute getPort_Valid() {
 		return (EAttribute) portEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPort_Insecure() {
+		return (EAttribute) portEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -851,6 +1003,24 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getBehaviourProperty_Testport() {
+		return (EReference) behaviourPropertyEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBehaviourProperty_TraceExample() {
+		return (EAttribute) behaviourPropertyEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLTLExpr() {
 		return ltlExprEClass;
 	}
@@ -889,6 +1059,24 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 */
 	public EReference getLTLExpr_Property() {
 		return (EReference) ltlExprEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLTLExpr_Role() {
+		return (EReference) ltlExprEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLTLExpr_Port() {
+		return (EReference) ltlExprEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -968,6 +1156,231 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDevice() {
+		return deviceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDevice_NetAccessType() {
+		return (EAttribute) deviceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDevice_Name() {
+		return (EAttribute) deviceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDevice_Node() {
+		return (EReference) deviceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDevice_HostType() {
+		return (EAttribute) deviceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExecutionEnvironment() {
+		return executionEnvironmentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExecutionEnvironment_Type() {
+		return (EAttribute) executionEnvironmentEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExecutionEnvironment_Name() {
+		return (EAttribute) executionEnvironmentEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutionEnvironment_Component() {
+		return (EReference) executionEnvironmentEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getExecutionEnvironment_Port() {
+		return (EReference) executionEnvironmentEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCommunicationLink() {
+		return communicationLinkEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommunicationLink_Name() {
+		return (EAttribute) communicationLinkEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommunicationLink_LinkType() {
+		return (EAttribute) communicationLinkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommunicationLink_NetworkType() {
+		return (EAttribute) communicationLinkEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommunicationLink_Source() {
+		return (EReference) communicationLinkEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommunicationLink_Target() {
+		return (EReference) communicationLinkEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCommunicationPort() {
+		return communicationPortEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommunicationPort_Name() {
+		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommunicationPort_PortNumber() {
+		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommunicationPort_Node() {
+		return (EReference) communicationPortEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCommunicationPort_Namedport() {
+		return (EReference) communicationPortEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommunicationPort_HasFirewall() {
+		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommunicationPort_HasAuthentication() {
+		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommunicationPort_HasAuthorization() {
+		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommunicationPort_HasInputSanitization() {
+		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getExprOperator() {
 		return exprOperatorEEnum;
 	}
@@ -988,6 +1401,60 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 */
 	public EEnum getBehaviourPropType() {
 		return behaviourPropTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getNodeType() {
+		return nodeTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getHostType() {
+		return hostTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getLinkType() {
+		return linkTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getNetAccessType() {
+		return netAccessTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getNetworkType() {
+		return networkTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getCriticalLevel() {
+		return criticalLevelEEnum;
 	}
 
 	/**
@@ -1024,6 +1491,9 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEAttribute(componentEClass, COMPONENT__TYPE);
 		createEReference(componentEClass, COMPONENT__PORT);
 		createEAttribute(componentEClass, COMPONENT__VALID);
+		createEReference(componentEClass, COMPONENT__DEPLOYMENTNODE);
+		createEAttribute(componentEClass, COMPONENT__CRITICAL_LEVEL);
+		createEAttribute(componentEClass, COMPONENT__SECURITY_CHARACTERS);
 
 		designModelEClass = createEClass(DESIGN_MODEL);
 		createEReference(designModelEClass, DESIGN_MODEL__COMPONENT);
@@ -1031,6 +1501,8 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEReference(designModelEClass, DESIGN_MODEL__ARCHSTYLE);
 		createEReference(designModelEClass, DESIGN_MODEL__VERIFY_PROPERTY);
 		createEAttribute(designModelEClass, DESIGN_MODEL__NAME);
+		createEReference(designModelEClass, DESIGN_MODEL__HOST);
+		createEReference(designModelEClass, DESIGN_MODEL__LINK);
 
 		connectorEClass = createEClass(CONNECTOR);
 		createEAttribute(connectorEClass, CONNECTOR__NAME);
@@ -1038,6 +1510,8 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEReference(connectorEClass, CONNECTOR__ROLE);
 		createEReference(connectorEClass, CONNECTOR__CONNECTORTYPE);
 		createEAttribute(connectorEClass, CONNECTOR__VALID);
+		createEReference(connectorEClass, CONNECTOR__COMMUNICATIONLINK);
+		createEAttribute(connectorEClass, CONNECTOR__SECURITY_CHARACTERS);
 
 		portEClass = createEClass(PORT);
 		createEAttribute(portEClass, PORT__NAME);
@@ -1045,6 +1519,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEReference(portEClass, PORT__ROLE);
 		createEAttribute(portEClass, PORT__TYPE);
 		createEAttribute(portEClass, PORT__VALID);
+		createEAttribute(portEClass, PORT__INSECURE);
 
 		eventEClass = createEClass(EVENT);
 		createEAttribute(eventEClass, EVENT__NAME);
@@ -1097,12 +1572,16 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEAttribute(behaviourPropertyEClass, BEHAVIOUR_PROPERTY__VISITED_STATES);
 		createEAttribute(behaviourPropertyEClass, BEHAVIOUR_PROPERTY__VERIFY_TIME);
 		createEAttribute(behaviourPropertyEClass, BEHAVIOUR_PROPERTY__TYPE);
+		createEReference(behaviourPropertyEClass, BEHAVIOUR_PROPERTY__TESTPORT);
+		createEAttribute(behaviourPropertyEClass, BEHAVIOUR_PROPERTY__TRACE_EXAMPLE);
 
 		ltlExprEClass = createEClass(LTL_EXPR);
 		createEReference(ltlExprEClass, LTL_EXPR__EVENT);
 		createEAttribute(ltlExprEClass, LTL_EXPR__OPERATOR);
 		createEReference(ltlExprEClass, LTL_EXPR__NEXT_EXPR);
 		createEReference(ltlExprEClass, LTL_EXPR__PROPERTY);
+		createEReference(ltlExprEClass, LTL_EXPR__ROLE);
+		createEReference(ltlExprEClass, LTL_EXPR__PORT);
 
 		ltlNestedExprEClass = createEClass(LTL_NESTED_EXPR);
 		createEReference(ltlNestedExprEClass, LTL_NESTED_EXPR__EXPR);
@@ -1116,10 +1595,45 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		structuralPropertyEClass = createEClass(STRUCTURAL_PROPERTY);
 		createEAttribute(structuralPropertyEClass, STRUCTURAL_PROPERTY__RESULT);
 
+		deviceEClass = createEClass(DEVICE);
+		createEAttribute(deviceEClass, DEVICE__NET_ACCESS_TYPE);
+		createEAttribute(deviceEClass, DEVICE__NAME);
+		createEReference(deviceEClass, DEVICE__NODE);
+		createEAttribute(deviceEClass, DEVICE__HOST_TYPE);
+
+		executionEnvironmentEClass = createEClass(EXECUTION_ENVIRONMENT);
+		createEAttribute(executionEnvironmentEClass, EXECUTION_ENVIRONMENT__TYPE);
+		createEAttribute(executionEnvironmentEClass, EXECUTION_ENVIRONMENT__NAME);
+		createEReference(executionEnvironmentEClass, EXECUTION_ENVIRONMENT__COMPONENT);
+		createEReference(executionEnvironmentEClass, EXECUTION_ENVIRONMENT__PORT);
+
+		communicationLinkEClass = createEClass(COMMUNICATION_LINK);
+		createEAttribute(communicationLinkEClass, COMMUNICATION_LINK__NAME);
+		createEAttribute(communicationLinkEClass, COMMUNICATION_LINK__LINK_TYPE);
+		createEAttribute(communicationLinkEClass, COMMUNICATION_LINK__NETWORK_TYPE);
+		createEReference(communicationLinkEClass, COMMUNICATION_LINK__SOURCE);
+		createEReference(communicationLinkEClass, COMMUNICATION_LINK__TARGET);
+
+		communicationPortEClass = createEClass(COMMUNICATION_PORT);
+		createEAttribute(communicationPortEClass, COMMUNICATION_PORT__NAME);
+		createEAttribute(communicationPortEClass, COMMUNICATION_PORT__PORT_NUMBER);
+		createEReference(communicationPortEClass, COMMUNICATION_PORT__NODE);
+		createEReference(communicationPortEClass, COMMUNICATION_PORT__NAMEDPORT);
+		createEAttribute(communicationPortEClass, COMMUNICATION_PORT__HAS_FIREWALL);
+		createEAttribute(communicationPortEClass, COMMUNICATION_PORT__HAS_AUTHENTICATION);
+		createEAttribute(communicationPortEClass, COMMUNICATION_PORT__HAS_AUTHORIZATION);
+		createEAttribute(communicationPortEClass, COMMUNICATION_PORT__HAS_INPUT_SANITIZATION);
+
 		// Create enums
 		exprOperatorEEnum = createEEnum(EXPR_OPERATOR);
 		ltlOperatorEEnum = createEEnum(LTL_OPERATOR);
 		behaviourPropTypeEEnum = createEEnum(BEHAVIOUR_PROP_TYPE);
+		nodeTypeEEnum = createEEnum(NODE_TYPE);
+		hostTypeEEnum = createEEnum(HOST_TYPE);
+		linkTypeEEnum = createEEnum(LINK_TYPE);
+		netAccessTypeEEnum = createEEnum(NET_ACCESS_TYPE);
+		networkTypeEEnum = createEEnum(NETWORK_TYPE);
+		criticalLevelEEnum = createEEnum(CRITICAL_LEVEL);
 	}
 
 	/**
@@ -1169,6 +1683,15 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 				IS_ORDERED);
 		initEAttribute(getComponent_Valid(), ecorePackage.getEBoolean(), "valid", "true", 0, 1, Component.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getComponent_Deploymentnode(), this.getExecutionEnvironment(), null, "deploymentnode", null, 0,
+				1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_CriticalLevel(), this.getCriticalLevel(), "criticalLevel", null, 0, 1,
+				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getComponent_SecurityCharacters(), ecorePackage.getEString(), "securityCharacters", null, 0, 1,
+				Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(designModelEClass, DesignModel.class, "DesignModel", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1186,6 +1709,12 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDesignModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, DesignModel.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDesignModel_Host(), this.getDevice(), null, "host", null, 0, -1, DesignModel.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDesignModel_Link(), this.getCommunicationLink(), null, "link", null, 0, -1, DesignModel.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1201,6 +1730,12 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getConnector_Valid(), ecorePackage.getEBoolean(), "valid", "true", 0, 1, Connector.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConnector_Communicationlink(), this.getCommunicationLink(), null, "communicationlink", null,
+				0, -1, Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConnector_SecurityCharacters(), ecorePackage.getEString(), "securityCharacters", null, 0, 1,
+				Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(portEClass, Port.class, "Port", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPort_Name(), ecorePackage.getEString(), "name", null, 0, 1, Port.class, !IS_TRANSIENT,
@@ -1215,6 +1750,8 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPort_Valid(), ecorePackage.getEBoolean(), "valid", "true", 0, 1, Port.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPort_Insecure(), ecorePackage.getEBoolean(), "insecure", null, 0, 1, Port.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEvent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Event.class, !IS_TRANSIENT,
@@ -1325,6 +1862,12 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		initEAttribute(getBehaviourProperty_Type(), this.getBehaviourPropType(), "type", null, 0, 1,
 				BehaviourProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEReference(getBehaviourProperty_Testport(), this.getPort(), null, "testport", null, 0, 1,
+				BehaviourProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBehaviourProperty_TraceExample(), ecorePackage.getEString(), "traceExample", null, 0, 1,
+				BehaviourProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(ltlExprEClass, LTLExpr.class, "LTLExpr", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLTLExpr_Event(), this.getEvent(), null, "event", null, 0, 1, LTLExpr.class, !IS_TRANSIENT,
@@ -1338,6 +1881,12 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		initEReference(getLTLExpr_Property(), this.getBehaviourProperty(), null, "property", null, 0, 1, LTLExpr.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLTLExpr_Role(), this.getRole(), null, "role", null, 0, 1, LTLExpr.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getLTLExpr_Port(), this.getPort(), null, "port", null, 0, 1, LTLExpr.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(ltlNestedExprEClass, LTLNestedExpr.class, "LTLNestedExpr", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1363,6 +1912,78 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 				StructuralProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
+		initEClass(deviceEClass, Device.class, "Device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDevice_NetAccessType(), this.getNetAccessType(), "netAccessType", "PRIVATE", 0, 1,
+				Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDevice_Name(), ecorePackage.getEString(), "name", null, 0, 1, Device.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDevice_Node(), this.getExecutionEnvironment(), null, "node", null, 0, -1, Device.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDevice_HostType(), this.getHostType(), "hostType", null, 0, 1, Device.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(executionEnvironmentEClass, ExecutionEnvironment.class, "ExecutionEnvironment", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getExecutionEnvironment_Type(), this.getNodeType(), "type", null, 0, 1,
+				ExecutionEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExecutionEnvironment_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+				ExecutionEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExecutionEnvironment_Component(), this.getComponent(), null, "component", null, 0, -1,
+				ExecutionEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExecutionEnvironment_Port(), this.getCommunicationPort(), null, "port", null, 0, -1,
+				ExecutionEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(communicationLinkEClass, CommunicationLink.class, "CommunicationLink", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCommunicationLink_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+				CommunicationLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommunicationLink_LinkType(), this.getLinkType(), "linkType", null, 0, 1,
+				CommunicationLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommunicationLink_NetworkType(), this.getNetworkType(), "networkType", null, 0, 1,
+				CommunicationLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getCommunicationLink_Source(), this.getCommunicationPort(), null, "source", null, 0, 1,
+				CommunicationLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommunicationLink_Target(), this.getCommunicationPort(), null, "target", null, 0, 1,
+				CommunicationLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(communicationPortEClass, CommunicationPort.class, "CommunicationPort", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCommunicationPort_Name(), ecorePackage.getEString(), "name", null, 0, 1,
+				CommunicationPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommunicationPort_PortNumber(), ecorePackage.getEInt(), "portNumber", null, 0, 1,
+				CommunicationPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getCommunicationPort_Node(), this.getExecutionEnvironment(), null, "node", null, 0, 1,
+				CommunicationPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommunicationPort_Namedport(), this.getPort(), null, "namedport", null, 0, -1,
+				CommunicationPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommunicationPort_HasFirewall(), ecorePackage.getEBoolean(), "hasFirewall", null, 0, 1,
+				CommunicationPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommunicationPort_HasAuthentication(), ecorePackage.getEBoolean(), "hasAuthentication", null,
+				0, 1, CommunicationPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommunicationPort_HasAuthorization(), ecorePackage.getEBoolean(), "hasAuthorization", null, 0,
+				1, CommunicationPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommunicationPort_HasInputSanitization(), ecorePackage.getEBoolean(), "hasInputSanitization",
+				null, 0, 1, CommunicationPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(exprOperatorEEnum, ExprOperator.class, "ExprOperator");
 		addEEnumLiteral(exprOperatorEEnum, ExprOperator.PARALLEL);
@@ -1380,6 +2001,37 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		addEEnumLiteral(behaviourPropTypeEEnum, BehaviourPropType.DECOMPOSITION_FREE);
 		addEEnumLiteral(behaviourPropTypeEEnum, BehaviourPropType.POLTERGEIST_FREE);
 		addEEnumLiteral(behaviourPropTypeEEnum, BehaviourPropType.AMBIGUOUS_INTERFACE_FREE);
+
+		initEEnum(nodeTypeEEnum, NodeType.class, "NodeType");
+		addEEnumLiteral(nodeTypeEEnum, NodeType.DOCKER_CONTAINER);
+		addEEnumLiteral(nodeTypeEEnum, NodeType.APPLICATION_CONTAINER);
+		addEEnumLiteral(nodeTypeEEnum, NodeType.FILE_SYSTEM);
+
+		initEEnum(hostTypeEEnum, HostType.class, "HostType");
+		addEEnumLiteral(hostTypeEEnum, HostType.VIRTUAL_MACHINE);
+		addEEnumLiteral(hostTypeEEnum, HostType.DEDICATED_SERVER);
+		addEEnumLiteral(hostTypeEEnum, HostType.CLOUD_PLATFORM);
+		addEEnumLiteral(hostTypeEEnum, HostType.MOBILE_PHONE);
+
+		initEEnum(linkTypeEEnum, LinkType.class, "LinkType");
+		addEEnumLiteral(linkTypeEEnum, LinkType.HTTP);
+		addEEnumLiteral(linkTypeEEnum, LinkType.HTTPS);
+		addEEnumLiteral(linkTypeEEnum, LinkType.FTPS);
+		addEEnumLiteral(linkTypeEEnum, LinkType.FTP);
+
+		initEEnum(netAccessTypeEEnum, NetAccessType.class, "NetAccessType");
+		addEEnumLiteral(netAccessTypeEEnum, NetAccessType.PRIVATE);
+		addEEnumLiteral(netAccessTypeEEnum, NetAccessType.PUBLIC);
+
+		initEEnum(networkTypeEEnum, NetworkType.class, "NetworkType");
+		addEEnumLiteral(networkTypeEEnum, NetworkType.INTRANET);
+		addEEnumLiteral(networkTypeEEnum, NetworkType.INTERNET);
+
+		initEEnum(criticalLevelEEnum, CriticalLevel.class, "CriticalLevel");
+		addEEnumLiteral(criticalLevelEEnum, CriticalLevel.VERY_LOW);
+		addEEnumLiteral(criticalLevelEEnum, CriticalLevel.LOW);
+		addEEnumLiteral(criticalLevelEEnum, CriticalLevel.HIGH);
+		addEEnumLiteral(criticalLevelEEnum, CriticalLevel.VERY_HIGH);
 
 		// Create resource
 		createResource(eNS_URI);

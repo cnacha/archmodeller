@@ -28,7 +28,21 @@ import nz.auckland.arch.VerificationProperty;
 
 public class ADLModelConverter {
 
-	public static String convert(DesignModel model) {
+	DesignModel model;
+	Port runPort = null;
+
+	public ADLModelConverter(DesignModel model) {
+		super();
+		this.model = model;
+	}
+
+	public ADLModelConverter(DesignModel model, Port runPort) {
+		super();
+		this.model = model;
+		this.runPort = runPort;
+	}
+
+	private String writeArchitectureStyles() {
 		StringBuffer adlcode = new StringBuffer();
 		for (ArchStyle style : model.getArchstyle()) {
 
@@ -88,6 +102,11 @@ public class ADLModelConverter {
 			}
 		}
 
+		return adlcode.toString();
+	}
+
+	private String writeComponents() {
+		StringBuffer adlcode = new StringBuffer();
 		// print component definition
 		for (Component comp : model.getComponent()) {
 			adlcode.append("component " + comp.getName() + " { \n");
@@ -102,6 +121,13 @@ public class ADLModelConverter {
 			adlcode.append("}\n");
 		}
 
+		return adlcode.toString();
+	}
+
+	List<String> portProcList = new ArrayList<String>();
+
+	private String writeSystemConfiguration(BehaviourProperty prop) {
+		StringBuffer adlcode = new StringBuffer();
 		// print system configuration
 		adlcode.append("system " + model.getName() + " { \n");
 
@@ -111,14 +137,23 @@ public class ADLModelConverter {
 		}
 
 		// print port-role attachment
-		List<String> portProcList = new ArrayList<String>();
+
 		for (Component comp : model.getComponent()) {
 			for (Port port : comp.getPort()) {
+
+				// check if checking for specific port
+				System.out.println("printing " + port.getName() + " typ:" + port.getType());
+				if (runPort != null && port != runPort && port.getType().indexOf("OutboundPort") != -1
+						&& port.getType().indexOf("InboundPort") == -1) {
+					// skip runing the other inbound port that is not the port to test
+					continue;
+				}
+
 				String portProcName = comp.getName() + "." + port.getName() + "()";
-				if(port.getRole().size() == 0)
+				if (port.getRole().size() == 0)
 					continue;
 				portProcList.add(portProcName);
-				
+
 				adlcode.append("\t attach " + portProcName + " = ");
 				// find start role
 				HashSet<Role> roleSet = new HashSet<Role>();
@@ -162,6 +197,11 @@ public class ADLModelConverter {
 			}
 		}
 
+		return adlcode.toString();
+	}
+
+	private String writeExecuteStatement() {
+		StringBuffer adlcode = new StringBuffer();
 		// print execute statement
 		adlcode.append("\t execute ");
 		for (int i = 0; i < portProcList.size(); i++) {
@@ -172,7 +212,50 @@ public class ADLModelConverter {
 		adlcode.append("\n");
 
 		adlcode.append("}\n");
+		return adlcode.toString();
+	}
 
+	private String writeLTLAssertion(BehaviourProperty prop, boolean applyNegation) {
+		StringBuffer adlcode = new StringBuffer();
+		// print assertion for LTL
+		StringBuffer ltlLogic = new StringBuffer();
+		if (prop.getType() == BehaviourPropType.LTL) {
+
+			adlcode.append("assert " + model.getName() + " |= ");
+
+			// find start expr
+			HashSet<LTLExpr> exprSet = new HashSet<LTLExpr>();
+			exprSet.addAll(prop.getLtlexpr());
+			for (LTLExpr expr : prop.getLtlexpr()) {
+				if (expr.getNextExpr() != null) {
+					exprSet.remove(expr.getNextExpr());
+				}
+			}
+			LTLExpr curExpr = exprSet.iterator().next();
+			try {
+				ltlLogic.append(getLTLExpr(model, curExpr));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			ltlLogic.append(";\n");
+
+			adlcode.append(ltlLogic);
+
+			if (applyNegation) {
+				// apply negation
+				adlcode.append("assert " + model.getName() + " |= ");
+				adlcode.append("! " + ltlLogic);
+			}
+
+		}
+
+		return adlcode.toString();
+	}
+
+	private String writeAllAssertions() {
+		StringBuffer adlcode = new StringBuffer();
 		// print asssertion
 		try {
 			for (VerificationProperty p : model.getVerifyProperty()) {
@@ -182,20 +265,7 @@ public class ADLModelConverter {
 					// print assertion for LTL
 					if (prop.getType() == BehaviourPropType.LTL) {
 
-						adlcode.append("assert " + model.getName() + " |= ");
-
-						// find start expr
-						HashSet<LTLExpr> exprSet = new HashSet<LTLExpr>();
-						exprSet.addAll(prop.getLtlexpr());
-						for (LTLExpr expr : prop.getLtlexpr()) {
-							if (expr.getNextExpr() != null) {
-								exprSet.remove(expr.getNextExpr());
-							}
-						}
-						LTLExpr curExpr = exprSet.iterator().next();
-						adlcode.append(getLTLExpr(model, curExpr));
-
-						adlcode.append(";\n");
+						adlcode.append(writeLTLAssertion(prop, false));
 					}
 
 					// print assertion for CD
@@ -225,6 +295,31 @@ public class ADLModelConverter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return adlcode.toString();
+	}
+
+	public String convert() {
+		StringBuffer adlcode = new StringBuffer();
+
+		adlcode.append(this.writeArchitectureStyles());
+		adlcode.append(this.writeComponents());
+		adlcode.append(this.writeSystemConfiguration(null));
+		adlcode.append(this.writeExecuteStatement());
+		adlcode.append(this.writeAllAssertions());
+
+		return adlcode.toString();
+	}
+
+	public String convert(BehaviourProperty prop) {
+		StringBuffer adlcode = new StringBuffer();
+
+		adlcode.append(this.writeArchitectureStyles());
+		adlcode.append(this.writeComponents());
+		adlcode.append(this.writeSystemConfiguration(prop));
+
+		adlcode.append(this.writeExecuteStatement());
+
+		adlcode.append(this.writeLTLAssertion(prop, true));
 
 		return adlcode.toString();
 	}
@@ -232,7 +327,7 @@ public class ADLModelConverter {
 	public static String getLTLExpr(DesignModel model, LTLExpr curExpr) throws Exception {
 
 		if (curExpr instanceof LTLRegularExpr) {
-			return getLTLOperator(curExpr.getOperator()) + getFullEventLabel(model, curExpr.getEvent())
+			return getLTLOperator(curExpr.getOperator()) + getFullEventLabel(model, curExpr, curExpr.getEvent())
 					+ ((curExpr.getNextExpr() != null) ? " -> " + getLTLExpr(model, curExpr.getNextExpr()) : "");
 		} else if (curExpr instanceof LTLNestedExpr) {
 			LTLNestedExpr nestedExpr = (LTLNestedExpr) curExpr;
@@ -260,7 +355,9 @@ public class ADLModelConverter {
 			return "";
 	}
 
-	public static String getFullEventLabel(DesignModel model, Event event) {
+	public static String getFullEventLabel(DesignModel model,LTLExpr curExpr, Event event) {
+		if(curExpr.getRole()!=null)
+			return getFullRoleEventLabel(model,curExpr.getPort(), curExpr.getRole(), event);
 		try {
 			// loop through to check if it is component event.
 			for (Component comp : model.getComponent()) {
@@ -271,24 +368,39 @@ public class ADLModelConverter {
 					}
 				}
 			}
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return "";
+	}
+
+	public static String getFullRoleEventLabel(DesignModel model,Port prt, Role rle, Event event) {
+		try {
 			// loop through to check if it is connector event.
 			for (Component comp : model.getComponent()) {
 				for (Port port : comp.getPort()) {
-					for (Role role : port.getRole()) {
-						for (Event current : role.getRoletype().getEvent()) {
-							if (event == current) {
-								return comp.getName() + "." + role.getConnector().getName()
-										+ role.getRoletype().getName() + "." + event.getName();
+					if(port == prt) {
+						for (Role role : port.getRole()) {
+							if (role == rle) {
+								for (Event current : rle.getRoletype().getEvent()) {
+									if (event == current) {
+										return comp.getName() + "." + role.getConnector().getName() + "."
+												+ role.getRoletype().getName() + "." + event.getName();
+									}
+								}
 							}
 						}
 					}
+					
 				}
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return "";
 	}
 

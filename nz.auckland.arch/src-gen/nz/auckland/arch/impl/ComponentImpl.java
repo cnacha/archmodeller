@@ -6,6 +6,8 @@ import java.util.Collection;
 
 import nz.auckland.arch.ArchPackage;
 import nz.auckland.arch.Component;
+import nz.auckland.arch.CriticalLevel;
+import nz.auckland.arch.ExecutionEnvironment;
 import nz.auckland.arch.Port;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -34,6 +36,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link nz.auckland.arch.impl.ComponentImpl#getType <em>Type</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.ComponentImpl#getPort <em>Port</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.ComponentImpl#isValid <em>Valid</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.ComponentImpl#getDeploymentnode <em>Deploymentnode</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.ComponentImpl#getCriticalLevel <em>Critical Level</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.ComponentImpl#getSecurityCharacters <em>Security Characters</em>}</li>
  * </ul>
  *
  * @generated
@@ -108,6 +113,56 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * @ordered
 	 */
 	protected boolean valid = VALID_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDeploymentnode() <em>Deploymentnode</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDeploymentnode()
+	 * @generated
+	 * @ordered
+	 */
+	protected ExecutionEnvironment deploymentnode;
+
+	/**
+	 * The default value of the '{@link #getCriticalLevel() <em>Critical Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCriticalLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final CriticalLevel CRITICAL_LEVEL_EDEFAULT = CriticalLevel.VERY_LOW;
+
+	/**
+	 * The cached value of the '{@link #getCriticalLevel() <em>Critical Level</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCriticalLevel()
+	 * @generated
+	 * @ordered
+	 */
+	protected CriticalLevel criticalLevel = CRITICAL_LEVEL_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getSecurityCharacters() <em>Security Characters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityCharacters()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SECURITY_CHARACTERS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getSecurityCharacters() <em>Security Characters</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSecurityCharacters()
+	 * @generated
+	 * @ordered
+	 */
+	protected String securityCharacters = SECURITY_CHARACTERS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -208,6 +263,90 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ExecutionEnvironment getDeploymentnode() {
+		if (deploymentnode != null && deploymentnode.eIsProxy()) {
+			InternalEObject oldDeploymentnode = (InternalEObject) deploymentnode;
+			deploymentnode = (ExecutionEnvironment) eResolveProxy(oldDeploymentnode);
+			if (deploymentnode != oldDeploymentnode) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchPackage.COMPONENT__DEPLOYMENTNODE,
+							oldDeploymentnode, deploymentnode));
+			}
+		}
+		return deploymentnode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ExecutionEnvironment basicGetDeploymentnode() {
+		return deploymentnode;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDeploymentnode(ExecutionEnvironment newDeploymentnode) {
+		ExecutionEnvironment oldDeploymentnode = deploymentnode;
+		deploymentnode = newDeploymentnode;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.COMPONENT__DEPLOYMENTNODE,
+					oldDeploymentnode, deploymentnode));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CriticalLevel getCriticalLevel() {
+		return criticalLevel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCriticalLevel(CriticalLevel newCriticalLevel) {
+		CriticalLevel oldCriticalLevel = criticalLevel;
+		criticalLevel = newCriticalLevel == null ? CRITICAL_LEVEL_EDEFAULT : newCriticalLevel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.COMPONENT__CRITICAL_LEVEL,
+					oldCriticalLevel, criticalLevel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSecurityCharacters() {
+		return securityCharacters;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSecurityCharacters(String newSecurityCharacters) {
+		String oldSecurityCharacters = securityCharacters;
+		securityCharacters = newSecurityCharacters;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.COMPONENT__SECURITY_CHARACTERS,
+					oldSecurityCharacters, securityCharacters));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -233,6 +372,14 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 			return getPort();
 		case ArchPackage.COMPONENT__VALID:
 			return isValid();
+		case ArchPackage.COMPONENT__DEPLOYMENTNODE:
+			if (resolve)
+				return getDeploymentnode();
+			return basicGetDeploymentnode();
+		case ArchPackage.COMPONENT__CRITICAL_LEVEL:
+			return getCriticalLevel();
+		case ArchPackage.COMPONENT__SECURITY_CHARACTERS:
+			return getSecurityCharacters();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -259,6 +406,15 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 		case ArchPackage.COMPONENT__VALID:
 			setValid((Boolean) newValue);
 			return;
+		case ArchPackage.COMPONENT__DEPLOYMENTNODE:
+			setDeploymentnode((ExecutionEnvironment) newValue);
+			return;
+		case ArchPackage.COMPONENT__CRITICAL_LEVEL:
+			setCriticalLevel((CriticalLevel) newValue);
+			return;
+		case ArchPackage.COMPONENT__SECURITY_CHARACTERS:
+			setSecurityCharacters((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -283,6 +439,15 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 		case ArchPackage.COMPONENT__VALID:
 			setValid(VALID_EDEFAULT);
 			return;
+		case ArchPackage.COMPONENT__DEPLOYMENTNODE:
+			setDeploymentnode((ExecutionEnvironment) null);
+			return;
+		case ArchPackage.COMPONENT__CRITICAL_LEVEL:
+			setCriticalLevel(CRITICAL_LEVEL_EDEFAULT);
+			return;
+		case ArchPackage.COMPONENT__SECURITY_CHARACTERS:
+			setSecurityCharacters(SECURITY_CHARACTERS_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -303,6 +468,13 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 			return port != null && !port.isEmpty();
 		case ArchPackage.COMPONENT__VALID:
 			return valid != VALID_EDEFAULT;
+		case ArchPackage.COMPONENT__DEPLOYMENTNODE:
+			return deploymentnode != null;
+		case ArchPackage.COMPONENT__CRITICAL_LEVEL:
+			return criticalLevel != CRITICAL_LEVEL_EDEFAULT;
+		case ArchPackage.COMPONENT__SECURITY_CHARACTERS:
+			return SECURITY_CHARACTERS_EDEFAULT == null ? securityCharacters != null
+					: !SECURITY_CHARACTERS_EDEFAULT.equals(securityCharacters);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -324,6 +496,10 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 		result.append(type);
 		result.append(", valid: ");
 		result.append(valid);
+		result.append(", criticalLevel: ");
+		result.append(criticalLevel);
+		result.append(", securityCharacters: ");
+		result.append(securityCharacters);
 		result.append(')');
 		return result.toString();
 	}
