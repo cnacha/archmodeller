@@ -395,13 +395,22 @@ public interface ArchPackage extends EPackage {
 	int PORT__INSECURE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Attributes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PORT__ATTRIBUTES = 6;
+
+	/**
 	 * The number of structural features of the '<em>Port</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PORT_FEATURE_COUNT = 6;
+	int PORT_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Port</em>' class.
@@ -2109,6 +2118,17 @@ public interface ArchPackage extends EPackage {
 	EAttribute getPort_Insecure();
 
 	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.Port#getAttributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attributes</em>'.
+	 * @see nz.auckland.arch.Port#getAttributes()
+	 * @see #getPort()
+	 * @generated
+	 */
+	EAttribute getPort_Attributes();
+
+	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.Event <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3393,6 +3413,14 @@ public interface ArchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PORT__INSECURE = eINSTANCE.getPort_Insecure();
+
+		/**
+		 * The meta object literal for the '<em><b>Attributes</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PORT__ATTRIBUTES = eINSTANCE.getPort_Attributes();
 
 		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.impl.EventImpl <em>Event</em>}' class.

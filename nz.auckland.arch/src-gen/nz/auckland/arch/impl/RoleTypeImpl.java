@@ -8,7 +8,6 @@ import nz.auckland.arch.ArchPackage;
 import nz.auckland.arch.Event;
 import nz.auckland.arch.PortType;
 import nz.auckland.arch.RoleType;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 

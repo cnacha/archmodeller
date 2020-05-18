@@ -110,10 +110,11 @@ public class ModelSimulation {
 					 //break;
 
 				} 
-				
+				System.out.println("start port diagram");
 				if(dr.getDescription().getName().equals("PortDiagram")) {
-					System.out.println("found port diagram "+rpst.getName());
+					System.out.println("	found port diagram "+rpst.getName());
 					for(DRepresentationElement element: rpst.getRepresentationElements()) {
+						System.out.println(element.getSemanticElements());
 						if(element.getSemanticElements().size()>0) {
 							EObject obj = element.getSemanticElements().get(0);
 							
@@ -125,6 +126,7 @@ public class ModelSimulation {
 						}
 					}
 				}
+				System.out.println("end port diagram");
 				
 			}// end loop through representation
 			

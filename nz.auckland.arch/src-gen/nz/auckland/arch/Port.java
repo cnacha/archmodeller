@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link nz.auckland.arch.Port#getType <em>Type</em>}</li>
  *   <li>{@link nz.auckland.arch.Port#isValid <em>Valid</em>}</li>
  *   <li>{@link nz.auckland.arch.Port#isInsecure <em>Insecure</em>}</li>
+ *   <li>{@link nz.auckland.arch.Port#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
  * @see nz.auckland.arch.ArchPackage#getPort()
@@ -164,5 +165,31 @@ public interface Port extends EObject {
 	 * @generated
 	 */
 	void setInsecure(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Attributes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Attributes</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attributes</em>' attribute.
+	 * @see #setAttributes(String)
+	 * @see nz.auckland.arch.ArchPackage#getPort_Attributes()
+	 * @model
+	 * @generated
+	 */
+	String getAttributes();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.Port#getAttributes <em>Attributes</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Attributes</em>' attribute.
+	 * @see #getAttributes()
+	 * @generated
+	 */
+	void setAttributes(String value);
 
 } // Port

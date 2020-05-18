@@ -52,6 +52,8 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Type;
 import java.net.URL;
@@ -88,6 +90,7 @@ import nz.auckland.arch.VerificationProperty;
 import nz.auckland.arch.impl.ArchFactoryImpl;
 import nz.auckland.arch.impl.ConnectorImpl;
 import nz.auckland.arch.impl.DesignModelImpl;
+import nz.auckland.arch.refactor.RefactorEngine;
 import nz.auckland.arch.viewpoint.model.ADLVerifyRequest;
 import nz.auckland.arch.viewpoint.model.ADLVerifyResult;
 import nz.auckland.arch.viewpoint.utils.ADLModelConverter;
@@ -106,6 +109,15 @@ public class Services {
 //		System.out.println("myservice is called: " + arg);
 //		return self;
 //	}
+	
+	public EObject refactorStructure(EObject self) {
+		DesignModel model = (DesignModel) self;
+
+		RefactorEngine engine = new RefactorEngine();
+		
+		engine.start(model);
+		return model;
+	}
 
 	public EObject verifyStructure(EObject self) {
 		DesignModel model = (DesignModel) self;
@@ -137,7 +149,7 @@ public class Services {
 
 		return self;
 	}
-	
+
 	public EObject resetAdversary(EObject self) {
 		System.out.println("resetAdversary" + self);
 		DesignModel model = (DesignModel) self;
@@ -145,28 +157,28 @@ public class Services {
 		List<Component> compToRemove = new ArrayList<Component>();
 		List<VerificationProperty> propToRemove = new ArrayList<VerificationProperty>();
 		try {
-			for(Component comp: model.getComponent()) {
-				if("adversary".equals(comp.getType())) {
+			for (Component comp : model.getComponent()) {
+				if ("adversary".equals(comp.getType())) {
 					compToRemove.add(comp);
 				}
 			}
-			for(VerificationProperty prop: model.getVerifyProperty()) {
-				if(prop.getName().startsWith("Adversary"))
+			for (VerificationProperty prop : model.getVerifyProperty()) {
+				if (prop.getName().startsWith("Adversary"))
 					propToRemove.add(prop);
 			}
-			
+
 			model.getComponent().removeAll(compToRemove);
 			model.getVerifyProperty().removeAll(propToRemove);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return self;
 	}
 
 	public EObject generateAdversary(EObject self, String attackName, String attackCode) {
-		
+
 		DesignModel model = (DesignModel) self;
 
 		try {
@@ -174,13 +186,12 @@ public class Services {
 			// find connector with DenialOfService
 			int advId = 1;
 			for (Connector con : model.getConnector()) {
-				if (con.getSecurityCharacters() != null
-						&& con.getSecurityCharacters().indexOf(attackName) != -1) {
+				if (con.getSecurityCharacters() != null && con.getSecurityCharacters().indexOf(attackName) != -1) {
 
 					// create DOS adversary
 					Component adversary = factory.createComponent();
 
-					adversary.setName("Adversary"+attackCode + advId);
+					adversary.setName("Adversary" + attackCode + advId);
 					adversary.setType("adversary");
 					// create attack port
 					Port attackPort = factory.createPort();
@@ -224,32 +235,33 @@ public class Services {
 									prop.getLtlexpr().add(expr);
 
 									// add component event as begin -> target
-									
+
 									/****** attack port-role -> target port ****/
 									LTLRegularExpr innerExprBegin = factory.createLTLRegularExpr();
 									innerExprBegin.setPort(attackPort);
 									innerExprBegin.setRole(attackPort.getRole().get(0));
-									innerExprBegin.setEvent(attackPort.getRole().get(0).getRoletype().getEvent().get(0));
+									innerExprBegin
+											.setEvent(attackPort.getRole().get(0).getRoletype().getEvent().get(0));
 									expr.getExpr().add(innerExprBegin);
-									
+
 									LTLRegularExpr innerExprTarget = factory.createLTLRegularExpr();
 									innerExprTarget.setEvent(inPort.getEvents().get(0));
 									innerExprTarget.setOperator(LTLOperator.EVENTUALLY);
 									innerExprBegin.setNextExpr(innerExprTarget);
 									expr.getExpr().add(innerExprTarget);
-									
-									/****** target component -> attack port
-									LTLRegularExpr innerExprBegin = factory.createLTLRegularExpr();
-									innerExprBegin.setEvent(inPort.getEvents().get(0));
-									expr.getExpr().add(innerExprBegin);
 
-									// add adversary attacked event as target
-									LTLRegularExpr innerExprTarget = factory.createLTLRegularExpr();
-									innerExprTarget.setEvent(attackedEvt);
-									innerExprTarget.setOperator(LTLOperator.EVENTUALLY);
-									innerExprBegin.setNextExpr(innerExprTarget);
-									expr.getExpr().add(innerExprTarget);
-									*********/
+									/******
+									 * target component -> attack port LTLRegularExpr innerExprBegin =
+									 * factory.createLTLRegularExpr();
+									 * innerExprBegin.setEvent(inPort.getEvents().get(0));
+									 * expr.getExpr().add(innerExprBegin);
+									 * 
+									 * // add adversary attacked event as target LTLRegularExpr innerExprTarget =
+									 * factory.createLTLRegularExpr(); innerExprTarget.setEvent(attackedEvt);
+									 * innerExprTarget.setOperator(LTLOperator.EVENTUALLY);
+									 * innerExprBegin.setNextExpr(innerExprTarget);
+									 * expr.getExpr().add(innerExprTarget);
+									 *********/
 									model.getVerifyProperty().add(prop);
 								}
 
@@ -462,36 +474,28 @@ public class Services {
 		try {
 
 			BehaviourProperty prop = (BehaviourProperty) self;
-						
-			
-				
-				
-			if(type==1) {
-				if(prop.getCounterExample() == null || "".equals(prop.getCounterExample()))
+
+			if (type == 1) {
+				if (prop.getCounterExample() == null || "".equals(prop.getCounterExample()))
 					this.showMessage("No Counter Example found!");
 				else {
 					sim.setupRpstElementHash();
 					sim.run(prop.getCounterExample());
 				}
-			}else if(type == 0) {
-				if(prop.getTraceExample() == null || "".equals(prop.getTraceExample()))
+			} else if (type == 0) {
+				if (prop.getTraceExample() == null || "".equals(prop.getTraceExample()))
 					this.showMessage("No Trace Example found!");
 				else {
 					sim.setupRpstElementHash();
 					sim.run(prop.getTraceExample());
 				}
-			} 
-			
+			}
 
-		}catch(
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-	Exception e)
-	{
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-
-	return self;
+		return self;
 	}
 
 	public boolean isLTLProp(EObject object) {

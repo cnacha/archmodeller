@@ -92,6 +92,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Port/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Port/valid"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Port/insecure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Port/attributes"/>
     </genClasses>
     <genClasses ecoreClass="arch.ecore#//Event">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Event/name"/>

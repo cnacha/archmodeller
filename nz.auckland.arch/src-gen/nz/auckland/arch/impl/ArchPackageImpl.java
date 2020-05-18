@@ -616,6 +616,15 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPort_Attributes() {
+		return (EAttribute) portEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEvent() {
 		return eventEClass;
 	}
@@ -1520,6 +1529,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEAttribute(portEClass, PORT__TYPE);
 		createEAttribute(portEClass, PORT__VALID);
 		createEAttribute(portEClass, PORT__INSECURE);
+		createEAttribute(portEClass, PORT__ATTRIBUTES);
 
 		eventEClass = createEClass(EVENT);
 		createEAttribute(eventEClass, EVENT__NAME);
@@ -1751,6 +1761,8 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		initEAttribute(getPort_Valid(), ecorePackage.getEBoolean(), "valid", "true", 0, 1, Port.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPort_Insecure(), ecorePackage.getEBoolean(), "insecure", null, 0, 1, Port.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPort_Attributes(), ecorePackage.getEString(), "attributes", null, 0, 1, Port.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

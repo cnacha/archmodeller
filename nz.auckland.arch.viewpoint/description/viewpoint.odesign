@@ -19,7 +19,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="ComponentContainer" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" domainClass="arch::Component">
+        <containerMappings name="ComponentContainer" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:component" domainClass="arch::Component">
           <borderedNodeMappings name="InterfaceNode" label="Port" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:port" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='doublePort']" domainClass="arch::Port">
             <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelAlignment="RIGHT" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="nz.auckland.arch.viewpoint/icon/incoming-inf-small.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -49,7 +49,7 @@
             </style>
           </conditionnalStyles>
         </containerMappings>
-        <containerMappings name="ConnectorContainer" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" domainClass="arch::Connector">
+        <containerMappings name="ConnectorContainer" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:connector" domainClass="arch::Connector">
           <borderedNodeMappings name="RoleNode" label="RoleNode" deletionDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']/@defaultLayer/@toolSections.0/@ownedTools[name='remove']" semanticCandidatesExpression="feature:role" domainClass="arch::Role">
             <style xsi:type="style:DotDescription" showIcon="false" labelAlignment="RIGHT" sizeComputationExpression="2" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -178,6 +178,12 @@
             <container name="container"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.createConnector(element)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="Refactor">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.refactorStructure()"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -525,7 +531,7 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ArchStyleLibrary" domainClass="arch::DesignModel" enablePopupBars="true">
       <defaultLayer name="Default">
-        <nodeMappings name="styleNode" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleLibrary']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleLibrary']/@defaultLayer/@toolSections.0/@ownedTools[name='connectorTypeDetails']" domainClass="arch::ArchStyle">
+        <nodeMappings name="styleNode" labelDirectEdit="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleLibrary']/@defaultLayer/@toolSections.0/@ownedTools[name='editComponent']" semanticCandidatesExpression="feature:archstyle" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='ArchStyleLibrary']/@defaultLayer/@toolSections.0/@ownedTools[name='connectorTypeDetails']" domainClass="arch::ArchStyle">
           <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" width="15" height="10">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

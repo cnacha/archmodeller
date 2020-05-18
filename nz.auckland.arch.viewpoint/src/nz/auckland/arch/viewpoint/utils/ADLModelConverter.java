@@ -2,6 +2,7 @@ package nz.auckland.arch.viewpoint.utils;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -142,8 +143,8 @@ public class ADLModelConverter {
 			for (Port port : comp.getPort()) {
 
 				// check if checking for specific port
-				System.out.println("printing " + port.getName() + " typ:" + port.getType());
-				if (runPort != null && port != runPort && port.getType().indexOf("OutboundPort") != -1
+				//System.out.println("printing " + port.getName() + " typ:" + port.getType());
+				if (runPort != null && port != runPort && port.getType()!=null && port.getType().indexOf("OutboundPort") != -1
 						&& port.getType().indexOf("InboundPort") == -1) {
 					// skip runing the other inbound port that is not the port to test
 					continue;
@@ -157,26 +158,32 @@ public class ADLModelConverter {
 				adlcode.append("\t attach " + portProcName + " = ");
 				// find start role
 				HashSet<Role> roleSet = new HashSet<Role>();
+				
 				roleSet.addAll(port.getRole());
+				//System.out.println("================="+portProcName+"  "+port.getRole().size());
 				for (Role role : port.getRole()) {
 					if (role.getNextRoleExpr() != null) {
 						roleSet.remove(role.getNextRoleExpr());
 					}
 				}
+				//System.out.println(".....attaching port "+portProcName+" "+roleSet);
 				try {
 					// left in the set is the start role
 
-					Role currentRole = roleSet.iterator().next();
-					while (currentRole != null) {
+					Iterator roleIt = roleSet.iterator();
+					Role currentRole = (Role)roleIt.next();
+					while (currentRole!=null) {
+						
 						// print attached role process
 						if (hasInputArgumentExpr(currentRole.getRoletype().getEvent())) {
+							//System.out.println("		cnn:"+currentRole.getConnector());
 							adlcode.append(currentRole.getConnector().getName() + "." + currentRole.getName() + "("
 									+ generateRandomDigits(2) + ")");
 						} else {
 							adlcode.append(currentRole.getConnector().getName() + "." + currentRole.getName() + "()");
 						}
 						// print operator
-						if (currentRole.getNextRoleExpr() != null) {
+						if (currentRole.getNextRoleExpr()!=null) {
 							if (currentRole.getOperatorExpr() == ExprOperator.COUPLING) {
 								adlcode.append(" <*> ");
 							} else if (currentRole.getOperatorExpr() == ExprOperator.INTERLEAVE) {
@@ -356,6 +363,7 @@ public class ADLModelConverter {
 	}
 
 	public static String getFullEventLabel(DesignModel model,LTLExpr curExpr, Event event) {
+		System.out.println("getFullEventLabel "+curExpr.getRole());
 		if(curExpr.getRole()!=null)
 			return getFullRoleEventLabel(model,curExpr.getPort(), curExpr.getRole(), event);
 		try {
@@ -379,22 +387,22 @@ public class ADLModelConverter {
 
 	public static String getFullRoleEventLabel(DesignModel model,Port prt, Role rle, Event event) {
 		try {
+			System.out.println("getFullRoleEventLabel is called");
 			// loop through to check if it is connector event.
 			for (Component comp : model.getComponent()) {
 				for (Port port : comp.getPort()) {
-					if(port == prt) {
 						for (Role role : port.getRole()) {
 							if (role == rle) {
+								System.out.println("	found role..."+role.getName());
 								for (Event current : rle.getRoletype().getEvent()) {
-									if (event == current) {
+									if (event.getName().equals(current.getName())) {
+										System.out.println("	found event..."+event.getName());
 										return comp.getName() + "." + role.getConnector().getName() + "."
 												+ role.getRoletype().getName() + "." + event.getName();
 									}
 								}
 							}
 						}
-					}
-					
 				}
 			}
 		} catch (Exception e) {
