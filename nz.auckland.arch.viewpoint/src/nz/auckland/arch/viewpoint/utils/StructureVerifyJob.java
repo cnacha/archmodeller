@@ -61,13 +61,13 @@ public class StructureVerifyJob extends Job {
 
 		try {
 			System.out.println("archsize:" + model.getArchstyle().size());
-			System.out.println("comp eclass" + model.getComponent().get(0).eClass().toString());
+			System.out.println("ontologylabel:" + model.getOntologylabel().size());
 
 			// convert to JSON
 			ObjectMapper mapper = EMFModule.setupDefaultMapper();
 			String jsonString = mapper.writeValueAsString(model);
 			System.out.println("complete converting ..." + (new Date()).toString());
-			System.out.println(jsonString);
+			//System.out.println(jsonString);
 			System.out.println("########################################### ");
 
 			// call web service to verify in OWL
@@ -80,7 +80,7 @@ public class StructureVerifyJob extends Job {
 			HttpResponse response = httpClient.execute(request);
 			HttpEntity entity = response.getEntity();
 			String resString = EntityUtils.toString(entity, "UTF-8");
-			System.out.println(resString);
+			//System.out.println(resString);
 
 			// convert response JSON string to model
 			DesignModel parsedModel = (DesignModel) loadEObjectFromString(resString, ArchPackage.eINSTANCE);

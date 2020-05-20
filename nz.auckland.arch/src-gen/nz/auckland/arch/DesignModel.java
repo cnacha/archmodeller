@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link nz.auckland.arch.DesignModel#getName <em>Name</em>}</li>
  *   <li>{@link nz.auckland.arch.DesignModel#getHost <em>Host</em>}</li>
  *   <li>{@link nz.auckland.arch.DesignModel#getLink <em>Link</em>}</li>
+ *   <li>{@link nz.auckland.arch.DesignModel#getOntologylabel <em>Ontologylabel</em>}</li>
  * </ul>
  *
  * @see nz.auckland.arch.ArchPackage#getDesignModel()
@@ -150,5 +151,21 @@ public interface DesignModel extends EObject {
 	 * @generated
 	 */
 	EList<CommunicationLink> getLink();
+
+	/**
+	 * Returns the value of the '<em><b>Ontologylabel</b></em>' containment reference list.
+	 * The list contents are of type {@link nz.auckland.arch.OntologyLabel}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ontologylabel</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ontologylabel</em>' containment reference list.
+	 * @see nz.auckland.arch.ArchPackage#getDesignModel_Ontologylabel()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<OntologyLabel> getOntologylabel();
 
 } // DesignModel

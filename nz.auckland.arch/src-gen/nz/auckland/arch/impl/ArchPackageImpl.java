@@ -29,6 +29,7 @@ import nz.auckland.arch.LinkType;
 import nz.auckland.arch.NetAccessType;
 import nz.auckland.arch.NetworkType;
 import nz.auckland.arch.NodeType;
+import nz.auckland.arch.OntologyLabel;
 import nz.auckland.arch.Port;
 import nz.auckland.arch.PortType;
 import nz.auckland.arch.Role;
@@ -204,6 +205,13 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * @generated
 	 */
 	private EClass communicationPortEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ontologyLabelEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -474,6 +482,15 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 */
 	public EReference getDesignModel_Link() {
 		return (EReference) designModelEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDesignModel_Ontologylabel() {
+		return (EReference) designModelEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1390,6 +1407,42 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOntologyLabel() {
+		return ontologyLabelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOntologyLabel_Name() {
+		return (EAttribute) ontologyLabelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOntologyLabel_Expression() {
+		return (EAttribute) ontologyLabelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOntologyLabel_SubClassOf() {
+		return (EAttribute) ontologyLabelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getExprOperator() {
 		return exprOperatorEEnum;
 	}
@@ -1512,6 +1565,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEAttribute(designModelEClass, DESIGN_MODEL__NAME);
 		createEReference(designModelEClass, DESIGN_MODEL__HOST);
 		createEReference(designModelEClass, DESIGN_MODEL__LINK);
+		createEReference(designModelEClass, DESIGN_MODEL__ONTOLOGYLABEL);
 
 		connectorEClass = createEClass(CONNECTOR);
 		createEAttribute(connectorEClass, CONNECTOR__NAME);
@@ -1634,6 +1688,11 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEAttribute(communicationPortEClass, COMMUNICATION_PORT__HAS_AUTHORIZATION);
 		createEAttribute(communicationPortEClass, COMMUNICATION_PORT__HAS_INPUT_SANITIZATION);
 
+		ontologyLabelEClass = createEClass(ONTOLOGY_LABEL);
+		createEAttribute(ontologyLabelEClass, ONTOLOGY_LABEL__NAME);
+		createEAttribute(ontologyLabelEClass, ONTOLOGY_LABEL__EXPRESSION);
+		createEAttribute(ontologyLabelEClass, ONTOLOGY_LABEL__SUB_CLASS_OF);
+
 		// Create enums
 		exprOperatorEEnum = createEEnum(EXPR_OPERATOR);
 		ltlOperatorEEnum = createEEnum(LTL_OPERATOR);
@@ -1725,6 +1784,9 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		initEReference(getDesignModel_Link(), this.getCommunicationLink(), null, "link", null, 0, -1, DesignModel.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDesignModel_Ontologylabel(), this.getOntologyLabel(), null, "ontologylabel", null, 0, -1,
+				DesignModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(connectorEClass, Connector.class, "Connector", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1995,6 +2057,17 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		initEAttribute(getCommunicationPort_HasInputSanitization(), ecorePackage.getEBoolean(), "hasInputSanitization",
 				null, 0, 1, CommunicationPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ontologyLabelEClass, OntologyLabel.class, "OntologyLabel", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOntologyLabel_Name(), ecorePackage.getEString(), "name", null, 0, 1, OntologyLabel.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOntologyLabel_Expression(), ecorePackage.getEString(), "expression", null, 0, 1,
+				OntologyLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOntologyLabel_SubClassOf(), ecorePackage.getEString(), "subClassOf", null, 0, 1,
+				OntologyLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(exprOperatorEEnum, ExprOperator.class, "ExprOperator");

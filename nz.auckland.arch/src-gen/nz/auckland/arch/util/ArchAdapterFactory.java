@@ -177,6 +177,11 @@ public class ArchAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseOntologyLabel(OntologyLabel object) {
+			return createOntologyLabelAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -500,6 +505,20 @@ public class ArchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCommunicationPortAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nz.auckland.arch.OntologyLabel <em>Ontology Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nz.auckland.arch.OntologyLabel
+	 * @generated
+	 */
+	public Adapter createOntologyLabelAdapter() {
 		return null;
 	}
 

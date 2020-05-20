@@ -36,3 +36,5 @@ Export-Package: nz.auckland.arch.viewpoint;
    org.eclipse.ui.plugin",
  nz.auckland.arch.viewpoint.model,
  nz.auckland.arch.viewpoint.utils
+Bundle-ClassPath: config/,
+ .

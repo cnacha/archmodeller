@@ -5,16 +5,13 @@ package nz.auckland.arch.provider;
 import java.util.Collection;
 import java.util.List;
 
-import nz.auckland.arch.ArchFactory;
 import nz.auckland.arch.ArchPackage;
-import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.OntologyLabel;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -28,12 +25,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link nz.auckland.arch.DesignModel} object.
+ * This is the item provider adapter for a {@link nz.auckland.arch.OntologyLabel} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DesignModelItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class OntologyLabelItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -41,7 +38,7 @@ public class DesignModelItemProvider extends ItemProviderAdapter implements IEdi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DesignModelItemProvider(AdapterFactory adapterFactory) {
+	public OntologyLabelItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -57,6 +54,8 @@ public class DesignModelItemProvider extends ItemProviderAdapter implements IEdi
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addExpressionPropertyDescriptor(object);
+			addSubClassOfPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -70,58 +69,54 @@ public class DesignModelItemProvider extends ItemProviderAdapter implements IEdi
 	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_DesignModel_name_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_DesignModel_name_feature",
-								"_UI_DesignModel_type"),
-						ArchPackage.Literals.DESIGN_MODEL__NAME, true, false, false,
+						getResourceLocator(), getString("_UI_OntologyLabel_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_OntologyLabel_name_feature",
+								"_UI_OntologyLabel_type"),
+						ArchPackage.Literals.ONTOLOGY_LABEL__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Expression feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__COMPONENT);
-			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__CONNECTOR);
-			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__ARCHSTYLE);
-			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__VERIFY_PROPERTY);
-			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__HOST);
-			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__LINK);
-			childrenFeatures.add(ArchPackage.Literals.DESIGN_MODEL__ONTOLOGYLABEL);
-		}
-		return childrenFeatures;
+	protected void addExpressionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_OntologyLabel_expression_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_OntologyLabel_expression_feature",
+								"_UI_OntologyLabel_type"),
+						ArchPackage.Literals.ONTOLOGY_LABEL__EXPRESSION, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
+	 * This adds a property descriptor for the Sub Class Of feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
+	protected void addSubClassOfPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_OntologyLabel_subClassOf_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_OntologyLabel_subClassOf_feature",
+								"_UI_OntologyLabel_type"),
+						ArchPackage.Literals.ONTOLOGY_LABEL__SUB_CLASS_OF, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
-	 * This returns DesignModel.gif.
+	 * This returns OntologyLabel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DesignModel"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/OntologyLabel"));
 	}
 
 	/**
@@ -142,9 +137,9 @@ public class DesignModelItemProvider extends ItemProviderAdapter implements IEdi
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DesignModel) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_DesignModel_type")
-				: getString("_UI_DesignModel_type") + " " + label;
+		String label = ((OntologyLabel) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_OntologyLabel_type")
+				: getString("_UI_OntologyLabel_type") + " " + label;
 	}
 
 	/**
@@ -158,18 +153,11 @@ public class DesignModelItemProvider extends ItemProviderAdapter implements IEdi
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DesignModel.class)) {
-		case ArchPackage.DESIGN_MODEL__NAME:
+		switch (notification.getFeatureID(OntologyLabel.class)) {
+		case ArchPackage.ONTOLOGY_LABEL__NAME:
+		case ArchPackage.ONTOLOGY_LABEL__EXPRESSION:
+		case ArchPackage.ONTOLOGY_LABEL__SUB_CLASS_OF:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
-		case ArchPackage.DESIGN_MODEL__COMPONENT:
-		case ArchPackage.DESIGN_MODEL__CONNECTOR:
-		case ArchPackage.DESIGN_MODEL__ARCHSTYLE:
-		case ArchPackage.DESIGN_MODEL__VERIFY_PROPERTY:
-		case ArchPackage.DESIGN_MODEL__HOST:
-		case ArchPackage.DESIGN_MODEL__LINK:
-		case ArchPackage.DESIGN_MODEL__ONTOLOGYLABEL:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -185,30 +173,6 @@ public class DesignModelItemProvider extends ItemProviderAdapter implements IEdi
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add(createChildParameter(ArchPackage.Literals.DESIGN_MODEL__COMPONENT,
-				ArchFactory.eINSTANCE.createComponent()));
-
-		newChildDescriptors.add(createChildParameter(ArchPackage.Literals.DESIGN_MODEL__CONNECTOR,
-				ArchFactory.eINSTANCE.createConnector()));
-
-		newChildDescriptors.add(createChildParameter(ArchPackage.Literals.DESIGN_MODEL__ARCHSTYLE,
-				ArchFactory.eINSTANCE.createArchStyle()));
-
-		newChildDescriptors.add(createChildParameter(ArchPackage.Literals.DESIGN_MODEL__VERIFY_PROPERTY,
-				ArchFactory.eINSTANCE.createBehaviourProperty()));
-
-		newChildDescriptors.add(createChildParameter(ArchPackage.Literals.DESIGN_MODEL__VERIFY_PROPERTY,
-				ArchFactory.eINSTANCE.createStructuralProperty()));
-
-		newChildDescriptors.add(
-				createChildParameter(ArchPackage.Literals.DESIGN_MODEL__HOST, ArchFactory.eINSTANCE.createDevice()));
-
-		newChildDescriptors.add(createChildParameter(ArchPackage.Literals.DESIGN_MODEL__LINK,
-				ArchFactory.eINSTANCE.createCommunicationLink()));
-
-		newChildDescriptors.add(createChildParameter(ArchPackage.Literals.DESIGN_MODEL__ONTOLOGYLABEL,
-				ArchFactory.eINSTANCE.createOntologyLabel()));
 	}
 
 	/**

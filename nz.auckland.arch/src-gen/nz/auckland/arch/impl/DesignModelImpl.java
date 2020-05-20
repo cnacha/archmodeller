@@ -11,6 +11,7 @@ import nz.auckland.arch.Component;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.DesignModel;
 import nz.auckland.arch.Device;
+import nz.auckland.arch.OntologyLabel;
 import nz.auckland.arch.VerificationProperty;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -42,6 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link nz.auckland.arch.impl.DesignModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.DesignModelImpl#getHost <em>Host</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.DesignModelImpl#getLink <em>Link</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.DesignModelImpl#getOntologylabel <em>Ontologylabel</em>}</li>
  * </ul>
  *
  * @generated
@@ -126,6 +128,16 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * @ordered
 	 */
 	protected EList<CommunicationLink> link;
+
+	/**
+	 * The cached value of the '{@link #getOntologylabel() <em>Ontologylabel</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOntologylabel()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<OntologyLabel> ontologylabel;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -249,6 +261,19 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<OntologyLabel> getOntologylabel() {
+		if (ontologylabel == null) {
+			ontologylabel = new EObjectContainmentEList<OntologyLabel>(OntologyLabel.class, this,
+					ArchPackage.DESIGN_MODEL__ONTOLOGYLABEL);
+		}
+		return ontologylabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -264,6 +289,8 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 			return ((InternalEList<?>) getHost()).basicRemove(otherEnd, msgs);
 		case ArchPackage.DESIGN_MODEL__LINK:
 			return ((InternalEList<?>) getLink()).basicRemove(otherEnd, msgs);
+		case ArchPackage.DESIGN_MODEL__ONTOLOGYLABEL:
+			return ((InternalEList<?>) getOntologylabel()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -290,6 +317,8 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 			return getHost();
 		case ArchPackage.DESIGN_MODEL__LINK:
 			return getLink();
+		case ArchPackage.DESIGN_MODEL__ONTOLOGYLABEL:
+			return getOntologylabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -330,6 +359,10 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 			getLink().clear();
 			getLink().addAll((Collection<? extends CommunicationLink>) newValue);
 			return;
+		case ArchPackage.DESIGN_MODEL__ONTOLOGYLABEL:
+			getOntologylabel().clear();
+			getOntologylabel().addAll((Collection<? extends OntologyLabel>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -363,6 +396,9 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 		case ArchPackage.DESIGN_MODEL__LINK:
 			getLink().clear();
 			return;
+		case ArchPackage.DESIGN_MODEL__ONTOLOGYLABEL:
+			getOntologylabel().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -389,6 +425,8 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 			return host != null && !host.isEmpty();
 		case ArchPackage.DESIGN_MODEL__LINK:
 			return link != null && !link.isEmpty();
+		case ArchPackage.DESIGN_MODEL__ONTOLOGYLABEL:
+			return ontologylabel != null && !ontologylabel.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

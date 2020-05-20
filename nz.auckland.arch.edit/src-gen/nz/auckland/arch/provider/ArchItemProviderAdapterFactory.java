@@ -533,6 +533,29 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link nz.auckland.arch.OntologyLabel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OntologyLabelItemProvider ontologyLabelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link nz.auckland.arch.OntologyLabel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOntologyLabelAdapter() {
+		if (ontologyLabelItemProvider == null) {
+			ontologyLabelItemProvider = new OntologyLabelItemProvider(this);
+		}
+
+		return ontologyLabelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -671,6 +694,8 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 			communicationLinkItemProvider.dispose();
 		if (communicationPortItemProvider != null)
 			communicationPortItemProvider.dispose();
+		if (ontologyLabelItemProvider != null)
+			ontologyLabelItemProvider.dispose();
 	}
 
 }

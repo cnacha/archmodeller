@@ -131,7 +131,7 @@
               <view name="views"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.verifyBehaviour()">
-                  <subModelOperations xsi:type="tool:Navigation" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']"/>
+                  <subModelOperations xsi:type="tool:Navigation" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaviouralPropertyList']"/>
                 </firstModelOperations>
               </initialOperation>
             </menuItemDescription>
@@ -573,9 +573,9 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="VerificationPropertyList" domainClass="arch::DesignModel" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="BehaviouralPropertyList" domainClass="arch::DesignModel" enablePopupBars="true">
       <defaultLayer name="Default">
-        <nodeMappings name="behaveiourproperty" semanticCandidatesExpression="feature:verifyProperty" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@toolSections.0/@ownedTools[name='propertyDetails']" domainClass="arch::BehaviourProperty">
+        <nodeMappings name="behaveiourproperty" semanticCandidatesExpression="feature:verifyProperty" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaviouralPropertyList']/@defaultLayer/@toolSections.0/@ownedTools[name='propertyDetails']" domainClass="arch::BehaviourProperty">
           <style xsi:type="style:SquareDescription" labelSize="10" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" width="15" height="10">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -590,7 +590,7 @@
           </conditionnalStyles>
         </nodeMappings>
         <toolSections name="behaviour" label="Behaviour Property">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createProperty" label="LTL Property" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createProperty" label="LTL Property" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaviouralPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -602,7 +602,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCDProperty" label="Circular Dependency Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createCDProperty" label="Circular Dependency Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaviouralPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -615,7 +615,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createFDProperty" label="Functional Decomposition Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createFDProperty" label="Functional Decomposition Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaviouralPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -628,7 +628,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createPGProperty" label="Poltergeist Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createPGProperty" label="Poltergeist Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaviouralPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -641,7 +641,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="createAIProperty" label="Ambiguous Interface Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createAIProperty" label="Ambiguous Interface Free" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaviouralPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -666,7 +666,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.simulate()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="propertyDetails" precondition="aql: self.isLTLProp()" mappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='VerificationPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="propertyDetails" precondition="aql: self.isLTLProp()" mappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaviouralPropertyList']/@defaultLayer/@nodeMappings[name='behaveiourproperty']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -965,6 +965,37 @@
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.verifySecurity()"/>
               </initialOperation>
             </menuItemDescription>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="StructuralPropertylList" domainClass="arch::DesignModel" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="ontologyLabel" semanticCandidatesExpression="feature:ontologylabel" domainClass="arch::OntologyLabel">
+          <style xsi:type="style:SquareDescription" labelSize="10" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" width="15" height="10">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="general" label="General">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createClass" label="Ontology Class" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='StructuralPropertylList']/@defaultLayer/@nodeMappings[name='ontologyLabel']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::OntologyLabel" referenceName="ontologylabel">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'label'+container.ontologylabel -> size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="model" valueExpression="[container/]"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="verifyStructure" label="Verify">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.verifyStructure()"/>
+            </initialOperation>
           </ownedTools>
         </toolSections>
       </defaultLayer>

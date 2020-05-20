@@ -26,6 +26,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="link" upperBound="-1" eType="#//CommunicationLink"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ontologylabel" upperBound="-1"
+        eType="#//OntologyLabel" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connector">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -220,5 +222,10 @@
     <eLiterals name="Low" value="1"/>
     <eLiterals name="High" value="2"/>
     <eLiterals name="VeryHigh" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OntologyLabel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subClassOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

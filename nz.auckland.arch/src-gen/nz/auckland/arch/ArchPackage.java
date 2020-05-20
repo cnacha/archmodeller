@@ -222,13 +222,22 @@ public interface ArchPackage extends EPackage {
 	int DESIGN_MODEL__LINK = 6;
 
 	/**
+	 * The feature id for the '<em><b>Ontologylabel</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESIGN_MODEL__ONTOLOGYLABEL = 7;
+
+	/**
 	 * The number of structural features of the '<em>Design Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DESIGN_MODEL_FEATURE_COUNT = 7;
+	int DESIGN_MODEL_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Design Model</em>' class.
@@ -1691,6 +1700,61 @@ public interface ArchPackage extends EPackage {
 	int COMMUNICATION_PORT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link nz.auckland.arch.impl.OntologyLabelImpl <em>Ontology Label</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.impl.OntologyLabelImpl
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getOntologyLabel()
+	 * @generated
+	 */
+	int ONTOLOGY_LABEL = 22;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONTOLOGY_LABEL__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONTOLOGY_LABEL__EXPRESSION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Sub Class Of</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONTOLOGY_LABEL__SUB_CLASS_OF = 2;
+
+	/**
+	 * The number of structural features of the '<em>Ontology Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONTOLOGY_LABEL_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Ontology Label</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ONTOLOGY_LABEL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1698,7 +1762,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getExprOperator()
 	 * @generated
 	 */
-	int EXPR_OPERATOR = 22;
+	int EXPR_OPERATOR = 23;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.LTLOperator <em>LTL Operator</em>}' enum.
@@ -1708,7 +1772,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getLTLOperator()
 	 * @generated
 	 */
-	int LTL_OPERATOR = 23;
+	int LTL_OPERATOR = 24;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.BehaviourPropType <em>Behaviour Prop Type</em>}' enum.
@@ -1718,7 +1782,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getBehaviourPropType()
 	 * @generated
 	 */
-	int BEHAVIOUR_PROP_TYPE = 24;
+	int BEHAVIOUR_PROP_TYPE = 25;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.NodeType <em>Node Type</em>}' enum.
@@ -1728,7 +1792,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNodeType()
 	 * @generated
 	 */
-	int NODE_TYPE = 25;
+	int NODE_TYPE = 26;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.HostType <em>Host Type</em>}' enum.
@@ -1738,7 +1802,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getHostType()
 	 * @generated
 	 */
-	int HOST_TYPE = 26;
+	int HOST_TYPE = 27;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.LinkType <em>Link Type</em>}' enum.
@@ -1748,7 +1812,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getLinkType()
 	 * @generated
 	 */
-	int LINK_TYPE = 27;
+	int LINK_TYPE = 28;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.NetAccessType <em>Net Access Type</em>}' enum.
@@ -1758,7 +1822,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNetAccessType()
 	 * @generated
 	 */
-	int NET_ACCESS_TYPE = 28;
+	int NET_ACCESS_TYPE = 29;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.NetworkType <em>Network Type</em>}' enum.
@@ -1768,7 +1832,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNetworkType()
 	 * @generated
 	 */
-	int NETWORK_TYPE = 29;
+	int NETWORK_TYPE = 30;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.CriticalLevel <em>Critical Level</em>}' enum.
@@ -1778,7 +1842,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getCriticalLevel()
 	 * @generated
 	 */
-	int CRITICAL_LEVEL = 30;
+	int CRITICAL_LEVEL = 31;
 
 	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.Component <em>Component</em>}'.
@@ -1953,6 +2017,17 @@ public interface ArchPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDesignModel_Link();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link nz.auckland.arch.DesignModel#getOntologylabel <em>Ontologylabel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Ontologylabel</em>'.
+	 * @see nz.auckland.arch.DesignModel#getOntologylabel()
+	 * @see #getDesignModel()
+	 * @generated
+	 */
+	EReference getDesignModel_Ontologylabel();
 
 	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.Connector <em>Connector</em>}'.
@@ -3046,6 +3121,49 @@ public interface ArchPackage extends EPackage {
 	EAttribute getCommunicationPort_HasInputSanitization();
 
 	/**
+	 * Returns the meta object for class '{@link nz.auckland.arch.OntologyLabel <em>Ontology Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ontology Label</em>'.
+	 * @see nz.auckland.arch.OntologyLabel
+	 * @generated
+	 */
+	EClass getOntologyLabel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.OntologyLabel#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see nz.auckland.arch.OntologyLabel#getName()
+	 * @see #getOntologyLabel()
+	 * @generated
+	 */
+	EAttribute getOntologyLabel_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.OntologyLabel#getExpression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see nz.auckland.arch.OntologyLabel#getExpression()
+	 * @see #getOntologyLabel()
+	 * @generated
+	 */
+	EAttribute getOntologyLabel_Expression();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.OntologyLabel#getSubClassOf <em>Sub Class Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sub Class Of</em>'.
+	 * @see nz.auckland.arch.OntologyLabel#getSubClassOf()
+	 * @see #getOntologyLabel()
+	 * @generated
+	 */
+	EAttribute getOntologyLabel_SubClassOf();
+
+	/**
 	 * Returns the meta object for enum '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3289,6 +3407,14 @@ public interface ArchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DESIGN_MODEL__LINK = eINSTANCE.getDesignModel_Link();
+
+		/**
+		 * The meta object literal for the '<em><b>Ontologylabel</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DESIGN_MODEL__ONTOLOGYLABEL = eINSTANCE.getDesignModel_Ontologylabel();
 
 		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.impl.ConnectorImpl <em>Connector</em>}' class.
@@ -4137,6 +4263,40 @@ public interface ArchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMMUNICATION_PORT__HAS_INPUT_SANITIZATION = eINSTANCE.getCommunicationPort_HasInputSanitization();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.impl.OntologyLabelImpl <em>Ontology Label</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.impl.OntologyLabelImpl
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getOntologyLabel()
+		 * @generated
+		 */
+		EClass ONTOLOGY_LABEL = eINSTANCE.getOntologyLabel();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONTOLOGY_LABEL__NAME = eINSTANCE.getOntologyLabel_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONTOLOGY_LABEL__EXPRESSION = eINSTANCE.getOntologyLabel_Expression();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub Class Of</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ONTOLOGY_LABEL__SUB_CLASS_OF = eINSTANCE.getOntologyLabel_SubClassOf();
 
 		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}' enum.

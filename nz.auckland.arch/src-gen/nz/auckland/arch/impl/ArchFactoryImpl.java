@@ -96,6 +96,8 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 			return createCommunicationLink();
 		case ArchPackage.COMMUNICATION_PORT:
 			return createCommunicationPort();
+		case ArchPackage.ONTOLOGY_LABEL:
+			return createOntologyLabel();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -361,6 +363,16 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	public CommunicationPort createCommunicationPort() {
 		CommunicationPortImpl communicationPort = new CommunicationPortImpl();
 		return communicationPort;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OntologyLabel createOntologyLabel() {
+		OntologyLabelImpl ontologyLabel = new OntologyLabelImpl();
+		return ontologyLabel;
 	}
 
 	/**

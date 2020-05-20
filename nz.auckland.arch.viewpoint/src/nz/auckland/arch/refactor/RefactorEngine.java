@@ -1,11 +1,16 @@
 package nz.auckland.arch.refactor;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IWorkspace;
@@ -21,10 +26,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.viewpoint.utils.SequencedProperties;
 
 public class RefactorEngine {
 
 	private static final String fileName = "target.arch";
+	private static final String propFileName = "refactor.properties";
 
 	public void start(DesignModel model) {
 		System.out.println("Refactoring starts");
@@ -42,18 +49,32 @@ public class RefactorEngine {
 
 		targetModel.setName("target");
 
-		// initialise engine for refactor rules
-		List<AbstractRefactor> ruleList = new ArrayList<AbstractRefactor>();
-		ruleList.add(new EventCentreRefactor(targetModel));
-		ruleList.add(new EventCommandRefactor(targetModel));
-		ruleList.add(new EventQueryRefactor(targetModel));
-		ruleList.add(new SecureReadWriteRefactor(targetModel));
+		
+		// read properties file
+		SequencedProperties prop = new SequencedProperties();
+
+		InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
 		try {
-			// run all rules
-			for (AbstractRefactor rule : ruleList) {
-				rule.run();
+			if (inputStream != null) {
+
+				prop.load(inputStream);
+
+			} else {
+				throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+			}
+			for(Object key:prop.keySet()) {
+				String clsName = (String)prop.get(key);
+				System.out.println("Executing "+clsName);
+				// create the class to run
+				Class<?> c = Class.forName(clsName);
+				
+				// run rule class
+				Constructor<?> cons = c.getConstructor(DesignModel.class);
+				c.getMethod("run").invoke(cons.newInstance(targetModel));
+				
 			}
 
+			// save to target model file
 			Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
 			Map<String, Object> m = reg.getExtensionToFactoryMap();
 			m.put("key", new XMIResourceFactoryImpl());

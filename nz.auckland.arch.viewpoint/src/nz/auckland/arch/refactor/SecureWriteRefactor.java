@@ -10,12 +10,12 @@ import nz.auckland.arch.Role;
 import nz.auckland.arch.RoleType;
 import nz.auckland.arch.impl.ArchFactoryImpl;
 
-public class SecureReadWriteRefactor extends AbstractRefactor {
+public class SecureWriteRefactor extends AbstractRefactor {
 	
 	private static final String ruleWriteName = "RuleSecureWriting";
 	private static final String ruleReadName = "RuleSecureReading";
 
-	public SecureReadWriteRefactor(DesignModel model) {
+	public SecureWriteRefactor(DesignModel model) {
 		super(model);
 	}
 
@@ -26,32 +26,36 @@ public class SecureReadWriteRefactor extends AbstractRefactor {
 		
 		for (Component comp : model.getComponent()) {
 			if (comp.getType().indexOf(ruleWriteName) != -1) {
+				Component writeStorageComp = comp;
 				System.out.println("found RuleSecureWriting :"+comp.getName());
 				// found component to refactor, find connected write connector
 				Connector writeConnector = null;
+				Role writeStorageRole = null;
 				for(Port port: comp.getPort()) {
 					for(Role role: port.getRole()) {
-						if(role.getName().equals("writer")) {
+						if(role.getName().equals("writestorage")) {
 							writeConnector = role.getConnector();
+							writeStorageRole = role;
+							// remove role of this writestorage port
+							port.getRole().remove(role);
+							break;
 						}
 					}
 				}
 				System.out.println("		 connector :"+writeConnector);
-				Component writeStorage = null;
-				Role writeStorageRole = null;
+				Component writerComp = null;
+				Role writerRole = null;
 				if(writeConnector == null) {
 					return null;
 				}else {
 					//find write storage
 					for(Role role: writeConnector.getRole()) {
-						if(role.getRoletype().getName().equals("writestorage")) {
+						if(role.getRoletype().getName().equals("writer")) {
 							for(Component ecomp: model.getComponent()) {
 								for(Port eport: ecomp.getPort()) {
 									if(eport.getRole().contains(role)) {
-										writeStorage = ecomp;
-										writeStorageRole = role;
-										// remove role of this writestorage port
-										eport.getRole().remove(role);
+										writerComp = ecomp;
+										writerRole = role;
 									}
 								}
 							}
@@ -72,19 +76,8 @@ public class SecureReadWriteRefactor extends AbstractRefactor {
 				oracleComp.getPort().add(supplyPort);
 				supplyPort.getRole().add(writeStorageRole);
 				
-				// add blockchain component
-				Component blockchainComp = factory.createComponent();
-				blockchainComp.setName(writeStorage.getName()+"Blockchain");
-				model.getComponent().add(blockchainComp);
-				// add append port
-				Port appendPort = factory.createPort();
-				appendPort.setName("append");
-				blockchainComp.getPort().add(appendPort);
-				// add access port to blockchain
-				Port accessPort = factory.createPort();
-				accessPort.setName("access");
-				blockchainComp.getPort().add(accessPort);
-				System.out.println("	blockchaincomp :"+blockchainComp.getName());
+				BlockchainRefactorHelper helper = new BlockchainRefactorHelper();
+				helper.fetchBlockchainComponent(factory, model, writeStorageComp.getName()+"Blockchain");
 				
 				// add connector for oracle
 				ConnectorType targetConnType = this.findConnectorType("IOConnector");
@@ -104,56 +97,14 @@ public class SecureReadWriteRefactor extends AbstractRefactor {
 					role.setRoletype(roleType);
 					oracleConn.getRole().add(role);
 					if(roleType.getName().equals("blockstorage")) {
-						appendPort.getRole().add(role);
+						helper.getAppendPort().getRole().add(role);
 					} else if(roleType.getName().equals("extsupplier")) {
 						supplyPort.getRole().add(role);
+						
 						writeStorageRole.setNextRoleExpr(role);
 					}
 				}
-				
-				
-				/** Secure Reading Refactoring  ***/
-				if(writeStorage!=null && writeStorage.getType().indexOf(this.ruleReadName)!=-1) {
-					for(Port port: writeStorage.getPort()) {
-						for(Role role: port.getRole()) {
-							// reroute readstorage to the blockchain
-							if(role.getRoletype().getName().equals("readstorage")) {
-								
-								// add connector to blockchain
-								ConnectorType roconnType = this.findConnectorType("ROConnector");
-								Connector roConn = factory.createConnector();
-								roConn.setName("ro"+role.getConnector().getName());
-								roConn.setConnectortype(roconnType);
-								roConn.setType(roconnType.getName());
-								model.getConnector().add(roConn);
-								System.out.println("	connector added :"+roConn.getName());
-								
-								// add role for reverse-oracle
-								for (RoleType roleType : roconnType.getRoletype()) {
-									Role newrole = factory.createRole();
-									newrole.setConnector(oracleConn);
-									newrole.setName(roleType.getName());
-									newrole.setType(roleType.getName());
-									newrole.setRoletype(roleType);
-									roConn.getRole().add(newrole);
-									
-									if(roleType.getName().equals("extquerier")) {
-										// attach extquerier to the readstorage port
-										port.getRole().add(newrole);
-										role.setNextRoleExpr(newrole);
-										
-									} else if(roleType.getName().equals("blocksupplier")) {
-										accessPort.getRole().add(newrole);
-										System.out.println("	add role: "+accessPort.getName());
-									}
-								}
-								break;
-							}
-						}
-					}
-				}
-				
-				
+
 				System.out.println("	sucessfully refactored");
 				
 				break;

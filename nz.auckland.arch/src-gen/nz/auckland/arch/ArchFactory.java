@@ -202,6 +202,15 @@ public interface ArchFactory extends EFactory {
 	CommunicationPort createCommunicationPort();
 
 	/**
+	 * Returns a new object of class '<em>Ontology Label</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ontology Label</em>'.
+	 * @generated
+	 */
+	OntologyLabel createOntologyLabel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -75,6 +75,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//DesignModel/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//DesignModel/host"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//DesignModel/link"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//DesignModel/ontologylabel"/>
     </genClasses>
     <genClasses ecoreClass="arch.ecore#//Connector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//Connector/name"/>
@@ -195,6 +196,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//CommunicationPort/hasAuthentication"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//CommunicationPort/hasAuthorization"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//CommunicationPort/hasInputSanitization"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//OntologyLabel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//OntologyLabel/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//OntologyLabel/expression"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//OntologyLabel/subClassOf"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
