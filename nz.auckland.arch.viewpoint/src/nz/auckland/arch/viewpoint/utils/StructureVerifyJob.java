@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
+import java.util.HashMap;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.Transaction;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.sirius.ui.business.api.session.IEditingSession;
 import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
@@ -58,7 +60,10 @@ public class StructureVerifyJob extends Job {
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
 		System.out.println("verifyStructure is called: " + model.toString());
-
+		// update model
+		IEditingSession session = SessionUIManager.INSTANCE.getUISessions().iterator().next();
+		TransactionalEditingDomain domain =null;
+		
 		try {
 			System.out.println("archsize:" + model.getArchstyle().size());
 			System.out.println("ontologylabel:" + model.getOntologylabel().size());
@@ -85,9 +90,7 @@ public class StructureVerifyJob extends Job {
 			// convert response JSON string to model
 			DesignModel parsedModel = (DesignModel) loadEObjectFromString(resString, ArchPackage.eINSTANCE);
 			
-			// update model
-			IEditingSession session = SessionUIManager.INSTANCE.getUISessions().iterator().next();
-			TransactionalEditingDomain domain = session.getSession().getTransactionalEditingDomain();
+			domain = session.getSession().getTransactionalEditingDomain();
 			
 			RecordingCommand updateCommand = new RecordingCommand(domain) {
 				@Override
@@ -159,6 +162,10 @@ public class StructureVerifyJob extends Job {
 			System.out.println("error....");
 			e.printStackTrace();
 			return Status.CANCEL_STATUS;
+		}finally {
+//			if(domain!=null) {
+//				domain.dispose();
+//			}
 		}
 
 		return Status.OK_STATUS;

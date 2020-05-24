@@ -25,7 +25,7 @@ public class SecureReadRefactor extends AbstractRefactor {
 		ArchFactory factory = ArchFactoryImpl.init();
 		
 		for (Component comp : model.getComponent()) {
-			if (comp.getType().indexOf(ruleWriteName) != -1) {
+			if (comp.getType()!=null && comp.getType().indexOf(ruleWriteName) != -1) {
 				
 				// found component to refactor
 				Component writeStorageComp = comp;
@@ -79,7 +79,6 @@ public class SecureReadRefactor extends AbstractRefactor {
 				
 				System.out.println("	sucessfully refactored");
 				
-				break;
 				
 			}
 		}
