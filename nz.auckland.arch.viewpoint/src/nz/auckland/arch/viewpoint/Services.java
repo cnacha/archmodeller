@@ -42,7 +42,6 @@ import org.emfjson.jackson.databind.EMFContext;
 import org.emfjson.jackson.module.EMFModule;
 import org.emfjson.jackson.resource.JsonResourceFactory;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -90,6 +89,7 @@ import nz.auckland.arch.VerificationProperty;
 import nz.auckland.arch.impl.ArchFactoryImpl;
 import nz.auckland.arch.impl.ConnectorImpl;
 import nz.auckland.arch.impl.DesignModelImpl;
+import nz.auckland.arch.planner.PlannerJob;
 import nz.auckland.arch.refactor.RefactorEngine;
 import nz.auckland.arch.viewpoint.model.ADLVerifyRequest;
 import nz.auckland.arch.viewpoint.model.ADLVerifyResult;
@@ -116,6 +116,16 @@ public class Services {
 		RefactorEngine engine = new RefactorEngine();
 		
 		engine.start(model);
+		return model;
+	}
+	
+	public EObject planMigration(EObject self) {
+		System.out.println("planMigration called");
+		DesignModel model = (DesignModel) self;
+
+		PlannerJob job = new PlannerJob("Planning migration to target architecture design", model);
+		job.schedule();
+		
 		return model;
 	}
 

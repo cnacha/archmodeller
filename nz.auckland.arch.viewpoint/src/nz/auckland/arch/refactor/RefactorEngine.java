@@ -37,11 +37,12 @@ public class RefactorEngine {
 		System.out.println("Refactoring starts");
 
 		// retreive folder path for target model file
+		
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
-		File workspaceDirectory = workspace.getRoot().getLocation().toFile();
 		String modelFilePath = model.eResource().getURI().toPlatformString(true);
-		String folderPath = workspaceDirectory.getAbsolutePath()
-				+ modelFilePath.substring(0, modelFilePath.lastIndexOf("/") + 1);
+		System.out.println("	modelFilePath: "+model.eResource().getURI().toPlatformString(true));
+		String folderPath = workspace.getRoot().getProject(modelFilePath.substring(0, modelFilePath.lastIndexOf("/") + 1)).getLocation().toString();
+				// workspaceDirectory.getAbsolutePath()+ modelFilePath.substring(0, modelFilePath.lastIndexOf("/") + 1);
 		// System.out.println("..."+modelFilePath.substring(modelFilePath.lastIndexOf("/")));
 
 		// copy model
@@ -79,8 +80,8 @@ public class RefactorEngine {
 			Map<String, Object> m = reg.getExtensionToFactoryMap();
 			m.put("key", new XMIResourceFactoryImpl());
 			ResourceSet resSet = new ResourceSetImpl();
-
-			Resource resource = resSet.createResource(URI.createFileURI(folderPath + fileName));
+	
+			Resource resource = resSet.createResource(URI.createFileURI(folderPath+"/" + fileName));
 			System.out.println(resource.getURI().toFileString());
 			System.out.println("writing model to " + resource.getURI().path());
 			resource.getContents().add(targetModel);

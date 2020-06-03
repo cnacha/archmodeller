@@ -186,6 +186,12 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.refactorStructure()"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="Plan Migraton">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.planMigration()"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>

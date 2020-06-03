@@ -1,4 +1,4 @@
-package nz.auckland.arch.viewpoint.utils;
+package nz.auckland.arch.planner;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -32,19 +32,27 @@ import org.emfjson.jackson.module.EMFModule;
 import org.emfjson.jackson.resource.JsonResourceFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import nz.auckland.arch.ArchPackage;
 import nz.auckland.arch.Component;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.planner.action.DeployServiceAction;
+import nz.auckland.arch.planner.action.NetworkRouteAction;
+import nz.auckland.arch.planner.action.SetupDatabaseAction;
+import nz.auckland.arch.planner.object.Action;
+import nz.auckland.arch.planner.object.Parameter;
+import nz.auckland.arch.planner.object.Plan;
 
-public class StructureVerifyJob extends Job {
+public class PlannerJob extends Job {
 	
 	private static String HOSTNAME = "http://localhost:8080";//"http://fasad.cer.auckland.ac.nz:8080";
 	
 	private DesignModel model;
 	
-	public StructureVerifyJob(String name, DesignModel model) {
+	public PlannerJob(String name, DesignModel model) {
 		super(name);
 		this.model = model;
 	}
@@ -73,12 +81,12 @@ public class StructureVerifyJob extends Job {
 			String jsonString = mapper.writeValueAsString(model);
 			System.out.println("complete converting ..." + (new Date()).toString());
 			//System.out.println(jsonString);
-			System.out.println("########################################### ");
+			//System.out.println("############# Response ################## ");
 
 			// call web service to verify in OWL
 			HttpClient httpClient = HttpClientBuilder.create().build();
 			HttpPost request = new HttpPost(
-					HOSTNAME+"/nz.auckland.arch.service.owl-0.0.1-SNAPSHOT/api/owl/verifyStructure.do");
+					HOSTNAME+"/nz.auckland.arch.service.owl-0.0.1-SNAPSHOT/api/owl/planMigration.do");
 			StringEntity params = new StringEntity(jsonString);
 			request.addHeader("content-type", "application/json");
 			request.setEntity(params);
@@ -86,77 +94,39 @@ public class StructureVerifyJob extends Job {
 			HttpEntity entity = response.getEntity();
 			String resString = EntityUtils.toString(entity, "UTF-8");
 			//System.out.println(resString);
-
-			// convert response JSON string to model
-			DesignModel parsedModel = (DesignModel) loadEObjectFromString(resString, ArchPackage.eINSTANCE);
 			
-			domain = session.getSession().getTransactionalEditingDomain();
+			// parse migration to object
+			GsonBuilder builder = new GsonBuilder(); 
+		    Gson gson = builder.create();
+		    Plan migrationPlan = gson.fromJson(resString, Plan.class);
+		    
+		    // process plan
+		    System.out.println("found Step:"+migrationPlan.getStepCount());
+		    AbstractActionExecutioner act = null;
+		    DesignModel baseModel = model;
+		    for(Action action: migrationPlan.getSteps()) {
+		    	System.out.println("=====================================================");
+		    	System.out.println("process "+action.getId()+"-"+action.getName());
+		    	
+		    	if("deploy-service".equals(action.getName())) {
+		    		act = new DeployServiceAction(baseModel, action);
+		    	} else
+		    	if("setup-database".equals(action.getName())) {
+		    		act = new SetupDatabaseAction(baseModel, action);
+		    	} else
+		    	if("network-route".equals(action.getName())) {
+		    		act = new NetworkRouteAction(baseModel, action);
+		    	}
+		    	
+		    	if(act!=null) {
+		    		// run action
+		    		baseModel = act.run();
+		    		// reset action for next move
+		    		act = null;
+		    	}
+
+		    }
 			
-			RecordingCommand updateCommand = new RecordingCommand(domain) {
-				@Override
-				protected void doExecute() {
-					// synchonise style valid status
-					for (int i = 0; i < parsedModel.getArchstyle().size(); i++) {
-						model.getArchstyle().get(i).setValid(parsedModel.getArchstyle().get(i).isValid());
-
-						// set invalid to some component type
-						for (int j = 0; j < parsedModel.getArchstyle().get(i).getComponenttype().size(); j++) {
-							model.getArchstyle().get(i).getComponenttype().get(j)
-									.setValid(parsedModel.getArchstyle().get(i).getComponenttype().get(j).isValid());
-
-						}
-
-						// set invalid to some connect type
-						for (int j = 0; j < parsedModel.getArchstyle().get(i).getConnectortype().size(); j++) {
-							model.getArchstyle().get(i).getConnectortype().get(j)
-									.setValid(parsedModel.getArchstyle().get(i).getConnectortype().get(j).isValid());
-
-						}
-					}
-					
-					// synchonise instance valid status for components
-					for (int i = 0; i < parsedModel.getComponent().size(); i++) {
-						model.getComponent().get(i).setValid(parsedModel.getComponent().get(i).isValid());
-						for(int j = 0; j < parsedModel.getComponent().get(i).getPort().size(); j++) {
-							model.getComponent().get(i).getPort().get(j).setValid(parsedModel.getComponent().get(i).getPort().get(j).isValid());
-						}
-					}
-					
-					// synchonise instance valid status for connectors
-					for (int i = 0; i < parsedModel.getConnector().size(); i++) {
-						Connector cnn = parsedModel.getConnector().get(i);
-						model.getConnector().get(i).setValid(parsedModel.getConnector().get(i).isValid());
-						for (int j = 0; j < parsedModel.getConnector().get(i).getRole().size(); j++) {
-							model.getConnector().get(i).getRole().get(j).setType(cnn.getRole().get(j).getType());
-						}
-					}
-
-
-					
-					// set inferred type for component
-					for (int i = 0; i < parsedModel.getComponent().size(); i++) {
-						Component cmp = parsedModel.getComponent().get(i);
-						model.getComponent().get(i).setType(cmp.getType());
-						// System.out.println("comp name: "+cmp.getName()+" type:"+cmp.getType());
-
-						// set inferred type for port
-						for (int j = 0; j < parsedModel.getComponent().get(i).getPort().size(); j++) {
-							model.getComponent().get(i).getPort().get(j).setType(cmp.getPort().get(j).getType());
-						}
-
-					}
-					
-					// set inferred type for connector
-					for (int i = 0; i < parsedModel.getConnector().size(); i++) {
-						Connector cnn = parsedModel.getConnector().get(i);
-						model.getConnector().get(i).setType(cnn.getType());
-					}
-
-				}
-			};
-			domain.getCommandStack().execute(updateCommand);
-			
-			//model = parsedModel;
 
 		} catch (Exception e) {
 			System.out.println("error....");

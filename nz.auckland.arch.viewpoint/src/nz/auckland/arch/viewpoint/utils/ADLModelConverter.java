@@ -175,8 +175,8 @@ public class ADLModelConverter {
 					while (currentRole!=null) {
 						
 						// print attached role process
+						System.out.println("		cnn:"+currentRole.getConnector());
 						if (hasInputArgumentExpr(currentRole.getRoletype().getEvent())) {
-							//System.out.println("		cnn:"+currentRole.getConnector());
 							adlcode.append(currentRole.getConnector().getName() + "." + currentRole.getName() + "("
 									+ generateRandomDigits(2) + ")");
 						} else {

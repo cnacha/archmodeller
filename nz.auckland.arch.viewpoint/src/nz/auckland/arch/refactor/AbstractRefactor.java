@@ -16,6 +16,7 @@ public abstract class AbstractRefactor {
 	protected DesignModel model;
 
 	public AbstractRefactor(DesignModel model) {
+		super();
 		this.model = model;
 	}
 

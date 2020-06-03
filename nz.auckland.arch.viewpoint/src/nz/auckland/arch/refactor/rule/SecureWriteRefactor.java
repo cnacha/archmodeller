@@ -1,4 +1,4 @@
-package nz.auckland.arch.refactor;
+package nz.auckland.arch.refactor.rule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,8 @@ import nz.auckland.arch.Port;
 import nz.auckland.arch.Role;
 import nz.auckland.arch.RoleType;
 import nz.auckland.arch.impl.ArchFactoryImpl;
+import nz.auckland.arch.refactor.AbstractRefactor;
+import nz.auckland.arch.refactor.BlockchainRefactorHelper;
 
 public class SecureWriteRefactor extends AbstractRefactor {
 
