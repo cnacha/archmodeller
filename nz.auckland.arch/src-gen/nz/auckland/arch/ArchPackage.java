@@ -1071,13 +1071,31 @@ public interface ArchPackage extends EPackage {
 	int BEHAVIOUR_PROPERTY__TRACE_EXAMPLE = VERIFICATION_PROPERTY_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Expr Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOUR_PROPERTY__EXPR_TEXT = VERIFICATION_PROPERTY_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BEHAVIOUR_PROPERTY__CONNECTOR = VERIFICATION_PROPERTY_FEATURE_COUNT + 9;
+
+	/**
 	 * The number of structural features of the '<em>Behaviour Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BEHAVIOUR_PROPERTY_FEATURE_COUNT = VERIFICATION_PROPERTY_FEATURE_COUNT + 8;
+	int BEHAVIOUR_PROPERTY_FEATURE_COUNT = VERIFICATION_PROPERTY_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Behaviour Property</em>' class.
@@ -1755,6 +1773,125 @@ public interface ArchPackage extends EPackage {
 	int ONTOLOGY_LABEL_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link nz.auckland.arch.impl.MigrationModelImpl <em>Migration Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.impl.MigrationModelImpl
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getMigrationModel()
+	 * @generated
+	 */
+	int MIGRATION_MODEL = 23;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_MODEL__SOURCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_MODEL__TARGET = 1;
+
+	/**
+	 * The feature id for the '<em><b>Interimmodels</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_MODEL__INTERIMMODELS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Migration Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_MODEL_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Migration Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MIGRATION_MODEL_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.impl.InterimModelImpl <em>Interim Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.impl.InterimModelImpl
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getInterimModel()
+	 * @generated
+	 */
+	int INTERIM_MODEL = 24;
+
+	/**
+	 * The feature id for the '<em><b>Step</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_MODEL__STEP = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_MODEL__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Next Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_MODEL__NEXT_MODEL = 2;
+
+	/**
+	 * The feature id for the '<em><b>Designmodel</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_MODEL__DESIGNMODEL = 3;
+
+	/**
+	 * The number of structural features of the '<em>Interim Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_MODEL_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Interim Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_MODEL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1762,7 +1899,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getExprOperator()
 	 * @generated
 	 */
-	int EXPR_OPERATOR = 23;
+	int EXPR_OPERATOR = 25;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.LTLOperator <em>LTL Operator</em>}' enum.
@@ -1772,7 +1909,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getLTLOperator()
 	 * @generated
 	 */
-	int LTL_OPERATOR = 24;
+	int LTL_OPERATOR = 26;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.BehaviourPropType <em>Behaviour Prop Type</em>}' enum.
@@ -1782,7 +1919,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getBehaviourPropType()
 	 * @generated
 	 */
-	int BEHAVIOUR_PROP_TYPE = 25;
+	int BEHAVIOUR_PROP_TYPE = 27;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.NodeType <em>Node Type</em>}' enum.
@@ -1792,7 +1929,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNodeType()
 	 * @generated
 	 */
-	int NODE_TYPE = 26;
+	int NODE_TYPE = 28;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.HostType <em>Host Type</em>}' enum.
@@ -1802,7 +1939,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getHostType()
 	 * @generated
 	 */
-	int HOST_TYPE = 27;
+	int HOST_TYPE = 29;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.LinkType <em>Link Type</em>}' enum.
@@ -1812,7 +1949,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getLinkType()
 	 * @generated
 	 */
-	int LINK_TYPE = 28;
+	int LINK_TYPE = 30;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.NetAccessType <em>Net Access Type</em>}' enum.
@@ -1822,7 +1959,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNetAccessType()
 	 * @generated
 	 */
-	int NET_ACCESS_TYPE = 29;
+	int NET_ACCESS_TYPE = 31;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.NetworkType <em>Network Type</em>}' enum.
@@ -1832,7 +1969,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNetworkType()
 	 * @generated
 	 */
-	int NETWORK_TYPE = 30;
+	int NETWORK_TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.CriticalLevel <em>Critical Level</em>}' enum.
@@ -1842,7 +1979,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getCriticalLevel()
 	 * @generated
 	 */
-	int CRITICAL_LEVEL = 31;
+	int CRITICAL_LEVEL = 33;
 
 	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.Component <em>Component</em>}'.
@@ -2690,6 +2827,28 @@ public interface ArchPackage extends EPackage {
 	EAttribute getBehaviourProperty_TraceExample();
 
 	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.BehaviourProperty#getExprText <em>Expr Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expr Text</em>'.
+	 * @see nz.auckland.arch.BehaviourProperty#getExprText()
+	 * @see #getBehaviourProperty()
+	 * @generated
+	 */
+	EAttribute getBehaviourProperty_ExprText();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.BehaviourProperty#getConnector <em>Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Connector</em>'.
+	 * @see nz.auckland.arch.BehaviourProperty#getConnector()
+	 * @see #getBehaviourProperty()
+	 * @generated
+	 */
+	EReference getBehaviourProperty_Connector();
+
+	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.LTLExpr <em>LTL Expr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3162,6 +3321,103 @@ public interface ArchPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getOntologyLabel_SubClassOf();
+
+	/**
+	 * Returns the meta object for class '{@link nz.auckland.arch.MigrationModel <em>Migration Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Migration Model</em>'.
+	 * @see nz.auckland.arch.MigrationModel
+	 * @generated
+	 */
+	EClass getMigrationModel();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.MigrationModel#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see nz.auckland.arch.MigrationModel#getSource()
+	 * @see #getMigrationModel()
+	 * @generated
+	 */
+	EReference getMigrationModel_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.MigrationModel#getTarget <em>Target</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target</em>'.
+	 * @see nz.auckland.arch.MigrationModel#getTarget()
+	 * @see #getMigrationModel()
+	 * @generated
+	 */
+	EReference getMigrationModel_Target();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link nz.auckland.arch.MigrationModel#getInterimmodels <em>Interimmodels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Interimmodels</em>'.
+	 * @see nz.auckland.arch.MigrationModel#getInterimmodels()
+	 * @see #getMigrationModel()
+	 * @generated
+	 */
+	EReference getMigrationModel_Interimmodels();
+
+	/**
+	 * Returns the meta object for class '{@link nz.auckland.arch.InterimModel <em>Interim Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interim Model</em>'.
+	 * @see nz.auckland.arch.InterimModel
+	 * @generated
+	 */
+	EClass getInterimModel();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link nz.auckland.arch.InterimModel#getDesignmodel <em>Designmodel</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Designmodel</em>'.
+	 * @see nz.auckland.arch.InterimModel#getDesignmodel()
+	 * @see #getInterimModel()
+	 * @generated
+	 */
+	EReference getInterimModel_Designmodel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.InterimModel#getStep <em>Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Step</em>'.
+	 * @see nz.auckland.arch.InterimModel#getStep()
+	 * @see #getInterimModel()
+	 * @generated
+	 */
+	EAttribute getInterimModel_Step();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.InterimModel#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see nz.auckland.arch.InterimModel#getDescription()
+	 * @see #getInterimModel()
+	 * @generated
+	 */
+	EAttribute getInterimModel_Description();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.InterimModel#getNextModel <em>Next Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next Model</em>'.
+	 * @see nz.auckland.arch.InterimModel#getNextModel()
+	 * @see #getInterimModel()
+	 * @generated
+	 */
+	EReference getInterimModel_NextModel();
 
 	/**
 	 * Returns the meta object for enum '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}'.
@@ -3927,6 +4183,22 @@ public interface ArchPackage extends EPackage {
 		EAttribute BEHAVIOUR_PROPERTY__TRACE_EXAMPLE = eINSTANCE.getBehaviourProperty_TraceExample();
 
 		/**
+		 * The meta object literal for the '<em><b>Expr Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BEHAVIOUR_PROPERTY__EXPR_TEXT = eINSTANCE.getBehaviourProperty_ExprText();
+
+		/**
+		 * The meta object literal for the '<em><b>Connector</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BEHAVIOUR_PROPERTY__CONNECTOR = eINSTANCE.getBehaviourProperty_Connector();
+
+		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.impl.LTLExprImpl <em>LTL Expr</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4297,6 +4569,82 @@ public interface ArchPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ONTOLOGY_LABEL__SUB_CLASS_OF = eINSTANCE.getOntologyLabel_SubClassOf();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.impl.MigrationModelImpl <em>Migration Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.impl.MigrationModelImpl
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getMigrationModel()
+		 * @generated
+		 */
+		EClass MIGRATION_MODEL = eINSTANCE.getMigrationModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MIGRATION_MODEL__SOURCE = eINSTANCE.getMigrationModel_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Target</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MIGRATION_MODEL__TARGET = eINSTANCE.getMigrationModel_Target();
+
+		/**
+		 * The meta object literal for the '<em><b>Interimmodels</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MIGRATION_MODEL__INTERIMMODELS = eINSTANCE.getMigrationModel_Interimmodels();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.impl.InterimModelImpl <em>Interim Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.impl.InterimModelImpl
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getInterimModel()
+		 * @generated
+		 */
+		EClass INTERIM_MODEL = eINSTANCE.getInterimModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Designmodel</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERIM_MODEL__DESIGNMODEL = eINSTANCE.getInterimModel_Designmodel();
+
+		/**
+		 * The meta object literal for the '<em><b>Step</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTERIM_MODEL__STEP = eINSTANCE.getInterimModel_Step();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTERIM_MODEL__DESCRIPTION = eINSTANCE.getInterimModel_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Next Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERIM_MODEL__NEXT_MODEL = eINSTANCE.getInterimModel_NextModel();
 
 		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}' enum.

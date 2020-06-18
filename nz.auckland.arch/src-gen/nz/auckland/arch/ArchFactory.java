@@ -211,6 +211,24 @@ public interface ArchFactory extends EFactory {
 	OntologyLabel createOntologyLabel();
 
 	/**
+	 * Returns a new object of class '<em>Migration Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Migration Model</em>'.
+	 * @generated
+	 */
+	MigrationModel createMigrationModel();
+
+	/**
+	 * Returns a new object of class '<em>Interim Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Interim Model</em>'.
+	 * @generated
+	 */
+	InterimModel createInterimModel();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

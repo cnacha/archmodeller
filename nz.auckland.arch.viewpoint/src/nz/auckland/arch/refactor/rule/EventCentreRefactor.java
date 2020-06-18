@@ -1,13 +1,16 @@
 package nz.auckland.arch.refactor.rule;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import nz.auckland.arch.ArchFactory;
+import nz.auckland.arch.BehaviourProperty;
 import nz.auckland.arch.Component;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.ConnectorType;
 import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.Event;
 import nz.auckland.arch.Port;
 import nz.auckland.arch.Role;
 import nz.auckland.arch.RoleType;
@@ -47,10 +50,30 @@ public class EventCentreRefactor extends AbstractRefactor {
 				// add eventstore port
 				Port logPort = factory.createPort();
 				logPort.setName("log" + conn.getName().toLowerCase());
+				Event loggedEvent = factory.createEvent();
+				loggedEvent.setName("logged");
+				logPort.getEvents().add(loggedEvent);
 				eventStoreComp.getPort().add(logPort);
 
 				// attach eventstore port to role
 				logPort.getRole().add(eventStoreRole);
+				
+				// add architectural constrainst property to check
+				BehaviourProperty property = factory.createBehaviourProperty();
+				property.setName("event-centre-"+conn.getName());
+				property.setConnector(conn);
+				// find event publisher
+				HashMap<Component,Port> comps = this.findComponentByConnectorRoleName(conn.getName(), "eventpublisher");
+				
+				if(comps.size()>0) {
+					Map.Entry<Component, Port> entry = (Map.Entry<Component, Port>)comps.entrySet().toArray()[0];
+					property.setExprText("[] ("+entry.getKey().getName()+"."+entry.getValue().getName()+"."+entry.getValue().getEvents().get(0).getName()
+							+"-> <> "+eventStoreComp.getName()+"."+conn.getName()+".eventstore.persist)");
+				}
+				
+				model.getVerifyProperty().add(property);
+				
+				
 			}
 		}
 

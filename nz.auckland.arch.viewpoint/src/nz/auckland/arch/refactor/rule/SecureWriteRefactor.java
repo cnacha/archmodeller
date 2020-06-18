@@ -1,15 +1,18 @@
 package nz.auckland.arch.refactor.rule;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import nz.auckland.arch.ArchFactory;
+import nz.auckland.arch.BehaviourProperty;
 import nz.auckland.arch.Component;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.ConnectorType;
 import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.Event;
 import nz.auckland.arch.Port;
 import nz.auckland.arch.Role;
 import nz.auckland.arch.RoleType;
@@ -85,6 +88,10 @@ public class SecureWriteRefactor extends AbstractRefactor {
 			// add supply port
 			Port supplyPort = factory.createPort();
 			supplyPort.setName("supply");
+			Event supplyEvent = factory.createEvent();
+			supplyEvent.setName("supplied");
+			supplyPort.getEvents().add(supplyEvent);
+			
 			oracleComp.getPort().add(supplyPort);
 			System.out.println("add role  " + writeStorageRole.getName() + " to oracle:" + oracleComp.getName());
 			supplyPort.getRole().add(writeStorageRole);
@@ -117,8 +124,26 @@ public class SecureWriteRefactor extends AbstractRefactor {
 					writeStorageRole.setNextRoleExpr(role);
 				}
 			}
+			
+			// convert write connector to client-server
+			ConnectorType csConnType = this.findConnectorType("CSConnector");
+			HashMap<RoleType, RoleType> roleMap = new HashMap<RoleType, RoleType>();
+			roleMap.put(findRoleType("WRConnector", "writer"), findRoleType("CSConnector", "requester"));
+			roleMap.put(findRoleType("WRConnector", "writestorage"), findRoleType("CSConnector", "responder"));
+			this.changeConnectorType(writeConnector, csConnType, roleMap);
 
 			System.out.println("	sucessfully refactored");
+			
+			
+			// add architectural constraint
+			BehaviourProperty property = factory.createBehaviourProperty();
+			property.setName("secure-write"+oracleConn.getName());
+			property.setConnector(oracleConn);
+			
+			property.setExprText("[] ("+oracleComp.getName()+"."+supplyPort.getName()+"."+supplyPort.getEvents().get(0).getName()
+					+"-> <> "+helper.getBlockchain().getName()+"."+oracleConn.getName()+".blockstorage.stored)");
+			
+			model.getVerifyProperty().add(property);
 
 		}
 

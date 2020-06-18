@@ -129,6 +129,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BehaviourPropType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="testport" eType="#//Port"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="traceExample" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exprText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" eType="#//Connector"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LTLExpr" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="event" eType="#//Event"/>
@@ -227,5 +229,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subClassOf" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MigrationModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//DesignModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//DesignModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interimmodels" upperBound="-1"
+        eType="#//InterimModel" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InterimModel">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="step" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nextModel" eType="#//InterimModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="designmodel" eType="#//DesignModel"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -6,31 +6,41 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import nz.auckland.arch.BehaviourProperty;
 import nz.auckland.arch.Component;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.MigrationModel;
 import nz.auckland.arch.Port;
 import nz.auckland.arch.Role;
+import nz.auckland.arch.VerificationProperty;
 import nz.auckland.arch.planner.AbstractActionExecutioner;
 import nz.auckland.arch.planner.object.Action;
 import nz.auckland.arch.planner.object.Parameter;
 
 public class NetworkRouteAction extends AbstractActionExecutioner {
 
-	public NetworkRouteAction(DesignModel currentModel, Action action) {
-		super(currentModel, action);
+
+	public NetworkRouteAction(DesignModel currentModel, Action action, MigrationModel migrationModel) {
+		super(currentModel, action, migrationModel);
+		// TODO Auto-generated constructor stub
 	}
+
 
 	@Override
 	public DesignModel run() {
 
 		System.out.println("	NetworkRouteAction starts...");
 		Parameter connParam = action.getParameter("connector");
+		List<Parameter> compParam = action.getParameterList("component");
+		
 		if (connParam != null) {
 
 			// create intermediate model
 			interModel = EcoreUtil.copy(currentModel);
 			interModel.setName("inter" + action.getId());
+			
+			//copyVerificationProperty(targetModel, interModel);
 
 			// find connector in intermediate model and remove it
 			Connector connToChange = null;
@@ -54,18 +64,30 @@ public class NetworkRouteAction extends AbstractActionExecutioner {
 			// if connector has been existed.
 			if (connToChange != null) {
 				if (!connToChange.getType().equals(connToCopy.getType())) {
+					
 					// convert the type of connector
 					connToChange.setType(connToCopy.getType());
-					HashMap<String, String> roleMapping = getRoleMapping(connToChange, connToCopy);
-
+					connToChange.setConnectortype(this.getConnectorType(connToCopy.getType()));
+					
 					// convert role
+					HashMap<String, String> roleMapping = getRoleMapping(connToChange, connToCopy);
+					List<Role> roleToRemove = new ArrayList<Role>();
 					for (Role roleToChange : connToChange.getRole()) {
+						
 						System.out.println("Changing role from " + roleToChange.getName() + " to "
 								+ roleMapping.get(roleToChange.getName()));
 						if (roleMapping.containsKey(roleToChange.getName())) {
 							roleToChange.setName(roleMapping.get(roleToChange.getName()));
 							//unlinkRole(interModel, roleToChange);
+						}else {
+							roleToRemove.add(roleToChange);
 						}
+					}
+					// remove uninvolved role
+					for(Role role: roleToRemove) {
+						unlinkRole(interModel, role);
+						connToChange.getRole().remove(role);
+						
 					}
 					// add missing role
 					for (Role roleCopy : connToCopy.getRole()) {
@@ -73,20 +95,6 @@ public class NetworkRouteAction extends AbstractActionExecutioner {
 							Role roleToAdd = EcoreUtil.copy(roleCopy);
 							connToChange.getRole().add(roleToAdd);
 							
-							// attach component to this role
-//							Port portToCopy = this.findPortByRole(targetModel, roleCopy);
-//							
-//							for(Component comp: interModel.getComponent()) {
-//								System.out.println("**"+comp.getName());
-//								for(Port prt: comp.getPort()) {
-//									System.out.println(prt.getName()+"====="+portToCopy.getName());
-//									if(prt.getName().equals(portToCopy.getName())) {
-//										System.out.println("adding role to port "+portToCopy.getName() +" "+roleToAdd.getName());
-//										prt.getRole().add(roleToAdd);
-//										break;
-//									}
-//								}
-//							}
 						}
 					} // end changing type
 					
@@ -101,17 +109,45 @@ public class NetworkRouteAction extends AbstractActionExecutioner {
 			// connect role of connector to the right port
 			HashMap<String,  List<String>> roleportMap = getRolePortMapping(connToCopy);
 			for (Role rle : connToChange.getRole()) {
+				
+				// unlink irrelevant role
 				unlinkRole(interModel, rle);
+				
+				// loop through role port mapping 
 				if (roleportMap.containsKey(rle.getName())) {
 					for (Component comp : interModel.getComponent()) {
-						for (Port prt : comp.getPort()) {
-							if (roleportMap.get(rle.getName()).contains(prt.getName())) {
-								prt.getRole().add(rle);
+						
+						// only connect when component is the action's parameters
+						//System.out.println("		"+action.getId()+" isCompInParameters"+comp.getName()+": "+isCompInParameters(comp, compParam));
+						if(isCompInParameters(comp, compParam)) {
+							for (Port prt : comp.getPort()) {
+								if (roleportMap.get(rle.getName()).contains(prt.getName())) {
+									prt.getRole().add(rle);
+								}
 							}
 						}
 					}
 				}
 			}
+			
+			// copy behaviour verification properties	
+			if(connToChange!=null) {
+				// find properties in target model
+				List<VerificationProperty> propList = findBehaviourPropertiesByConnector(targetModel, connToChange.getName());
+				
+				// if the properties do not existed in the interim model, add them
+				for(VerificationProperty prop: propList) {
+					if(!this.isVerificationPropertyExisted(interModel, prop.getName())){
+						BehaviourProperty newprop = (BehaviourProperty)EcoreUtil.copy(prop);
+						newprop.setTestport(findPortByName(interModel,  ((BehaviourProperty)prop).getTestport().getName()));
+						
+						interModel.getVerifyProperty().add(newprop);
+						
+					}
+				}
+			}
+			
+			
 
 			interModel = this.writeModel(interModel);
 			return interModel;
@@ -120,13 +156,42 @@ public class NetworkRouteAction extends AbstractActionExecutioner {
 		return currentModel;
 	}
 	
+
+	private boolean isCompInParameters(Component comp, List<Parameter> params) {
+		//System.out.print("		isCompInParameters:	");
+		for(Parameter param: params) {
+		//	System.out.print(" "+param.getValue());
+			if(param.getValue().equalsIgnoreCase(comp.getName())) {
+			//	System.out.println();
+				return true;
+			}
+		}
+	//	System.out.println();
+		return false;
+	}
+	
 	private void unlinkRole(DesignModel model, Role role) {
 		for(Component comp: model.getComponent()) {
 			for(Port prt: comp.getPort()) {
-				if(prt.getRole().contains(role))
+				// check if port contain role, remove it only when that port in the target does not have role
+				if(prt.getRole().contains(role) && !hasPortwithRoleInTargetModel(prt.getName(), role.getName()))
 					prt.getRole().remove(role);
 			}
 		}
+	}
+	
+	private boolean hasPortwithRoleInTargetModel(String portName, String roleName) {
+		for(Component comp: targetModel.getComponent()) {
+			for(Port prt: comp.getPort()) {
+				if(prt.getName().equalsIgnoreCase(portName)) {
+					for(Role rle: prt.getRole()) {
+						if(rle.getName().equalsIgnoreCase(roleName))
+							return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	private HashMap<String,  List<String>> getRolePortMapping(Connector tgtconn) {
@@ -156,9 +221,11 @@ public class NetworkRouteAction extends AbstractActionExecutioner {
 			for (Role trole : target.getRole()) {
 				List<String> sportList = findPortByRole(interModel, srole);
 				List<String> tportList = findPortByRole(targetModel, trole);
+				System.out.println(srole.getName()+" "+trole.getName());
 				for(String sport: sportList) {
-					if(tportList.contains(sport) && !mapping.containsKey(srole.getName())) {
+					if(tportList.contains(sport)  && !mapping.containsKey(srole.getName())) {
 						mapping.put(srole.getName(), trole.getName());
+						System.out.println("	mppaing:"+srole.getName()+"="+trole.getName());
 					}
 				}
 

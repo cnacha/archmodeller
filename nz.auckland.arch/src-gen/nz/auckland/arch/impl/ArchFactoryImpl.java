@@ -98,6 +98,10 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 			return createCommunicationPort();
 		case ArchPackage.ONTOLOGY_LABEL:
 			return createOntologyLabel();
+		case ArchPackage.MIGRATION_MODEL:
+			return createMigrationModel();
+		case ArchPackage.INTERIM_MODEL:
+			return createInterimModel();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -373,6 +377,26 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	public OntologyLabel createOntologyLabel() {
 		OntologyLabelImpl ontologyLabel = new OntologyLabelImpl();
 		return ontologyLabel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MigrationModel createMigrationModel() {
+		MigrationModelImpl migrationModel = new MigrationModelImpl();
+		return migrationModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InterimModel createInterimModel() {
+		InterimModelImpl interimModel = new InterimModelImpl();
+		return interimModel;
 	}
 
 	/**

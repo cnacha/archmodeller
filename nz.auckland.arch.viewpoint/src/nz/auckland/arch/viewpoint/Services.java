@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.e4.core.services.log.Logger;
 import org.eclipse.emf.common.util.EList;
@@ -82,6 +83,7 @@ import nz.auckland.arch.LTLExpr;
 import nz.auckland.arch.LTLNestedExpr;
 import nz.auckland.arch.LTLOperator;
 import nz.auckland.arch.LTLRegularExpr;
+import nz.auckland.arch.MigrationModel;
 import nz.auckland.arch.Port;
 import nz.auckland.arch.Role;
 import nz.auckland.arch.RoleType;
@@ -97,7 +99,9 @@ import nz.auckland.arch.viewpoint.utils.ADLModelConverter;
 import nz.auckland.arch.viewpoint.utils.BehaviourPropVerifyJob;
 import nz.auckland.arch.viewpoint.utils.BehaviourVerifyJob;
 import nz.auckland.arch.viewpoint.utils.ModelSimulation;
+import nz.auckland.arch.viewpoint.utils.Mutex;
 import nz.auckland.arch.viewpoint.utils.SecurityVerifyJob;
+import nz.auckland.arch.viewpoint.utils.SmellVerifyJob;
 import nz.auckland.arch.viewpoint.utils.StructureVerifyJob;
 
 /**
@@ -121,7 +125,7 @@ public class Services {
 	
 	public EObject planMigration(EObject self) {
 		System.out.println("planMigration called");
-		DesignModel model = (DesignModel) self;
+		MigrationModel model = (MigrationModel) self;
 
 		PlannerJob job = new PlannerJob("Planning migration to target architecture design", model);
 		job.schedule();
@@ -136,13 +140,31 @@ public class Services {
 		job.schedule();
 		return job.getModel();
 	}
+	
+	
+	public EObject checkSmell(EObject self) {
+		DesignModel model = (DesignModel) self;
 
+		SmellVerifyJob job = new SmellVerifyJob("CHecking Smell on model", model);
+		job.schedule();
+		return job.getModel();
+	}
+	
+	public static final ISchedulingRule mutex = new Mutex();
+	
 	public EObject verifyBehaviour(EObject self) {
 
 		DesignModel model = (DesignModel) self;
-		BehaviourVerifyJob job = new BehaviourVerifyJob("Verifying behaviour properties", model);
-		job.schedule();
-		return job.getModel();
+//		BehaviourVerifyJob job = new BehaviourVerifyJob("Verifying behaviour properties", model);
+//		job.schedule();
+		
+		for(VerificationProperty prop:model.getVerifyProperty()) {
+			BehaviourPropVerifyJob job = new BehaviourPropVerifyJob("Verifying property "+prop.getName(),
+					(BehaviourProperty) prop);
+			job.setRule(mutex);
+			job.schedule();
+		}
+		return model;
 
 	}
 
@@ -502,6 +524,7 @@ public class Services {
 			}
 
 		} catch (Exception e) {
+			System.out.println("error occured here...");
 			e.printStackTrace();
 		}
 

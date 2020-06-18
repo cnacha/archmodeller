@@ -1,12 +1,17 @@
 package nz.auckland.arch.refactor;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import nz.auckland.arch.ArchFactory;
 import nz.auckland.arch.ArchStyle;
+import nz.auckland.arch.Component;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.ConnectorType;
 import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.Port;
 import nz.auckland.arch.Role;
 import nz.auckland.arch.RoleType;
 import nz.auckland.arch.impl.ArchFactoryImpl;
@@ -48,6 +53,31 @@ public abstract class AbstractRefactor {
 					}
 				}
 
+			}
+		}
+		return null;
+	}
+	
+	protected HashMap<Component,Port> findComponentByConnectorRoleName( String connName, String roleName) {
+		HashMap<Component,Port> result = new HashMap<Component,Port>();
+		for (Component comp : model.getComponent()) {
+			for (Port port : comp.getPort()) {
+				for (Role role : port.getRole()) {
+					if (roleName.equalsIgnoreCase(role.getName())
+							&& connName.equalsIgnoreCase(role.getConnector().getName())) {
+						result.put(comp,port);
+					}
+				}
+			}
+		}
+		return result;
+	}
+	
+	protected Connector findConnectorByRole(Role role) {
+		for(Connector conn: model.getConnector()) {
+			for(Role er: conn.getRole()) {
+				if(role == er)
+					return conn;
 			}
 		}
 		return null;

@@ -56,8 +56,12 @@ public class BehaviourPropVerifyJob extends Job {
 		if(prop.getTestport() == null)
 			return Status.CANCEL_STATUS;
 		// convert design model into ADL
+		IEditingSession session = SessionUIManager.INSTANCE.getUISessions().iterator().next();
+		TransactionalEditingDomain domain = session.getSession().getTransactionalEditingDomain();
+		
 		DesignModel model = (DesignModel)prop.eContainer();
 		ADLModelConverter converter = new ADLModelConverter(model, prop.getTestport());
+		converter.setEditingDomain(domain);
 		String adl = converter.convert(prop);
 		System.out.println(adl);
 		// create request object
@@ -92,8 +96,7 @@ public class BehaviourPropVerifyJob extends Job {
 		}
 
 		// set result to properties
-		IEditingSession session = SessionUIManager.INSTANCE.getUISessions().iterator().next();
-		TransactionalEditingDomain domain = session.getSession().getTransactionalEditingDomain();
+		
 
 		RecordingCommand updateCommand = new RecordingCommand(domain) {
 			@Override
@@ -111,7 +114,7 @@ public class BehaviourPropVerifyJob extends Job {
 						System.out.println(result.getFullResultString());
 
 						// set valid/invalid result
-						if ("valid".equals(resultObjList.get(0).getResult())) {
+						if ("valid".equals(resultObjList.get(0).getResult()) && result.getVisitedStates()>1) {
 							prop.setValid(true);
 						} else {
 							prop.setValid(false);
@@ -126,6 +129,7 @@ public class BehaviourPropVerifyJob extends Job {
 						// set verification statistic
 						prop.setVerifyTime(result.getVerificationTime());
 						prop.setVisitedStates(result.getVisitedStates());
+						System.out.println("number of states: "+result.getVisitedStates());
 						
 						// set traceExample when negation is applied
 						if(resultObjList.size()>1) {

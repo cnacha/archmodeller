@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Random;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.sirius.ui.business.api.session.IEditingSession;
+import org.eclipse.sirius.ui.business.api.session.SessionUIManager;
 
 import nz.auckland.arch.ArchStyle;
 import nz.auckland.arch.BehaviourPropType;
@@ -223,9 +227,10 @@ public class ADLModelConverter {
 	}
 
 	private String writeLTLAssertion(BehaviourProperty prop, boolean applyNegation) {
+		System.out.println("writing prop: "+prop.getName());
 		StringBuffer adlcode = new StringBuffer();
 		// print assertion for LTL
-		StringBuffer ltlLogic = new StringBuffer();
+		StringBuffer ltlLogicStr = new StringBuffer();
 		if (prop.getType() == BehaviourPropType.LTL) {
 
 			adlcode.append("assert " + model.getName() + " |= ");
@@ -238,22 +243,42 @@ public class ADLModelConverter {
 					exprSet.remove(expr.getNextExpr());
 				}
 			}
-			LTLExpr curExpr = exprSet.iterator().next();
-			try {
-				ltlLogic.append(getLTLExpr(model, curExpr));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
+			
+			// save LTL Expression Text
+			// set expression to properties
 
-			ltlLogic.append(";\n");
-
-			adlcode.append(ltlLogic);
+			RecordingCommand updateCommand = new RecordingCommand(domain) {
+				@Override
+				protected void doExecute() {
+					String ltlExpr = "";
+					try {
+						LTLExpr curExpr = exprSet.iterator().next();
+						ltlExpr = getLTLExpr(model, curExpr);
+						ltlLogicStr.append(ltlExpr+";\n");
+						System.out.println("no errror");
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+						System.out.println("error here getting ltl from"+prop.getExprText());
+						ltlExpr = prop.getExprText();
+						ltlLogicStr.append(ltlExpr+";\n");
+					//	ltlLogic.append(prop.getExprText().substring(0,prop.getExprText().indexOf(";"))+";\n");
+					}
+					System.out.println("	ltl:"+ltlExpr);
+					
+					
+					prop.setExprText(ltlExpr);
+				}
+			};
+			domain.getCommandStack().execute(updateCommand);
+			
+			adlcode.append(ltlLogicStr);
 
 			if (applyNegation) {
 				// apply negation
 				adlcode.append("assert " + model.getName() + " |= ");
-				adlcode.append("! " + ltlLogic);
+				adlcode.append("! " + ltlLogicStr);
 			}
 
 		}
@@ -334,8 +359,12 @@ public class ADLModelConverter {
 	public static String getLTLExpr(DesignModel model, LTLExpr curExpr) throws Exception {
 
 		if (curExpr instanceof LTLRegularExpr) {
-			return getLTLOperator(curExpr.getOperator()) + getFullEventLabel(model, curExpr, curExpr.getEvent())
-					+ ((curExpr.getNextExpr() != null) ? " -> " + getLTLExpr(model, curExpr.getNextExpr()) : "");
+			String eventLabel = getFullEventLabel(model, curExpr, curExpr.getEvent());
+			if(eventLabel.equals("")) {
+				throw new Exception("No design enitities found for event labelling");
+			} else 
+				return getLTLOperator(curExpr.getOperator()) + eventLabel
+						+ ((curExpr.getNextExpr() != null) ? " -> " + getLTLExpr(model, curExpr.getNextExpr()) : "");
 		} else if (curExpr instanceof LTLNestedExpr) {
 			LTLNestedExpr nestedExpr = (LTLNestedExpr) curExpr;
 			// find start expr in nested
@@ -429,5 +458,12 @@ public class ADLModelConverter {
 	public static int generateRandomDigits(int n) {
 		int m = (int) Math.pow(10, n - 1);
 		return m + new Random().nextInt(9 * m);
+	}
+	
+	TransactionalEditingDomain domain;
+
+	public void setEditingDomain(TransactionalEditingDomain domain) {
+		this.domain = domain;
+		
 	}
 }

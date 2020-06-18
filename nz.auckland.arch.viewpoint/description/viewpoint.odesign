@@ -186,10 +186,10 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.refactorStructure()"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:OperationAction" name="Plan Migraton">
+          <ownedTools xsi:type="tool_1:OperationAction" name="Check Smell">
             <view name="views"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.planMigration()"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.checkSmell()"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -1001,6 +1001,85 @@
             <view name="views"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.verifyStructure()"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="MigrationModel" domainClass="arch::MigrationModel" enablePopupBars="true">
+      <layout xsi:type="description_1:OrderedTreeLayout" childrenExpression="feature:source" nodeMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='MigrationModel']/@defaultLayer/@nodeMappings[name='sourceNode'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='MigrationModel']/@defaultLayer/@nodeMappings[name='targetNode']"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="sourceNode" semanticCandidatesExpression="feature:source" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='MigrationModel']/@defaultLayer/@toolSections.0/@ownedTools[name='doubleclickModel']" domainClass="arch::DesignModel">
+          <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" sizeComputationExpression="0" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="targetNode" semanticCandidatesExpression="feature:target" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='MigrationModel']/@defaultLayer/@toolSections.0/@ownedTools[name='doubleclickModel']" domainClass="arch::DesignModel">
+          <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="migrationLink" label="Migration Link" semanticCandidatesExpression="var:self" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='MigrationModel']/@defaultLayer/@nodeMappings[name='sourceNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='MigrationModel']/@defaultLayer/@nodeMappings[name='targetNode']" targetFinderExpression="feature:target" sourceFinderExpression="feature:source" domainClass="arch::MigrationModel" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <toolSections name="Tool">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="doubleclickModel" mappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='MigrationModel']/@defaultLayer/@nodeMappings[name='sourceNode'] //@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='MigrationModel']/@defaultLayer/@nodeMappings[name='targetNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="Plan Migraton">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.planMigration()"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="EvolutionPath" domainClass="arch::MigrationModel" enablePopupBars="true">
+      <layout xsi:type="description_1:OrderedTreeLayout" childrenExpression="feature:interimmodels" nodeMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='EvolutionPath']/@defaultLayer/@containerMappings[name='interimNode']"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="evolvePath" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='EvolutionPath']/@defaultLayer/@containerMappings[name='interimNode']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='EvolutionPath']/@defaultLayer/@containerMappings[name='interimNode']" targetFinderExpression="feature:nextModel">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="interimNode" semanticCandidatesExpression="feature:interimmodels" domainClass="arch::InterimModel">
+          <subNodeMappings name="designModelNode" semanticCandidatesExpression="feature:designmodel" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='EvolutionPath']/@defaultLayer/@toolSections.0/@ownedTools[name='doubleclickModel']" domainClass="arch::DesignModel">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql: self.step + ' ' + self.description">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Tool">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="doubleclickModel" forceRefresh="true" inverseSelectionOrder="true" mappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='EvolutionPath']/@defaultLayer/@containerMappings[name='interimNode']/@subNodeMappings[name='designModelNode']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

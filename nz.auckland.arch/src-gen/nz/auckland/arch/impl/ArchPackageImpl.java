@@ -21,11 +21,13 @@ import nz.auckland.arch.Event;
 import nz.auckland.arch.ExecutionEnvironment;
 import nz.auckland.arch.ExprOperator;
 import nz.auckland.arch.HostType;
+import nz.auckland.arch.InterimModel;
 import nz.auckland.arch.LTLExpr;
 import nz.auckland.arch.LTLNestedExpr;
 import nz.auckland.arch.LTLOperator;
 import nz.auckland.arch.LTLRegularExpr;
 import nz.auckland.arch.LinkType;
+import nz.auckland.arch.MigrationModel;
 import nz.auckland.arch.NetAccessType;
 import nz.auckland.arch.NetworkType;
 import nz.auckland.arch.NodeType;
@@ -44,6 +46,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -218,6 +221,20 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass migrationModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interimModelEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum exprOperatorEEnum = null;
 
 	/**
@@ -325,6 +342,9 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 				: new ArchPackageImpl();
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		XMLTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theArchPackage.createPackageContents();
@@ -1047,6 +1067,24 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getBehaviourProperty_ExprText() {
+		return (EAttribute) behaviourPropertyEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBehaviourProperty_Connector() {
+		return (EReference) behaviourPropertyEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLTLExpr() {
 		return ltlExprEClass;
 	}
@@ -1443,6 +1481,87 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getMigrationModel() {
+		return migrationModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMigrationModel_Source() {
+		return (EReference) migrationModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMigrationModel_Target() {
+		return (EReference) migrationModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMigrationModel_Interimmodels() {
+		return (EReference) migrationModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInterimModel() {
+		return interimModelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterimModel_Designmodel() {
+		return (EReference) interimModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInterimModel_Step() {
+		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInterimModel_Description() {
+		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterimModel_NextModel() {
+		return (EReference) interimModelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getExprOperator() {
 		return exprOperatorEEnum;
 	}
@@ -1638,6 +1757,8 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEAttribute(behaviourPropertyEClass, BEHAVIOUR_PROPERTY__TYPE);
 		createEReference(behaviourPropertyEClass, BEHAVIOUR_PROPERTY__TESTPORT);
 		createEAttribute(behaviourPropertyEClass, BEHAVIOUR_PROPERTY__TRACE_EXAMPLE);
+		createEAttribute(behaviourPropertyEClass, BEHAVIOUR_PROPERTY__EXPR_TEXT);
+		createEReference(behaviourPropertyEClass, BEHAVIOUR_PROPERTY__CONNECTOR);
 
 		ltlExprEClass = createEClass(LTL_EXPR);
 		createEReference(ltlExprEClass, LTL_EXPR__EVENT);
@@ -1693,6 +1814,17 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEAttribute(ontologyLabelEClass, ONTOLOGY_LABEL__EXPRESSION);
 		createEAttribute(ontologyLabelEClass, ONTOLOGY_LABEL__SUB_CLASS_OF);
 
+		migrationModelEClass = createEClass(MIGRATION_MODEL);
+		createEReference(migrationModelEClass, MIGRATION_MODEL__SOURCE);
+		createEReference(migrationModelEClass, MIGRATION_MODEL__TARGET);
+		createEReference(migrationModelEClass, MIGRATION_MODEL__INTERIMMODELS);
+
+		interimModelEClass = createEClass(INTERIM_MODEL);
+		createEAttribute(interimModelEClass, INTERIM_MODEL__STEP);
+		createEAttribute(interimModelEClass, INTERIM_MODEL__DESCRIPTION);
+		createEReference(interimModelEClass, INTERIM_MODEL__NEXT_MODEL);
+		createEReference(interimModelEClass, INTERIM_MODEL__DESIGNMODEL);
+
 		// Create enums
 		exprOperatorEEnum = createEEnum(EXPR_OPERATOR);
 		ltlOperatorEEnum = createEEnum(LTL_OPERATOR);
@@ -1728,6 +1860,10 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		setName(eNAME);
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
+
+		// Obtain other dependent packages
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE
+				.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1942,6 +2078,12 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		initEAttribute(getBehaviourProperty_TraceExample(), ecorePackage.getEString(), "traceExample", null, 0, 1,
 				BehaviourProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBehaviourProperty_ExprText(), ecorePackage.getEString(), "exprText", null, 0, 1,
+				BehaviourProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getBehaviourProperty_Connector(), this.getConnector(), null, "connector", null, 0, 1,
+				BehaviourProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ltlExprEClass, LTLExpr.class, "LTLExpr", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLTLExpr_Event(), this.getEvent(), null, "event", null, 0, 1, LTLExpr.class, !IS_TRANSIENT,
@@ -2068,6 +2210,32 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		initEAttribute(getOntologyLabel_SubClassOf(), ecorePackage.getEString(), "subClassOf", null, 0, 1,
 				OntologyLabel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+
+		initEClass(migrationModelEClass, MigrationModel.class, "MigrationModel", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMigrationModel_Source(), this.getDesignModel(), null, "source", null, 0, 1,
+				MigrationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMigrationModel_Target(), this.getDesignModel(), null, "target", null, 0, 1,
+				MigrationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMigrationModel_Interimmodels(), this.getInterimModel(), null, "interimmodels", null, 0, -1,
+				MigrationModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(interimModelEClass, InterimModel.class, "InterimModel", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInterimModel_Step(), theXMLTypePackage.getInt(), "step", null, 0, 1, InterimModel.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInterimModel_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+				InterimModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getInterimModel_NextModel(), this.getInterimModel(), null, "nextModel", null, 0, 1,
+				InterimModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInterimModel_Designmodel(), this.getDesignModel(), null, "designmodel", null, 0, 1,
+				InterimModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(exprOperatorEEnum, ExprOperator.class, "ExprOperator");

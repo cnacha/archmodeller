@@ -556,6 +556,52 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link nz.auckland.arch.MigrationModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MigrationModelItemProvider migrationModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link nz.auckland.arch.MigrationModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMigrationModelAdapter() {
+		if (migrationModelItemProvider == null) {
+			migrationModelItemProvider = new MigrationModelItemProvider(this);
+		}
+
+		return migrationModelItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link nz.auckland.arch.InterimModel} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InterimModelItemProvider interimModelItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link nz.auckland.arch.InterimModel}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createInterimModelAdapter() {
+		if (interimModelItemProvider == null) {
+			interimModelItemProvider = new InterimModelItemProvider(this);
+		}
+
+		return interimModelItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -696,6 +742,10 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 			communicationPortItemProvider.dispose();
 		if (ontologyLabelItemProvider != null)
 			ontologyLabelItemProvider.dispose();
+		if (migrationModelItemProvider != null)
+			migrationModelItemProvider.dispose();
+		if (interimModelItemProvider != null)
+			interimModelItemProvider.dispose();
 	}
 
 }

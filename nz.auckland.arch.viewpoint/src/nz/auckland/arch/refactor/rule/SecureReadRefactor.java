@@ -1,6 +1,9 @@
 package nz.auckland.arch.refactor.rule;
 
+import java.util.HashMap;
+
 import nz.auckland.arch.ArchFactory;
+import nz.auckland.arch.BehaviourProperty;
 import nz.auckland.arch.Component;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.ConnectorType;
@@ -72,10 +75,31 @@ public class SecureReadRefactor extends AbstractRefactor {
 										System.out.println("	add role: "+helper.getAccessPort().getName());
 									}
 								}
+								
+								// convert repository reading connector to client-server
+								Connector repConn = this.findConnectorByRole(role);
+								ConnectorType csConnType = this.findConnectorType("CSConnector");
+								HashMap<RoleType, RoleType> roleMap = new HashMap<RoleType, RoleType>();
+								roleMap.put(findRoleType("REConnector", "reader"), findRoleType("CSConnector", "requester"));
+								roleMap.put(findRoleType("REConnector", "readstorage"), findRoleType("CSConnector", "responder"));
+								super.changeConnectorType(repConn, csConnType, roleMap);
+								
+								
+								// add architectural constraint
+								BehaviourProperty property = factory.createBehaviourProperty();
+								property.setName("secure-read"+roConn.getName());
+								property.setConnector(roConn);
+								
+								property.setExprText("[] ("+writeStorageComp.getName()+"Blockchain"+"."+roConn.getName()+"."+ "blocksupplier.process"
+										+"-> <> "+writeStorageComp.getName()+"."+port.getName()+"."+port.getEvents().get(0).getName()+")");
+					
+								model.getVerifyProperty().add(property);
+								
 								break;
 							}
 						}
 					}
+					
 				}
 				
 				

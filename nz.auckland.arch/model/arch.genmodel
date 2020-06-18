@@ -148,6 +148,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//BehaviourProperty/type"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//BehaviourProperty/testport"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//BehaviourProperty/traceExample"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//BehaviourProperty/exprText"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//BehaviourProperty/connector"/>
     </genClasses>
     <genClasses ecoreClass="arch.ecore#//LTLExpr">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//LTLExpr/event"/>
@@ -201,6 +203,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//OntologyLabel/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//OntologyLabel/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//OntologyLabel/subClassOf"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//MigrationModel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//MigrationModel/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//MigrationModel/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//MigrationModel/interimmodels"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//InterimModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//InterimModel/step"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//InterimModel/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//InterimModel/nextModel"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//InterimModel/designmodel"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

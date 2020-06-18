@@ -7,6 +7,7 @@ import java.util.Collection;
 import nz.auckland.arch.ArchPackage;
 import nz.auckland.arch.BehaviourPropType;
 import nz.auckland.arch.BehaviourProperty;
+import nz.auckland.arch.Connector;
 import nz.auckland.arch.LTLExpr;
 
 import nz.auckland.arch.Port;
@@ -39,6 +40,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link nz.auckland.arch.impl.BehaviourPropertyImpl#getType <em>Type</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.BehaviourPropertyImpl#getTestport <em>Testport</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.BehaviourPropertyImpl#getTraceExample <em>Trace Example</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.BehaviourPropertyImpl#getExprText <em>Expr Text</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.BehaviourPropertyImpl#getConnector <em>Connector</em>}</li>
  * </ul>
  *
  * @generated
@@ -183,6 +186,36 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * @ordered
 	 */
 	protected String traceExample = TRACE_EXAMPLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getExprText() <em>Expr Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExprText()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXPR_TEXT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExprText() <em>Expr Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExprText()
+	 * @generated
+	 * @ordered
+	 */
+	protected String exprText = EXPR_TEXT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getConnector() <em>Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConnector()
+	 * @generated
+	 * @ordered
+	 */
+	protected Connector connector;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -392,6 +425,68 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getExprText() {
+		return exprText;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setExprText(String newExprText) {
+		String oldExprText = exprText;
+		exprText = newExprText;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.BEHAVIOUR_PROPERTY__EXPR_TEXT,
+					oldExprText, exprText));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Connector getConnector() {
+		if (connector != null && connector.eIsProxy()) {
+			InternalEObject oldConnector = (InternalEObject) connector;
+			connector = (Connector) eResolveProxy(oldConnector);
+			if (connector != oldConnector) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchPackage.BEHAVIOUR_PROPERTY__CONNECTOR,
+							oldConnector, connector));
+			}
+		}
+		return connector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Connector basicGetConnector() {
+		return connector;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setConnector(Connector newConnector) {
+		Connector oldConnector = connector;
+		connector = newConnector;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.BEHAVIOUR_PROPERTY__CONNECTOR,
+					oldConnector, connector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -427,6 +522,12 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 			return basicGetTestport();
 		case ArchPackage.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE:
 			return getTraceExample();
+		case ArchPackage.BEHAVIOUR_PROPERTY__EXPR_TEXT:
+			return getExprText();
+		case ArchPackage.BEHAVIOUR_PROPERTY__CONNECTOR:
+			if (resolve)
+				return getConnector();
+			return basicGetConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -465,6 +566,12 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 		case ArchPackage.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE:
 			setTraceExample((String) newValue);
 			return;
+		case ArchPackage.BEHAVIOUR_PROPERTY__EXPR_TEXT:
+			setExprText((String) newValue);
+			return;
+		case ArchPackage.BEHAVIOUR_PROPERTY__CONNECTOR:
+			setConnector((Connector) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -501,6 +608,12 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 		case ArchPackage.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE:
 			setTraceExample(TRACE_EXAMPLE_EDEFAULT);
 			return;
+		case ArchPackage.BEHAVIOUR_PROPERTY__EXPR_TEXT:
+			setExprText(EXPR_TEXT_EDEFAULT);
+			return;
+		case ArchPackage.BEHAVIOUR_PROPERTY__CONNECTOR:
+			setConnector((Connector) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -530,6 +643,10 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 			return testport != null;
 		case ArchPackage.BEHAVIOUR_PROPERTY__TRACE_EXAMPLE:
 			return TRACE_EXAMPLE_EDEFAULT == null ? traceExample != null : !TRACE_EXAMPLE_EDEFAULT.equals(traceExample);
+		case ArchPackage.BEHAVIOUR_PROPERTY__EXPR_TEXT:
+			return EXPR_TEXT_EDEFAULT == null ? exprText != null : !EXPR_TEXT_EDEFAULT.equals(exprText);
+		case ArchPackage.BEHAVIOUR_PROPERTY__CONNECTOR:
+			return connector != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -557,6 +674,8 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 		result.append(type);
 		result.append(", traceExample: ");
 		result.append(traceExample);
+		result.append(", exprText: ");
+		result.append(exprText);
 		result.append(')');
 		return result.toString();
 	}

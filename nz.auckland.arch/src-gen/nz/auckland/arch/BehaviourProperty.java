@@ -21,6 +21,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link nz.auckland.arch.BehaviourProperty#getType <em>Type</em>}</li>
  *   <li>{@link nz.auckland.arch.BehaviourProperty#getTestport <em>Testport</em>}</li>
  *   <li>{@link nz.auckland.arch.BehaviourProperty#getTraceExample <em>Trace Example</em>}</li>
+ *   <li>{@link nz.auckland.arch.BehaviourProperty#getExprText <em>Expr Text</em>}</li>
+ *   <li>{@link nz.auckland.arch.BehaviourProperty#getConnector <em>Connector</em>}</li>
  * </ul>
  *
  * @see nz.auckland.arch.ArchPackage#getBehaviourProperty()
@@ -229,5 +231,57 @@ public interface BehaviourProperty extends VerificationProperty {
 	 * @generated
 	 */
 	void setTraceExample(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Expr Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Expr Text</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Expr Text</em>' attribute.
+	 * @see #setExprText(String)
+	 * @see nz.auckland.arch.ArchPackage#getBehaviourProperty_ExprText()
+	 * @model
+	 * @generated
+	 */
+	String getExprText();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.BehaviourProperty#getExprText <em>Expr Text</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Expr Text</em>' attribute.
+	 * @see #getExprText()
+	 * @generated
+	 */
+	void setExprText(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Connector</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Connector</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Connector</em>' reference.
+	 * @see #setConnector(Connector)
+	 * @see nz.auckland.arch.ArchPackage#getBehaviourProperty_Connector()
+	 * @model
+	 * @generated
+	 */
+	Connector getConnector();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.BehaviourProperty#getConnector <em>Connector</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Connector</em>' reference.
+	 * @see #getConnector()
+	 * @generated
+	 */
+	void setConnector(Connector value);
 
 } // BehaviourProperty

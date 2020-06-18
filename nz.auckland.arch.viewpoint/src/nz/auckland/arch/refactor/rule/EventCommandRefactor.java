@@ -1,12 +1,15 @@
 package nz.auckland.arch.refactor.rule;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import nz.auckland.arch.ArchFactory;
+import nz.auckland.arch.BehaviourProperty;
 import nz.auckland.arch.Component;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.ConnectorType;
 import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.Event;
 import nz.auckland.arch.Port;
 import nz.auckland.arch.Role;
 import nz.auckland.arch.RoleType;
@@ -54,10 +57,31 @@ public class EventCommandRefactor extends AbstractRefactor {
 				// add commandstore port
 				Port logPort = factory.createPort();
 				logPort.setName("log"+conn.getName().toLowerCase());
+				Event loggedEvent = factory.createEvent();
+				loggedEvent.setName("logged");
+				logPort.getEvents().add(loggedEvent);
 				commandStoreComp.getPort().add(logPort);
+				
 				
 				// attach commandstore port to role
 				logPort.getRole().add(commandStoreRole);
+				
+				
+				//add architectural constraint
+				BehaviourProperty property = factory.createBehaviourProperty();
+				property.setName("event-command-"+conn.getName());
+				property.setConnector(conn);
+				
+				// find commander
+				HashMap<Component,Port> comps = this.findComponentByConnectorRoleName(conn.getName(), "commander");
+				if(comps.size()>0) {
+					Map.Entry<Component, Port> entry = (Map.Entry<Component, Port>)comps.entrySet().toArray()[0];
+					property.setExprText("[] ("+entry.getKey().getName()+"."+entry.getValue().getName()+"."+entry.getValue().getEvents().get(0).getName()
+							+"-> <> "+commandStoreComp.getName()+"."+conn.getName()+".commandstore.persist)");
+				}
+				
+				model.getVerifyProperty().add(property);
+				
 			}
 			
 

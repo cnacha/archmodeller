@@ -42,4 +42,13 @@ public class Action {
 		return null;
 	}
 	
+	public List<Parameter> getParameterList(String name){
+		List<Parameter> result = new ArrayList<Parameter>();
+		for(Parameter param :parameters) {
+			if(param.getName().equals(name))
+				result.add(param);
+		}
+		return result;
+	}
+	
 }

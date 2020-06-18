@@ -35,8 +35,8 @@ import nz.auckland.arch.viewpoint.model.ADLVerifyResult;
 
 public class BehaviourVerifyJob extends Job {
 	
-	private static final String serviceurl = "http://localhost:53979/api/adlapi/verify";
-	//private static final String serviceurl = "http://fasad.cer.auckland.ac.nz/api/adlapi/verify";
+	//private static final String serviceurl = "http://localhost:53979/api/adlapi/verify";
+	private static final String serviceurl = "http://fasad.cer.auckland.ac.nz/api/adlapi/verify";
 
 	private DesignModel model;
 
@@ -58,8 +58,13 @@ public class BehaviourVerifyJob extends Job {
 
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
+		// set result to properties
+		IEditingSession session = SessionUIManager.INSTANCE.getUISessions().iterator().next();
+		TransactionalEditingDomain domain = session.getSession().getTransactionalEditingDomain();
+
 		// convert design model into ADL
 		ADLModelConverter converter = new ADLModelConverter(model);
+		converter.setEditingDomain(domain);
 		String adl = converter.convert();
 		System.out.println(adl);
 		// create request object
@@ -93,10 +98,7 @@ public class BehaviourVerifyJob extends Job {
 			return Status.CANCEL_STATUS;
 		}
 
-		// set result to properties
-		IEditingSession session = SessionUIManager.INSTANCE.getUISessions().iterator().next();
-		TransactionalEditingDomain domain = session.getSession().getTransactionalEditingDomain();
-
+		
 		RecordingCommand updateCommand = new RecordingCommand(domain) {
 			@Override
 			protected void doExecute() {

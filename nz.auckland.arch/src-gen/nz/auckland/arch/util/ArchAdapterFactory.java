@@ -182,6 +182,16 @@ public class ArchAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseMigrationModel(MigrationModel object) {
+			return createMigrationModelAdapter();
+		}
+
+		@Override
+		public Adapter caseInterimModel(InterimModel object) {
+			return createInterimModelAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -519,6 +529,34 @@ public class ArchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOntologyLabelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nz.auckland.arch.MigrationModel <em>Migration Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nz.auckland.arch.MigrationModel
+	 * @generated
+	 */
+	public Adapter createMigrationModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nz.auckland.arch.InterimModel <em>Interim Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nz.auckland.arch.InterimModel
+	 * @generated
+	 */
+	public Adapter createInterimModelAdapter() {
 		return null;
 	}
 
