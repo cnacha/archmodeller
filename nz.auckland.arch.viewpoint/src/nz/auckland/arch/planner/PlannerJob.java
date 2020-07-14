@@ -51,6 +51,7 @@ import nz.auckland.arch.MigrationModel;
 import nz.auckland.arch.impl.ArchFactoryImpl;
 import nz.auckland.arch.planner.action.DeployServiceAction;
 import nz.auckland.arch.planner.action.NetworkRouteAction;
+import nz.auckland.arch.planner.action.SetupApplicationAction;
 import nz.auckland.arch.planner.action.SetupDatabaseAction;
 import nz.auckland.arch.planner.object.Action;
 import nz.auckland.arch.planner.object.MigrationRequest;
@@ -146,6 +147,8 @@ public class PlannerJob extends Job {
 							act = new SetupDatabaseAction(baseModel, action, model);
 						} else if ("network-route".equals(action.getName())) {
 							act = new NetworkRouteAction(baseModel, action, model);
+						} else if("setup-application".equals(action.getName())) {
+							act = new SetupApplicationAction(baseModel, action, model);
 						}
 
 						if (act != null) {

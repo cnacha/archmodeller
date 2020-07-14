@@ -55,6 +55,8 @@ public class InterimModelItemProvider extends ItemProviderAdapter implements IEd
 			addStepPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addNextModelPropertyDescriptor(object);
+			addIsStablePropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -104,6 +106,38 @@ public class InterimModelItemProvider extends ItemProviderAdapter implements IEd
 						getString("_UI_PropertyDescriptor_description", "_UI_InterimModel_nextModel_feature",
 								"_UI_InterimModel_type"),
 						ArchPackage.Literals.INTERIM_MODEL__NEXT_MODEL, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Is Stable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsStablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_InterimModel_isStable_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_InterimModel_isStable_feature",
+								"_UI_InterimModel_type"),
+						ArchPackage.Literals.INTERIM_MODEL__IS_STABLE, true, false, false,
+						ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_InterimModel_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_InterimModel_name_feature",
+								"_UI_InterimModel_type"),
+						ArchPackage.Literals.INTERIM_MODEL__NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -165,8 +199,9 @@ public class InterimModelItemProvider extends ItemProviderAdapter implements IEd
 	 */
 	@Override
 	public String getText(Object object) {
-		InterimModel interimModel = (InterimModel) object;
-		return getString("_UI_InterimModel_type") + " " + interimModel.getStep();
+		String label = ((InterimModel) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_InterimModel_type")
+				: getString("_UI_InterimModel_type") + " " + label;
 	}
 
 	/**
@@ -183,6 +218,8 @@ public class InterimModelItemProvider extends ItemProviderAdapter implements IEd
 		switch (notification.getFeatureID(InterimModel.class)) {
 		case ArchPackage.INTERIM_MODEL__STEP:
 		case ArchPackage.INTERIM_MODEL__DESCRIPTION:
+		case ArchPackage.INTERIM_MODEL__IS_STABLE:
+		case ArchPackage.INTERIM_MODEL__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case ArchPackage.INTERIM_MODEL__DESIGNMODEL:

@@ -20,12 +20,16 @@ public class BlockchainRefactorHelper {
 				break;
 			}
 		}
+		
+		String appendPortName = blockchainName.toLowerCase().substring(0,3)+"append";
+		String accessPortName = blockchainName.toLowerCase().substring(0,3)+"access";
+		
 		if(bcComp !=null) {
 			// blockchain exists!, find accessPort and appendPort
 			for(Port port: bcComp.getPort()) {
-				if(port.getName().equals("append")) {
+				if(port.getName().equals(appendPortName)) {
 					appendPort = port;
-				} else if(port.getName().equals("access")) {
+				} else if(port.getName().equals(accessPortName)) {
 					accessPort = port;
 				}
 			}
@@ -37,14 +41,14 @@ public class BlockchainRefactorHelper {
 			model.getComponent().add(blockchain);
 			// add append port
 			appendPort = factory.createPort();
-			appendPort.setName("append");
+			appendPort.setName(appendPortName);
 			Event appendEvent = factory.createEvent();
 			appendEvent.setName("appended");
 			appendPort.getEvents().add(appendEvent);
 			blockchain.getPort().add(appendPort);
 			// add access port to blockchain
 			accessPort = factory.createPort();
-			accessPort.setName("access");
+			accessPort.setName(accessPortName);
 			Event accessEvent = factory.createEvent();
 			accessEvent.setName("accessed");
 			accessPort.getEvents().add(accessEvent);

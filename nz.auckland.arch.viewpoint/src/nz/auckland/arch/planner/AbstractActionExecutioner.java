@@ -38,7 +38,7 @@ public abstract class AbstractActionExecutioner {
 	protected DesignModel targetModel;
 	protected DesignModel interModel;
 	protected Action action;
-	
+	protected String description;
 	protected MigrationModel migrationModel;
 	protected InterimModel intModel;
 
@@ -79,6 +79,8 @@ public abstract class AbstractActionExecutioner {
 				.getProject(modelFilePath.substring(modelFilePath.lastIndexOf("/")+1)).getLocation().toString();
 		return folderPath;
 	}
+	
+
 
 	protected DesignModel writeModel(DesignModel model) {
 		
@@ -87,7 +89,8 @@ public abstract class AbstractActionExecutioner {
 	
 		intModel = factory.createInterimModel();
 		intModel.setDesignmodel(model);
-		intModel.setDescription(this.action.getName());
+		intModel.setName(this.action.getName());
+		intModel.setDescription(description);
 		intModel.setStep(this.action.getId());
 		migrationModel.getInterimmodels().add(intModel);
 		/*

@@ -28,7 +28,7 @@ public class SecureReadRefactor extends AbstractRefactor {
 	public DesignModel run() {
 		
 		ArchFactory factory = ArchFactoryImpl.init();
-		
+
 		for (Component comp : model.getComponent()) {
 			if (comp.getType()!=null && comp.getType().indexOf(ruleWriteName) != -1) {
 				

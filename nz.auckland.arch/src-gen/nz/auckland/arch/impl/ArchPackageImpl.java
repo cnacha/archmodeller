@@ -1535,6 +1535,24 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getInterimModel_IsStable() {
+		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInterimModel_Name() {
+		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getInterimModel_Step() {
 		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(0);
 	}
@@ -1824,6 +1842,8 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEAttribute(interimModelEClass, INTERIM_MODEL__DESCRIPTION);
 		createEReference(interimModelEClass, INTERIM_MODEL__NEXT_MODEL);
 		createEReference(interimModelEClass, INTERIM_MODEL__DESIGNMODEL);
+		createEAttribute(interimModelEClass, INTERIM_MODEL__IS_STABLE);
+		createEAttribute(interimModelEClass, INTERIM_MODEL__NAME);
 
 		// Create enums
 		exprOperatorEEnum = createEEnum(EXPR_OPERATOR);
@@ -2236,6 +2256,11 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		initEReference(getInterimModel_Designmodel(), this.getDesignModel(), null, "designmodel", null, 0, 1,
 				InterimModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInterimModel_IsStable(), ecorePackage.getEBoolean(), "isStable", null, 0, 1,
+				InterimModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInterimModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, InterimModel.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(exprOperatorEEnum, ExprOperator.class, "ExprOperator");

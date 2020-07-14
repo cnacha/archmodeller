@@ -242,5 +242,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextModel" eType="#//InterimModel"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="designmodel" eType="#//DesignModel"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

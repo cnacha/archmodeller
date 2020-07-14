@@ -21,6 +21,7 @@ public class DeployServiceAction extends AbstractActionExecutioner{
 	public DesignModel run() {
 		System.out.println("	DeployServiceAction starts...");
 		Parameter serviceParam = action.getParameter("service");
+		description = "deploy service: "+serviceParam.getValue();
 		if(serviceParam!=null) {
 			// create intermediate model
 			DesignModel interModel = EcoreUtil.copy(currentModel);

@@ -46,18 +46,27 @@ public class SecureWriteRefactor extends AbstractRefactor {
 			System.out.println("found RuleSecureWriting :" + comp.getName());
 			Connector writeConnector = null;
 			Role writeStorageRole = null;
+			Port writeStoragePort = null;
 			for (Port port : comp.getPort()) {
 				for (Role role : port.getRole()) {
+
+					System.out.println("	checking:" + port.getName() + "==" + role.getRoletype().getName() + "."
+							+ role.getConnector().getName());
 					if (role.getName().equals("writestorage")) {
 						writeConnector = role.getConnector();
+						writeStoragePort = port;
 						writeStorageRole = role;
-						// remove role of this writestorage port
-						port.getRole().remove(role);
 						break;
 					}
 				}
+				if (writeStorageRole != null) {
+					// remove role of this writestorage port
+					port.getRole().remove(writeStorageRole);
+					break;
+				}
 			}
-			System.out.println("		 connector :" + writeConnector);
+
+			System.out.println("		 writeStorageRole:" + writeStorageRole + " connector :" + writeConnector);
 			Component writerComp = null;
 			Role writerRole = null;
 			if (writeConnector == null) {
@@ -81,17 +90,27 @@ public class SecureWriteRefactor extends AbstractRefactor {
 
 			/** Secure Writing Refactoring ***/
 
-			// add oracle component
-			Component oracleComp = factory.createComponent();
-			oracleComp.setName(comp.getName() + "Oracle");
-			model.getComponent().add(oracleComp);
-			// add supply port
-			Port supplyPort = factory.createPort();
-			supplyPort.setName("supply");
-			Event supplyEvent = factory.createEvent();
-			supplyEvent.setName("supplied");
-			supplyPort.getEvents().add(supplyEvent);
-			
+			Component oracleComp = null;
+			Port supplyPort = null;
+			if (comp.getType().indexOf(this.ruleReadName) != -1) {
+				// also a read blockchain
+				// add oracle component
+				oracleComp = factory.createComponent();
+				oracleComp.setName(comp.getName() + "Oracle");
+				model.getComponent().add(oracleComp);
+				// add supply port
+				supplyPort = factory.createPort();
+				supplyPort.setName(comp.getName()+"supply");
+				Event supplyEvent = factory.createEvent();
+				supplyEvent.setName("supplied");
+				supplyPort.getEvents().add(supplyEvent);
+			} else {
+				// not a read blockchain
+				// convert existing component
+				oracleComp = writeStorageComp;
+				supplyPort = writeStoragePort;
+			}
+
 			oracleComp.getPort().add(supplyPort);
 			System.out.println("add role  " + writeStorageRole.getName() + " to oracle:" + oracleComp.getName());
 			supplyPort.getRole().add(writeStorageRole);
@@ -124,7 +143,7 @@ public class SecureWriteRefactor extends AbstractRefactor {
 					writeStorageRole.setNextRoleExpr(role);
 				}
 			}
-			
+
 			// convert write connector to client-server
 			ConnectorType csConnType = this.findConnectorType("CSConnector");
 			HashMap<RoleType, RoleType> roleMap = new HashMap<RoleType, RoleType>();
@@ -133,16 +152,16 @@ public class SecureWriteRefactor extends AbstractRefactor {
 			this.changeConnectorType(writeConnector, csConnType, roleMap);
 
 			System.out.println("	sucessfully refactored");
-			
-			
+
 			// add architectural constraint
 			BehaviourProperty property = factory.createBehaviourProperty();
-			property.setName("secure-write"+oracleConn.getName());
+			property.setName("secure-write" + oracleConn.getName());
 			property.setConnector(oracleConn);
-			
-			property.setExprText("[] ("+oracleComp.getName()+"."+supplyPort.getName()+"."+supplyPort.getEvents().get(0).getName()
-					+"-> <> "+helper.getBlockchain().getName()+"."+oracleConn.getName()+".blockstorage.stored)");
-			
+
+			property.setExprText("[] (" + oracleComp.getName() + "." + supplyPort.getName() + "."
+					+ supplyPort.getEvents().get(0).getName() + "-> <> " + helper.getBlockchain().getName() + "."
+					+ oracleConn.getName() + ".blockstorage.stored)");
+
 			model.getVerifyProperty().add(property);
 
 		}

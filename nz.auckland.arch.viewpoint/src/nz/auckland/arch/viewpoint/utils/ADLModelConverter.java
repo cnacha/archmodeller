@@ -138,6 +138,7 @@ public class ADLModelConverter {
 
 		// print connector instance
 		for (Connector conn : model.getConnector()) {
+
 			adlcode.append("\t declare " + conn.getName() + " = " + conn.getConnectortype().getName() + "; \n");
 		}
 

@@ -91,6 +91,8 @@ import nz.auckland.arch.VerificationProperty;
 import nz.auckland.arch.impl.ArchFactoryImpl;
 import nz.auckland.arch.impl.ConnectorImpl;
 import nz.auckland.arch.impl.DesignModelImpl;
+import nz.auckland.arch.planner.EvolutionPathVerifier;
+import nz.auckland.arch.planner.PlanReportGenerator;
 import nz.auckland.arch.planner.PlannerJob;
 import nz.auckland.arch.refactor.RefactorEngine;
 import nz.auckland.arch.viewpoint.model.ADLVerifyRequest;
@@ -129,6 +131,22 @@ public class Services {
 
 		PlannerJob job = new PlannerJob("Planning migration to target architecture design", model);
 		job.schedule();
+		
+		return model;
+	}
+	
+	public EObject reportEvolutionPath(EObject self) {
+		System.out.println("reportEvolutionPath is called");
+		MigrationModel model = (MigrationModel) self;
+		PlanReportGenerator report = new PlanReportGenerator(model);
+		report.run();
+		return model;
+	}
+	
+	public EObject verifyEvolutionPath(EObject self) {
+		MigrationModel model = (MigrationModel) self;
+		EvolutionPathVerifier verifier = new EvolutionPathVerifier(model);
+		verifier.start();
 		
 		return model;
 	}

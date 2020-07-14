@@ -1874,13 +1874,31 @@ public interface ArchPackage extends EPackage {
 	int INTERIM_MODEL__DESIGNMODEL = 3;
 
 	/**
+	 * The feature id for the '<em><b>Is Stable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_MODEL__IS_STABLE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERIM_MODEL__NAME = 5;
+
+	/**
 	 * The number of structural features of the '<em>Interim Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERIM_MODEL_FEATURE_COUNT = 4;
+	int INTERIM_MODEL_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Interim Model</em>' class.
@@ -3387,6 +3405,28 @@ public interface ArchPackage extends EPackage {
 	EReference getInterimModel_Designmodel();
 
 	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.InterimModel#isIsStable <em>Is Stable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Stable</em>'.
+	 * @see nz.auckland.arch.InterimModel#isIsStable()
+	 * @see #getInterimModel()
+	 * @generated
+	 */
+	EAttribute getInterimModel_IsStable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.InterimModel#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see nz.auckland.arch.InterimModel#getName()
+	 * @see #getInterimModel()
+	 * @generated
+	 */
+	EAttribute getInterimModel_Name();
+
+	/**
 	 * Returns the meta object for the attribute '{@link nz.auckland.arch.InterimModel#getStep <em>Step</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4621,6 +4661,22 @@ public interface ArchPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INTERIM_MODEL__DESIGNMODEL = eINSTANCE.getInterimModel_Designmodel();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Stable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTERIM_MODEL__IS_STABLE = eINSTANCE.getInterimModel_IsStable();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTERIM_MODEL__NAME = eINSTANCE.getInterimModel_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Step</b></em>' attribute feature.

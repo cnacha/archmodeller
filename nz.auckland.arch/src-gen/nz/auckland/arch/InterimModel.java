@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link nz.auckland.arch.InterimModel#getDescription <em>Description</em>}</li>
  *   <li>{@link nz.auckland.arch.InterimModel#getNextModel <em>Next Model</em>}</li>
  *   <li>{@link nz.auckland.arch.InterimModel#getDesignmodel <em>Designmodel</em>}</li>
+ *   <li>{@link nz.auckland.arch.InterimModel#isIsStable <em>Is Stable</em>}</li>
+ *   <li>{@link nz.auckland.arch.InterimModel#getName <em>Name</em>}</li>
  * </ul>
  *
  * @see nz.auckland.arch.ArchPackage#getInterimModel()
@@ -49,6 +51,58 @@ public interface InterimModel extends EObject {
 	 * @generated
 	 */
 	void setDesignmodel(DesignModel value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Stable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Is Stable</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Stable</em>' attribute.
+	 * @see #setIsStable(boolean)
+	 * @see nz.auckland.arch.ArchPackage#getInterimModel_IsStable()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsStable();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.InterimModel#isIsStable <em>Is Stable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Stable</em>' attribute.
+	 * @see #isIsStable()
+	 * @generated
+	 */
+	void setIsStable(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see nz.auckland.arch.ArchPackage#getInterimModel_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.InterimModel#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Step</b></em>' attribute.

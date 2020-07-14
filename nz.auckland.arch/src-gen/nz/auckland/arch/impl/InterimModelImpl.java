@@ -26,6 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link nz.auckland.arch.impl.InterimModelImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.InterimModelImpl#getNextModel <em>Next Model</em>}</li>
  *   <li>{@link nz.auckland.arch.impl.InterimModelImpl#getDesignmodel <em>Designmodel</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.InterimModelImpl#isIsStable <em>Is Stable</em>}</li>
+ *   <li>{@link nz.auckland.arch.impl.InterimModelImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +89,44 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * @ordered
 	 */
 	protected DesignModel designmodel;
+
+	/**
+	 * The default value of the '{@link #isIsStable() <em>Is Stable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsStable()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_STABLE_EDEFAULT = false;
+	/**
+	 * The cached value of the '{@link #isIsStable() <em>Is Stable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsStable()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isStable = IS_STABLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -155,6 +195,49 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 		} else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.INTERIM_MODEL__DESIGNMODEL,
 					newDesignmodel, newDesignmodel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isIsStable() {
+		return isStable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIsStable(boolean newIsStable) {
+		boolean oldIsStable = isStable;
+		isStable = newIsStable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.INTERIM_MODEL__IS_STABLE, oldIsStable,
+					isStable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.INTERIM_MODEL__NAME, oldName, name));
 	}
 
 	/**
@@ -272,6 +355,10 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 			return basicGetNextModel();
 		case ArchPackage.INTERIM_MODEL__DESIGNMODEL:
 			return getDesignmodel();
+		case ArchPackage.INTERIM_MODEL__IS_STABLE:
+			return isIsStable();
+		case ArchPackage.INTERIM_MODEL__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -297,6 +384,12 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 		case ArchPackage.INTERIM_MODEL__DESIGNMODEL:
 			setDesignmodel((DesignModel) newValue);
 			return;
+		case ArchPackage.INTERIM_MODEL__IS_STABLE:
+			setIsStable((Boolean) newValue);
+			return;
+		case ArchPackage.INTERIM_MODEL__NAME:
+			setName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -321,6 +414,12 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 		case ArchPackage.INTERIM_MODEL__DESIGNMODEL:
 			setDesignmodel((DesignModel) null);
 			return;
+		case ArchPackage.INTERIM_MODEL__IS_STABLE:
+			setIsStable(IS_STABLE_EDEFAULT);
+			return;
+		case ArchPackage.INTERIM_MODEL__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -341,6 +440,10 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 			return nextModel != null;
 		case ArchPackage.INTERIM_MODEL__DESIGNMODEL:
 			return designmodel != null;
+		case ArchPackage.INTERIM_MODEL__IS_STABLE:
+			return isStable != IS_STABLE_EDEFAULT;
+		case ArchPackage.INTERIM_MODEL__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -360,6 +463,10 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 		result.append(step);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", isStable: ");
+		result.append(isStable);
+		result.append(", name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}

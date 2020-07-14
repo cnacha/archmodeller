@@ -214,6 +214,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//InterimModel/description"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//InterimModel/nextModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//InterimModel/designmodel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//InterimModel/isStable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//InterimModel/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
