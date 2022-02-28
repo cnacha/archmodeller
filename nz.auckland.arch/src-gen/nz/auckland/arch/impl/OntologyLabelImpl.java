@@ -112,6 +112,7 @@ public class OntologyLabelImpl extends MinimalEObjectImpl.Container implements O
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -121,6 +122,7 @@ public class OntologyLabelImpl extends MinimalEObjectImpl.Container implements O
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -133,6 +135,7 @@ public class OntologyLabelImpl extends MinimalEObjectImpl.Container implements O
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getExpression() {
 		return expression;
 	}
@@ -142,6 +145,7 @@ public class OntologyLabelImpl extends MinimalEObjectImpl.Container implements O
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExpression(String newExpression) {
 		String oldExpression = expression;
 		expression = newExpression;
@@ -155,6 +159,7 @@ public class OntologyLabelImpl extends MinimalEObjectImpl.Container implements O
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSubClassOf() {
 		return subClassOf;
 	}
@@ -164,6 +169,7 @@ public class OntologyLabelImpl extends MinimalEObjectImpl.Container implements O
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSubClassOf(String newSubClassOf) {
 		String oldSubClassOf = subClassOf;
 		subClassOf = newSubClassOf;

@@ -123,6 +123,7 @@ public class ConnectorTypeImpl extends MinimalEObjectImpl.Container implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -132,6 +133,7 @@ public class ConnectorTypeImpl extends MinimalEObjectImpl.Container implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -144,6 +146,7 @@ public class ConnectorTypeImpl extends MinimalEObjectImpl.Container implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<RoleType> getRoletype() {
 		if (roletype == null) {
 			roletype = new EObjectContainmentEList<RoleType>(RoleType.class, this,
@@ -157,6 +160,7 @@ public class ConnectorTypeImpl extends MinimalEObjectImpl.Container implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValid() {
 		return valid;
 	}
@@ -166,6 +170,7 @@ public class ConnectorTypeImpl extends MinimalEObjectImpl.Container implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValid(boolean newValid) {
 		boolean oldValid = valid;
 		valid = newValid;
@@ -178,6 +183,7 @@ public class ConnectorTypeImpl extends MinimalEObjectImpl.Container implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConnectorType getEaConnector() {
 		if (eaConnector != null && eaConnector.eIsProxy()) {
 			InternalEObject oldEaConnector = (InternalEObject) eaConnector;
@@ -205,6 +211,7 @@ public class ConnectorTypeImpl extends MinimalEObjectImpl.Container implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEaConnector(ConnectorType newEaConnector) {
 		ConnectorType oldEaConnector = eaConnector;
 		eaConnector = newEaConnector;

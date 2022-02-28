@@ -66,6 +66,7 @@ public class LTLNestedExprImpl extends LTLExprImpl implements LTLNestedExpr {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<LTLExpr> getExpr() {
 		if (expr == null) {
 			expr = new EObjectContainmentEList<LTLExpr>(LTLExpr.class, this, ArchPackage.LTL_NESTED_EXPR__EXPR);

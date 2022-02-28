@@ -69,6 +69,7 @@ public class StructuralPropertyImpl extends VerificationPropertyImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getResult() {
 		return result;
 	}
@@ -78,6 +79,7 @@ public class StructuralPropertyImpl extends VerificationPropertyImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setResult(String newResult) {
 		String oldResult = result;
 		result = newResult;

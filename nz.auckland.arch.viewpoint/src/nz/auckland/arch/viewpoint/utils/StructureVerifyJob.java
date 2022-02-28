@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.Transaction;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -34,13 +35,18 @@ import org.emfjson.jackson.resource.JsonResourceFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import nz.auckland.arch.ArchPackage;
+import nz.auckland.arch.ArchStyle;
 import nz.auckland.arch.Component;
 import nz.auckland.arch.Connector;
+import nz.auckland.arch.ConnectorType;
 import nz.auckland.arch.DesignModel;
+import nz.auckland.arch.Device;
+import nz.auckland.arch.ExecutionEnvironment;
+import nz.auckland.arch.RoleType;
 
 public class StructureVerifyJob extends Job {
 	
-	private static String HOSTNAME = "http://localhost:8080";//"http://fasad.cer.auckland.ac.nz:8080";
+	private static String HOSTNAME = "http://10.1.29.238:8080";//"http://fasad.cer.auckland.ac.nz:8080"; 
 	
 	private DesignModel model;
 	
@@ -67,10 +73,23 @@ public class StructureVerifyJob extends Job {
 		try {
 			System.out.println("archsize:" + model.getArchstyle().size());
 			System.out.println("ontologylabel:" + model.getOntologylabel().size());
+			
+			//copy model for sending over
+			DesignModel modelToCheck = EcoreUtil.copy(model);
+			for(Connector conn: modelToCheck.getConnector()) {
+				conn.getCommunicationlink().clear();
+			}
+			for(Device device: modelToCheck.getHost()) {
+				for(ExecutionEnvironment env: device.getNode()) {
+					env.getComponent().clear();
+				}
+			}
 
 			// convert to JSON
 			ObjectMapper mapper = EMFModule.setupDefaultMapper();
-			String jsonString = mapper.writeValueAsString(model);
+			
+			
+			String jsonString = mapper.writeValueAsString(modelToCheck);
 			System.out.println("complete converting ..." + (new Date()).toString());
 			//System.out.println(jsonString);
 			System.out.println("########################################### ");
@@ -148,8 +167,19 @@ public class StructureVerifyJob extends Job {
 					
 					// set inferred type for connector
 					for (int i = 0; i < parsedModel.getConnector().size(); i++) {
+						System.out.println(parsedModel.getConnector().get(i).getName()+"##"+parsedModel.getConnector().get(i).getType());
 						Connector cnn = parsedModel.getConnector().get(i);
 						model.getConnector().get(i).setType(cnn.getType());
+						
+						// for connector type object
+						for(ArchStyle style: model.getArchstyle()) {
+							for(ConnectorType type: style.getConnectortype()) {
+								if(cnn.getType()!=null && cnn.getType().contains(type.getName())) {
+									model.getConnector().get(i).setConnectortype(type);
+									break;
+								}
+							}
+						}
 					}
 
 				}

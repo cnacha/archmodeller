@@ -60,7 +60,7 @@ import nz.auckland.arch.planner.object.Plan;
 
 public class PlannerJob extends Job {
 
-	private static String HOSTNAME = "http://localhost:8080";// "http://fasad.cer.auckland.ac.nz:8080";
+	private static String HOSTNAME = "http://10.1.29.238:8080";// "http://fasad.cer.auckland.ac.nz:8080";
 
 	private MigrationModel model;
 

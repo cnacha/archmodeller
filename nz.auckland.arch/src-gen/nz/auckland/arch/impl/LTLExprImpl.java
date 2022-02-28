@@ -7,9 +7,9 @@ import nz.auckland.arch.BehaviourProperty;
 import nz.auckland.arch.Event;
 import nz.auckland.arch.LTLExpr;
 import nz.auckland.arch.LTLOperator;
-
 import nz.auckland.arch.Port;
 import nz.auckland.arch.Role;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -131,6 +131,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Event getEvent() {
 		if (event != null && event.eIsProxy()) {
 			InternalEObject oldEvent = (InternalEObject) event;
@@ -158,6 +159,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setEvent(Event newEvent) {
 		Event oldEvent = event;
 		event = newEvent;
@@ -170,6 +172,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LTLOperator getOperator() {
 		return operator;
 	}
@@ -179,6 +182,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOperator(LTLOperator newOperator) {
 		LTLOperator oldOperator = operator;
 		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
@@ -192,6 +196,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LTLExpr getNextExpr() {
 		if (nextExpr != null && nextExpr.eIsProxy()) {
 			InternalEObject oldNextExpr = (InternalEObject) nextExpr;
@@ -219,6 +224,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNextExpr(LTLExpr newNextExpr) {
 		LTLExpr oldNextExpr = nextExpr;
 		nextExpr = newNextExpr;
@@ -232,6 +238,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BehaviourProperty getProperty() {
 		if (property != null && property.eIsProxy()) {
 			InternalEObject oldProperty = (InternalEObject) property;
@@ -259,6 +266,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setProperty(BehaviourProperty newProperty) {
 		BehaviourProperty oldProperty = property;
 		property = newProperty;
@@ -272,6 +280,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Role getRole() {
 		if (role != null && role.eIsProxy()) {
 			InternalEObject oldRole = (InternalEObject) role;
@@ -299,6 +308,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRole(Role newRole) {
 		Role oldRole = role;
 		role = newRole;
@@ -311,6 +321,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Port getPort() {
 		if (port != null && port.eIsProxy()) {
 			InternalEObject oldPort = (InternalEObject) port;
@@ -338,6 +349,7 @@ public abstract class LTLExprImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPort(Port newPort) {
 		Port oldPort = port;
 		port = newPort;

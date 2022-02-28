@@ -8,6 +8,7 @@ import nz.auckland.arch.ArchPackage;
 import nz.auckland.arch.Event;
 import nz.auckland.arch.PortType;
 import nz.auckland.arch.RoleType;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -123,6 +124,7 @@ public class RoleTypeImpl extends MinimalEObjectImpl.Container implements RoleTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -132,6 +134,7 @@ public class RoleTypeImpl extends MinimalEObjectImpl.Container implements RoleTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -144,6 +147,7 @@ public class RoleTypeImpl extends MinimalEObjectImpl.Container implements RoleTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Event> getEvent() {
 		if (event == null) {
 			event = new EObjectContainmentEList<Event>(Event.class, this, ArchPackage.ROLE_TYPE__EVENT);
@@ -156,6 +160,7 @@ public class RoleTypeImpl extends MinimalEObjectImpl.Container implements RoleTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PortType getPorttype() {
 		if (porttype != null && porttype.eIsProxy()) {
 			InternalEObject oldPorttype = (InternalEObject) porttype;
@@ -183,6 +188,7 @@ public class RoleTypeImpl extends MinimalEObjectImpl.Container implements RoleTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPorttype(PortType newPorttype) {
 		PortType oldPorttype = porttype;
 		porttype = newPorttype;
@@ -196,6 +202,7 @@ public class RoleTypeImpl extends MinimalEObjectImpl.Container implements RoleTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValid() {
 		return valid;
 	}
@@ -205,6 +212,7 @@ public class RoleTypeImpl extends MinimalEObjectImpl.Container implements RoleTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValid(boolean newValid) {
 		boolean oldValid = valid;
 		valid = newValid;

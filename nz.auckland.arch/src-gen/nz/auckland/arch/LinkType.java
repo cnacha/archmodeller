@@ -61,10 +61,6 @@ public enum LinkType implements Enumerator {
 	/**
 	 * The '<em><b>HTTP</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>HTTP</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #HTTP
 	 * @model
@@ -76,10 +72,6 @@ public enum LinkType implements Enumerator {
 	/**
 	 * The '<em><b>HTTPS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>HTTPS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #HTTPS
 	 * @model
@@ -91,10 +83,6 @@ public enum LinkType implements Enumerator {
 	/**
 	 * The '<em><b>FTPS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>FTPS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FTPS
 	 * @model
@@ -106,10 +94,6 @@ public enum LinkType implements Enumerator {
 	/**
 	 * The '<em><b>FTP</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>FTP</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FTP
 	 * @model
@@ -230,6 +214,7 @@ public enum LinkType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -239,6 +224,7 @@ public enum LinkType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -248,6 +234,7 @@ public enum LinkType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

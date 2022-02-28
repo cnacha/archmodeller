@@ -3,6 +3,7 @@
 package nz.auckland.arch;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -27,10 +28,6 @@ public interface MigrationModel extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Source</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(DesignModel)
@@ -53,10 +50,6 @@ public interface MigrationModel extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Target</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(DesignModel)
@@ -80,10 +73,6 @@ public interface MigrationModel extends EObject {
 	 * Returns the value of the '<em><b>Interimmodels</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.InterimModel}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Interimmodels</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interimmodels</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getMigrationModel_Interimmodels()

@@ -29,10 +29,6 @@ public interface RoleType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -56,10 +52,6 @@ public interface RoleType extends EObject {
 	 * Returns the value of the '<em><b>Event</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.Event}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Event</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getRoleType_Event()
@@ -71,10 +63,6 @@ public interface RoleType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Porttype</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Porttype</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Porttype</em>' reference.
 	 * @see #setPorttype(PortType)
@@ -98,10 +86,6 @@ public interface RoleType extends EObject {
 	 * Returns the value of the '<em><b>Valid</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Valid</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valid</em>' attribute.
 	 * @see #setValid(boolean)

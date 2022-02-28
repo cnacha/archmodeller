@@ -1090,7 +1090,13 @@
               <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:OperationAction" name="Verify Evolution Path">
+          <ownedTools xsi:type="tool_1:OperationAction" name="Verify Structure">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.verifyStructureOfMigrationModel()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="Verify Behaviour">
             <view name="views"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.verifyEvolutionPath()"/>
@@ -1100,6 +1106,110 @@
             <view name="views"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.reportEvolutionPath()"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="RefactorSet" domainClass="arch::RefactorSet" enablePopupBars="true">
+      <layout xsi:type="description_1:OrderedTreeLayout" childrenExpression="feature:source"/>
+      <defaultLayer name="Default">
+        <edgeMappings name="nextPart" label="Next Part" sourceMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='RefactorSet']/@defaultLayer/@containerMappings[name='refactorPartContainer']" targetMapping="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='RefactorSet']/@defaultLayer/@containerMappings[name='refactorPartContainer']" targetFinderExpression="feature:next">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="refactorPartContainer" label="RefactorPart" semanticCandidatesExpression="feature:parts" domainClass="arch::RefactorPart">
+          <subNodeMappings name="ReferenceModel" label="Reference Model" semanticCandidatesExpression="feature:reference" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='RefactorSet']/@defaultLayer/@toolSections.0/@ownedTools[name='doubleclickModel']" domainClass="arch::DesignModel">
+            <style xsi:type="style:SquareDescription" labelSize="12" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="functionalProp" label="Funcional Property" semanticCandidatesExpression="feature:functions" doubleClickDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='RefactorSet']/@defaultLayer/@toolSections.0/@ownedTools[name='doubleclickFunc']" domainClass="arch::BehaviourProperty">
+            <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="5s" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+            <conditionnalStyles predicateExpression="[self.valid = false /]">
+              <style xsi:type="style:SquareDescription" labelSize="12" sizeComputationExpression="10" labelPosition="node" resizeKind="NSEW" width="10" height="5">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </conditionnalStyles>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Tool">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="doubleclickModel" mappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='RefactorSet']/@defaultLayer/@containerMappings[name='refactorPartContainer']/@subNodeMappings[name='ReferenceModel']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='SystemDiagram']"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:OperationAction" name="Refactor Design">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql: self.refactorFunction()"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="RefactorPart" label="Refactor Part" containerMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='RefactorSet']/@defaultLayer/@containerMappings[name='refactorPartContainer']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::RefactorPart" referenceName="parts">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'ref'+container.parts -> size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="propertyDetails" precondition="aql: self.isLTLProp()">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="createProperty" label="Functional Property" nodeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='RefactorSet']/@defaultLayer/@containerMappings[name='refactorPartContainer']/@subNodeMappings[name='functionalProp']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="arch::BehaviourProperty" referenceName="functions">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'func'+container.functions -> size()"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="doubleclickFunc" mappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='RefactorSet']/@defaultLayer/@containerMappings[name='refactorPartContainer']/@subNodeMappings[name='functionalProp']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Navigation" createIfNotExistent="true" diagramDescription="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='BehaivourPropertyDiagram']"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="nextPartAdd" label="Next" edgeMappings="//@ownedViewpoints[name='MyViewpoint']/@ownedRepresentations[name='RefactorSet']/@defaultLayer/@edgeMappings[name='nextPart']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="next" valueExpression="var:target"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>

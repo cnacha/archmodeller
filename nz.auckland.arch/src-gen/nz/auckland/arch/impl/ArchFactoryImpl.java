@@ -102,6 +102,10 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 			return createMigrationModel();
 		case ArchPackage.INTERIM_MODEL:
 			return createInterimModel();
+		case ArchPackage.REFACTOR_PART:
+			return createRefactorPart();
+		case ArchPackage.REFACTOR_SET:
+			return createRefactorSet();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -174,6 +178,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Component createComponent() {
 		ComponentImpl component = new ComponentImpl();
 		return component;
@@ -184,6 +189,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DesignModel createDesignModel() {
 		DesignModelImpl designModel = new DesignModelImpl();
 		return designModel;
@@ -194,6 +200,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Connector createConnector() {
 		ConnectorImpl connector = new ConnectorImpl();
 		return connector;
@@ -204,6 +211,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Port createPort() {
 		PortImpl port = new PortImpl();
 		return port;
@@ -214,6 +222,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Event createEvent() {
 		EventImpl event = new EventImpl();
 		return event;
@@ -224,6 +233,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Role createRole() {
 		RoleImpl role = new RoleImpl();
 		return role;
@@ -234,6 +244,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Channel createChannel() {
 		ChannelImpl channel = new ChannelImpl();
 		return channel;
@@ -244,6 +255,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RoleType createRoleType() {
 		RoleTypeImpl roleType = new RoleTypeImpl();
 		return roleType;
@@ -254,6 +266,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConnectorType createConnectorType() {
 		ConnectorTypeImpl connectorType = new ConnectorTypeImpl();
 		return connectorType;
@@ -264,6 +277,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComponentType createComponentType() {
 		ComponentTypeImpl componentType = new ComponentTypeImpl();
 		return componentType;
@@ -274,6 +288,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PortType createPortType() {
 		PortTypeImpl portType = new PortTypeImpl();
 		return portType;
@@ -284,6 +299,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArchStyle createArchStyle() {
 		ArchStyleImpl archStyle = new ArchStyleImpl();
 		return archStyle;
@@ -294,6 +310,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BehaviourProperty createBehaviourProperty() {
 		BehaviourPropertyImpl behaviourProperty = new BehaviourPropertyImpl();
 		return behaviourProperty;
@@ -304,6 +321,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LTLNestedExpr createLTLNestedExpr() {
 		LTLNestedExprImpl ltlNestedExpr = new LTLNestedExprImpl();
 		return ltlNestedExpr;
@@ -314,6 +332,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LTLRegularExpr createLTLRegularExpr() {
 		LTLRegularExprImpl ltlRegularExpr = new LTLRegularExprImpl();
 		return ltlRegularExpr;
@@ -324,6 +343,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StructuralProperty createStructuralProperty() {
 		StructuralPropertyImpl structuralProperty = new StructuralPropertyImpl();
 		return structuralProperty;
@@ -334,6 +354,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Device createDevice() {
 		DeviceImpl device = new DeviceImpl();
 		return device;
@@ -344,6 +365,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExecutionEnvironment createExecutionEnvironment() {
 		ExecutionEnvironmentImpl executionEnvironment = new ExecutionEnvironmentImpl();
 		return executionEnvironment;
@@ -354,6 +376,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CommunicationLink createCommunicationLink() {
 		CommunicationLinkImpl communicationLink = new CommunicationLinkImpl();
 		return communicationLink;
@@ -364,6 +387,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CommunicationPort createCommunicationPort() {
 		CommunicationPortImpl communicationPort = new CommunicationPortImpl();
 		return communicationPort;
@@ -374,6 +398,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OntologyLabel createOntologyLabel() {
 		OntologyLabelImpl ontologyLabel = new OntologyLabelImpl();
 		return ontologyLabel;
@@ -384,6 +409,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MigrationModel createMigrationModel() {
 		MigrationModelImpl migrationModel = new MigrationModelImpl();
 		return migrationModel;
@@ -394,9 +420,32 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public InterimModel createInterimModel() {
 		InterimModelImpl interimModel = new InterimModelImpl();
 		return interimModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RefactorPart createRefactorPart() {
+		RefactorPartImpl refactorPart = new RefactorPartImpl();
+		return refactorPart;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RefactorSet createRefactorSet() {
+		RefactorSetImpl refactorSet = new RefactorSetImpl();
+		return refactorSet;
 	}
 
 	/**
@@ -602,6 +651,7 @@ public class ArchFactoryImpl extends EFactoryImpl implements ArchFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArchPackage getArchPackage() {
 		return (ArchPackage) getEPackage();
 	}

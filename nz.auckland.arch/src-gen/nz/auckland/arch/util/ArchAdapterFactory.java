@@ -192,6 +192,16 @@ public class ArchAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseRefactorPart(RefactorPart object) {
+			return createRefactorPartAdapter();
+		}
+
+		@Override
+		public Adapter caseRefactorSet(RefactorSet object) {
+			return createRefactorSetAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -557,6 +567,34 @@ public class ArchAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInterimModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nz.auckland.arch.RefactorPart <em>Refactor Part</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nz.auckland.arch.RefactorPart
+	 * @generated
+	 */
+	public Adapter createRefactorPartAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link nz.auckland.arch.RefactorSet <em>Refactor Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see nz.auckland.arch.RefactorSet
+	 * @generated
+	 */
+	public Adapter createRefactorSetAdapter() {
 		return null;
 	}
 

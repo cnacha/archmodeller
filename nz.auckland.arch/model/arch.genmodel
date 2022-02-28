@@ -210,12 +210,25 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//MigrationModel/interimmodels"/>
     </genClasses>
     <genClasses ecoreClass="arch.ecore#//InterimModel">
+      <genTypeParameters ecoreTypeParameter="arch.ecore#//InterimModel/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//InterimModel/step"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//InterimModel/description"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//InterimModel/nextModel"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//InterimModel/designmodel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//InterimModel/isStable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//InterimModel/name"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//RefactorPart">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//RefactorPart/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//RefactorPart/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//RefactorPart/functions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//RefactorPart/copyStructure"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arch.ecore#//RefactorPart/replaceStrcuture"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//RefactorPart/next"/>
+    </genClasses>
+    <genClasses ecoreClass="arch.ecore#//RefactorSet">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference arch.ecore#//RefactorSet/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arch.ecore#//RefactorSet/parts"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -71,10 +71,6 @@ public enum BehaviourPropType implements Enumerator {
 	/**
 	 * The '<em><b>LTL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>LTL</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LTL
 	 * @model
@@ -86,10 +82,6 @@ public enum BehaviourPropType implements Enumerator {
 	/**
 	 * The '<em><b>Circular Free</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Circular Free</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CIRCULAR_FREE
 	 * @model name="CircularFree" literal="CD"
@@ -101,10 +93,6 @@ public enum BehaviourPropType implements Enumerator {
 	/**
 	 * The '<em><b>Decomposition Free</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Decomposition Free</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DECOMPOSITION_FREE
 	 * @model name="DecompositionFree" literal="FD"
@@ -116,10 +104,6 @@ public enum BehaviourPropType implements Enumerator {
 	/**
 	 * The '<em><b>Poltergeist Free</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Poltergeist Free</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #POLTERGEIST_FREE
 	 * @model name="PoltergeistFree" literal="PG"
@@ -131,10 +115,6 @@ public enum BehaviourPropType implements Enumerator {
 	/**
 	 * The '<em><b>Ambiguous Interface Free</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Ambiguous Interface Free</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #AMBIGUOUS_INTERFACE_FREE
 	 * @model name="AmbiguousInterfaceFree" literal="AI"
@@ -258,6 +238,7 @@ public enum BehaviourPropType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -267,6 +248,7 @@ public enum BehaviourPropType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -276,6 +258,7 @@ public enum BehaviourPropType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

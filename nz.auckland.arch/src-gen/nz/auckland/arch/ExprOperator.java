@@ -51,10 +51,6 @@ public enum ExprOperator implements Enumerator {
 	/**
 	 * The '<em><b>PARALLEL</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>PARALLEL</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #PARALLEL
 	 * @model
@@ -66,10 +62,6 @@ public enum ExprOperator implements Enumerator {
 	/**
 	 * The '<em><b>COUPLING</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>COUPLING</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #COUPLING
 	 * @model
@@ -81,10 +73,6 @@ public enum ExprOperator implements Enumerator {
 	/**
 	 * The '<em><b>INTERLEAVE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>INTERLEAVE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTERLEAVE
 	 * @model
@@ -203,6 +191,7 @@ public enum ExprOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -212,6 +201,7 @@ public enum ExprOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -221,6 +211,7 @@ public enum ExprOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

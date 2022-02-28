@@ -170,6 +170,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -179,6 +180,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -191,6 +193,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RoleType getRoletype() {
 		if (roletype != null && roletype.eIsProxy()) {
 			InternalEObject oldRoletype = (InternalEObject) roletype;
@@ -218,6 +221,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRoletype(RoleType newRoletype) {
 		RoleType oldRoletype = roletype;
 		roletype = newRoletype;
@@ -230,6 +234,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getType() {
 		return type;
 	}
@@ -239,6 +244,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(String newType) {
 		String oldType = type;
 		type = newType;
@@ -251,6 +257,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValid() {
 		return valid;
 	}
@@ -260,6 +267,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValid(boolean newValid) {
 		boolean oldValid = valid;
 		valid = newValid;
@@ -272,6 +280,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Role getNextRoleExpr() {
 		if (nextRoleExpr != null && nextRoleExpr.eIsProxy()) {
 			InternalEObject oldNextRoleExpr = (InternalEObject) nextRoleExpr;
@@ -299,6 +308,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNextRoleExpr(Role newNextRoleExpr) {
 		Role oldNextRoleExpr = nextRoleExpr;
 		nextRoleExpr = newNextRoleExpr;
@@ -312,6 +322,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExprOperator getOperatorExpr() {
 		return operatorExpr;
 	}
@@ -321,6 +332,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOperatorExpr(ExprOperator newOperatorExpr) {
 		ExprOperator oldOperatorExpr = operatorExpr;
 		operatorExpr = newOperatorExpr == null ? OPERATOR_EXPR_EDEFAULT : newOperatorExpr;
@@ -334,6 +346,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Connector getConnector() {
 		if (connector != null && connector.eIsProxy()) {
 			InternalEObject oldConnector = (InternalEObject) connector;
@@ -361,6 +374,7 @@ public class RoleImpl extends MinimalEObjectImpl.Container implements Role {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConnector(Connector newConnector) {
 		Connector oldConnector = connector;
 		connector = newConnector;

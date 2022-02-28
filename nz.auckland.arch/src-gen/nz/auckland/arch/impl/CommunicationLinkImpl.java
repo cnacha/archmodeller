@@ -138,6 +138,7 @@ public class CommunicationLinkImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -147,6 +148,7 @@ public class CommunicationLinkImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -159,6 +161,7 @@ public class CommunicationLinkImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public LinkType getLinkType() {
 		return linkType;
 	}
@@ -168,6 +171,7 @@ public class CommunicationLinkImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setLinkType(LinkType newLinkType) {
 		LinkType oldLinkType = linkType;
 		linkType = newLinkType == null ? LINK_TYPE_EDEFAULT : newLinkType;
@@ -181,6 +185,7 @@ public class CommunicationLinkImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NetworkType getNetworkType() {
 		return networkType;
 	}
@@ -190,6 +195,7 @@ public class CommunicationLinkImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNetworkType(NetworkType newNetworkType) {
 		NetworkType oldNetworkType = networkType;
 		networkType = newNetworkType == null ? NETWORK_TYPE_EDEFAULT : newNetworkType;
@@ -203,6 +209,7 @@ public class CommunicationLinkImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CommunicationPort getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject) source;
@@ -230,6 +237,7 @@ public class CommunicationLinkImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSource(CommunicationPort newSource) {
 		CommunicationPort oldSource = source;
 		source = newSource;
@@ -243,6 +251,7 @@ public class CommunicationLinkImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CommunicationPort getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject) target;
@@ -270,6 +279,7 @@ public class CommunicationLinkImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(CommunicationPort newTarget) {
 		CommunicationPort oldTarget = target;
 		target = newTarget;

@@ -51,10 +51,6 @@ public enum LTLOperator implements Enumerator {
 	/**
 	 * The '<em><b>ALWAYS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ALWAYS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ALWAYS
 	 * @model
@@ -66,10 +62,6 @@ public enum LTLOperator implements Enumerator {
 	/**
 	 * The '<em><b>EVENTUALLY</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>EVENTUALLY</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #EVENTUALLY
 	 * @model
@@ -81,10 +73,6 @@ public enum LTLOperator implements Enumerator {
 	/**
 	 * The '<em><b>NONE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>NONE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #NONE
 	 * @model
@@ -203,6 +191,7 @@ public enum LTLOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -212,6 +201,7 @@ public enum LTLOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -221,6 +211,7 @@ public enum LTLOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

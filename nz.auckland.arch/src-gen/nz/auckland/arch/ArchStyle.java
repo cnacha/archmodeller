@@ -29,10 +29,6 @@ public interface ArchStyle extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -56,10 +52,6 @@ public interface ArchStyle extends EObject {
 	 * Returns the value of the '<em><b>Connectortype</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.ConnectorType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Connectortype</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Connectortype</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getArchStyle_Connectortype()
@@ -72,10 +64,6 @@ public interface ArchStyle extends EObject {
 	 * Returns the value of the '<em><b>Componenttype</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.ComponentType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Componenttype</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Componenttype</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getArchStyle_Componenttype()
@@ -88,10 +76,6 @@ public interface ArchStyle extends EObject {
 	 * Returns the value of the '<em><b>Valid</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Valid</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valid</em>' attribute.
 	 * @see #setValid(boolean)

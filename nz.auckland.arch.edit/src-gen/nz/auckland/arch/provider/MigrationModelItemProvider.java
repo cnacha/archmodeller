@@ -7,14 +7,15 @@ import java.util.List;
 
 import nz.auckland.arch.ArchFactory;
 import nz.auckland.arch.ArchPackage;
-
 import nz.auckland.arch.MigrationModel;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;

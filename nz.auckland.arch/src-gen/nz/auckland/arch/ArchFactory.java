@@ -229,6 +229,24 @@ public interface ArchFactory extends EFactory {
 	InterimModel createInterimModel();
 
 	/**
+	 * Returns a new object of class '<em>Refactor Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Refactor Part</em>'.
+	 * @generated
+	 */
+	RefactorPart createRefactorPart();
+
+	/**
+	 * Returns a new object of class '<em>Refactor Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Refactor Set</em>'.
+	 * @generated
+	 */
+	RefactorSet createRefactorSet();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

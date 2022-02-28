@@ -27,90 +27,8 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface InterimModel extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Designmodel</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Designmodel</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Designmodel</em>' containment reference.
-	 * @see #setDesignmodel(DesignModel)
-	 * @see nz.auckland.arch.ArchPackage#getInterimModel_Designmodel()
-	 * @model containment="true"
-	 * @generated
-	 */
-	DesignModel getDesignmodel();
-
-	/**
-	 * Sets the value of the '{@link nz.auckland.arch.InterimModel#getDesignmodel <em>Designmodel</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Designmodel</em>' containment reference.
-	 * @see #getDesignmodel()
-	 * @generated
-	 */
-	void setDesignmodel(DesignModel value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Stable</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Is Stable</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Stable</em>' attribute.
-	 * @see #setIsStable(boolean)
-	 * @see nz.auckland.arch.ArchPackage#getInterimModel_IsStable()
-	 * @model
-	 * @generated
-	 */
-	boolean isIsStable();
-
-	/**
-	 * Sets the value of the '{@link nz.auckland.arch.InterimModel#isIsStable <em>Is Stable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Stable</em>' attribute.
-	 * @see #isIsStable()
-	 * @generated
-	 */
-	void setIsStable(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see nz.auckland.arch.ArchPackage#getInterimModel_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link nz.auckland.arch.InterimModel#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Step</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Step</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Step</em>' attribute.
 	 * @see #setStep(int)
@@ -133,10 +51,6 @@ public interface InterimModel extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Description</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
@@ -159,10 +73,6 @@ public interface InterimModel extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Next Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next Model</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Next Model</em>' reference.
 	 * @see #setNextModel(InterimModel)
@@ -181,5 +91,71 @@ public interface InterimModel extends EObject {
 	 * @generated
 	 */
 	void setNextModel(InterimModel value);
+
+	/**
+	 * Returns the value of the '<em><b>Designmodel</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Designmodel</em>' containment reference.
+	 * @see #setDesignmodel(DesignModel)
+	 * @see nz.auckland.arch.ArchPackage#getInterimModel_Designmodel()
+	 * @model containment="true"
+	 * @generated
+	 */
+	DesignModel getDesignmodel();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.InterimModel#getDesignmodel <em>Designmodel</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Designmodel</em>' containment reference.
+	 * @see #getDesignmodel()
+	 * @generated
+	 */
+	void setDesignmodel(DesignModel value);
+
+	/**
+	 * Returns the value of the '<em><b>Is Stable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Stable</em>' attribute.
+	 * @see #setIsStable(boolean)
+	 * @see nz.auckland.arch.ArchPackage#getInterimModel_IsStable()
+	 * @model
+	 * @generated
+	 */
+	boolean isIsStable();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.InterimModel#isIsStable <em>Is Stable</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Stable</em>' attribute.
+	 * @see #isIsStable()
+	 * @generated
+	 */
+	void setIsStable(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name</em>' attribute.
+	 * @see #setName(String)
+	 * @see nz.auckland.arch.ArchPackage#getInterimModel_Name()
+	 * @model
+	 * @generated
+	 */
+	String getName();
+
+	/**
+	 * Sets the value of the '{@link nz.auckland.arch.InterimModel#getName <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name</em>' attribute.
+	 * @see #getName()
+	 * @generated
+	 */
+	void setName(String value);
 
 } // InterimModel

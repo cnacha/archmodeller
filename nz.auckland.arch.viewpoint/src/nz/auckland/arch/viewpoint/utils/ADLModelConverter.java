@@ -138,7 +138,6 @@ public class ADLModelConverter {
 
 		// print connector instance
 		for (Connector conn : model.getConnector()) {
-
 			adlcode.append("\t declare " + conn.getName() + " = " + conn.getConnectortype().getName() + "; \n");
 		}
 
@@ -166,21 +165,34 @@ public class ADLModelConverter {
 				
 				roleSet.addAll(port.getRole());
 				//System.out.println("================="+portProcName+"  "+port.getRole().size());
-				for (Role role : port.getRole()) {
-					if (role.getNextRoleExpr() != null) {
-						roleSet.remove(role.getNextRoleExpr());
-					}
-				}
-				//System.out.println(".....attaching port "+portProcName+" "+roleSet);
+//				for (Role role : port.getRole()) {
+//					if (role.getNextRoleExpr() != null) {
+//						roleSet.remove(role.getNextRoleExpr());
+//					}
+//				}
+				System.out.println(".....attaching port "+portProcName+" "+roleSet);
 				try {
 					// left in the set is the start role
 
 					Iterator roleIt = roleSet.iterator();
-					Role currentRole = (Role)roleIt.next();
+					Role currentRole =null;
+					// find first role to begins
+					if(roleSet.size()>1) {
+						for(Role role: roleSet) {
+							if(role.getNextRoleExpr()!=null) {
+								if(currentRole == null ||  role.getNextRoleExpr() == currentRole)
+									currentRole = role;
+								
+							}
+						}
+					} else {
+						 currentRole = (Role)roleIt.next();
+					}
+					
 					while (currentRole!=null) {
 						
 						// print attached role process
-						System.out.println("		cnn:"+currentRole.getConnector());
+						System.out.println("			cnn:"+currentRole.getConnector()+"#role:"+currentRole.getName());
 						if (hasInputArgumentExpr(currentRole.getRoletype().getEvent())) {
 							adlcode.append(currentRole.getConnector().getName() + "." + currentRole.getName() + "("
 									+ generateRandomDigits(2) + ")");
@@ -188,7 +200,12 @@ public class ADLModelConverter {
 							adlcode.append(currentRole.getConnector().getName() + "." + currentRole.getName() + "()");
 						}
 						// print operator
-						if (currentRole.getNextRoleExpr()!=null) {
+					//	if (currentRole.getNextRoleExpr()!=null) {
+							
+					//	}
+
+						
+						if(currentRole.getNextRoleExpr()!=null && roleSet.contains(currentRole.getNextRoleExpr())) {
 							if (currentRole.getOperatorExpr() == ExprOperator.COUPLING) {
 								adlcode.append(" <*> ");
 							} else if (currentRole.getOperatorExpr() == ExprOperator.INTERLEAVE) {
@@ -196,9 +213,10 @@ public class ADLModelConverter {
 							} else if (currentRole.getOperatorExpr() == ExprOperator.PARALLEL) {
 								adlcode.append(" || ");
 							}
+							currentRole = currentRole.getNextRoleExpr();
+						} else {
+							currentRole = null;
 						}
-
-						currentRole = currentRole.getNextRoleExpr();
 
 					}
 

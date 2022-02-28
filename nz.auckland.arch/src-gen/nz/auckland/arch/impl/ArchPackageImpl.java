@@ -34,6 +34,8 @@ import nz.auckland.arch.NodeType;
 import nz.auckland.arch.OntologyLabel;
 import nz.auckland.arch.Port;
 import nz.auckland.arch.PortType;
+import nz.auckland.arch.RefactorPart;
+import nz.auckland.arch.RefactorSet;
 import nz.auckland.arch.Role;
 import nz.auckland.arch.RoleType;
 import nz.auckland.arch.StructuralProperty;
@@ -46,6 +48,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 
 /**
@@ -235,6 +238,20 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass refactorPartEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass refactorSetEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum exprOperatorEEnum = null;
 
 	/**
@@ -365,6 +382,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getComponent() {
 		return componentEClass;
 	}
@@ -374,6 +392,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_Name() {
 		return (EAttribute) componentEClass.getEStructuralFeatures().get(0);
 	}
@@ -383,6 +402,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_Type() {
 		return (EAttribute) componentEClass.getEStructuralFeatures().get(1);
 	}
@@ -392,6 +412,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Port() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(2);
 	}
@@ -401,6 +422,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_Valid() {
 		return (EAttribute) componentEClass.getEStructuralFeatures().get(3);
 	}
@@ -410,6 +432,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponent_Deploymentnode() {
 		return (EReference) componentEClass.getEStructuralFeatures().get(4);
 	}
@@ -419,6 +442,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_CriticalLevel() {
 		return (EAttribute) componentEClass.getEStructuralFeatures().get(5);
 	}
@@ -428,6 +452,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponent_SecurityCharacters() {
 		return (EAttribute) componentEClass.getEStructuralFeatures().get(6);
 	}
@@ -437,6 +462,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDesignModel() {
 		return designModelEClass;
 	}
@@ -446,6 +472,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDesignModel_Component() {
 		return (EReference) designModelEClass.getEStructuralFeatures().get(0);
 	}
@@ -455,6 +482,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDesignModel_Connector() {
 		return (EReference) designModelEClass.getEStructuralFeatures().get(1);
 	}
@@ -464,6 +492,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDesignModel_Archstyle() {
 		return (EReference) designModelEClass.getEStructuralFeatures().get(2);
 	}
@@ -473,6 +502,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDesignModel_VerifyProperty() {
 		return (EReference) designModelEClass.getEStructuralFeatures().get(3);
 	}
@@ -482,6 +512,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDesignModel_Name() {
 		return (EAttribute) designModelEClass.getEStructuralFeatures().get(4);
 	}
@@ -491,6 +522,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDesignModel_Host() {
 		return (EReference) designModelEClass.getEStructuralFeatures().get(5);
 	}
@@ -500,6 +532,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDesignModel_Link() {
 		return (EReference) designModelEClass.getEStructuralFeatures().get(6);
 	}
@@ -509,6 +542,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDesignModel_Ontologylabel() {
 		return (EReference) designModelEClass.getEStructuralFeatures().get(7);
 	}
@@ -518,6 +552,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConnector() {
 		return connectorEClass;
 	}
@@ -527,6 +562,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConnector_Name() {
 		return (EAttribute) connectorEClass.getEStructuralFeatures().get(0);
 	}
@@ -536,6 +572,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConnector_Type() {
 		return (EAttribute) connectorEClass.getEStructuralFeatures().get(1);
 	}
@@ -545,6 +582,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConnector_Role() {
 		return (EReference) connectorEClass.getEStructuralFeatures().get(2);
 	}
@@ -554,6 +592,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConnector_Connectortype() {
 		return (EReference) connectorEClass.getEStructuralFeatures().get(3);
 	}
@@ -563,6 +602,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConnector_Valid() {
 		return (EAttribute) connectorEClass.getEStructuralFeatures().get(4);
 	}
@@ -572,6 +612,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConnector_Communicationlink() {
 		return (EReference) connectorEClass.getEStructuralFeatures().get(5);
 	}
@@ -581,6 +622,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConnector_SecurityCharacters() {
 		return (EAttribute) connectorEClass.getEStructuralFeatures().get(6);
 	}
@@ -590,6 +632,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPort() {
 		return portEClass;
 	}
@@ -599,6 +642,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPort_Name() {
 		return (EAttribute) portEClass.getEStructuralFeatures().get(0);
 	}
@@ -608,6 +652,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPort_Events() {
 		return (EReference) portEClass.getEStructuralFeatures().get(1);
 	}
@@ -617,6 +662,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getPort_Role() {
 		return (EReference) portEClass.getEStructuralFeatures().get(2);
 	}
@@ -626,6 +672,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPort_Type() {
 		return (EAttribute) portEClass.getEStructuralFeatures().get(3);
 	}
@@ -635,6 +682,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPort_Valid() {
 		return (EAttribute) portEClass.getEStructuralFeatures().get(4);
 	}
@@ -644,6 +692,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPort_Insecure() {
 		return (EAttribute) portEClass.getEStructuralFeatures().get(5);
 	}
@@ -653,6 +702,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPort_Attributes() {
 		return (EAttribute) portEClass.getEStructuralFeatures().get(6);
 	}
@@ -662,6 +712,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEvent() {
 		return eventEClass;
 	}
@@ -671,6 +722,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getEvent_Name() {
 		return (EAttribute) eventEClass.getEStructuralFeatures().get(0);
 	}
@@ -680,6 +732,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getEvent_Next() {
 		return (EReference) eventEClass.getEStructuralFeatures().get(1);
 	}
@@ -689,6 +742,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRole() {
 		return roleEClass;
 	}
@@ -698,6 +752,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRole_Name() {
 		return (EAttribute) roleEClass.getEStructuralFeatures().get(0);
 	}
@@ -707,6 +762,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRole_Roletype() {
 		return (EReference) roleEClass.getEStructuralFeatures().get(1);
 	}
@@ -716,6 +772,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRole_Type() {
 		return (EAttribute) roleEClass.getEStructuralFeatures().get(2);
 	}
@@ -725,6 +782,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRole_Valid() {
 		return (EAttribute) roleEClass.getEStructuralFeatures().get(3);
 	}
@@ -734,6 +792,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRole_NextRoleExpr() {
 		return (EReference) roleEClass.getEStructuralFeatures().get(4);
 	}
@@ -743,6 +802,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRole_OperatorExpr() {
 		return (EAttribute) roleEClass.getEStructuralFeatures().get(5);
 	}
@@ -752,6 +812,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRole_Connector() {
 		return (EReference) roleEClass.getEStructuralFeatures().get(6);
 	}
@@ -761,6 +822,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getChannel() {
 		return channelEClass;
 	}
@@ -770,6 +832,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getChannel_Type() {
 		return (EAttribute) channelEClass.getEStructuralFeatures().get(0);
 	}
@@ -779,6 +842,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getChannel_Bind() {
 		return (EReference) channelEClass.getEStructuralFeatures().get(1);
 	}
@@ -788,6 +852,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRoleType() {
 		return roleTypeEClass;
 	}
@@ -797,6 +862,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRoleType_Name() {
 		return (EAttribute) roleTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -806,6 +872,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoleType_Event() {
 		return (EReference) roleTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -815,6 +882,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRoleType_Porttype() {
 		return (EReference) roleTypeEClass.getEStructuralFeatures().get(2);
 	}
@@ -824,6 +892,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRoleType_Valid() {
 		return (EAttribute) roleTypeEClass.getEStructuralFeatures().get(3);
 	}
@@ -833,6 +902,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getConnectorType() {
 		return connectorTypeEClass;
 	}
@@ -842,6 +912,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConnectorType_Name() {
 		return (EAttribute) connectorTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -851,6 +922,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConnectorType_Roletype() {
 		return (EReference) connectorTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -860,6 +932,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getConnectorType_Valid() {
 		return (EAttribute) connectorTypeEClass.getEStructuralFeatures().get(2);
 	}
@@ -869,6 +942,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getConnectorType_EaConnector() {
 		return (EReference) connectorTypeEClass.getEStructuralFeatures().get(3);
 	}
@@ -878,6 +952,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getComponentType() {
 		return componentTypeEClass;
 	}
@@ -887,6 +962,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponentType_Name() {
 		return (EAttribute) componentTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -896,6 +972,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getComponentType_Porttype() {
 		return (EReference) componentTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -905,6 +982,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getComponentType_Valid() {
 		return (EAttribute) componentTypeEClass.getEStructuralFeatures().get(2);
 	}
@@ -914,6 +992,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getPortType() {
 		return portTypeEClass;
 	}
@@ -923,6 +1002,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPortType_Name() {
 		return (EAttribute) portTypeEClass.getEStructuralFeatures().get(0);
 	}
@@ -932,6 +1012,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getPortType_Valid() {
 		return (EAttribute) portTypeEClass.getEStructuralFeatures().get(1);
 	}
@@ -941,6 +1022,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getArchStyle() {
 		return archStyleEClass;
 	}
@@ -950,6 +1032,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArchStyle_Name() {
 		return (EAttribute) archStyleEClass.getEStructuralFeatures().get(0);
 	}
@@ -959,6 +1042,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArchStyle_Connectortype() {
 		return (EReference) archStyleEClass.getEStructuralFeatures().get(1);
 	}
@@ -968,6 +1052,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getArchStyle_Componenttype() {
 		return (EReference) archStyleEClass.getEStructuralFeatures().get(2);
 	}
@@ -977,6 +1062,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getArchStyle_Valid() {
 		return (EAttribute) archStyleEClass.getEStructuralFeatures().get(3);
 	}
@@ -986,6 +1072,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBehaviourProperty() {
 		return behaviourPropertyEClass;
 	}
@@ -995,6 +1082,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBehaviourProperty_Ltlexpr() {
 		return (EReference) behaviourPropertyEClass.getEStructuralFeatures().get(0);
 	}
@@ -1004,6 +1092,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBehaviourProperty_Valid() {
 		return (EAttribute) behaviourPropertyEClass.getEStructuralFeatures().get(1);
 	}
@@ -1013,6 +1102,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBehaviourProperty_CounterExample() {
 		return (EAttribute) behaviourPropertyEClass.getEStructuralFeatures().get(2);
 	}
@@ -1022,6 +1112,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBehaviourProperty_VisitedStates() {
 		return (EAttribute) behaviourPropertyEClass.getEStructuralFeatures().get(3);
 	}
@@ -1031,6 +1122,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBehaviourProperty_VerifyTime() {
 		return (EAttribute) behaviourPropertyEClass.getEStructuralFeatures().get(4);
 	}
@@ -1040,6 +1132,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBehaviourProperty_Type() {
 		return (EAttribute) behaviourPropertyEClass.getEStructuralFeatures().get(5);
 	}
@@ -1049,6 +1142,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBehaviourProperty_Testport() {
 		return (EReference) behaviourPropertyEClass.getEStructuralFeatures().get(6);
 	}
@@ -1058,6 +1152,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBehaviourProperty_TraceExample() {
 		return (EAttribute) behaviourPropertyEClass.getEStructuralFeatures().get(7);
 	}
@@ -1067,6 +1162,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBehaviourProperty_ExprText() {
 		return (EAttribute) behaviourPropertyEClass.getEStructuralFeatures().get(8);
 	}
@@ -1076,6 +1172,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBehaviourProperty_Connector() {
 		return (EReference) behaviourPropertyEClass.getEStructuralFeatures().get(9);
 	}
@@ -1085,6 +1182,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLTLExpr() {
 		return ltlExprEClass;
 	}
@@ -1094,6 +1192,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLTLExpr_Event() {
 		return (EReference) ltlExprEClass.getEStructuralFeatures().get(0);
 	}
@@ -1103,6 +1202,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getLTLExpr_Operator() {
 		return (EAttribute) ltlExprEClass.getEStructuralFeatures().get(1);
 	}
@@ -1112,6 +1212,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLTLExpr_NextExpr() {
 		return (EReference) ltlExprEClass.getEStructuralFeatures().get(2);
 	}
@@ -1121,6 +1222,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLTLExpr_Property() {
 		return (EReference) ltlExprEClass.getEStructuralFeatures().get(3);
 	}
@@ -1130,6 +1232,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLTLExpr_Role() {
 		return (EReference) ltlExprEClass.getEStructuralFeatures().get(4);
 	}
@@ -1139,6 +1242,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLTLExpr_Port() {
 		return (EReference) ltlExprEClass.getEStructuralFeatures().get(5);
 	}
@@ -1148,6 +1252,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLTLNestedExpr() {
 		return ltlNestedExprEClass;
 	}
@@ -1157,6 +1262,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getLTLNestedExpr_Expr() {
 		return (EReference) ltlNestedExprEClass.getEStructuralFeatures().get(0);
 	}
@@ -1166,6 +1272,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLTLRegularExpr() {
 		return ltlRegularExprEClass;
 	}
@@ -1175,6 +1282,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getVerificationProperty() {
 		return verificationPropertyEClass;
 	}
@@ -1184,6 +1292,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getVerificationProperty_Name() {
 		return (EAttribute) verificationPropertyEClass.getEStructuralFeatures().get(0);
 	}
@@ -1193,6 +1302,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getVerificationProperty_Model() {
 		return (EReference) verificationPropertyEClass.getEStructuralFeatures().get(1);
 	}
@@ -1202,6 +1312,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getStructuralProperty() {
 		return structuralPropertyEClass;
 	}
@@ -1211,6 +1322,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getStructuralProperty_Result() {
 		return (EAttribute) structuralPropertyEClass.getEStructuralFeatures().get(0);
 	}
@@ -1220,6 +1332,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getDevice() {
 		return deviceEClass;
 	}
@@ -1229,6 +1342,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDevice_NetAccessType() {
 		return (EAttribute) deviceEClass.getEStructuralFeatures().get(0);
 	}
@@ -1238,6 +1352,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDevice_Name() {
 		return (EAttribute) deviceEClass.getEStructuralFeatures().get(1);
 	}
@@ -1247,6 +1362,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getDevice_Node() {
 		return (EReference) deviceEClass.getEStructuralFeatures().get(2);
 	}
@@ -1256,6 +1372,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getDevice_HostType() {
 		return (EAttribute) deviceEClass.getEStructuralFeatures().get(3);
 	}
@@ -1265,6 +1382,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExecutionEnvironment() {
 		return executionEnvironmentEClass;
 	}
@@ -1274,6 +1392,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExecutionEnvironment_Type() {
 		return (EAttribute) executionEnvironmentEClass.getEStructuralFeatures().get(0);
 	}
@@ -1283,6 +1402,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExecutionEnvironment_Name() {
 		return (EAttribute) executionEnvironmentEClass.getEStructuralFeatures().get(1);
 	}
@@ -1292,6 +1412,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExecutionEnvironment_Component() {
 		return (EReference) executionEnvironmentEClass.getEStructuralFeatures().get(2);
 	}
@@ -1301,6 +1422,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExecutionEnvironment_Port() {
 		return (EReference) executionEnvironmentEClass.getEStructuralFeatures().get(3);
 	}
@@ -1310,6 +1432,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCommunicationLink() {
 		return communicationLinkEClass;
 	}
@@ -1319,6 +1442,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCommunicationLink_Name() {
 		return (EAttribute) communicationLinkEClass.getEStructuralFeatures().get(0);
 	}
@@ -1328,6 +1452,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCommunicationLink_LinkType() {
 		return (EAttribute) communicationLinkEClass.getEStructuralFeatures().get(1);
 	}
@@ -1337,6 +1462,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCommunicationLink_NetworkType() {
 		return (EAttribute) communicationLinkEClass.getEStructuralFeatures().get(2);
 	}
@@ -1346,6 +1472,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCommunicationLink_Source() {
 		return (EReference) communicationLinkEClass.getEStructuralFeatures().get(3);
 	}
@@ -1355,6 +1482,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCommunicationLink_Target() {
 		return (EReference) communicationLinkEClass.getEStructuralFeatures().get(4);
 	}
@@ -1364,6 +1492,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCommunicationPort() {
 		return communicationPortEClass;
 	}
@@ -1373,6 +1502,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCommunicationPort_Name() {
 		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(0);
 	}
@@ -1382,6 +1512,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCommunicationPort_PortNumber() {
 		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(1);
 	}
@@ -1391,6 +1522,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCommunicationPort_Node() {
 		return (EReference) communicationPortEClass.getEStructuralFeatures().get(2);
 	}
@@ -1400,6 +1532,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getCommunicationPort_Namedport() {
 		return (EReference) communicationPortEClass.getEStructuralFeatures().get(3);
 	}
@@ -1409,6 +1542,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCommunicationPort_HasFirewall() {
 		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(4);
 	}
@@ -1418,6 +1552,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCommunicationPort_HasAuthentication() {
 		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(5);
 	}
@@ -1427,6 +1562,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCommunicationPort_HasAuthorization() {
 		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(6);
 	}
@@ -1436,6 +1572,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getCommunicationPort_HasInputSanitization() {
 		return (EAttribute) communicationPortEClass.getEStructuralFeatures().get(7);
 	}
@@ -1445,6 +1582,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getOntologyLabel() {
 		return ontologyLabelEClass;
 	}
@@ -1454,6 +1592,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOntologyLabel_Name() {
 		return (EAttribute) ontologyLabelEClass.getEStructuralFeatures().get(0);
 	}
@@ -1463,6 +1602,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOntologyLabel_Expression() {
 		return (EAttribute) ontologyLabelEClass.getEStructuralFeatures().get(1);
 	}
@@ -1472,6 +1612,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getOntologyLabel_SubClassOf() {
 		return (EAttribute) ontologyLabelEClass.getEStructuralFeatures().get(2);
 	}
@@ -1481,6 +1622,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMigrationModel() {
 		return migrationModelEClass;
 	}
@@ -1490,6 +1632,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMigrationModel_Source() {
 		return (EReference) migrationModelEClass.getEStructuralFeatures().get(0);
 	}
@@ -1499,6 +1642,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMigrationModel_Target() {
 		return (EReference) migrationModelEClass.getEStructuralFeatures().get(1);
 	}
@@ -1508,6 +1652,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMigrationModel_Interimmodels() {
 		return (EReference) migrationModelEClass.getEStructuralFeatures().get(2);
 	}
@@ -1517,6 +1662,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getInterimModel() {
 		return interimModelEClass;
 	}
@@ -1526,33 +1672,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInterimModel_Designmodel() {
-		return (EReference) interimModelEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInterimModel_IsStable() {
-		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getInterimModel_Name() {
-		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public EAttribute getInterimModel_Step() {
 		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(0);
 	}
@@ -1562,6 +1682,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getInterimModel_Description() {
 		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(1);
 	}
@@ -1571,6 +1692,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getInterimModel_NextModel() {
 		return (EReference) interimModelEClass.getEStructuralFeatures().get(2);
 	}
@@ -1580,6 +1702,137 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EReference getInterimModel_Designmodel() {
+		return (EReference) interimModelEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getInterimModel_IsStable() {
+		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getInterimModel_Name() {
+		return (EAttribute) interimModelEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getRefactorPart() {
+		return refactorPartEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRefactorPart_Reference() {
+		return (EReference) refactorPartEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRefactorPart_Name() {
+		return (EAttribute) refactorPartEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRefactorPart_Functions() {
+		return (EReference) refactorPartEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRefactorPart_CopyStructure() {
+		return (EAttribute) refactorPartEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRefactorPart_ReplaceStrcuture() {
+		return (EAttribute) refactorPartEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRefactorPart_Next() {
+		return (EReference) refactorPartEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getRefactorSet() {
+		return refactorSetEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRefactorSet_Source() {
+		return (EReference) refactorSetEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRefactorSet_Parts() {
+		return (EReference) refactorSetEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getExprOperator() {
 		return exprOperatorEEnum;
 	}
@@ -1589,6 +1842,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getLTLOperator() {
 		return ltlOperatorEEnum;
 	}
@@ -1598,6 +1852,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getBehaviourPropType() {
 		return behaviourPropTypeEEnum;
 	}
@@ -1607,6 +1862,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getNodeType() {
 		return nodeTypeEEnum;
 	}
@@ -1616,6 +1872,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getHostType() {
 		return hostTypeEEnum;
 	}
@@ -1625,6 +1882,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getLinkType() {
 		return linkTypeEEnum;
 	}
@@ -1634,6 +1892,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getNetAccessType() {
 		return netAccessTypeEEnum;
 	}
@@ -1643,6 +1902,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getNetworkType() {
 		return networkTypeEEnum;
 	}
@@ -1652,6 +1912,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EEnum getCriticalLevel() {
 		return criticalLevelEEnum;
 	}
@@ -1661,6 +1922,7 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArchFactory getArchFactory() {
 		return (ArchFactory) getEFactoryInstance();
 	}
@@ -1844,6 +2106,18 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 		createEReference(interimModelEClass, INTERIM_MODEL__DESIGNMODEL);
 		createEAttribute(interimModelEClass, INTERIM_MODEL__IS_STABLE);
 		createEAttribute(interimModelEClass, INTERIM_MODEL__NAME);
+
+		refactorPartEClass = createEClass(REFACTOR_PART);
+		createEReference(refactorPartEClass, REFACTOR_PART__REFERENCE);
+		createEAttribute(refactorPartEClass, REFACTOR_PART__NAME);
+		createEReference(refactorPartEClass, REFACTOR_PART__FUNCTIONS);
+		createEAttribute(refactorPartEClass, REFACTOR_PART__COPY_STRUCTURE);
+		createEAttribute(refactorPartEClass, REFACTOR_PART__REPLACE_STRCUTURE);
+		createEReference(refactorPartEClass, REFACTOR_PART__NEXT);
+
+		refactorSetEClass = createEClass(REFACTOR_SET);
+		createEReference(refactorSetEClass, REFACTOR_SET__SOURCE);
+		createEReference(refactorSetEClass, REFACTOR_SET__PARTS);
 
 		// Create enums
 		exprOperatorEEnum = createEEnum(EXPR_OPERATOR);
@@ -2261,6 +2535,35 @@ public class ArchPackageImpl extends EPackageImpl implements ArchPackage {
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getInterimModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, InterimModel.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(refactorPartEClass, RefactorPart.class, "RefactorPart", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRefactorPart_Reference(), this.getDesignModel(), null, "reference", null, 0, 1,
+				RefactorPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRefactorPart_Name(), ecorePackage.getEString(), "name", null, 0, 1, RefactorPart.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRefactorPart_Functions(), this.getBehaviourProperty(), null, "functions", null, 0, -1,
+				RefactorPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRefactorPart_CopyStructure(), ecorePackage.getEBoolean(), "copyStructure", null, 0, 1,
+				RefactorPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRefactorPart_ReplaceStrcuture(), ecorePackage.getEBoolean(), "replaceStrcuture", null, 0, 1,
+				RefactorPart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getRefactorPart_Next(), this.getRefactorPart(), null, "next", null, 0, 1, RefactorPart.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(refactorSetEClass, RefactorSet.class, "RefactorSet", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRefactorSet_Source(), this.getDesignModel(), null, "source", null, 0, 1, RefactorSet.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRefactorSet_Parts(), this.getRefactorPart(), null, "parts", null, 0, -1, RefactorSet.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(exprOperatorEEnum, ExprOperator.class, "ExprOperator");

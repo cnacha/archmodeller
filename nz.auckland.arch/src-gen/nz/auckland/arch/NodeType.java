@@ -51,10 +51,6 @@ public enum NodeType implements Enumerator {
 	/**
 	 * The '<em><b>DOCKER CONTAINER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>DOCKER CONTAINER</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DOCKER_CONTAINER
 	 * @model
@@ -66,10 +62,6 @@ public enum NodeType implements Enumerator {
 	/**
 	 * The '<em><b>APPLICATION CONTAINER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>APPLICATION CONTAINER</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #APPLICATION_CONTAINER
 	 * @model
@@ -81,10 +73,6 @@ public enum NodeType implements Enumerator {
 	/**
 	 * The '<em><b>FILE SYSTEM</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>FILE SYSTEM</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #FILE_SYSTEM
 	 * @model
@@ -204,6 +192,7 @@ public enum NodeType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -213,6 +202,7 @@ public enum NodeType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -222,6 +212,7 @@ public enum NodeType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

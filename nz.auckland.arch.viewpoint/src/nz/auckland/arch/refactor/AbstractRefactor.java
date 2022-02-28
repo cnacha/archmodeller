@@ -18,7 +18,7 @@ import nz.auckland.arch.impl.ArchFactoryImpl;
 
 public abstract class AbstractRefactor {
 
-	protected DesignModel model;
+    protected DesignModel model;
 
 	public AbstractRefactor(DesignModel model) {
 		super();
@@ -58,6 +58,44 @@ public abstract class AbstractRefactor {
 		return null;
 	}
 	
+	protected Port findPortByName(DesignModel refModel, String compName, String portName) {
+		for(Component comp: refModel.getComponent())
+			if(compName.equalsIgnoreCase(compName)) {
+				for(Port port:comp.getPort()) {
+					if(port.getName().equals(portName))
+						return port;
+				}
+			}
+			
+		return null;
+	}
+	
+	protected Port findPortByAttachedRole(Role role) {
+		return findPortByAttachedRole(model, role);
+	}
+	
+	protected Port findPortByAttachedRole(DesignModel model, Role role) {
+		for(Component comp : model.getComponent()) {
+			for(Port port: comp.getPort()) {
+				if(port.getRole().contains(role))
+					return port;
+			}
+		}
+		return null;
+	}
+	
+	protected Role findRoleByName(DesignModel refModel, String connName, String roleName) {
+		for(Connector conn: refModel.getConnector())
+			if(conn.getName().equalsIgnoreCase(connName)) {
+				for(Role role:conn.getRole()) {
+					if(role.getName().equals(roleName))
+						return role;
+				}
+			}
+			
+		return null;
+	}
+	
 	protected HashMap<Component,Port> findComponentByConnectorRoleName( String connName, String roleName) {
 		HashMap<Component,Port> result = new HashMap<Component,Port>();
 		for (Component comp : model.getComponent()) {
@@ -72,6 +110,27 @@ public abstract class AbstractRefactor {
 		}
 		return result;
 	}
+	
+	protected Connector findConnectorByName(String name) {
+		return findConnectorByName(model, name);
+	}
+	
+	protected Connector findConnectorByName(DesignModel model, String name) {
+		for(Connector conn: model.getConnector()) {
+			if(conn.getName().equalsIgnoreCase(name))
+				return conn;
+		}
+		return null;
+	}
+	
+	protected Component findComponentByName(String name) {
+		for(Component comp: model.getComponent()) {
+			if(comp.getName().equalsIgnoreCase(name))
+				return comp;
+		}
+		return null;
+	}
+	
 	
 	protected Connector findConnectorByRole(Role role) {
 		for(Connector conn: model.getConnector()) {

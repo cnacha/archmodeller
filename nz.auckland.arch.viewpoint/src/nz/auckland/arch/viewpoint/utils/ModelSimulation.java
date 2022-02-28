@@ -5,8 +5,6 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import javax.inject.Inject;
-
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;

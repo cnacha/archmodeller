@@ -22,10 +22,6 @@ public interface StructuralProperty extends VerificationProperty {
 	/**
 	 * Returns the value of the '<em><b>Result</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Result</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Result</em>' attribute.
 	 * @see #setResult(String)

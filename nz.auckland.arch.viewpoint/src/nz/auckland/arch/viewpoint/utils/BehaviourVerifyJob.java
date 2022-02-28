@@ -36,7 +36,7 @@ import nz.auckland.arch.viewpoint.model.ADLVerifyResult;
 public class BehaviourVerifyJob extends Job {
 	
 	//private static final String serviceurl = "http://localhost:53979/api/adlapi/verify";
-	private static final String serviceurl = "http://fasad.cer.auckland.ac.nz/api/adlapi/verify";
+	private static final String serviceurl = "http://10.1.29.238";//"http://fasad.cer.auckland.ac.nz/api/adlapi/verify";
 
 	private DesignModel model;
 

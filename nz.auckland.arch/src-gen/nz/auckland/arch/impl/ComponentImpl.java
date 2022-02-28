@@ -188,6 +188,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -197,6 +198,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -209,6 +211,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getType() {
 		return type;
 	}
@@ -218,6 +221,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(String newType) {
 		String oldType = type;
 		type = newType;
@@ -230,6 +234,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Port> getPort() {
 		if (port == null) {
 			port = new EObjectContainmentEList<Port>(Port.class, this, ArchPackage.COMPONENT__PORT);
@@ -242,6 +247,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValid() {
 		return valid;
 	}
@@ -251,6 +257,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValid(boolean newValid) {
 		boolean oldValid = valid;
 		valid = newValid;
@@ -263,6 +270,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExecutionEnvironment getDeploymentnode() {
 		if (deploymentnode != null && deploymentnode.eIsProxy()) {
 			InternalEObject oldDeploymentnode = (InternalEObject) deploymentnode;
@@ -290,6 +298,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDeploymentnode(ExecutionEnvironment newDeploymentnode) {
 		ExecutionEnvironment oldDeploymentnode = deploymentnode;
 		deploymentnode = newDeploymentnode;
@@ -303,6 +312,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CriticalLevel getCriticalLevel() {
 		return criticalLevel;
 	}
@@ -312,6 +322,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCriticalLevel(CriticalLevel newCriticalLevel) {
 		CriticalLevel oldCriticalLevel = criticalLevel;
 		criticalLevel = newCriticalLevel == null ? CRITICAL_LEVEL_EDEFAULT : newCriticalLevel;
@@ -325,6 +336,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSecurityCharacters() {
 		return securityCharacters;
 	}
@@ -334,6 +346,7 @@ public class ComponentImpl extends MinimalEObjectImpl.Container implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSecurityCharacters(String newSecurityCharacters) {
 		String oldSecurityCharacters = securityCharacters;
 		securityCharacters = newSecurityCharacters;

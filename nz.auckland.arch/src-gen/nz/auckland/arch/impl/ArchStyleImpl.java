@@ -124,6 +124,7 @@ public class ArchStyleImpl extends MinimalEObjectImpl.Container implements ArchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -133,6 +134,7 @@ public class ArchStyleImpl extends MinimalEObjectImpl.Container implements ArchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -145,6 +147,7 @@ public class ArchStyleImpl extends MinimalEObjectImpl.Container implements ArchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ConnectorType> getConnectortype() {
 		if (connectortype == null) {
 			connectortype = new EObjectContainmentEList<ConnectorType>(ConnectorType.class, this,
@@ -158,6 +161,7 @@ public class ArchStyleImpl extends MinimalEObjectImpl.Container implements ArchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ComponentType> getComponenttype() {
 		if (componenttype == null) {
 			componenttype = new EObjectContainmentEList<ComponentType>(ComponentType.class, this,
@@ -171,6 +175,7 @@ public class ArchStyleImpl extends MinimalEObjectImpl.Container implements ArchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValid() {
 		return valid;
 	}
@@ -180,6 +185,7 @@ public class ArchStyleImpl extends MinimalEObjectImpl.Container implements ArchS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValid(boolean newValid) {
 		boolean oldValid = valid;
 		valid = newValid;

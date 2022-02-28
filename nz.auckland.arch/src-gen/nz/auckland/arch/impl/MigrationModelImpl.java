@@ -3,20 +3,23 @@
 package nz.auckland.arch.impl;
 
 import java.util.Collection;
+
 import nz.auckland.arch.ArchPackage;
 import nz.auckland.arch.DesignModel;
 import nz.auckland.arch.InterimModel;
 import nz.auckland.arch.MigrationModel;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -90,6 +93,7 @@ public class MigrationModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DesignModel getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject) source;
@@ -117,6 +121,7 @@ public class MigrationModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSource(DesignModel newSource) {
 		DesignModel oldSource = source;
 		source = newSource;
@@ -130,6 +135,7 @@ public class MigrationModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DesignModel getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject) target;
@@ -157,6 +163,7 @@ public class MigrationModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTarget(DesignModel newTarget) {
 		DesignModel oldTarget = target;
 		target = newTarget;
@@ -170,6 +177,7 @@ public class MigrationModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<InterimModel> getInterimmodels() {
 		if (interimmodels == null) {
 			interimmodels = new EObjectContainmentEList<InterimModel>(InterimModel.class, this,

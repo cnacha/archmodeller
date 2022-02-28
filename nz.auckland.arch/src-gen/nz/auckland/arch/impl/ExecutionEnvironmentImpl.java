@@ -126,6 +126,7 @@ public class ExecutionEnvironmentImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NodeType getType() {
 		return type;
 	}
@@ -135,6 +136,7 @@ public class ExecutionEnvironmentImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(NodeType newType) {
 		NodeType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
@@ -148,6 +150,7 @@ public class ExecutionEnvironmentImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -157,6 +160,7 @@ public class ExecutionEnvironmentImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -170,6 +174,7 @@ public class ExecutionEnvironmentImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Component> getComponent() {
 		if (component == null) {
 			component = new EObjectResolvingEList<Component>(Component.class, this,
@@ -183,6 +188,7 @@ public class ExecutionEnvironmentImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<CommunicationPort> getPort() {
 		if (port == null) {
 			port = new EObjectContainmentEList<CommunicationPort>(CommunicationPort.class, this,

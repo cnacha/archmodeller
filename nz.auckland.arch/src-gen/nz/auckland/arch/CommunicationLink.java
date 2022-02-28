@@ -28,10 +28,6 @@ public interface CommunicationLink extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -55,10 +51,6 @@ public interface CommunicationLink extends EObject {
 	 * Returns the value of the '<em><b>Link Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link nz.auckland.arch.LinkType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Link Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Link Type</em>' attribute.
 	 * @see nz.auckland.arch.LinkType
@@ -84,10 +76,6 @@ public interface CommunicationLink extends EObject {
 	 * Returns the value of the '<em><b>Network Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link nz.auckland.arch.NetworkType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Network Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Network Type</em>' attribute.
 	 * @see nz.auckland.arch.NetworkType
@@ -112,10 +100,6 @@ public interface CommunicationLink extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Source</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(CommunicationPort)
@@ -138,10 +122,6 @@ public interface CommunicationLink extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Target</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Target</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(CommunicationPort)

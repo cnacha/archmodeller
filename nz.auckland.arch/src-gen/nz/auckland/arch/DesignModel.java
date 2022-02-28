@@ -34,10 +34,6 @@ public interface DesignModel extends EObject {
 	 * Returns the value of the '<em><b>Component</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.Component}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Component</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Component</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getDesignModel_Component()
@@ -50,10 +46,6 @@ public interface DesignModel extends EObject {
 	 * Returns the value of the '<em><b>Connector</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.Connector}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Connector</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Connector</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getDesignModel_Connector()
@@ -66,10 +58,6 @@ public interface DesignModel extends EObject {
 	 * Returns the value of the '<em><b>Archstyle</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.ArchStyle}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Archstyle</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Archstyle</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getDesignModel_Archstyle()
@@ -82,10 +70,6 @@ public interface DesignModel extends EObject {
 	 * Returns the value of the '<em><b>Verify Property</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.VerificationProperty}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Verify Property</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Verify Property</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getDesignModel_VerifyProperty()
@@ -97,10 +81,6 @@ public interface DesignModel extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -124,10 +104,6 @@ public interface DesignModel extends EObject {
 	 * Returns the value of the '<em><b>Host</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.Device}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Host</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Host</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getDesignModel_Host()
@@ -140,10 +116,6 @@ public interface DesignModel extends EObject {
 	 * Returns the value of the '<em><b>Link</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.CommunicationLink}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Link</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Link</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getDesignModel_Link()
@@ -156,10 +128,6 @@ public interface DesignModel extends EObject {
 	 * Returns the value of the '<em><b>Ontologylabel</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.OntologyLabel}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ontologylabel</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ontologylabel</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getDesignModel_Ontologylabel()

@@ -163,6 +163,7 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Component> getComponent() {
 		if (component == null) {
 			component = new EObjectContainmentEList<Component>(Component.class, this,
@@ -176,6 +177,7 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Connector> getConnector() {
 		if (connector == null) {
 			connector = new EObjectContainmentEList<Connector>(Connector.class, this,
@@ -189,6 +191,7 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ArchStyle> getArchstyle() {
 		if (archstyle == null) {
 			archstyle = new EObjectContainmentEList<ArchStyle>(ArchStyle.class, this,
@@ -202,6 +205,7 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<VerificationProperty> getVerifyProperty() {
 		if (verifyProperty == null) {
 			verifyProperty = new EObjectContainmentEList<VerificationProperty>(VerificationProperty.class, this,
@@ -215,6 +219,7 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -224,6 +229,7 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -236,6 +242,7 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Device> getHost() {
 		if (host == null) {
 			host = new EObjectContainmentEList<Device>(Device.class, this, ArchPackage.DESIGN_MODEL__HOST);
@@ -248,6 +255,7 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<CommunicationLink> getLink() {
 		if (link == null) {
 			link = new EObjectContainmentEList<CommunicationLink>(CommunicationLink.class, this,
@@ -261,6 +269,7 @@ public class DesignModelImpl extends MinimalEObjectImpl.Container implements Des
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<OntologyLabel> getOntologylabel() {
 		if (ontologylabel == null) {
 			ontologylabel = new EObjectContainmentEList<OntologyLabel>(OntologyLabel.class, this,

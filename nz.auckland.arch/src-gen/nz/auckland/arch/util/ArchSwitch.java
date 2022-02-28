@@ -251,6 +251,20 @@ public class ArchSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case ArchPackage.REFACTOR_PART: {
+			RefactorPart refactorPart = (RefactorPart) theEObject;
+			T result = caseRefactorPart(refactorPart);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ArchPackage.REFACTOR_SET: {
+			RefactorSet refactorSet = (RefactorSet) theEObject;
+			T result = caseRefactorSet(refactorSet);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -628,6 +642,36 @@ public class ArchSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseInterimModel(InterimModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Refactor Part</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Refactor Part</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRefactorPart(RefactorPart object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Refactor Set</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Refactor Set</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRefactorSet(RefactorSet object) {
 		return null;
 	}
 

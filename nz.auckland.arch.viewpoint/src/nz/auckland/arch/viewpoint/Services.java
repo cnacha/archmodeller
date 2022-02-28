@@ -65,7 +65,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.inject.Inject;
 import nz.auckland.arch.ArchFactory;
 import nz.auckland.arch.ArchPackage;
 import nz.auckland.arch.ArchStyle;
@@ -79,12 +78,14 @@ import nz.auckland.arch.ConnectorType;
 import nz.auckland.arch.DesignModel;
 import nz.auckland.arch.Event;
 import nz.auckland.arch.ExecutionEnvironment;
+import nz.auckland.arch.InterimModel;
 import nz.auckland.arch.LTLExpr;
 import nz.auckland.arch.LTLNestedExpr;
 import nz.auckland.arch.LTLOperator;
 import nz.auckland.arch.LTLRegularExpr;
 import nz.auckland.arch.MigrationModel;
 import nz.auckland.arch.Port;
+import nz.auckland.arch.RefactorSet;
 import nz.auckland.arch.Role;
 import nz.auckland.arch.RoleType;
 import nz.auckland.arch.VerificationProperty;
@@ -95,6 +96,7 @@ import nz.auckland.arch.planner.EvolutionPathVerifier;
 import nz.auckland.arch.planner.PlanReportGenerator;
 import nz.auckland.arch.planner.PlannerJob;
 import nz.auckland.arch.refactor.RefactorEngine;
+import nz.auckland.arch.refactor.function.RefactorFunctionEngine;
 import nz.auckland.arch.viewpoint.model.ADLVerifyRequest;
 import nz.auckland.arch.viewpoint.model.ADLVerifyResult;
 import nz.auckland.arch.viewpoint.utils.ADLModelConverter;
@@ -125,6 +127,14 @@ public class Services {
 		return model;
 	}
 	
+	public EObject refactorFunction(EObject self) {
+		RefactorSet set = (RefactorSet)self;
+		RefactorFunctionEngine engine = new RefactorFunctionEngine();
+		
+		engine.start(set);
+		return self;
+	}
+	
 	public EObject planMigration(EObject self) {
 		System.out.println("planMigration called");
 		MigrationModel model = (MigrationModel) self;
@@ -150,10 +160,23 @@ public class Services {
 		
 		return model;
 	}
+	
+	public EObject verifyStructureOfMigrationModel(EObject self) {
+		MigrationModel model = (MigrationModel) self;
+		List<InterimModel> interimList =  model.getInterimmodels();
+		for(InterimModel interim :interimList) {
+			StructureVerifyJob job = new StructureVerifyJob("Verifying model structure: "+interim.getDesignmodel().getName(), interim.getDesignmodel());
+			job.setRule(mutex);
+			job.schedule();
+			
+		}
+
+		return model;
+	}
 
 	public EObject verifyStructure(EObject self) {
 		DesignModel model = (DesignModel) self;
-
+		
 		StructureVerifyJob job = new StructureVerifyJob("Verifying model structure", model);
 		job.schedule();
 		return job.getModel();
@@ -162,7 +185,7 @@ public class Services {
 	
 	public EObject checkSmell(EObject self) {
 		DesignModel model = (DesignModel) self;
-
+		
 		SmellVerifyJob job = new SmellVerifyJob("CHecking Smell on model", model);
 		job.schedule();
 		return job.getModel();
@@ -190,6 +213,7 @@ public class Services {
 
 		if (self instanceof BehaviourProperty) {
 			if (((BehaviourProperty) self).getTestport() == null) {
+				((BehaviourProperty) self).setValid(false);
 				showMessage("Test Port is required, please set");
 			}
 			BehaviourPropVerifyJob job = new BehaviourPropVerifyJob("Verifying behaviour property",

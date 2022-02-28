@@ -8,6 +8,7 @@ import nz.auckland.arch.InterimModel;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -42,6 +43,7 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * @ordered
 	 */
 	protected static final int STEP_EDEFAULT = 0;
+
 	/**
 	 * The cached value of the '{@link #getStep() <em>Step</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -51,6 +53,7 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * @ordered
 	 */
 	protected int step = STEP_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -60,6 +63,7 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -99,6 +103,7 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * @ordered
 	 */
 	protected static final boolean IS_STABLE_EDEFAULT = false;
+
 	/**
 	 * The cached value of the '{@link #isIsStable() <em>Is Stable</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -118,6 +123,7 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -152,6 +158,96 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public int getStep() {
+		return step;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setStep(int newStep) {
+		int oldStep = step;
+		step = newStep;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.INTERIM_MODEL__STEP, oldStep, step));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.INTERIM_MODEL__DESCRIPTION,
+					oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public InterimModel getNextModel() {
+		if (nextModel != null && nextModel.eIsProxy()) {
+			InternalEObject oldNextModel = (InternalEObject) nextModel;
+			nextModel = (InterimModel) eResolveProxy(oldNextModel);
+			if (nextModel != oldNextModel) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchPackage.INTERIM_MODEL__NEXT_MODEL,
+							oldNextModel, nextModel));
+			}
+		}
+		return nextModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InterimModel basicGetNextModel() {
+		return nextModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNextModel(InterimModel newNextModel) {
+		InterimModel oldNextModel = nextModel;
+		nextModel = newNextModel;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.INTERIM_MODEL__NEXT_MODEL, oldNextModel,
+					nextModel));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public DesignModel getDesignmodel() {
 		return designmodel;
 	}
@@ -180,6 +276,7 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDesignmodel(DesignModel newDesignmodel) {
 		if (newDesignmodel != designmodel) {
 			NotificationChain msgs = null;
@@ -202,6 +299,7 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isIsStable() {
 		return isStable;
 	}
@@ -211,6 +309,7 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIsStable(boolean newIsStable) {
 		boolean oldIsStable = isStable;
 		isStable = newIsStable;
@@ -224,6 +323,7 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -233,6 +333,7 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -252,89 +353,6 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 			return basicSetDesignmodel(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public int getStep() {
-		return step;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setStep(int newStep) {
-		int oldStep = step;
-		step = newStep;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.INTERIM_MODEL__STEP, oldStep, step));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		return description;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(String newDescription) {
-		String oldDescription = description;
-		description = newDescription;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.INTERIM_MODEL__DESCRIPTION,
-					oldDescription, description));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InterimModel getNextModel() {
-		if (nextModel != null && nextModel.eIsProxy()) {
-			InternalEObject oldNextModel = (InternalEObject) nextModel;
-			nextModel = (InterimModel) eResolveProxy(oldNextModel);
-			if (nextModel != oldNextModel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchPackage.INTERIM_MODEL__NEXT_MODEL,
-							oldNextModel, nextModel));
-			}
-		}
-		return nextModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InterimModel basicGetNextModel() {
-		return nextModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNextModel(InterimModel newNextModel) {
-		InterimModel oldNextModel = nextModel;
-		nextModel = newNextModel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArchPackage.INTERIM_MODEL__NEXT_MODEL, oldNextModel,
-					nextModel));
 	}
 
 	/**
@@ -368,7 +386,6 @@ public class InterimModelImpl extends MinimalEObjectImpl.Container implements In
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

@@ -31,10 +31,6 @@ public interface Device extends EObject {
 	 * The default value is <code>"PRIVATE"</code>.
 	 * The literals are from the enumeration {@link nz.auckland.arch.NetAccessType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Net Access Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Net Access Type</em>' attribute.
 	 * @see nz.auckland.arch.NetAccessType
@@ -59,10 +55,6 @@ public interface Device extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -86,10 +78,6 @@ public interface Device extends EObject {
 	 * Returns the value of the '<em><b>Node</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.ExecutionEnvironment}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Node</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Node</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getDevice_Node()
@@ -102,10 +90,6 @@ public interface Device extends EObject {
 	 * Returns the value of the '<em><b>Host Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link nz.auckland.arch.HostType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Host Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Host Type</em>' attribute.
 	 * @see nz.auckland.arch.HostType

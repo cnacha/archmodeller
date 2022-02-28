@@ -83,6 +83,7 @@ public abstract class VerificationPropertyImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -92,6 +93,7 @@ public abstract class VerificationPropertyImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -105,6 +107,7 @@ public abstract class VerificationPropertyImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DesignModel getModel() {
 		if (model != null && model.eIsProxy()) {
 			InternalEObject oldModel = (InternalEObject) model;
@@ -132,6 +135,7 @@ public abstract class VerificationPropertyImpl extends MinimalEObjectImpl.Contai
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setModel(DesignModel newModel) {
 		DesignModel oldModel = model;
 		model = newModel;

@@ -29,10 +29,6 @@ public interface ConnectorType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -56,10 +52,6 @@ public interface ConnectorType extends EObject {
 	 * Returns the value of the '<em><b>Roletype</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.RoleType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Roletype</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Roletype</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getConnectorType_Roletype()
@@ -72,10 +64,6 @@ public interface ConnectorType extends EObject {
 	 * Returns the value of the '<em><b>Valid</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Valid</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valid</em>' attribute.
 	 * @see #setValid(boolean)
@@ -98,10 +86,6 @@ public interface ConnectorType extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Ea Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ea Connector</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ea Connector</em>' reference.
 	 * @see #setEaConnector(ConnectorType)

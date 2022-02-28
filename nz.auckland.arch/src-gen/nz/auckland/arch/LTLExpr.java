@@ -29,10 +29,6 @@ public interface LTLExpr extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Event</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Event</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Event</em>' reference.
 	 * @see #setEvent(Event)
@@ -57,10 +53,6 @@ public interface LTLExpr extends EObject {
 	 * The default value is <code>"NONE"</code>.
 	 * The literals are from the enumeration {@link nz.auckland.arch.LTLOperator}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Operator</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operator</em>' attribute.
 	 * @see nz.auckland.arch.LTLOperator
@@ -85,10 +77,6 @@ public interface LTLExpr extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Next Expr</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next Expr</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Next Expr</em>' reference.
 	 * @see #setNextExpr(LTLExpr)
@@ -111,10 +99,6 @@ public interface LTLExpr extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Property</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property</em>' reference.
 	 * @see #setProperty(BehaviourProperty)
@@ -137,10 +121,6 @@ public interface LTLExpr extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Role</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Role</em>' reference.
 	 * @see #setRole(Role)
@@ -163,10 +143,6 @@ public interface LTLExpr extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Port</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Port</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port</em>' reference.
 	 * @see #setPort(Port)

@@ -41,10 +41,6 @@ public enum NetworkType implements Enumerator {
 	/**
 	 * The '<em><b>INTRANET</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>INTRANET</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTRANET
 	 * @model
@@ -56,10 +52,6 @@ public enum NetworkType implements Enumerator {
 	/**
 	 * The '<em><b>INTERNET</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>INTERNET</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #INTERNET
 	 * @model
@@ -176,6 +168,7 @@ public enum NetworkType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -185,6 +178,7 @@ public enum NetworkType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -194,6 +188,7 @@ public enum NetworkType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

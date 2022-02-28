@@ -33,10 +33,6 @@ public interface CommunicationPort extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -59,10 +55,6 @@ public interface CommunicationPort extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Port Number</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Port Number</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port Number</em>' attribute.
 	 * @see #setPortNumber(int)
@@ -85,10 +77,6 @@ public interface CommunicationPort extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Node</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Node</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Node</em>' reference.
 	 * @see #setNode(ExecutionEnvironment)
@@ -112,10 +100,6 @@ public interface CommunicationPort extends EObject {
 	 * Returns the value of the '<em><b>Namedport</b></em>' reference list.
 	 * The list contents are of type {@link nz.auckland.arch.Port}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Namedport</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Namedport</em>' reference list.
 	 * @see nz.auckland.arch.ArchPackage#getCommunicationPort_Namedport()
@@ -127,10 +111,6 @@ public interface CommunicationPort extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Has Firewall</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Has Firewall</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Has Firewall</em>' attribute.
 	 * @see #setHasFirewall(boolean)
@@ -153,10 +133,6 @@ public interface CommunicationPort extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Has Authentication</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Has Authentication</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Has Authentication</em>' attribute.
 	 * @see #setHasAuthentication(boolean)
@@ -179,10 +155,6 @@ public interface CommunicationPort extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Has Authorization</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Has Authorization</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Has Authorization</em>' attribute.
 	 * @see #setHasAuthorization(boolean)
@@ -205,10 +177,6 @@ public interface CommunicationPort extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Has Input Sanitization</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Has Input Sanitization</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Has Input Sanitization</em>' attribute.
 	 * @see #setHasInputSanitization(boolean)

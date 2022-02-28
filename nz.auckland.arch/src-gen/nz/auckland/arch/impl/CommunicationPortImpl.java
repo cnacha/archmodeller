@@ -206,6 +206,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -215,6 +216,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -227,6 +229,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getPortNumber() {
 		return portNumber;
 	}
@@ -236,6 +239,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPortNumber(int newPortNumber) {
 		int oldPortNumber = portNumber;
 		portNumber = newPortNumber;
@@ -249,6 +253,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExecutionEnvironment getNode() {
 		if (node != null && node.eIsProxy()) {
 			InternalEObject oldNode = (InternalEObject) node;
@@ -276,6 +281,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNode(ExecutionEnvironment newNode) {
 		ExecutionEnvironment oldNode = node;
 		node = newNode;
@@ -288,6 +294,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Port> getNamedport() {
 		if (namedport == null) {
 			namedport = new EObjectResolvingEList<Port>(Port.class, this, ArchPackage.COMMUNICATION_PORT__NAMEDPORT);
@@ -300,6 +307,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isHasFirewall() {
 		return hasFirewall;
 	}
@@ -309,6 +317,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHasFirewall(boolean newHasFirewall) {
 		boolean oldHasFirewall = hasFirewall;
 		hasFirewall = newHasFirewall;
@@ -322,6 +331,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isHasAuthentication() {
 		return hasAuthentication;
 	}
@@ -331,6 +341,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHasAuthentication(boolean newHasAuthentication) {
 		boolean oldHasAuthentication = hasAuthentication;
 		hasAuthentication = newHasAuthentication;
@@ -344,6 +355,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isHasAuthorization() {
 		return hasAuthorization;
 	}
@@ -353,6 +365,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHasAuthorization(boolean newHasAuthorization) {
 		boolean oldHasAuthorization = hasAuthorization;
 		hasAuthorization = newHasAuthorization;
@@ -366,6 +379,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isHasInputSanitization() {
 		return hasInputSanitization;
 	}
@@ -375,6 +389,7 @@ public class CommunicationPortImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHasInputSanitization(boolean newHasInputSanitization) {
 		boolean oldHasInputSanitization = hasInputSanitization;
 		hasInputSanitization = newHasInputSanitization;

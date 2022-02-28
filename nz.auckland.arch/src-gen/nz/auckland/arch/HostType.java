@@ -47,10 +47,11 @@ public enum HostType implements Enumerator {
 	 * @ordered
 	 */
 	CLOUD_PLATFORM(2, "CLOUD_PLATFORM", "CLOUD_PLATFORM"),
+
 	/**
 	 * The '<em><b>MOBILE PHONE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #MOBILE_PHONE_VALUE
 	 * @generated
 	 * @ordered
@@ -60,10 +61,6 @@ public enum HostType implements Enumerator {
 	/**
 	 * The '<em><b>VIRTUAL MACHINE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>VIRTUAL MACHINE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #VIRTUAL_MACHINE
 	 * @model
@@ -75,10 +72,6 @@ public enum HostType implements Enumerator {
 	/**
 	 * The '<em><b>DEDICATED SERVER</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>DEDICATED SERVER</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #DEDICATED_SERVER
 	 * @model
@@ -90,10 +83,6 @@ public enum HostType implements Enumerator {
 	/**
 	 * The '<em><b>CLOUD PLATFORM</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>CLOUD PLATFORM</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #CLOUD_PLATFORM
 	 * @model
@@ -105,10 +94,6 @@ public enum HostType implements Enumerator {
 	/**
 	 * The '<em><b>MOBILE PHONE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>MOBILE PHONE</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MOBILE_PHONE
 	 * @model
@@ -230,6 +215,7 @@ public enum HostType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -239,6 +225,7 @@ public enum HostType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -248,6 +235,7 @@ public enum HostType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

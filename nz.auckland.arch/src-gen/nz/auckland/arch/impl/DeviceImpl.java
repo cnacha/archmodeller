@@ -135,6 +135,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NetAccessType getNetAccessType() {
 		return netAccessType;
 	}
@@ -144,6 +145,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNetAccessType(NetAccessType newNetAccessType) {
 		NetAccessType oldNetAccessType = netAccessType;
 		netAccessType = newNetAccessType == null ? NET_ACCESS_TYPE_EDEFAULT : newNetAccessType;
@@ -157,6 +159,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -166,6 +169,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -178,6 +182,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<ExecutionEnvironment> getNode() {
 		if (node == null) {
 			node = new EObjectContainmentEList<ExecutionEnvironment>(ExecutionEnvironment.class, this,
@@ -191,6 +196,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public HostType getHostType() {
 		return hostType;
 	}
@@ -200,6 +206,7 @@ public class DeviceImpl extends MinimalEObjectImpl.Container implements Device {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setHostType(HostType newHostType) {
 		HostType oldHostType = hostType;
 		hostType = newHostType == null ? HOST_TYPE_EDEFAULT : newHostType;

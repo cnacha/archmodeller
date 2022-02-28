@@ -30,10 +30,6 @@ public interface ExecutionEnvironment extends EObject {
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link nz.auckland.arch.NodeType}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see nz.auckland.arch.NodeType
@@ -58,10 +54,6 @@ public interface ExecutionEnvironment extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -85,10 +77,6 @@ public interface ExecutionEnvironment extends EObject {
 	 * Returns the value of the '<em><b>Component</b></em>' reference list.
 	 * The list contents are of type {@link nz.auckland.arch.Component}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Component</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Component</em>' reference list.
 	 * @see nz.auckland.arch.ArchPackage#getExecutionEnvironment_Component()
@@ -101,10 +89,6 @@ public interface ExecutionEnvironment extends EObject {
 	 * Returns the value of the '<em><b>Port</b></em>' containment reference list.
 	 * The list contents are of type {@link nz.auckland.arch.CommunicationPort}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Port</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Port</em>' containment reference list.
 	 * @see nz.auckland.arch.ArchPackage#getExecutionEnvironment_Port()

@@ -1910,6 +1910,134 @@ public interface ArchPackage extends EPackage {
 	int INTERIM_MODEL_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link nz.auckland.arch.impl.RefactorPartImpl <em>Refactor Part</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.impl.RefactorPartImpl
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getRefactorPart()
+	 * @generated
+	 */
+	int REFACTOR_PART = 25;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_PART__REFERENCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_PART__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Functions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_PART__FUNCTIONS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Copy Structure</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_PART__COPY_STRUCTURE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Replace Strcuture</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_PART__REPLACE_STRCUTURE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Next</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_PART__NEXT = 5;
+
+	/**
+	 * The number of structural features of the '<em>Refactor Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_PART_FEATURE_COUNT = 6;
+
+	/**
+	 * The number of operations of the '<em>Refactor Part</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_PART_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link nz.auckland.arch.impl.RefactorSetImpl <em>Refactor Set</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see nz.auckland.arch.impl.RefactorSetImpl
+	 * @see nz.auckland.arch.impl.ArchPackageImpl#getRefactorSet()
+	 * @generated
+	 */
+	int REFACTOR_SET = 26;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_SET__SOURCE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Parts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_SET__PARTS = 1;
+
+	/**
+	 * The number of structural features of the '<em>Refactor Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_SET_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Refactor Set</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFACTOR_SET_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1917,7 +2045,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getExprOperator()
 	 * @generated
 	 */
-	int EXPR_OPERATOR = 25;
+	int EXPR_OPERATOR = 27;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.LTLOperator <em>LTL Operator</em>}' enum.
@@ -1927,7 +2055,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getLTLOperator()
 	 * @generated
 	 */
-	int LTL_OPERATOR = 26;
+	int LTL_OPERATOR = 28;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.BehaviourPropType <em>Behaviour Prop Type</em>}' enum.
@@ -1937,7 +2065,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getBehaviourPropType()
 	 * @generated
 	 */
-	int BEHAVIOUR_PROP_TYPE = 27;
+	int BEHAVIOUR_PROP_TYPE = 29;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.NodeType <em>Node Type</em>}' enum.
@@ -1947,7 +2075,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNodeType()
 	 * @generated
 	 */
-	int NODE_TYPE = 28;
+	int NODE_TYPE = 30;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.HostType <em>Host Type</em>}' enum.
@@ -1957,7 +2085,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getHostType()
 	 * @generated
 	 */
-	int HOST_TYPE = 29;
+	int HOST_TYPE = 31;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.LinkType <em>Link Type</em>}' enum.
@@ -1967,7 +2095,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getLinkType()
 	 * @generated
 	 */
-	int LINK_TYPE = 30;
+	int LINK_TYPE = 32;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.NetAccessType <em>Net Access Type</em>}' enum.
@@ -1977,7 +2105,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNetAccessType()
 	 * @generated
 	 */
-	int NET_ACCESS_TYPE = 31;
+	int NET_ACCESS_TYPE = 33;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.NetworkType <em>Network Type</em>}' enum.
@@ -1987,7 +2115,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getNetworkType()
 	 * @generated
 	 */
-	int NETWORK_TYPE = 32;
+	int NETWORK_TYPE = 34;
 
 	/**
 	 * The meta object id for the '{@link nz.auckland.arch.CriticalLevel <em>Critical Level</em>}' enum.
@@ -1997,7 +2125,7 @@ public interface ArchPackage extends EPackage {
 	 * @see nz.auckland.arch.impl.ArchPackageImpl#getCriticalLevel()
 	 * @generated
 	 */
-	int CRITICAL_LEVEL = 33;
+	int CRITICAL_LEVEL = 35;
 
 	/**
 	 * Returns the meta object for class '{@link nz.auckland.arch.Component <em>Component</em>}'.
@@ -3394,6 +3522,39 @@ public interface ArchPackage extends EPackage {
 	EClass getInterimModel();
 
 	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.InterimModel#getStep <em>Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Step</em>'.
+	 * @see nz.auckland.arch.InterimModel#getStep()
+	 * @see #getInterimModel()
+	 * @generated
+	 */
+	EAttribute getInterimModel_Step();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.InterimModel#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see nz.auckland.arch.InterimModel#getDescription()
+	 * @see #getInterimModel()
+	 * @generated
+	 */
+	EAttribute getInterimModel_Description();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.InterimModel#getNextModel <em>Next Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next Model</em>'.
+	 * @see nz.auckland.arch.InterimModel#getNextModel()
+	 * @see #getInterimModel()
+	 * @generated
+	 */
+	EReference getInterimModel_NextModel();
+
+	/**
 	 * Returns the meta object for the containment reference '{@link nz.auckland.arch.InterimModel#getDesignmodel <em>Designmodel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3427,37 +3588,112 @@ public interface ArchPackage extends EPackage {
 	EAttribute getInterimModel_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link nz.auckland.arch.InterimModel#getStep <em>Step</em>}'.
+	 * Returns the meta object for class '{@link nz.auckland.arch.RefactorPart <em>Refactor Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Step</em>'.
-	 * @see nz.auckland.arch.InterimModel#getStep()
-	 * @see #getInterimModel()
+	 * @return the meta object for class '<em>Refactor Part</em>'.
+	 * @see nz.auckland.arch.RefactorPart
 	 * @generated
 	 */
-	EAttribute getInterimModel_Step();
+	EClass getRefactorPart();
 
 	/**
-	 * Returns the meta object for the attribute '{@link nz.auckland.arch.InterimModel#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.RefactorPart#getReference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see nz.auckland.arch.InterimModel#getDescription()
-	 * @see #getInterimModel()
+	 * @return the meta object for the reference '<em>Reference</em>'.
+	 * @see nz.auckland.arch.RefactorPart#getReference()
+	 * @see #getRefactorPart()
 	 * @generated
 	 */
-	EAttribute getInterimModel_Description();
+	EReference getRefactorPart_Reference();
 
 	/**
-	 * Returns the meta object for the reference '{@link nz.auckland.arch.InterimModel#getNextModel <em>Next Model</em>}'.
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.RefactorPart#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Next Model</em>'.
-	 * @see nz.auckland.arch.InterimModel#getNextModel()
-	 * @see #getInterimModel()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see nz.auckland.arch.RefactorPart#getName()
+	 * @see #getRefactorPart()
 	 * @generated
 	 */
-	EReference getInterimModel_NextModel();
+	EAttribute getRefactorPart_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link nz.auckland.arch.RefactorPart#getFunctions <em>Functions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Functions</em>'.
+	 * @see nz.auckland.arch.RefactorPart#getFunctions()
+	 * @see #getRefactorPart()
+	 * @generated
+	 */
+	EReference getRefactorPart_Functions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.RefactorPart#isCopyStructure <em>Copy Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Copy Structure</em>'.
+	 * @see nz.auckland.arch.RefactorPart#isCopyStructure()
+	 * @see #getRefactorPart()
+	 * @generated
+	 */
+	EAttribute getRefactorPart_CopyStructure();
+
+	/**
+	 * Returns the meta object for the attribute '{@link nz.auckland.arch.RefactorPart#isReplaceStrcuture <em>Replace Strcuture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Replace Strcuture</em>'.
+	 * @see nz.auckland.arch.RefactorPart#isReplaceStrcuture()
+	 * @see #getRefactorPart()
+	 * @generated
+	 */
+	EAttribute getRefactorPart_ReplaceStrcuture();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.RefactorPart#getNext <em>Next</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Next</em>'.
+	 * @see nz.auckland.arch.RefactorPart#getNext()
+	 * @see #getRefactorPart()
+	 * @generated
+	 */
+	EReference getRefactorPart_Next();
+
+	/**
+	 * Returns the meta object for class '{@link nz.auckland.arch.RefactorSet <em>Refactor Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Refactor Set</em>'.
+	 * @see nz.auckland.arch.RefactorSet
+	 * @generated
+	 */
+	EClass getRefactorSet();
+
+	/**
+	 * Returns the meta object for the reference '{@link nz.auckland.arch.RefactorSet#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source</em>'.
+	 * @see nz.auckland.arch.RefactorSet#getSource()
+	 * @see #getRefactorSet()
+	 * @generated
+	 */
+	EReference getRefactorSet_Source();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link nz.auckland.arch.RefactorSet#getParts <em>Parts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parts</em>'.
+	 * @see nz.auckland.arch.RefactorSet#getParts()
+	 * @see #getRefactorSet()
+	 * @generated
+	 */
+	EReference getRefactorSet_Parts();
 
 	/**
 	 * Returns the meta object for enum '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}'.
@@ -4655,6 +4891,30 @@ public interface ArchPackage extends EPackage {
 		EClass INTERIM_MODEL = eINSTANCE.getInterimModel();
 
 		/**
+		 * The meta object literal for the '<em><b>Step</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTERIM_MODEL__STEP = eINSTANCE.getInterimModel_Step();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTERIM_MODEL__DESCRIPTION = eINSTANCE.getInterimModel_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Next Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERIM_MODEL__NEXT_MODEL = eINSTANCE.getInterimModel_NextModel();
+
+		/**
 		 * The meta object literal for the '<em><b>Designmodel</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4679,28 +4939,88 @@ public interface ArchPackage extends EPackage {
 		EAttribute INTERIM_MODEL__NAME = eINSTANCE.getInterimModel_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Step</b></em>' attribute feature.
+		 * The meta object literal for the '{@link nz.auckland.arch.impl.RefactorPartImpl <em>Refactor Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.impl.RefactorPartImpl
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getRefactorPart()
 		 * @generated
 		 */
-		EAttribute INTERIM_MODEL__STEP = eINSTANCE.getInterimModel_Step();
+		EClass REFACTOR_PART = eINSTANCE.getRefactorPart();
 
 		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute INTERIM_MODEL__DESCRIPTION = eINSTANCE.getInterimModel_Description();
+		EReference REFACTOR_PART__REFERENCE = eINSTANCE.getRefactorPart_Reference();
 
 		/**
-		 * The meta object literal for the '<em><b>Next Model</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INTERIM_MODEL__NEXT_MODEL = eINSTANCE.getInterimModel_NextModel();
+		EAttribute REFACTOR_PART__NAME = eINSTANCE.getRefactorPart_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Functions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFACTOR_PART__FUNCTIONS = eINSTANCE.getRefactorPart_Functions();
+
+		/**
+		 * The meta object literal for the '<em><b>Copy Structure</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFACTOR_PART__COPY_STRUCTURE = eINSTANCE.getRefactorPart_CopyStructure();
+
+		/**
+		 * The meta object literal for the '<em><b>Replace Strcuture</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFACTOR_PART__REPLACE_STRCUTURE = eINSTANCE.getRefactorPart_ReplaceStrcuture();
+
+		/**
+		 * The meta object literal for the '<em><b>Next</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFACTOR_PART__NEXT = eINSTANCE.getRefactorPart_Next();
+
+		/**
+		 * The meta object literal for the '{@link nz.auckland.arch.impl.RefactorSetImpl <em>Refactor Set</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see nz.auckland.arch.impl.RefactorSetImpl
+		 * @see nz.auckland.arch.impl.ArchPackageImpl#getRefactorSet()
+		 * @generated
+		 */
+		EClass REFACTOR_SET = eINSTANCE.getRefactorSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFACTOR_SET__SOURCE = eINSTANCE.getRefactorSet_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Parts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFACTOR_SET__PARTS = eINSTANCE.getRefactorSet_Parts();
 
 		/**
 		 * The meta object literal for the '{@link nz.auckland.arch.ExprOperator <em>Expr Operator</em>}' enum.

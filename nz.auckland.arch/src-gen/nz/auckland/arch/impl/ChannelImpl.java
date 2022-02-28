@@ -81,6 +81,7 @@ public class ChannelImpl extends EventImpl implements Channel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getType() {
 		return type;
 	}
@@ -90,6 +91,7 @@ public class ChannelImpl extends EventImpl implements Channel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(String newType) {
 		String oldType = type;
 		type = newType;
@@ -102,6 +104,7 @@ public class ChannelImpl extends EventImpl implements Channel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Channel getBind() {
 		if (bind != null && bind.eIsProxy()) {
 			InternalEObject oldBind = (InternalEObject) bind;
@@ -129,6 +132,7 @@ public class ChannelImpl extends EventImpl implements Channel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setBind(Channel newBind) {
 		Channel oldBind = bind;
 		bind = newBind;

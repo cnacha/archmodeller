@@ -237,6 +237,7 @@
         eType="#//InterimModel" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InterimModel">
+    <eTypeParameters name="T"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="step" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Int"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nextModel" eType="#//InterimModel"/>
@@ -244,5 +245,19 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RefactorPart">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="#//DesignModel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="functions" upperBound="-1"
+        eType="#//BehaviourProperty" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="copyStructure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replaceStrcuture" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//RefactorPart"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RefactorSet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//DesignModel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parts" upperBound="-1"
+        eType="#//RefactorPart" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

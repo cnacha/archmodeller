@@ -9,8 +9,8 @@ import nz.auckland.arch.BehaviourPropType;
 import nz.auckland.arch.BehaviourProperty;
 import nz.auckland.arch.Connector;
 import nz.auckland.arch.LTLExpr;
-
 import nz.auckland.arch.Port;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -241,6 +241,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<LTLExpr> getLtlexpr() {
 		if (ltlexpr == null) {
 			ltlexpr = new EObjectContainmentEList<LTLExpr>(LTLExpr.class, this,
@@ -254,6 +255,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValid() {
 		return valid;
 	}
@@ -263,6 +265,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValid(boolean newValid) {
 		boolean oldValid = valid;
 		valid = newValid;
@@ -276,6 +279,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getCounterExample() {
 		return counterExample;
 	}
@@ -285,6 +289,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setCounterExample(String newCounterExample) {
 		String oldCounterExample = counterExample;
 		counterExample = newCounterExample;
@@ -298,6 +303,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getVisitedStates() {
 		return visitedStates;
 	}
@@ -307,6 +313,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVisitedStates(int newVisitedStates) {
 		int oldVisitedStates = visitedStates;
 		visitedStates = newVisitedStates;
@@ -320,6 +327,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getVerifyTime() {
 		return verifyTime;
 	}
@@ -329,6 +337,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setVerifyTime(double newVerifyTime) {
 		double oldVerifyTime = verifyTime;
 		verifyTime = newVerifyTime;
@@ -342,6 +351,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BehaviourPropType getType() {
 		return type;
 	}
@@ -351,6 +361,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(BehaviourPropType newType) {
 		BehaviourPropType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
@@ -363,6 +374,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Port getTestport() {
 		if (testport != null && testport.eIsProxy()) {
 			InternalEObject oldTestport = (InternalEObject) testport;
@@ -390,6 +402,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTestport(Port newTestport) {
 		Port oldTestport = testport;
 		testport = newTestport;
@@ -403,6 +416,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getTraceExample() {
 		return traceExample;
 	}
@@ -412,6 +426,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTraceExample(String newTraceExample) {
 		String oldTraceExample = traceExample;
 		traceExample = newTraceExample;
@@ -425,6 +440,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getExprText() {
 		return exprText;
 	}
@@ -434,6 +450,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExprText(String newExprText) {
 		String oldExprText = exprText;
 		exprText = newExprText;
@@ -447,6 +464,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Connector getConnector() {
 		if (connector != null && connector.eIsProxy()) {
 			InternalEObject oldConnector = (InternalEObject) connector;
@@ -474,6 +492,7 @@ public class BehaviourPropertyImpl extends VerificationPropertyImpl implements B
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConnector(Connector newConnector) {
 		Connector oldConnector = connector;
 		connector = newConnector;

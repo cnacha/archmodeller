@@ -602,11 +602,58 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link nz.auckland.arch.RefactorPart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RefactorPartItemProvider refactorPartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link nz.auckland.arch.RefactorPart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRefactorPartAdapter() {
+		if (refactorPartItemProvider == null) {
+			refactorPartItemProvider = new RefactorPartItemProvider(this);
+		}
+
+		return refactorPartItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link nz.auckland.arch.RefactorSet} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RefactorSetItemProvider refactorSetItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link nz.auckland.arch.RefactorSet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRefactorSetAdapter() {
+		if (refactorSetItemProvider == null) {
+			refactorSetItemProvider = new RefactorSetItemProvider(this);
+		}
+
+		return refactorSetItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ComposeableAdapterFactory getRootAdapterFactory() {
 		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
 	}
@@ -617,6 +664,7 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
 		this.parentAdapterFactory = parentAdapterFactory;
 	}
@@ -665,6 +713,7 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.addListener(notifyChangedListener);
 	}
@@ -675,6 +724,7 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
 		changeNotifier.removeListener(notifyChangedListener);
 	}
@@ -685,6 +735,7 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void fireNotifyChanged(Notification notification) {
 		changeNotifier.fireNotifyChanged(notification);
 
@@ -699,6 +750,7 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		if (componentItemProvider != null)
 			componentItemProvider.dispose();
@@ -746,6 +798,10 @@ public class ArchItemProviderAdapterFactory extends ArchAdapterFactory
 			migrationModelItemProvider.dispose();
 		if (interimModelItemProvider != null)
 			interimModelItemProvider.dispose();
+		if (refactorPartItemProvider != null)
+			refactorPartItemProvider.dispose();
+		if (refactorSetItemProvider != null)
+			refactorSetItemProvider.dispose();
 	}
 
 }

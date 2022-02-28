@@ -91,6 +91,7 @@ public class PortTypeImpl extends MinimalEObjectImpl.Container implements PortTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -100,6 +101,7 @@ public class PortTypeImpl extends MinimalEObjectImpl.Container implements PortTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -112,6 +114,7 @@ public class PortTypeImpl extends MinimalEObjectImpl.Container implements PortTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValid() {
 		return valid;
 	}
@@ -121,6 +124,7 @@ public class PortTypeImpl extends MinimalEObjectImpl.Container implements PortTy
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValid(boolean newValid) {
 		boolean oldValid = valid;
 		valid = newValid;

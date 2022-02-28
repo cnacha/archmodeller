@@ -37,8 +37,8 @@ import nz.auckland.arch.viewpoint.model.ADLVerifyResult;
 public class BehaviourPropVerifyJob extends Job {
 	
 	//private static final String serviceurl = "http://localhost:53979/api/adlapi/verify";
-	private static final String serviceurl = "http://fasad.cer.auckland.ac.nz/api/adlapi/verify";
-
+	//private static final String serviceurl = "http://fasad.cer.auckland.ac.nz/api/adlapi/verify";
+	private static final String serviceurl = "http://10.1.29.238/api/adlapi/verify";
 	private BehaviourProperty prop;
 
 
@@ -53,13 +53,24 @@ public class BehaviourPropVerifyJob extends Job {
 
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
-		if(prop.getTestport() == null)
-			return Status.CANCEL_STATUS;
+		
 		// convert design model into ADL
 		IEditingSession session = SessionUIManager.INSTANCE.getUISessions().iterator().next();
 		TransactionalEditingDomain domain = session.getSession().getTransactionalEditingDomain();
 		
+		if(prop.getTestport() == null) {
+			RecordingCommand updateCommand = new RecordingCommand(domain) {
+				@Override
+				protected void doExecute() {
+					prop.setValid(false);
+				}
+			};
+			domain.getCommandStack().execute(updateCommand);
+			return Status.CANCEL_STATUS;
+		}
+		
 		DesignModel model = (DesignModel)prop.eContainer();
+		System.out.println("verifying model"+model.getName());
 		ADLModelConverter converter = new ADLModelConverter(model, prop.getTestport());
 		converter.setEditingDomain(domain);
 		String adl = converter.convert(prop);
@@ -82,10 +93,11 @@ public class BehaviourPropVerifyJob extends Job {
 
 			// making a request
 			HttpResponse response = httpClient.execute(request);
-
+		
 			// read response message
 			HttpEntity entity = response.getEntity();
 			String resString = EntityUtils.toString(entity, "UTF-8");
+			System.out.println(resString);
 			Type listType = new TypeToken<List<ADLVerifyResult>>() {
 			}.getType();
 			resultObjList = gson.fromJson(resString, listType);
@@ -111,10 +123,10 @@ public class BehaviourPropVerifyJob extends Job {
 
 						// retrieve result in order
 						ADLVerifyResult result = resultObjList.get(0);
-						System.out.println(result.getFullResultString());
+						System.out.println(resultObjList);
 
 						// set valid/invalid result
-						if ("valid".equals(resultObjList.get(0).getResult()) && result.getVisitedStates()>1) {
+						if ("valid".equals(resultObjList.get(0).getResult()) && result.getVisitedStates()>=1) {
 							prop.setValid(true);
 						} else {
 							prop.setValid(false);
@@ -123,7 +135,8 @@ public class BehaviourPropVerifyJob extends Job {
 						if (!prop.isValid() && result.getFullResultString().indexOf("<init") != -1) {
 							int startInd = result.getFullResultString().indexOf("<init -> ");
 							int endInd = result.getFullResultString().lastIndexOf(">");
-							prop.setCounterExample(result.getFullResultString().substring(startInd + 1, endInd));
+							if(startInd!=-1)
+								prop.setCounterExample(result.getFullResultString().substring(startInd + 1, endInd));
 						}
 
 						// set verification statistic

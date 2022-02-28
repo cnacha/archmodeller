@@ -61,10 +61,6 @@ public enum CriticalLevel implements Enumerator {
 	/**
 	 * The '<em><b>Very Low</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Very Low</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #VERY_LOW
 	 * @model name="VeryLow" literal="Very Low"
@@ -76,10 +72,6 @@ public enum CriticalLevel implements Enumerator {
 	/**
 	 * The '<em><b>Low</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Low</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #LOW
 	 * @model name="Low"
@@ -91,10 +83,6 @@ public enum CriticalLevel implements Enumerator {
 	/**
 	 * The '<em><b>High</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>High</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #HIGH
 	 * @model name="High"
@@ -106,10 +94,6 @@ public enum CriticalLevel implements Enumerator {
 	/**
 	 * The '<em><b>Very High</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>Very High</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #VERY_HIGH
 	 * @model name="VeryHigh"
@@ -230,6 +214,7 @@ public enum CriticalLevel implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public int getValue() {
 		return value;
 	}
@@ -239,6 +224,7 @@ public enum CriticalLevel implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -248,6 +234,7 @@ public enum CriticalLevel implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getLiteral() {
 		return literal;
 	}

@@ -179,6 +179,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getName() {
 		return name;
 	}
@@ -188,6 +189,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
@@ -200,6 +202,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getType() {
 		return type;
 	}
@@ -209,6 +212,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setType(String newType) {
 		String oldType = type;
 		type = newType;
@@ -221,6 +225,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Role> getRole() {
 		if (role == null) {
 			role = new EObjectContainmentEList<Role>(Role.class, this, ArchPackage.CONNECTOR__ROLE);
@@ -233,6 +238,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConnectorType getConnectortype() {
 		if (connectortype != null && connectortype.eIsProxy()) {
 			InternalEObject oldConnectortype = (InternalEObject) connectortype;
@@ -260,6 +266,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConnectortype(ConnectorType newConnectortype) {
 		ConnectorType oldConnectortype = connectortype;
 		connectortype = newConnectortype;
@@ -273,6 +280,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValid() {
 		return valid;
 	}
@@ -282,6 +290,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValid(boolean newValid) {
 		boolean oldValid = valid;
 		valid = newValid;
@@ -294,6 +303,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<CommunicationLink> getCommunicationlink() {
 		if (communicationlink == null) {
 			communicationlink = new EObjectResolvingEList<CommunicationLink>(CommunicationLink.class, this,
@@ -307,6 +317,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSecurityCharacters() {
 		return securityCharacters;
 	}
@@ -316,6 +327,7 @@ public class ConnectorImpl extends MinimalEObjectImpl.Container implements Conne
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSecurityCharacters(String newSecurityCharacters) {
 		String oldSecurityCharacters = securityCharacters;
 		securityCharacters = newSecurityCharacters;

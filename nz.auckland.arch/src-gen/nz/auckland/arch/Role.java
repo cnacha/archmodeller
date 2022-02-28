@@ -30,10 +30,6 @@ public interface Role extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -56,10 +52,6 @@ public interface Role extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Roletype</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Roletype</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Roletype</em>' reference.
 	 * @see #setRoletype(RoleType)
@@ -82,10 +74,6 @@ public interface Role extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
 	 * @see #setType(String)
@@ -109,10 +97,6 @@ public interface Role extends EObject {
 	 * Returns the value of the '<em><b>Valid</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Valid</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valid</em>' attribute.
 	 * @see #setValid(boolean)
@@ -135,10 +119,6 @@ public interface Role extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Next Role Expr</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Next Role Expr</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Next Role Expr</em>' reference.
 	 * @see #setNextRoleExpr(Role)
@@ -163,10 +143,6 @@ public interface Role extends EObject {
 	 * The default value is <code>"COUPLING"</code>.
 	 * The literals are from the enumeration {@link nz.auckland.arch.ExprOperator}.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Operator Expr</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operator Expr</em>' attribute.
 	 * @see nz.auckland.arch.ExprOperator
@@ -191,10 +167,6 @@ public interface Role extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Connector</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Connector</em>' reference.
 	 * @see #setConnector(Connector)
